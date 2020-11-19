@@ -1,0 +1,40 @@
+package ibmcloud.resources.state.data.ibm_compute_placement_group
+import data.ibmcloud.state as state
+# fetches the list of resource's attributes map.
+resource_name = ret {
+    ret := "ibm_compute_placement_group"
+}
+
+resources_map[attr]{
+    attr := state.get_resources("ibm_compute_placement_group", "data").resources[_]
+}
+rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_guests = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guests", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pod = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pod", null) |
+        res := resources_map[_]
+        true
+     }
+}

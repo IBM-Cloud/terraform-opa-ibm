@@ -1,0 +1,34 @@
+package ibmcloud.resources.computed.ibm_is_lb_listener
+import data.ibmcloud.tfplan as plan
+# fetches the list of resource's attributes map.
+resource_name = ret {
+    ret := "ibm_is_lb_listener"
+}
+resources_map[attr]{
+    attr := plan.changes_computed_values("ibm_is_lb_listener").resources[_]
+}
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+
