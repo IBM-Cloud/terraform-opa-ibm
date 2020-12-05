@@ -1,18 +1,12 @@
 package ibmcloud.resources.state.data.ibm_function_trigger
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_function_trigger"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_function_trigger", "data").resources[_]
-}
-annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
-        res := resources_map[_]
-        true
-     }
 }
 parameters = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
@@ -46,6 +40,12 @@ publish = ret {
 }
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
         res := resources_map[_]
         true
      }

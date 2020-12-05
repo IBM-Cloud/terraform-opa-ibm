@@ -30,14 +30,23 @@ variables = vars{
 #   }
 # ]
 
-modules = mods {
-    some i
-    mods := [ {"module_name": i, "resources_list": get_resources_list_info(val.resources) } |
-         val := tfplan.configuration[i]
-         true
-    ]
+module_calls[msg] {
+  [_, value] := walk(tfplan["configuration"])
+  msg = value.module_calls
 }
 
+root_module_resources = ret {
+    ret := [{"module_name": "root_module", "resources_list": get_resources_list_info(tfplan.configuration["root_module"]["resources"])}]
+}
+
+modules = mods {
+    some i, j
+    other_modules := [ {"module_name": j, "resources_list": get_resources_list_info(val.module.resources) } |
+         val := module_calls[i][j]
+         true
+    ]
+    mods := array.concat(other_modules, root_module_resources)
+}
 
 # returns the configuration info
 # - provider_config:
@@ -90,10 +99,24 @@ modules = mods {
 #   ]
 # }
 
-configuration = config {
-    c := tfplan["configuration"]
+get_root_module_config = root_module_resource_config {
+    x := object.get(tfplan["configuration"]["root_module"], "resources", [])
+    root_module_resource_config := [{"name": "root_module", "resources": get_resources_config(x) }]
+}
+
+get_modules_config =  modules_config {
+    some i, j
+    other_modules_config := [ {"name": j, "resources": get_resources_config(val.module.resources) } |
+         val := module_calls[i][j]
+         true
+    ]
+    root_modules := get_root_module_config
+    modules_config := array.concat(other_modules_config, root_modules)
+}
+
+plan_configuration = config {
     config := { 
-        "provider_config": get_provider_config(c.provider_config),
+        "provider_config": get_provider_config(tfplan["configuration"].provider_config),
         "modules": get_modules_config
     }
 }
@@ -280,11 +303,14 @@ computed = resource_changes_after_unknown {
 #     }
 #   ]
 # }
+planned_resources_list[d] {
+    [_, value] := walk(tfplan["planned_values"])
+    d = value.resources[_]
+}
 
 planned = planned_values {
-    some i
-    vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "attributes": r.values} |
-        r := tfplan["planned_values"][i].resources[_]
+    vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "address": r.address, "attributes": r.values} |
+        r := planned_resources_list[_]
         true
     ]
     planned_values := {"resources": vals}
@@ -571,24 +597,15 @@ change(name) = ret {
 #   ]
 # }
 
-get_child_module_resources() = res{
-    some j
-    mods := object.get(tfplan["planned_values"]["root_module"], "child_modules", [])
-    #res := mods[i].resources[_]
-    res := [i | i := mods[j].resources[_]; true]
-}
-
 get_planned_resources[resource]{
-    rootmods := object.get(tfplan["planned_values"]["root_module"], "resources", [])
-    child_mod_resources := get_child_module_resources
-    modules := array.concat(child_mod_resources, rootmods)
-    resource := modules[_]
-} 
+    [_, value] := walk(tfplan["planned_values"]["root_module"])
+    resource = value.resources[_]
+}
 
 planned_values(resource_name) = resource_planned_values {
     some i
     planned_resources := get_planned_resources
-    vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "attributes": r.values} |
+    vals := [{"name": r.name, "type": r.type, "address": r.address, "provider": r.provider_name, "attributes": r.values} |
         r := planned_resources[i]
         r.type == resource_name
     ]
@@ -597,7 +614,7 @@ planned_values(resource_name) = resource_planned_values {
 
 prior_state_values(resource_name) = resource_prior_state_values {
     some i
-    vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "attributes": r.values} |
+    vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "address": r.address, "attributes": r.values} |
         r := tfplan["prior_state"][i].resources[_]
         r.type == resource_name
     ]
@@ -605,7 +622,7 @@ prior_state_values(resource_name) = resource_prior_state_values {
  }
  
 changes_after_values(resource_name) = resource_changes_after_values {
-    vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "attributes": r.change.after_unknown} |
+    vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "address": r.address, "attributes": r.change.after_unknown} |
         r := tfplan["resource_changes"][_]
         r.type == resource_name
     ]
@@ -613,7 +630,7 @@ changes_after_values(resource_name) = resource_changes_after_values {
  }
 
 changes_computed_values(resource_name) = resource_computed_values {
-        vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "attributes": r.change.after_unknown} |
+        vals := [{"name": r.name, "type": r.type, "provider": r.provider_name, "address": r.address, "attributes": r.change.after_unknown} |
         r := tfplan["resource_changes"][_]
         r.type == resource_name
     ]
@@ -621,7 +638,7 @@ changes_computed_values(resource_name) = resource_computed_values {
  }
 
  # Utility Functions
- get_value(ref) = ret {
+get_value(ref) = ret {
     startswith(ref, "var.")
     ret = tfplan.variables[split(ref, ".")[1]].value
 } else = ret {
@@ -641,12 +658,27 @@ get_values(obj) = value{
     value = resolve_references(obj["references"])
 }
 
-get_expressions(exp) = expressions{
+complex_expressions(d) = ret{
+    is_array(d) == true
+    some j, k
+    ret := {k : get_values(v) |
+                 v := d[j][k]
+                 true
+                }
+}
+
+get_expressions(exp) = val {
     some i
-    expressions := { i : get_values(value)|
-        value := exp[i]
+    out1 := {i: complex_expressions(x)  | 
+        x := exp[i] 
         true
     }
+    some y
+    out2 := { y : get_values(value)|
+        value := exp[y]
+        true
+    }
+    val := object.union(out2, out1)   
 }
 
 get_provider_config(config) = pc {
@@ -661,14 +693,6 @@ get_resources_config(resources_list) = resource_config{
     resource_config := [ {"resource_name": r.name , "resource_type": r.type, "attributes": get_expressions(r.expressions) } |
         r := resources_list[_]
         true
-    ]
-}
-
-get_modules_config =  modules_config {
-    some i
-    modules_config := [ {"name": i, "resources": get_resources_config(val.resources) } |
-         val := tfplan.configuration[i]
-         true
     ]
 }
 

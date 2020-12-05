@@ -1,27 +1,15 @@
 package ibmcloud.resources.state.ibm_subnet
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_subnet"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_subnet", "managed").resources[_]
 }
-ip_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
+notes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +26,8 @@ type = ret {
         true
      }
 }
-endpoint_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_ip", null) |
+vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
         res := resources_map[_]
         true
      }
@@ -50,8 +38,20 @@ subnet_cidr = ret {
         true
      }
 }
-notes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
+ip_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_ip", null) |
         res := resources_map[_]
         true
      }

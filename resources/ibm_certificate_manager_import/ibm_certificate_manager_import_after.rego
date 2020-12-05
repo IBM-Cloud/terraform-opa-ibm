@@ -1,32 +1,32 @@
 package ibmcloud.resources.after.ibm_certificate_manager_import
 import data.ibmcloud.tfplan as plan
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_certificate_manager_import"
 }
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_certificate_manager_import").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+certificate_manager_instance_id = ret {
+    ret := {res.address: object.get(res.attributes, "certificate_manager_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-certificate_manager_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
+description = ret {
+    ret := {res.address: object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+    ret := {res.address: object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
+    ret := {res.address: object.get(res.attributes, "data", null) |
         res := resources_map[_]
         true
      }

@@ -1,12 +1,18 @@
 package ibmcloud.resources.state.data.ibm_service_instance
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_service_instance"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_service_instance", "data").resources[_]
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
 }
 space_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
@@ -28,12 +34,6 @@ service_keys = ret {
 }
 service_plan_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_plan_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

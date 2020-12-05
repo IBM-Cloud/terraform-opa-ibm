@@ -1,12 +1,18 @@
 package ibmcloud.resources.state.data.ibm_is_image
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_is_image"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_is_image", "data").resources[_]
+}
+encryption = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption", null) |
+        res := resources_map[_]
+        true
+     }
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
@@ -40,6 +46,12 @@ architecture = ret {
 }
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encryption_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
         res := resources_map[_]
         true
      }

@@ -1,7 +1,7 @@
 package ibmcloud.resources.state.data.ibm_cis_rate_limit
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_cis_rate_limit"
 }
 

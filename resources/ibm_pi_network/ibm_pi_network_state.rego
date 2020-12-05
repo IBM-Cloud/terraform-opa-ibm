@@ -1,12 +1,24 @@
 package ibmcloud.resources.state.ibm_pi_network
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_pi_network"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_network", "managed").resources[_]
+}
+pi_network_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
+        res := resources_map[_]
+        true
+     }
 }
 pi_dns = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dns", null) |
@@ -40,18 +52,6 @@ network_id = ret {
 }
 vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_network_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_network_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
         res := resources_map[_]
         true
      }

@@ -1,50 +1,50 @@
 package ibmcloud.resources.after.ibm_api_gateway_endpoint
 import data.ibmcloud.tfplan as plan
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_api_gateway_endpoint"
 }
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_api_gateway_endpoint").resources[_]
 }
+open_api_doc_name = ret {
+    ret := {res.address: object.get(res.attributes, "open_api_doc_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+    ret := {res.address: object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
+    ret := {res.address: object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }
 }
 managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-open_api_doc_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "open_api_doc_name", null) |
+    ret := {res.address: object.get(res.attributes, "managed", null) |
         res := resources_map[_]
         true
      }
 }
 provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
+    ret := {res.address: object.get(res.attributes, "provider_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_instance_crn = ret {
+    ret := {res.address: object.get(res.attributes, "service_instance_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {res.address: object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }

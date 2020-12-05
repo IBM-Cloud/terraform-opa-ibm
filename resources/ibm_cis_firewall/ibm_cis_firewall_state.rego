@@ -1,7 +1,7 @@
 package ibmcloud.resources.state.ibm_cis_firewall
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_cis_firewall"
 }
 
@@ -28,6 +28,18 @@ firewall_type = ret {
 }
 lockdown = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lockdown", null) |
+        res := resources_map[_]
+        true
+     }
+}
+access_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ua_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ua_rule", null) |
         res := resources_map[_]
         true
      }

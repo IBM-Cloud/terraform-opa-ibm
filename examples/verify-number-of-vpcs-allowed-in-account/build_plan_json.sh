@@ -1,0 +1,2 @@
+cd terraform-is-vpc-allowed; terraform init; terraform plan -out tfplan; terraform show -json tfplan > vpcs_ok.json
+cd ../terraform-is-vpc-not-allowed; terraform init; terraform plan -out tfplan; terraform show -json tfplan > vpcs_not_ok.json

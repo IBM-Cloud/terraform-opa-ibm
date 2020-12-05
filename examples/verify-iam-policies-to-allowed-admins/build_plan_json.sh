@@ -1,0 +1,2 @@
+cd terraform-iam-user-policy-admins-allowed; terraform init; terraform plan -out tfplan; terraform show -json tfplan > admins_ok.json
+cd ../terraform-iam-user-policy-admins-not-allowed; terraform init; terraform plan -out tfplan; terraform show -json tfplan > admins_not_ok.json

@@ -1,7 +1,7 @@
 package ibmcloud.resources.state.ibm_cis_domain
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_cis_domain"
 }
 
@@ -40,6 +40,12 @@ name_servers = ret {
 }
 original_name_servers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "original_name_servers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }

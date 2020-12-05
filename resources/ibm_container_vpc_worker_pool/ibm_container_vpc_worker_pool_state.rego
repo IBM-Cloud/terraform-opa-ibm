@@ -1,12 +1,30 @@
 package ibmcloud.resources.state.ibm_container_vpc_worker_pool
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_container_vpc_worker_pool"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_container_vpc_worker_pool", "managed").resources[_]
+}
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+entitlement = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
 }
 flavor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
@@ -20,30 +38,6 @@ worker_pool_name = ret {
         true
      }
 }
-entitlement = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
 labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ labels = ret {
 }
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
         true
      }

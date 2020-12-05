@@ -1,20 +1,20 @@
 package ibmcloud.resources.planned.ibm_object_storage_account
 import data.ibmcloud.tfplan as plan
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_object_storage_account"
 }
 resources_map[attr]{
     attr := plan.planned_values("ibm_object_storage_account").resources[_]
 }
 local_note = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_note", null) |
+    ret := {res.address: object.get(res.attributes, "local_note", null) |
         res := resources_map[_]
         true
      }
 }
 tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+    ret := {res.address: object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

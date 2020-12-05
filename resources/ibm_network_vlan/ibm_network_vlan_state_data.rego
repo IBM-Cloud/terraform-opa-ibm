@@ -1,12 +1,24 @@
 package ibmcloud.resources.state.data.ibm_network_vlan
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_network_vlan"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_network_vlan", "data").resources[_]
+}
+virtual_guests = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guests", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+        res := resources_map[_]
+        true
+     }
 }
 id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "id", null) |
@@ -28,18 +40,6 @@ number = ret {
 }
 router_hostname = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-virtual_guests = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guests", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }

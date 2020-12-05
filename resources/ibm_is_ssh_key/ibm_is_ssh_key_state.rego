@@ -1,15 +1,27 @@
 package ibmcloud.resources.state.ibm_is_ssh_key
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_is_ssh_key"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_is_ssh_key", "managed").resources[_]
 }
-length = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "length", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+fingerprint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fingerprint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +50,8 @@ resource_crn = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }
@@ -56,20 +68,8 @@ type = ret {
         true
      }
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-fingerprint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fingerprint", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+length = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "length", null) |
         res := resources_map[_]
         true
      }

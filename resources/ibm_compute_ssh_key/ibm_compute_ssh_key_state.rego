@@ -1,18 +1,12 @@
 package ibmcloud.resources.state.ibm_compute_ssh_key
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_compute_ssh_key"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_ssh_key", "managed").resources[_]
-}
-label = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
-        res := resources_map[_]
-        true
-     }
 }
 public_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_key", null) |
@@ -34,6 +28,12 @@ notes = ret {
 }
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+label = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]
         true
      }

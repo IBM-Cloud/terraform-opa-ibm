@@ -1,7 +1,7 @@
 package ibmcloud.resources.state.ibm_network_vlan_spanning
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_network_vlan_spanning"
 }
 

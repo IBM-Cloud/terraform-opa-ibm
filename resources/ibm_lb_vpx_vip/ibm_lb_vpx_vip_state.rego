@@ -1,30 +1,12 @@
 package ibmcloud.resources.state.ibm_lb_vpx_vip
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_lb_vpx_vip"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_vpx_vip", "managed").resources[_]
-}
-security_certificate_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-nad_controller_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nad_controller_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
 }
 source_port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_port", null) |
@@ -34,6 +16,12 @@ source_port = ret {
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +38,26 @@ persistence = ret {
         true
      }
 }
+security_certificate_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 virtual_ip_address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_ip_address", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+nad_controller_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nad_controller_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

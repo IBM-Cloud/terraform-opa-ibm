@@ -1,7 +1,7 @@
 package ibmcloud.resources.state.ibm_is_ike_policy
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_is_ike_policy"
 }
 
@@ -14,14 +14,20 @@ negotiation_mode = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+authentication_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
         res := resources_map[_]
         true
      }
@@ -38,12 +44,6 @@ dh_group = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 key_lifetime = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_lifetime", null) |
         res := resources_map[_]
@@ -56,6 +56,18 @@ ike_version = ret {
         true
      }
 }
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vpn_connections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
         res := resources_map[_]
@@ -64,18 +76,6 @@ vpn_connections = ret {
 }
 resource_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-authentication_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }

@@ -1,18 +1,12 @@
 package ibmcloud.resources.state.ibm_compute_autoscale_policy
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_compute_autoscale_policy"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_autoscale_policy", "managed").resources[_]
-}
-scale_amount = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scale_amount", null) |
-        res := resources_map[_]
-        true
-     }
 }
 cooldown = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
@@ -46,6 +40,12 @@ name = ret {
 }
 scale_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scale_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+scale_amount = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scale_amount", null) |
         res := resources_map[_]
         true
      }

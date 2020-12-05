@@ -1,7 +1,7 @@
 package ibmcloud.resources.state.ibm_compute_dedicated_host
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_compute_dedicated_host"
 }
 
@@ -10,12 +10,6 @@ resources_map[attr]{
 }
 hostname = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-flavor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
         res := resources_map[_]
         true
      }
@@ -56,12 +50,6 @@ wait_time_minutes = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 domain = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
@@ -70,6 +58,18 @@ domain = ret {
 }
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+        res := resources_map[_]
+        true
+     }
+}
+flavor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

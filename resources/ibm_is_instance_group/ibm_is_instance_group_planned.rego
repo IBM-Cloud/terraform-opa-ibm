@@ -1,0 +1,58 @@
+package ibmcloud.resources.planned.ibm_is_instance_group
+import data.ibmcloud.tfplan as plan
+# fetches the list of resource's attributes map.
+resource_name_ = ret {
+    ret := "ibm_is_instance_group"
+}
+resources_map[attr]{
+    attr := plan.planned_values("ibm_is_instance_group").resources[_]
+}
+resource_group = ret {
+    ret := {res.address: object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+application_port = ret {
+    ret := {res.address: object.get(res.attributes, "application_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer = ret {
+    ret := {res.address: object.get(res.attributes, "load_balancer", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer_pool = ret {
+    ret := {res.address: object.get(res.attributes, "load_balancer_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {res.address: object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_template = ret {
+    ret := {res.address: object.get(res.attributes, "instance_template", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_count = ret {
+    ret := {res.address: object.get(res.attributes, "instance_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {res.address: object.get(res.attributes, "subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+

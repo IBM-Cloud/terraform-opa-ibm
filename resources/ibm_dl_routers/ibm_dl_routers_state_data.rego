@@ -1,12 +1,18 @@
 package ibmcloud.resources.state.data.ibm_dl_routers
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_dl_routers"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_dl_routers", "data").resources[_]
+}
+cross_connect_routers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cross_connect_routers", null) |
+        res := resources_map[_]
+        true
+     }
 }
 offering_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_type", null) |
@@ -16,12 +22,6 @@ offering_type = ret {
 }
 location_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cross_connect_routers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cross_connect_routers", null) |
         res := resources_map[_]
         true
      }

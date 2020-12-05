@@ -1,12 +1,24 @@
 package ibmcloud.resources.state.ibm_security_group_rule
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_security_group_rule"
 }
 
 resources_map[attr]{
     attr := state.get_resources("ibm_security_group_rule", "managed").resources[_]
+}
+port_range_min = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_range_min", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port_range_max = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_range_max", null) |
+        res := resources_map[_]
+        true
+     }
 }
 remote_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_group_id", null) |
@@ -40,18 +52,6 @@ direction = ret {
 }
 ether_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ether_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port_range_min = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_range_min", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port_range_max = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_range_max", null) |
         res := resources_map[_]
         true
      }

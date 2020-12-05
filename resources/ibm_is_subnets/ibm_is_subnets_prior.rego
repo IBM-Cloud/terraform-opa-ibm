@@ -1,7 +1,7 @@
 package ibmcloud.resources.prior.ibm_is_subnets
 import data.ibmcloud.tfplan as plan
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_is_subnets"
 }
 resources_map[attr]{

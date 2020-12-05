@@ -1,7 +1,7 @@
 package ibmcloud.resources.state.data.ibm_dl_offering_speeds
 import data.ibmcloud.state as state
 # fetches the list of resource's attributes map.
-resource_name = ret {
+resource_name_ = ret {
     ret := "ibm_dl_offering_speeds"
 }
 

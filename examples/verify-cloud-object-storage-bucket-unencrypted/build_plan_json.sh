@@ -1,0 +1,2 @@
+cd terraform-cos-bucket-encrypted; terraform init; terraform plan -out tfplan; terraform show -json tfplan > encrypted_bucket.json
+cd ../terraform-cos-bucket-unencrypted; terraform init; terraform plan -out tfplan; terraform show -json tfplan > unencrypted_bucket.json
