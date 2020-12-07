@@ -1,4 +1,4 @@
-package terraform.analysis.ibm.cos
+package test_iam_user_policy
 
 import data.ibmcloud.resources.planned.ibm_iam_user_policy as iam_user_policy
 

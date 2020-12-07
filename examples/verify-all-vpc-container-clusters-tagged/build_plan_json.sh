@@ -1,0 +1,2 @@
+cd terraform-vpc-container-cluster-tagged; terraform init; terraform plan -out tfplan; terraform show -json tfplan > clusters_tagged.json; rm -rf .terraform tfplan
+cd ../terraform-vpc-container-cluster-not-tagged; terraform init; terraform plan -out tfplan; terraform show -json tfplan > clusters_not_tagged.json; rm -rf .terraform tfplan

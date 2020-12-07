@@ -1,0 +1,2 @@
+cd terraform-is-vpc-tag-allowed; terraform init; terraform plan -out tfplan; terraform show -json tfplan > vpcs_ok.json; rm -rf .terraform tfplan
+cd ../terraform-is-vpc-tag-not-allowed; terraform init; terraform plan -out tfplan; terraform show -json tfplan > vpcs_not_ok.json; rm -rf .terraform tfplan

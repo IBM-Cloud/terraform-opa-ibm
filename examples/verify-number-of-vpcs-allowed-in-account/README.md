@@ -44,4 +44,4 @@ The generated data file is used as a document to OPA.
 
 Run the below command to execute the policy rule
 
-`opa eval --format pretty  -d . -d <path-to-plan-json-file> "data.terraform.analysis.ibm.cos"`
+`opa eval --format pretty  -d <path-to-library> -d <path-to-plan-json-file> "data.test_vpcs"`
