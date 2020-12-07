@@ -1,4 +1,4 @@
-package terraform.analysis.ibm.cos
+package test_vpcs
 
 import data.ibmcloud.resources.planned.ibm_is_vpc as vpc
 

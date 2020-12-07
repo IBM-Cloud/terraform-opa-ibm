@@ -7,17 +7,17 @@ resource "ibm_iam_access_group_members" "accgroupmem" {
   ibm_ids         = ["user2" ] # can be a list
 }
 
-resource "ibm_iam_access_group_policy" "iam_policy_2" {
-  access_group_id = ibm_iam_access_group.accgrp.id
-  roles  = ["Administrator"]
+resource "ibm_iam_user_policy" "iam_policy_1" {
+  ibm_id = "user1"
+  roles  = ["Viewer", "Editor", "Administrator"]
 
   resources {
-    service = "kms"     
+    service = "cloud-object-storage"
   }
 }
 
-resource "ibm_iam_user_policy" "iam_policy_1" {
-  ibm_id = "user1"
+resource "ibm_iam_user_policy" "iam_policy_2" {
+  ibm_id = "user2"
   roles  = ["Viewer", "Editor", "Administrator"]
 
   resources {

@@ -1,4 +1,4 @@
-package terraform.analysis.ibm.cos
+package test_cos_bucket
 
 import data.ibmcloud.resources.planned.ibm_cos_bucket as cos_bucket
 import data.terraform.analysis.ibm.config as config
