@@ -658,18 +658,26 @@ get_values(obj) = value{
     value = resolve_references(obj["references"])
 }
 
+flatten_complex_exp(exp) =  ret {
+    some key
+    ret := {key : get_values(value) |
+        value := exp[key]
+        true
+    }
+}
+
 complex_expressions(d) = ret{
     is_array(d) == true
-    some j, k
-    ret := {k : get_values(v) |
-                 v := d[j][k]
+    some i
+    ret := [flatten_complex_exp(v) |
+                 v := d[i]
                  true
-                }
+            ]
 }
 
 get_expressions(exp) = val {
     some i
-    out1 := {i: complex_expressions(x)  | 
+    out1 := {i: complex_expressions(x) | 
         x := exp[i] 
         true
     }
