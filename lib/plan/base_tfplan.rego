@@ -101,12 +101,13 @@ modules = mods {
 
 get_root_module_config = root_module_resource_config {
     x := object.get(tfplan["configuration"]["root_module"], "resources", [])
-    root_module_resource_config := [{"name": "root_module", "resources": get_resources_config(x) }]
+    variables := object.get(tfplan["configuration"]["root_module"], "variables", {})
+    root_module_resource_config := [{"name": "root_module", "resources": get_resources_config(x, variables) }]
 }
 
 get_modules_config =  modules_config {
     some i, j
-    other_modules_config := [ {"name": j, "resources": get_resources_config(val.module.resources) } |
+    other_modules_config := [ {"name": j, "resources": get_resources_config(val.module.resources, val.module.variables) } |
          val := module_calls[i][j]
          true
     ]
@@ -638,51 +639,51 @@ changes_computed_values(resource_name) = resource_computed_values {
  }
 
  # Utility Functions
-get_value(ref) = ret {
+get_value(ref, vars) = ret {
     startswith(ref, "var.")
-    ret = tfplan.variables[split(ref, ".")[1]].value
+    ret = vars[split(ref, ".")[1]]["default"]
+} else  = ret {
+    startswith(ref, "var.")
+    ret = vars[split(ref, ".")[1]].value
 } else = ret {
     ret = ref
 }
 
-resolve_references(ref_list) = ret {
-     ret := [ get_value(ref) |
-        ref := ref_list[_]
-        true
-    ]
+resolve_references(ref_list, vars) = ret {
+     ret := get_value(ref_list[0], vars)
 }
 
-get_values(obj) = value{
+get_values(obj, vars) = value{
     value = obj["constant_value"]
 } else = value {
-    value = resolve_references(obj["references"])
+    value = resolve_references(obj["references"], vars)
 }
 
-flatten_complex_exp(exp) =  ret {
+flatten_complex_exp(exp, vars) =  ret {
     some key
-    ret := {key : get_values(value) |
+    ret := {key : get_values(value, vars) |
         value := exp[key]
         true
     }
 }
 
-complex_expressions(d) = ret{
+complex_expressions(d, vars) = ret{
     is_array(d) == true
     some i
-    ret := [flatten_complex_exp(v) |
+    ret := [flatten_complex_exp(v, vars) |
                  v := d[i]
                  true
             ]
 }
 
-get_expressions(exp) = val {
+get_expressions(exp, vars) = val {
     some i
-    out1 := {i: complex_expressions(x) | 
+    out1 := {i: complex_expressions(x, vars) | 
         x := exp[i] 
         true
     }
     some y
-    out2 := { y : get_values(value)|
+    out2 := { y : get_values(value, vars)|
         value := exp[y]
         true
     }
@@ -691,14 +692,15 @@ get_expressions(exp) = val {
 
 get_provider_config(config) = pc {
     some i
-    pc := [ {"name": i, "values": get_expressions(expressions) } |
+    vars :=  tfplan.variables
+    pc := [ {"name": i, "values": get_expressions(expressions, vars) } |
         expressions := config[i].expressions
         true
     ]
 }
 
-get_resources_config(resources_list) = resource_config{
-    resource_config := [ {"resource_name": r.name , "resource_type": r.type, "attributes": get_expressions(r.expressions) } |
+get_resources_config(resources_list, vars) = resource_config{
+    resource_config := [ {"resource_name": r.name , "resource_type": r.type, "attributes": get_expressions(r.expressions, vars) } |
         r := resources_list[_]
         true
     ]
