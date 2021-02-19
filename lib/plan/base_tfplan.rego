@@ -6,7 +6,7 @@ import data as tfplan
 variables = vars{
     some k
     vars := { k : v |
-        v := tfplan.varibales[k].value
+        v := tfplan.variables[k].value
         true
     }
 }
