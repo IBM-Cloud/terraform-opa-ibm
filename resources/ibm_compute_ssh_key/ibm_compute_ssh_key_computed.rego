@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_compute_ssh_key").resources[_]
 }
 fingerprint = ret {
-    ret := {res.address: object.get(res.attributes, "fingerprint", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fingerprint", null) |
         res := resources_map[_]
         true
      }

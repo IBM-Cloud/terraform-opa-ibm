@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_pi_tenant").resources[_]
 }
 pi_cloud_instance_id = ret {
-    ret := {res.address: object.get(res.attributes, "pi_cloud_instance_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

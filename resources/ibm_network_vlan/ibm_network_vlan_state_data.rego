@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_network_vlan", "data").resources[_]
 }
-virtual_guests = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guests", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
-        res := resources_map[_]
-        true
-     }
-}
 id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "id", null) |
         res := resources_map[_]
@@ -40,6 +28,18 @@ number = ret {
 }
 router_hostname = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_guests = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guests", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }

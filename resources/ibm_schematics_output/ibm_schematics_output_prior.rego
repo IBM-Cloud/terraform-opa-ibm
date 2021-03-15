@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_schematics_output").resources[_]
 }
-output_json = ret {
-    ret := {res.address: object.get(res.attributes, "output_json", null) |
-        res := resources_map[_]
-        true
-     }
-}
 workspace_id = ret {
-    ret := {res.address: object.get(res.attributes, "workspace_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workspace_id", null) |
         res := resources_map[_]
         true
      }
 }
 template_id = ret {
-    ret := {res.address: object.get(res.attributes, "template_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+output_json = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "output_json", null) |
         res := resources_map[_]
         true
      }

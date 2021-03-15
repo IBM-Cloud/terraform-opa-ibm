@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_container_addons").resources[_]
 }
 cluster = ret {
-    ret := {res.address: object.get(res.attributes, "cluster", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }

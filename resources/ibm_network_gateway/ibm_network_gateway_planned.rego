@@ -7,26 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_network_gateway").resources[_]
 }
-post_install_script_uri = ret {
-    ret := {res.address: object.get(res.attributes, "post_install_script_uri", null) |
-        res := resources_map[_]
-        true
-     }
-}
 members = ret {
-    ret := {res.address: object.get(res.attributes, "members", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
         res := resources_map[_]
         true
      }
 }
 ssh_key_ids = ret {
-    ret := {res.address: object.get(res.attributes, "ssh_key_ids", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssh_key_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+post_install_script_uri = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "post_install_script_uri", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

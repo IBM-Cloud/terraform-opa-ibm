@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_security_group_network_interface_attachment").resources[_]
 }
 security_group = ret {
-    ret := {res.address: object.get(res.attributes, "security_group", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
         res := resources_map[_]
         true
      }
 }
 network_interface = ret {
-    ret := {res.address: object.get(res.attributes, "network_interface", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
         res := resources_map[_]
         true
      }

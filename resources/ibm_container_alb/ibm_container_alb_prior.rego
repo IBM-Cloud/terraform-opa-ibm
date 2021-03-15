@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_container_alb").resources[_]
 }
 alb_id = ret {
-    ret := {res.address: object.get(res.attributes, "alb_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_id", null) |
         res := resources_map[_]
         true
      }

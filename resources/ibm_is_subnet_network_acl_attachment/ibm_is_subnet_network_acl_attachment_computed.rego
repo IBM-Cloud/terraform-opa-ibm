@@ -8,25 +8,25 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_subnet_network_acl_attachment").resources[_]
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 vpc = ret {
-    ret := {res.address: object.get(res.attributes, "vpc", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
 }
 resource_group = ret {
-    ret := {res.address: object.get(res.attributes, "resource_group", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
 rules = ret {
-    ret := {res.address: object.get(res.attributes, "rules", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
         true
      }

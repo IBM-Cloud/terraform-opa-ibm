@@ -8,20 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group_manager", "data").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+max_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
         res := resources_map[_]
         true
      }
 }
-cooldown = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
-        res := resources_map[_]
-        true
-     }
-}
-policies = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
+min_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +32,20 @@ instance_group = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 manager_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cooldown = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +56,8 @@ aggregation_window = ret {
         true
      }
 }
-max_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-min_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
+policies = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
         res := resources_map[_]
         true
      }

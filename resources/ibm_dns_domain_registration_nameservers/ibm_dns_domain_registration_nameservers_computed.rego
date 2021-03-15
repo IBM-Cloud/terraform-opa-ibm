@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_domain_registration_nameservers").resources[_]
 }
 original_name_servers = ret {
-    ret := {res.address: object.get(res.attributes, "original_name_servers", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "original_name_servers", null) |
         res := resources_map[_]
         true
      }

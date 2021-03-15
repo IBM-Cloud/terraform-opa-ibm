@@ -20,6 +20,12 @@ domain_id = ret {
         true
      }
 }
+file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cis_dns_records = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_dns_records", null) |
         res := resources_map[_]

@@ -8,19 +8,19 @@ resources_map[attr]{
     attr := plan.planned_values("ibm_dns_reverse_record").resources[_]
 }
 ipaddress = ret {
-    ret := {res.address: object.get(res.attributes, "ipaddress", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipaddress", null) |
         res := resources_map[_]
         true
      }
 }
 hostname = ret {
-    ret := {res.address: object.get(res.attributes, "hostname", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
         res := resources_map[_]
         true
      }
 }
 ttl = ret {
-    ret := {res.address: object.get(res.attributes, "ttl", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
         res := resources_map[_]
         true
      }

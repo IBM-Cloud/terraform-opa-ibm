@@ -8,31 +8,31 @@ resources_map[attr]{
     attr := plan.planned_values("ibm_iam_access_group_policy").resources[_]
 }
 access_group_id = ret {
-    ret := {res.address: object.get(res.attributes, "access_group_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_group_id", null) |
         res := resources_map[_]
         true
      }
 }
 roles = ret {
-    ret := {res.address: object.get(res.attributes, "roles", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "roles", null) |
         res := resources_map[_]
         true
      }
 }
 resources = ret {
-    ret := {res.address: object.get(res.attributes, "resources", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
         res := resources_map[_]
         true
      }
 }
 account_management = ret {
-    ret := {res.address: object.get(res.attributes, "account_management", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_management", null) |
         res := resources_map[_]
         true
      }
 }
 tags = ret {
-    ret := {res.address: object.get(res.attributes, "tags", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

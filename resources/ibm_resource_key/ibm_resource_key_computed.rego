@@ -7,26 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_resource_key").resources[_]
 }
-parameters = ret {
-    ret := {res.address: object.get(res.attributes, "parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {res.address: object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 credentials = ret {
-    ret := {res.address: object.get(res.attributes, "credentials", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
         res := resources_map[_]
         true
      }
 }
 status = ret {
-    ret := {res.address: object.get(res.attributes, "status", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }

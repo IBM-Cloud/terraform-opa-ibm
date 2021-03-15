@@ -8,19 +8,19 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_container_vpc_cluster_worker").resources[_]
 }
 resource_group_id = ret {
-    ret := {res.address: object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_id = ret {
-    ret := {res.address: object.get(res.attributes, "worker_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
 }
 cluster_name_id = ret {
-    ret := {res.address: object.get(res.attributes, "cluster_name_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_id", null) |
         res := resources_map[_]
         true
      }

@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_compute_monitor").resources[_]
 }
 notified_users = ret {
-    ret := {res.address: object.get(res.attributes, "notified_users", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notified_users", null) |
         res := resources_map[_]
         true
      }

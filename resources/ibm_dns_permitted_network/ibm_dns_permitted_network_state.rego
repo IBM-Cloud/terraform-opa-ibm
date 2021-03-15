@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_permitted_network", "managed").resources[_]
 }
-state_ = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state_", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }

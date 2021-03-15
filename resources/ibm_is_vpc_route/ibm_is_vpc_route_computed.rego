@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_vpc_route").resources[_]
 }
 status = ret {
-    ret := {res.address: object.get(res.attributes, "status", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
 related_crn = ret {
-    ret := {res.address: object.get(res.attributes, "related_crn", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }

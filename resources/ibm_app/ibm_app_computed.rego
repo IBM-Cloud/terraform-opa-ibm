@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_app").resources[_]
 }
 memory = ret {
-    ret := {res.address: object.get(res.attributes, "memory", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
         res := resources_map[_]
         true
      }
 }
 disk_quota = ret {
-    ret := {res.address: object.get(res.attributes, "disk_quota", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_quota", null) |
         res := resources_map[_]
         true
      }

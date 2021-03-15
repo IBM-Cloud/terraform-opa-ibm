@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_api_gateway_endpoint_subscription").resources[_]
 }
 secret_provided = ret {
-    ret := {res.address: object.get(res.attributes, "secret_provided", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_provided", null) |
         res := resources_map[_]
         true
      }
 }
 client_id = ret {
-    ret := {res.address: object.get(res.attributes, "client_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_id", null) |
         res := resources_map[_]
         true
      }

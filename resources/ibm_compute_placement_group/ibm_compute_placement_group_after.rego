@@ -7,32 +7,32 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_compute_placement_group").resources[_]
 }
-tags = ret {
-    ret := {res.address: object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 datacenter = ret {
-    ret := {res.address: object.get(res.attributes, "datacenter", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }
 }
 pod = ret {
-    ret := {res.address: object.get(res.attributes, "pod", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pod", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 rule = ret {
-    ret := {res.address: object.get(res.attributes, "rule", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_api_gateway").resources[_]
 }
 service_instance_crn = ret {
-    ret := {res.address: object.get(res.attributes, "service_instance_crn", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
         res := resources_map[_]
         true
      }

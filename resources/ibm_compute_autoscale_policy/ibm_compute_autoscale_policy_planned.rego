@@ -7,44 +7,44 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_compute_autoscale_policy").resources[_]
 }
+scale_amount = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scale_amount", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cooldown = ret {
-    ret := {res.address: object.get(res.attributes, "cooldown", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
         res := resources_map[_]
         true
      }
 }
 scale_group_id = ret {
-    ret := {res.address: object.get(res.attributes, "scale_group_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scale_group_id", null) |
         res := resources_map[_]
         true
      }
 }
 triggers = ret {
-    ret := {res.address: object.get(res.attributes, "triggers", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "triggers", null) |
         res := resources_map[_]
         true
      }
 }
 tags = ret {
-    ret := {res.address: object.get(res.attributes, "tags", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 scale_type = ret {
-    ret := {res.address: object.get(res.attributes, "scale_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-scale_amount = ret {
-    ret := {res.address: object.get(res.attributes, "scale_amount", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scale_type", null) |
         res := resources_map[_]
         true
      }

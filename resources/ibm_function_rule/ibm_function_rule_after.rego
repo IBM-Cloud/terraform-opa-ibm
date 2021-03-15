@@ -7,26 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_function_rule").resources[_]
 }
-name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 trigger_name = ret {
-    ret := {res.address: object.get(res.attributes, "trigger_name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_name", null) |
         res := resources_map[_]
         true
      }
 }
 action_name = ret {
-    ret := {res.address: object.get(res.attributes, "action_name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_name", null) |
         res := resources_map[_]
         true
      }
 }
 namespace = ret {
-    ret := {res.address: object.get(res.attributes, "namespace", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

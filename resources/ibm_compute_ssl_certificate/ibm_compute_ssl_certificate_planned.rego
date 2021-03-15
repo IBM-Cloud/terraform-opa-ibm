@@ -8,25 +8,25 @@ resources_map[attr]{
     attr := plan.planned_values("ibm_compute_ssl_certificate").resources[_]
 }
 certificate = ret {
-    ret := {res.address: object.get(res.attributes, "certificate", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
         res := resources_map[_]
         true
      }
 }
 tags = ret {
-    ret := {res.address: object.get(res.attributes, "tags", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
 intermediate_certificate = ret {
-    ret := {res.address: object.get(res.attributes, "intermediate_certificate", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
         res := resources_map[_]
         true
      }
 }
 private_key = ret {
-    ret := {res.address: object.get(res.attributes, "private_key", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
         res := resources_map[_]
         true
      }

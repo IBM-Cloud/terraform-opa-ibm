@@ -7,26 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_pi_network_port").resources[_]
 }
+pi_network_port_ipaddress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_port_ipaddress", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_network_name = ret {
-    ret := {res.address: object.get(res.attributes, "pi_network_name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
         res := resources_map[_]
         true
      }
 }
 pi_cloud_instance_id = ret {
-    ret := {res.address: object.get(res.attributes, "pi_cloud_instance_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
 pi_network_port_description = ret {
-    ret := {res.address: object.get(res.attributes, "pi_network_port_description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_network_port_ipaddress = ret {
-    ret := {res.address: object.get(res.attributes, "pi_network_port_ipaddress", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_port_description", null) |
         res := resources_map[_]
         true
      }

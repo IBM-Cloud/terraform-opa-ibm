@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_iam_access_group_members").resources[_]
 }
 members = ret {
-    ret := {res.address: object.get(res.attributes, "members", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
         res := resources_map[_]
         true
      }

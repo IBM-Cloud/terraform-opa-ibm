@@ -14,8 +14,8 @@ ttl = ret {
         true
      }
 }
-pop_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pop_pools", null) |
+session_affinity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_affinity", null) |
         res := resources_map[_]
         true
      }
@@ -26,14 +26,14 @@ region_pools = ret {
         true
      }
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
-fallback_pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -50,8 +50,26 @@ description = ret {
         true
      }
 }
-session_affinity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_affinity", null) |
+proxied = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxied", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pop_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pop_pools", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
@@ -62,26 +80,8 @@ domain_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-proxied = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxied", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+fallback_pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool_id", null) |
         res := resources_map[_]
         true
      }
@@ -92,8 +92,8 @@ glb_id = ret {
         true
      }
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }

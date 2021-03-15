@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_cis_domain").resources[_]
 }
 cis_id = ret {
-    ret := {res.address: object.get(res.attributes, "cis_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
 domain = ret {
-    ret := {res.address: object.get(res.attributes, "domain", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
         true
      }

@@ -8,25 +8,25 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_cache_settings").resources[_]
 }
 query_string_sort = ret {
-    ret := {res.address: object.get(res.attributes, "query_string_sort", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_string_sort", null) |
         res := resources_map[_]
         true
      }
 }
 caching_level = ret {
-    ret := {res.address: object.get(res.attributes, "caching_level", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
         res := resources_map[_]
         true
      }
 }
 development_mode = ret {
-    ret := {res.address: object.get(res.attributes, "development_mode", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "development_mode", null) |
         res := resources_map[_]
         true
      }
 }
 browser_expiration = ret {
-    ret := {res.address: object.get(res.attributes, "browser_expiration", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "browser_expiration", null) |
         res := resources_map[_]
         true
      }

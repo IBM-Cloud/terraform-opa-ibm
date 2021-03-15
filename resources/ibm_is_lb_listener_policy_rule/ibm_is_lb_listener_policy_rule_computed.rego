@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_lb_listener_policy_rule").resources[_]
 }
+provisioning_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
 related_crn = ret {
-    ret := {res.address: object.get(res.attributes, "related_crn", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
 }
 rule = ret {
-    ret := {res.address: object.get(res.attributes, "rule", null) |
-        res := resources_map[_]
-        true
-     }
-}
-provisioning_status = ret {
-    ret := {res.address: object.get(res.attributes, "provisioning_status", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
         res := resources_map[_]
         true
      }

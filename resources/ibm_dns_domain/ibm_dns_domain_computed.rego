@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_domain").resources[_]
 }
 serial = ret {
-    ret := {res.address: object.get(res.attributes, "serial", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "serial", null) |
         res := resources_map[_]
         true
      }
 }
 update_date = ret {
-    ret := {res.address: object.get(res.attributes, "update_date", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_date", null) |
         res := resources_map[_]
         true
      }
