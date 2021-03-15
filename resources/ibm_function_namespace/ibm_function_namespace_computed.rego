@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_function_namespace").resources[_]
 }
 location = ret {
-    ret := {res.address: object.get(res.attributes, "location", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }

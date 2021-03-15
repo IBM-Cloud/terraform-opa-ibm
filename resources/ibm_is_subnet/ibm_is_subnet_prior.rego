@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_subnet").resources[_]
 }
 identifier = ret {
-    ret := {res.address: object.get(res.attributes, "identifier", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

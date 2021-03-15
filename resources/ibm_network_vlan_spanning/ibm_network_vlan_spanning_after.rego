@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.changes_after_values("ibm_network_vlan_spanning").resources[_]
 }
 vlan_spanning = ret {
-    ret := {res.address: object.get(res.attributes, "vlan_spanning", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_spanning", null) |
         res := resources_map[_]
         true
      }

@@ -8,19 +8,19 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_space").resources[_]
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 org = ret {
-    ret := {res.address: object.get(res.attributes, "org", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org", null) |
         res := resources_map[_]
         true
      }
 }
 space = ret {
-    ret := {res.address: object.get(res.attributes, "space", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space", null) |
         res := resources_map[_]
         true
      }

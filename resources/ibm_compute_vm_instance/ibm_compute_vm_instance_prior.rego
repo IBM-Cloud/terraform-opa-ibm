@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_compute_vm_instance").resources[_]
 }
-hostname = ret {
-    ret := {res.address: object.get(res.attributes, "hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
 domain = ret {
-    ret := {res.address: object.get(res.attributes, "domain", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
         true
      }
 }
 most_recent = ret {
-    ret := {res.address: object.get(res.attributes, "most_recent", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
         res := resources_map[_]
         true
      }

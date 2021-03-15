@@ -7,26 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_service_key").resources[_]
 }
-name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 service_instance_guid = ret {
-    ret := {res.address: object.get(res.attributes, "service_instance_guid", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_guid", null) |
         res := resources_map[_]
         true
      }
 }
 parameters = ret {
-    ret := {res.address: object.get(res.attributes, "parameters", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
 }
 tags = ret {
-    ret := {res.address: object.get(res.attributes, "tags", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

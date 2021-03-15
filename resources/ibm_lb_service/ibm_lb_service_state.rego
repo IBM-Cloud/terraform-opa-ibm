@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_service", "managed").resources[_]
 }
+service_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ip_address_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
@@ -34,18 +46,6 @@ weight = ret {
 }
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ip_address_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address_id", null) |
         res := resources_map[_]
         true
      }

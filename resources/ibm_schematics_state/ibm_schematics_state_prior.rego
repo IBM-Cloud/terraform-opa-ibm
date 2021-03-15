@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_schematics_state").resources[_]
 }
-template_id = ret {
-    ret := {res.address: object.get(res.attributes, "template_id", null) |
+workspace_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workspace_id", null) |
         res := resources_map[_]
         true
      }
 }
-workspace_id = ret {
-    ret := {res.address: object.get(res.attributes, "workspace_id", null) |
+template_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
         res := resources_map[_]
         true
      }

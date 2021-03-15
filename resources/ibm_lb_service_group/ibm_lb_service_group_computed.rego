@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_lb_service_group").resources[_]
 }
-virtual_server_id = ret {
-    ret := {res.address: object.get(res.attributes, "virtual_server_id", null) |
+service_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
         res := resources_map[_]
         true
      }
 }
-service_group_id = ret {
-    ret := {res.address: object.get(res.attributes, "service_group_id", null) |
+virtual_server_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
         res := resources_map[_]
         true
      }

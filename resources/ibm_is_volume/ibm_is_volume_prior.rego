@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_volume").resources[_]
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 zone = ret {
-    ret := {res.address: object.get(res.attributes, "zone", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }

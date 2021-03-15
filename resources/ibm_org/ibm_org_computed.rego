@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_org").resources[_]
 }
 org_quota_definition_guid = ret {
-    ret := {res.address: object.get(res.attributes, "org_quota_definition_guid", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_quota_definition_guid", null) |
         res := resources_map[_]
         true
      }

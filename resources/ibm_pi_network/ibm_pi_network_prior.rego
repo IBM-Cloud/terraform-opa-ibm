@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_pi_network").resources[_]
 }
 pi_network_name = ret {
-    ret := {res.address: object.get(res.attributes, "pi_network_name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
         res := resources_map[_]
         true
      }
 }
 pi_cloud_instance_id = ret {
-    ret := {res.address: object.get(res.attributes, "pi_cloud_instance_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

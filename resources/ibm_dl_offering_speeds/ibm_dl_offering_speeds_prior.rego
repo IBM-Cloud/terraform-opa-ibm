@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_dl_offering_speeds").resources[_]
 }
 offering_type = ret {
-    ret := {res.address: object.get(res.attributes, "offering_type", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_type", null) |
         res := resources_map[_]
         true
      }

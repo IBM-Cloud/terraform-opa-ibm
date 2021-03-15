@@ -8,25 +8,25 @@ resources_map[attr]{
     attr := plan.changes_after_values("ibm_lb_vpx_ha").resources[_]
 }
 primary_id = ret {
-    ret := {res.address: object.get(res.attributes, "primary_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_id", null) |
         res := resources_map[_]
         true
      }
 }
 secondary_id = ret {
-    ret := {res.address: object.get(res.attributes, "secondary_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secondary_id", null) |
         res := resources_map[_]
         true
      }
 }
 stay_secondary = ret {
-    ret := {res.address: object.get(res.attributes, "stay_secondary", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "stay_secondary", null) |
         res := resources_map[_]
         true
      }
 }
 tags = ret {
-    ret := {res.address: object.get(res.attributes, "tags", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

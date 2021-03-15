@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_image").resources[_]
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 visibility = ret {
-    ret := {res.address: object.get(res.attributes, "visibility", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "visibility", null) |
         res := resources_map[_]
         true
      }

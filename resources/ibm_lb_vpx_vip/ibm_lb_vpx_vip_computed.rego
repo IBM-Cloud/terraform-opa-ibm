@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.changes_computed_values("ibm_lb_vpx_vip").resources[_]
 }
 persistence = ret {
-    ret := {res.address: object.get(res.attributes, "persistence", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
         res := resources_map[_]
         true
      }

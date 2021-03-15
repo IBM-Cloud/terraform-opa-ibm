@@ -8,43 +8,43 @@ resources_map[attr]{
     attr := plan.planned_values("ibm_space").resources[_]
 }
 space_quota = ret {
-    ret := {res.address: object.get(res.attributes, "space_quota", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_quota", null) |
         res := resources_map[_]
         true
      }
 }
 tags = ret {
-    ret := {res.address: object.get(res.attributes, "tags", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 org = ret {
-    ret := {res.address: object.get(res.attributes, "org", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org", null) |
         res := resources_map[_]
         true
      }
 }
 auditors = ret {
-    ret := {res.address: object.get(res.attributes, "auditors", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auditors", null) |
         res := resources_map[_]
         true
      }
 }
 managers = ret {
-    ret := {res.address: object.get(res.attributes, "managers", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
         res := resources_map[_]
         true
      }
 }
 developers = ret {
-    ret := {res.address: object.get(res.attributes, "developers", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "developers", null) |
         res := resources_map[_]
         true
      }

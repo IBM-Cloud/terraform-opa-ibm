@@ -14,14 +14,20 @@ query_string_sort = ret {
         true
      }
 }
-purge_by_urls = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_urls", null) |
+purge_by_tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_tags", null) |
         res := resources_map[_]
         true
      }
 }
-purge_by_tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_tags", null) |
+purge_by_hosts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_hosts", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
@@ -44,18 +50,6 @@ development_mode = ret {
         true
      }
 }
-purge_by_hosts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_hosts", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 browser_expiration = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "browser_expiration", null) |
         res := resources_map[_]
@@ -64,6 +58,12 @@ browser_expiration = ret {
 }
 purge_all = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_all", null) |
+        res := resources_map[_]
+        true
+     }
+}
+purge_by_urls = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_urls", null) |
         res := resources_map[_]
         true
      }

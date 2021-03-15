@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_resource_group", "managed").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -21,13 +15,19 @@ name = ret {
      }
 }
 default_ = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_", null) |
         res := resources_map[_]
         true
      }
 }
-state_ = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state_", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

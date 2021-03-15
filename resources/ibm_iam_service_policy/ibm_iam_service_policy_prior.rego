@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_iam_service_policy").resources[_]
 }
 iam_service_id = ret {
-    ret := {res.address: object.get(res.attributes, "iam_service_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_service_id", null) |
         res := resources_map[_]
         true
      }

@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_rate_limit", "managed").resources[_]
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+match = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rule_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]
         true
      }
@@ -20,8 +26,14 @@ domain_id = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
+        res := resources_map[_]
+        true
+     }
+}
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
@@ -56,20 +68,8 @@ disabled = ret {
         true
      }
 }
-threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
-        res := resources_map[_]
-        true
-     }
-}
-match = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rule_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

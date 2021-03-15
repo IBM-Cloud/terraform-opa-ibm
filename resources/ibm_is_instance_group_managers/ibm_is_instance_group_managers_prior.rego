@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_instance_group_managers").resources[_]
 }
 instance_group = ret {
-    ret := {res.address: object.get(res.attributes, "instance_group", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }

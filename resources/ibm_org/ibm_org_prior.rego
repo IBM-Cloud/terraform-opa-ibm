@@ -8,13 +8,13 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_org").resources[_]
 }
 org = ret {
-    ret := {res.address: object.get(res.attributes, "org", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
-    ret := {res.address: object.get(res.attributes, "name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_iam_access_group").resources[_]
 }
 access_group_name = ret {
-    ret := {res.address: object.get(res.attributes, "access_group_name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_group_name", null) |
         res := resources_map[_]
         true
      }

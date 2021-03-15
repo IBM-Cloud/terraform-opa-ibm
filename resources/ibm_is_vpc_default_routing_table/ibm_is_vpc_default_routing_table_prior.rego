@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_vpc_default_routing_table").resources[_]
 }
 vpc = ret {
-    ret := {res.address: object.get(res.attributes, "vpc", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }

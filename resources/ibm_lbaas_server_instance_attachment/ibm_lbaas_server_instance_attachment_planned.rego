@@ -8,19 +8,19 @@ resources_map[attr]{
     attr := plan.planned_values("ibm_lbaas_server_instance_attachment").resources[_]
 }
 private_ip_address = ret {
-    ret := {res.address: object.get(res.attributes, "private_ip_address", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address", null) |
         res := resources_map[_]
         true
      }
 }
 weight = ret {
-    ret := {res.address: object.get(res.attributes, "weight", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }
 }
 lbaas_id = ret {
-    ret := {res.address: object.get(res.attributes, "lbaas_id", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lbaas_id", null) |
         res := resources_map[_]
         true
      }

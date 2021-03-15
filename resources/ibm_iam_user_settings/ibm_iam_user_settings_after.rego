@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_iam_user_settings").resources[_]
 }
-allowed_ip_addresses = ret {
-    ret := {res.address: object.get(res.attributes, "allowed_ip_addresses", null) |
+iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
         res := resources_map[_]
         true
      }
 }
-iam_id = ret {
-    ret := {res.address: object.get(res.attributes, "iam_id", null) |
+allowed_ip_addresses = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip_addresses", null) |
         res := resources_map[_]
         true
      }

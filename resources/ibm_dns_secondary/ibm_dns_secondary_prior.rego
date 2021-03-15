@@ -8,7 +8,7 @@ resources_map[attr]{
     attr := plan.prior_state_values("ibm_dns_secondary").resources[_]
 }
 zone_name = ret {
-    ret := {res.address: object.get(res.attributes, "zone_name", null) |
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_name", null) |
         res := resources_map[_]
         true
      }
