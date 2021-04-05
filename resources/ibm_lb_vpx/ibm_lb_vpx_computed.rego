@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_lb_vpx").resources[_]
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+private_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_subnet", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
         res := resources_map[_]
         true
      }
@@ -19,26 +25,20 @@ public_subnet = ret {
         true
      }
 }
-private_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_subnet", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vip_pool = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_pool", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-public_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

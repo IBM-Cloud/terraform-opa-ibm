@@ -25,14 +25,14 @@ ttl = ret {
         true
      }
 }
-az_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "az_pools", null) |
+fallback_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
         res := resources_map[_]
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+az_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "az_pools", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ zone_id = ret {
         true
      }
 }
-fallback_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +55,8 @@ default_pools = ret {
         true
      }
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }

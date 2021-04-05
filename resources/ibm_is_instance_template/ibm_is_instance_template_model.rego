@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_template", "managed").resources[_]
 }
+primary_network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
+        res := resources_map[_]
+        true
+     }
+}
 network_interfaces = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
         res := resources_map[_]
@@ -29,14 +35,14 @@ image = ret {
         true
      }
 }
-boot_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
@@ -53,32 +59,26 @@ volume_attachments = ret {
         true
      }
 }
-primary_network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
 }
 keys = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
+        res := resources_map[_]
+        true
+     }
+}
+boot_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
         res := resources_map[_]
         true
      }

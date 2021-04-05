@@ -13,4 +13,16 @@ iam_service_id = ret {
         true
      }
 }
+iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sort = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sort", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

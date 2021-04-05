@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_database").resources[_]
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-members_cpu_allocation_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members_cpu_allocation_count", null) |
+members_disk_allocation_mb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members_disk_allocation_mb", null) |
         res := resources_map[_]
         true
      }
@@ -25,32 +19,32 @@ auto_scaling = ret {
         true
      }
 }
-groups = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "groups", null) |
+adminuser = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "adminuser", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+members_memory_allocation_mb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members_memory_allocation_mb", null) |
         res := resources_map[_]
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+members_cpu_allocation_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members_cpu_allocation_count", null) |
         res := resources_map[_]
         true
      }
@@ -67,20 +61,20 @@ resource_group_id = ret {
         true
      }
 }
-adminuser = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "adminuser", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-members_disk_allocation_mb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members_disk_allocation_mb", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -91,8 +85,14 @@ version = ret {
         true
      }
 }
-members_memory_allocation_mb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members_memory_allocation_mb", null) |
+guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+groups = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "groups", null) |
         res := resources_map[_]
         true
      }
@@ -103,8 +103,8 @@ resource_status = ret {
         true
      }
 }
-guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }

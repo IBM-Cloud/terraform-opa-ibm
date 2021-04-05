@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_ssh_key").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+public_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_key", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ tags = ret {
         true
      }
 }
-public_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_key", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

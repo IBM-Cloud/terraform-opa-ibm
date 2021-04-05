@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_cluster_feature", "managed").resources[_]
 }
+reload_workers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reload_workers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_service_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
@@ -23,24 +35,6 @@ cluster = ret {
         true
      }
 }
-public_service_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_service_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reload_workers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reload_workers", null) |
-        res := resources_map[_]
-        true
-     }
-}
 public_service_endpoint = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint", null) |
         res := resources_map[_]
@@ -49,6 +43,12 @@ public_service_endpoint = ret {
 }
 private_service_endpoint = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_service_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint_url", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_multi_vlan_firewall", "managed").resources[_]
 }
+private_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 public_ipv6 = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv6", null) |
         res := resources_map[_]
         true
      }
 }
-username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
+private_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip", null) |
         res := resources_map[_]
         true
      }
@@ -44,6 +50,12 @@ name = ret {
         true
      }
 }
+public_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 firewall_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firewall_type", null) |
         res := resources_map[_]
@@ -56,20 +68,8 @@ public_ip = ret {
         true
      }
 }
-public_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip", null) |
+username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
         res := resources_map[_]
         true
      }

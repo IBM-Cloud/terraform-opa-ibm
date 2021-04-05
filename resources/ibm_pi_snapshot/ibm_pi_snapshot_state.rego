@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_snapshot", "managed").resources[_]
 }
+pi_volume_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_snap_shot_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume_snapshots = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_snapshots", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -26,6 +44,12 @@ last_updated_date = ret {
         true
      }
 }
+pi_snap_shot_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_instance_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
         res := resources_map[_]
@@ -34,30 +58,6 @@ pi_instance_name = ret {
 }
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_snap_shot_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-volume_snapshots = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_snapshots", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_snap_shot_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_volume_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_ids", null) |
         res := resources_map[_]
         true
      }

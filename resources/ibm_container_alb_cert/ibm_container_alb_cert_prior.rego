@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_container_alb_cert").resources[_]
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+secret_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ cluster_id = ret {
         true
      }
 }
-secret_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }
