@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_domain_registration_nameservers", "managed").resources[_]
 }
+original_name_servers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "original_name_servers", null) |
+        res := resources_map[_]
+        true
+     }
+}
 dns_registration_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_registration_id", null) |
         res := resources_map[_]
@@ -16,12 +22,6 @@ dns_registration_id = ret {
 }
 name_servers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name_servers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-original_name_servers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "original_name_servers", null) |
         res := resources_map[_]
         true
      }

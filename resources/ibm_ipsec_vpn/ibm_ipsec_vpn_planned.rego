@@ -25,32 +25,8 @@ address_translation = ret {
         true
      }
 }
-internal_subnet_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "internal_subnet_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 remote_subnet_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
-        res := resources_map[_]
-        true
-     }
-}
-customer_peer_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_peer_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-remote_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet", null) |
         res := resources_map[_]
         true
      }
@@ -63,6 +39,30 @@ service_subnet_id = ret {
 }
 preshared_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+customer_peer_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_peer_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+internal_subnet_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "internal_subnet_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet", null) |
+        res := resources_map[_]
+        true
+     }
+}
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }

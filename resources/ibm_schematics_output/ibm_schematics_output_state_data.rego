@@ -20,12 +20,6 @@ template_id = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 output_values = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "output_values", null) |
         res := resources_map[_]

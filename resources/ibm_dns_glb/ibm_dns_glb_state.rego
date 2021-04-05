@@ -32,6 +32,12 @@ health = ret {
         true
      }
 }
+fallback_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
 az_pools = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "az_pools", null) |
         res := resources_map[_]
@@ -44,8 +50,8 @@ modified_on = ret {
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+glb_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "glb_id", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +62,8 @@ zone_id = ret {
         true
      }
 }
-fallback_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
@@ -74,14 +80,8 @@ created_on = ret {
         true
      }
 }
-glb_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "glb_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }

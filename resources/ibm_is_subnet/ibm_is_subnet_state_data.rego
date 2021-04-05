@@ -8,6 +8,30 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_subnet", "data").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_acl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_acl", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
 identifier = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
         res := resources_map[_]
@@ -20,50 +44,8 @@ ipv4_cidr_block = ret {
         true
      }
 }
-ipv6_cidr_block = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv6_cidr_block", null) |
-        res := resources_map[_]
-        true
-     }
-}
-available_ipv4_address_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available_ipv4_address_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-total_ipv4_address_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_ipv4_address_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_acl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_acl", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_gateway", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
@@ -74,20 +56,38 @@ resource_name = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+ipv6_cidr_block = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv6_cidr_block", null) |
         res := resources_map[_]
         true
      }
 }
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+total_ipv4_address_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_ipv4_address_count", null) |
         res := resources_map[_]
         true
      }
 }
 resource_group_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_gateway", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -104,8 +104,20 @@ resource_crn = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+available_ipv4_address_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available_ipv4_address_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

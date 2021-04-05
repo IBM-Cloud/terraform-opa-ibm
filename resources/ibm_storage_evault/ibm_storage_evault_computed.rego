@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_storage_evault").resources[_]
 }
+password = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
+        res := resources_map[_]
+        true
+     }
+}
 service_resource_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_resource_name", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ service_resource_name = ret {
 }
 username = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
-        res := resources_map[_]
-        true
-     }
-}
-password = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
         res := resources_map[_]
         true
      }

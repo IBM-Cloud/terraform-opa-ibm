@@ -7,26 +7,32 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_lb_listener").resources[_]
 }
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-default_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pool", null) |
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }
 }
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+accept_proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pool", null) |
         res := resources_map[_]
         true
      }

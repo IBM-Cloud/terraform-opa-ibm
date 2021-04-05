@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_waf_package", "managed").resources[_]
 }
+sensitivity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sensitivity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+action_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
@@ -40,18 +52,6 @@ name = ret {
 }
 detection_mode = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "detection_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sensitivity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sensitivity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-action_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_mode", null) |
         res := resources_map[_]
         true
      }

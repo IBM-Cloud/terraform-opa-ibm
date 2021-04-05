@@ -11,38 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_record", "managed").resources[_]
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-refresh = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh", null) |
-        res := resources_map[_]
-        true
-     }
-}
-responsible_person = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
+data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +35,62 @@ priority = ret {
         true
      }
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+mx_priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mx_priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
 host = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host", null) |
+        res := resources_map[_]
+        true
+     }
+}
+refresh = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh", null) |
+        res := resources_map[_]
+        true
+     }
+}
+responsible_person = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
         res := resources_map[_]
         true
      }
@@ -89,26 +107,8 @@ ttl = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mx_priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mx_priority", null) |
-        res := resources_map[_]
-        true
-     }
-}
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }

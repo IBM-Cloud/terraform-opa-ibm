@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_container_cluster_feature").resources[_]
 }
+reload_workers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reload_workers", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ resource_group_id = ret {
 }
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reload_workers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reload_workers", null) |
         res := resources_map[_]
         true
      }

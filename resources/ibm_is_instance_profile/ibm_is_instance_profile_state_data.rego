@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_profile", "data").resources[_]
 }
-architecture = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ name = ret {
 }
 family = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
+        res := resources_map[_]
+        true
+     }
+}
+architecture = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
         res := resources_map[_]
         true
      }

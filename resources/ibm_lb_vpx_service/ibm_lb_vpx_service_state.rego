@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_vpx_service", "managed").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+vip_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
         res := resources_map[_]
         true
      }
@@ -20,14 +20,14 @@ destination_ip_address = ret {
         true
      }
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+destination_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_port", null) |
         res := resources_map[_]
         true
      }
 }
-connection_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }
@@ -38,14 +38,14 @@ tags = ret {
         true
      }
 }
-vip_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-destination_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_port", null) |
+connection_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
         res := resources_map[_]
         true
      }

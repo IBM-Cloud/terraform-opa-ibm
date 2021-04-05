@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_tg_connection").resources[_]
 }
-network_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_type", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ gateway = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+network_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_type", null) |
         res := resources_map[_]
         true
      }
