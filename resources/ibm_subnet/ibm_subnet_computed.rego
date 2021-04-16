@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_subnet").resources[_]
 }
-subnet_cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_cidr", null) |
+vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
         res := resources_map[_]
         true
      }
 }
-vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
+subnet_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_cidr", null) |
         res := resources_map[_]
         true
      }

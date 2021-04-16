@@ -13,14 +13,26 @@ version = ret {
         true
      }
 }
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+private_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
         res := resources_map[_]
         true
      }
 }
-private_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_subnet", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+speed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +49,8 @@ public_subnet = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
-        res := resources_map[_]
-        true
-     }
-}
-speed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed", null) |
         res := resources_map[_]
         true
      }
@@ -61,8 +61,8 @@ ip_count = ret {
         true
      }
 }
-private_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
+private_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_subnet", null) |
         res := resources_map[_]
         true
      }

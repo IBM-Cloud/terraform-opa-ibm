@@ -13,24 +13,6 @@ begins_on = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-key_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expires_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
 imported = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "imported", null) |
         res := resources_map[_]
@@ -43,14 +25,32 @@ has_previous = ret {
         true
      }
 }
+issuer = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer", null) |
+        res := resources_map[_]
+        true
+     }
+}
 algorithm = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
         res := resources_map[_]
         true
      }
 }
-issuer = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer", null) |
+expires_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+key_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,14 @@ name = ret {
         true
      }
 }
-passphrase = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
+private_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
         res := resources_map[_]
         true
      }
 }
-private_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
+passphrase = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
         res := resources_map[_]
         true
      }

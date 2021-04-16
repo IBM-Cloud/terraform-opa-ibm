@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_compute_ssl_certificate").resources[_]
 }
-validity_days = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_days", null) |
-        res := resources_map[_]
-        true
-     }
-}
 key_size = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_size", null) |
         res := resources_map[_]
@@ -21,6 +15,24 @@ key_size = ret {
 }
 create_date = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_date", null) |
+        res := resources_map[_]
+        true
+     }
+}
+organization_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "organization_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+validity_days = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_days", null) |
+        res := resources_map[_]
+        true
+     }
+}
+validity_end = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_end", null) |
         res := resources_map[_]
         true
      }
@@ -39,18 +51,6 @@ common_name = ret {
 }
 validity_begin = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_begin", null) |
-        res := resources_map[_]
-        true
-     }
-}
-organization_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "organization_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-validity_end = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_end", null) |
         res := resources_map[_]
         true
      }

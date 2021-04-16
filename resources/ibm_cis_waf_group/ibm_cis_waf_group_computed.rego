@@ -13,14 +13,14 @@ name = ret {
         true
      }
 }
-rules_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules_count", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+rules_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules_count", null) |
         res := resources_map[_]
         true
      }

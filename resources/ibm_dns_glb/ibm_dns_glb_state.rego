@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_glb", "managed").resources[_]
 }
+az_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "az_pools", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -38,26 +56,8 @@ fallback_pool = ret {
         true
      }
 }
-az_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "az_pools", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
 glb_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "glb_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
         res := resources_map[_]
         true
      }
@@ -80,8 +80,8 @@ created_on = ret {
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }

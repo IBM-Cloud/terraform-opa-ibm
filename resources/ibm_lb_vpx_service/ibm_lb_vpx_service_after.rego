@@ -7,26 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_lb_vpx_service").resources[_]
 }
-vip_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+usip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "usip", null) |
         res := resources_map[_]
         true
      }
@@ -43,6 +25,12 @@ name = ret {
         true
      }
 }
+destination_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
 connection_limit = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
         res := resources_map[_]
@@ -55,8 +43,20 @@ health_check = ret {
         true
      }
 }
-usip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "usip", null) |
+vip_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_ip_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_ip_addresses", "data").resources[_]
 }
-ipv6_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv6_cidrs", null) |
+ipv4_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv4_cidrs", null) |
         res := resources_map[_]
         true
      }
 }
-ipv4_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv4_cidrs", null) |
+ipv6_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv6_cidrs", null) |
         res := resources_map[_]
         true
      }

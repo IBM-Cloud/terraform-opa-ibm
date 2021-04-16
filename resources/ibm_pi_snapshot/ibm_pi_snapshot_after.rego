@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_pi_snapshot").resources[_]
 }
-pi_volume_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_ids", null) |
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +31,8 @@ pi_instance_name = ret {
         true
      }
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+pi_volume_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_ids", null) |
         res := resources_map[_]
         true
      }

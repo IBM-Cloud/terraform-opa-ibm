@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_lb_listener_policy_rule").resources[_]
 }
+field = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "field", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lb = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
@@ -15,18 +21,6 @@ lb = ret {
 }
 listener = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
-        res := resources_map[_]
-        true
-     }
-}
-value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-field = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "field", null) |
         res := resources_map[_]
         true
      }
@@ -45,6 +39,12 @@ condition = ret {
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "value", null) |
         res := resources_map[_]
         true
      }

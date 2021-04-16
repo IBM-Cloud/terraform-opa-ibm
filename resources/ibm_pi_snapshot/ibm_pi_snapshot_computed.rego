@@ -13,14 +13,14 @@ pi_snap_shot_id = ret {
         true
      }
 }
-volume_snapshots = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_snapshots", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+volume_snapshots = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_snapshots", null) |
         res := resources_map[_]
         true
      }
