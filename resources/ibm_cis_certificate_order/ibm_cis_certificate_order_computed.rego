@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_certificate_order").resources[_]
 }
-certificate_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_id", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+certificate_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_id", null) |
         res := resources_map[_]
         true
      }

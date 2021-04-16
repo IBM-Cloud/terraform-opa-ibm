@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_space").resources[_]
 }
+space_quota = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_quota", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -33,18 +45,6 @@ managers = ret {
 }
 developers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "developers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space_quota = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_quota", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

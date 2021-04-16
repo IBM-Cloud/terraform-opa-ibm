@@ -11,8 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_service_group", "managed").resources[_]
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+service_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+allocation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allocation", null) |
         res := resources_map[_]
         true
      }
@@ -41,20 +53,8 @@ virtual_server_id = ret {
         true
      }
 }
-service_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-load_balancer_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allocation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allocation", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_kp_key").resources[_]
 }
-standard_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "standard_key", null) |
+key_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+payload = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "payload", null) |
         res := resources_map[_]
         true
      }
@@ -25,6 +31,12 @@ key_protect_id = ret {
         true
      }
 }
+standard_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "standard_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
 force_delete = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
         res := resources_map[_]
@@ -33,18 +45,6 @@ force_delete = ret {
 }
 iv_value = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iv_value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-key_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-payload = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "payload", null) |
         res := resources_map[_]
         true
      }

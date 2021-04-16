@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_storage_evault", "managed").resources[_]
 }
-password = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -55,6 +43,18 @@ hardware_instance_id = ret {
 }
 username = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
+        res := resources_map[_]
+        true
+     }
+}
+password = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_resource_name", null) |
         res := resources_map[_]
         true
      }

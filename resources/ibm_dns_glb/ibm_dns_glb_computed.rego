@@ -13,12 +13,6 @@ health = ret {
         true
      }
 }
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
 glb_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "glb_id", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ enabled = ret {
 }
 created_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }

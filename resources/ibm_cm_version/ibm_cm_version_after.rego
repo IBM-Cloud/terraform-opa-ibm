@@ -7,14 +7,32 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cm_version").resources[_]
 }
-zipurl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zipurl", null) |
+catalog_identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_identifier", null) |
         res := resources_map[_]
         true
      }
 }
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+content = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offering_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zipurl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zipurl", null) |
         res := resources_map[_]
         true
      }
@@ -27,24 +45,6 @@ target_kinds = ret {
 }
 target_version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-catalog_identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_identifier", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offering_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-content = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
         true
      }

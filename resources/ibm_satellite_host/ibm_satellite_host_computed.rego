@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_satellite_host").resources[_]
 }
+host_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
 labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
@@ -21,18 +33,6 @@ zone = ret {
 }
 worker_pool = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }

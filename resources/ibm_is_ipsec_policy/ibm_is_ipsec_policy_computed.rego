@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_ipsec_policy").resources[_]
 }
-encapsulation_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encapsulation_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpn_connections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +31,26 @@ resource_group_name = ret {
         true
      }
 }
+vpn_connections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
-transform_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transform_protocol", null) |
+encapsulation_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encapsulation_mode", null) |
         res := resources_map[_]
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+transform_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transform_protocol", null) |
         res := resources_map[_]
         true
      }
