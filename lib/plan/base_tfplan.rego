@@ -650,7 +650,10 @@ get_value(ref, vars) = ret {
 }
 
 resolve_references(ref_list, vars) = ret {
-     ret := get_value(ref_list[0], vars)
+     ret := [ get_value(ref, vars) |
+        ref := ref_list[_]
+        true
+     ]
 }
 
 get_values(obj, vars) = value{
