@@ -20,6 +20,12 @@ entity_tag = ret {
         true
      }
 }
+mfa = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mfa", null) |
+        res := resources_map[_]
+        true
+     }
+}
 session_expiration_in_seconds = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_expiration_in_seconds", null) |
         res := resources_map[_]
@@ -28,12 +34,6 @@ session_expiration_in_seconds = ret {
 }
 session_invalidation_in_seconds = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_invalidation_in_seconds", null) |
-        res := resources_map[_]
-        true
-     }
-}
-include_history = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "include_history", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +50,20 @@ restrict_create_service_id = ret {
         true
      }
 }
-restrict_create_platform_apikey = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restrict_create_platform_apikey", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mfa = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mfa", null) |
-        res := resources_map[_]
-        true
-     }
-}
 history = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "history", null) |
+        res := resources_map[_]
+        true
+     }
+}
+include_history = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "include_history", null) |
+        res := resources_map[_]
+        true
+     }
+}
+restrict_create_platform_apikey = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restrict_create_platform_apikey", null) |
         res := resources_map[_]
         true
      }

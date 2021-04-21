@@ -26,8 +26,8 @@ address = ret {
         true
      }
 }
-auto_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +38,20 @@ href = ret {
         true
      }
 }
-owner = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "owner", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+auto_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
+        res := resources_map[_]
+        true
+     }
+}
+owner = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "owner", null) |
         res := resources_map[_]
         true
      }

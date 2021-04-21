@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_network_vlan").resources[_]
 }
-router_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ name = ret {
 }
 number = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "number", null) |
+        res := resources_map[_]
+        true
+     }
+}
+router_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
         res := resources_map[_]
         true
      }

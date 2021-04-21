@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_ob_monitoring").resources[_]
 }
-sysdig_access_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sysdig_access_key", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ cluster = ret {
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+sysdig_access_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sysdig_access_key", null) |
         res := resources_map[_]
         true
      }

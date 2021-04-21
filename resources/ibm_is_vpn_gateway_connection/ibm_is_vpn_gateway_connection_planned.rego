@@ -13,14 +13,20 @@ vpn_gateway = ret {
         true
      }
 }
+peer_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
 action = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
 }
-preshared_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
+ipsec_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +37,8 @@ admin_state_up = ret {
         true
      }
 }
-local_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
-        res := resources_map[_]
-        true
-     }
-}
-peer_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_cidrs", null) |
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +55,14 @@ name = ret {
         true
      }
 }
-peer_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_address", null) |
+preshared_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+local_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
         res := resources_map[_]
         true
      }
@@ -67,14 +73,8 @@ interval = ret {
         true
      }
 }
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ipsec_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
+peer_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_cidrs", null) |
         res := resources_map[_]
         true
      }

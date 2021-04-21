@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_event_streams_topic").resources[_]
 }
-kafka_brokers_sasl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kafka_brokers_sasl", null) |
+kafka_http_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kafka_http_url", null) |
         res := resources_map[_]
         true
      }
 }
-kafka_http_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kafka_http_url", null) |
+kafka_brokers_sasl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kafka_brokers_sasl", null) |
         res := resources_map[_]
         true
      }

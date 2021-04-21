@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_pi_volume").resources[_]
 }
-delete_on_termination = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_on_termination", null) |
-        res := resources_map[_]
-        true
-     }
-}
-wwn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wwn", null) |
+volume_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_status", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +19,14 @@ volume_id = ret {
         true
      }
 }
-volume_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_status", null) |
+delete_on_termination = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_on_termination", null) |
+        res := resources_map[_]
+        true
+     }
+}
+wwn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wwn", null) |
         res := resources_map[_]
         true
      }

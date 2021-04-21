@@ -19,14 +19,14 @@ description = ret {
         true
      }
 }
-rules_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules_count", null) |
+modified_rules_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_rules_count", null) |
         res := resources_map[_]
         true
      }
 }
-modified_rules_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_rules_count", null) |
+rules_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules_count", null) |
         res := resources_map[_]
         true
      }

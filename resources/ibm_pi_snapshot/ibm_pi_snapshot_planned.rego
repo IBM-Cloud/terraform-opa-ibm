@@ -13,12 +13,6 @@ pi_cloud_instance_id = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_snap_shot_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_name", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ pi_instance_name = ret {
 }
 pi_volume_ids = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
