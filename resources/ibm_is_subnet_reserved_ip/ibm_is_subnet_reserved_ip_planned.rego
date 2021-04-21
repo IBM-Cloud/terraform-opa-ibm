@@ -25,10 +25,4 @@ name = ret {
         true
      }
 }
-address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
-        res := resources_map[_]
-        true
-     }
-}
 

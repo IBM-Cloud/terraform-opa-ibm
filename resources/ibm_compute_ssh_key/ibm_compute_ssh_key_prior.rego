@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_compute_ssh_key").resources[_]
 }
-most_recent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
+label = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]
         true
      }
 }
-label = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
+most_recent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dl_provider_gateway").resources[_]
 }
-bgp_ibm_cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_ibm_cidr", null) |
+bgp_cer_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_cer_cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+speed_mbps = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed_mbps", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +43,8 @@ name = ret {
         true
      }
 }
-speed_mbps = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed_mbps", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bgp_cer_cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_cer_cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+bgp_ibm_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_ibm_cidr", null) |
         res := resources_map[_]
         true
      }

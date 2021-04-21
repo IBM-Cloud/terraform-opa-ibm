@@ -13,14 +13,14 @@ resource_group = ret {
         true
      }
 }
-instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
+managers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
         res := resources_map[_]
         true
      }
 }
-managers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
+instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
         res := resources_map[_]
         true
      }

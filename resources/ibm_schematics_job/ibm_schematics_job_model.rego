@@ -11,26 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_schematics_job", "managed").resources[_]
 }
-command_object_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-command_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 command_parameter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_parameter", null) |
         res := resources_map[_]
         true
      }
 }
-bastion = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bastion", null) |
+data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
+        res := resources_map[_]
+        true
+     }
+}
+job_log_summary = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_log_summary", null) |
         res := resources_map[_]
         true
      }
@@ -41,20 +35,38 @@ description = ret {
         true
      }
 }
-start_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "start_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-duration = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "duration", null) |
-        res := resources_map[_]
-        true
-     }
-}
 state_store_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state_store_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+results_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "results_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+command_object = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object", null) |
+        res := resources_map[_]
+        true
+     }
+}
+command_object_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object_id", null) |
         res := resources_map[_]
         true
      }
@@ -71,26 +83,8 @@ location = ret {
         true
      }
 }
-log_store_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "log_store_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-job_inputs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_inputs", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-job_log_summary = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_log_summary", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -101,20 +95,14 @@ name = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+command_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_name", null) |
         res := resources_map[_]
         true
      }
 }
-end_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "end_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-command_object = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object", null) |
+job_inputs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_inputs", null) |
         res := resources_map[_]
         true
      }
@@ -125,14 +113,26 @@ job_env_settings = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+bastion = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bastion", null) |
         res := resources_map[_]
         true
      }
 }
-data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
+log_store_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "log_store_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+targets_ini = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "targets_ini", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -149,20 +149,20 @@ submitted_by = ret {
         true
      }
 }
-targets_ini = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "targets_ini", null) |
+start_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "start_at", null) |
         res := resources_map[_]
         true
      }
 }
-results_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "results_url", null) |
+end_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "end_at", null) |
         res := resources_map[_]
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+duration = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "duration", null) |
         res := resources_map[_]
         true
      }

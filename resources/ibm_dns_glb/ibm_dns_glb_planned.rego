@@ -7,14 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_dns_glb").resources[_]
 }
-az_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "az_pools", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+ttl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
+        res := resources_map[_]
+        true
+     }
+}
+fallback_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pools", null) |
         res := resources_map[_]
         true
      }
@@ -37,26 +49,14 @@ description = ret {
         true
      }
 }
-ttl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
-        res := resources_map[_]
-        true
-     }
-}
-fallback_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
-        res := resources_map[_]
-        true
-     }
-}
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
 }
-default_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pools", null) |
+az_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "az_pools", null) |
         res := resources_map[_]
         true
      }

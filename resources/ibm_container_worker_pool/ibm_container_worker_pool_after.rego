@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_container_worker_pool").resources[_]
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ cluster = ret {
         true
      }
 }
-worker_pool_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
+machine_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "machine_type", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ size_per_zone = ret {
         true
      }
 }
-hardware = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware", null) |
+entitlement = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
         res := resources_map[_]
         true
      }
@@ -43,20 +43,20 @@ disk_encryption = ret {
         true
      }
 }
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+worker_pool_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
         res := resources_map[_]
         true
      }
 }
-machine_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "machine_type", null) |
+hardware = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware", null) |
         res := resources_map[_]
         true
      }
 }
-entitlement = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

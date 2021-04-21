@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_ssh_key", "data").resources[_]
 }
-most_recent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
-        res := resources_map[_]
-        true
-     }
-}
 label = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ fingerprint = ret {
 }
 notes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+most_recent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
         res := resources_map[_]
         true
      }

@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_auth_token", "data").resources[_]
 }
-uaa_refresh_token = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uaa_refresh_token", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iam_access_token = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_access_token", null) |
-        res := resources_map[_]
-        true
-     }
-}
 iam_refresh_token = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_refresh_token", null) |
         res := resources_map[_]
@@ -28,6 +16,18 @@ iam_refresh_token = ret {
 }
 uaa_access_token = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uaa_access_token", null) |
+        res := resources_map[_]
+        true
+     }
+}
+uaa_refresh_token = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uaa_refresh_token", null) |
+        res := resources_map[_]
+        true
+     }
+}
+iam_access_token = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_access_token", null) |
         res := resources_map[_]
         true
      }

@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cm_offering_instance", "data").resources[_]
 }
-catalog_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cluster_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
         res := resources_map[_]
@@ -26,20 +20,20 @@ cluster_region = ret {
         true
      }
 }
-cluster_all_namespaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_all_namespaces", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_identifier", null) |
+cluster_namespaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_namespaces", null) |
         res := resources_map[_]
         true
      }
 }
 url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+label = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +50,14 @@ kind_format = ret {
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+cluster_all_namespaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_all_namespaces", null) |
         res := resources_map[_]
         true
      }
 }
-cluster_namespaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_namespaces", null) |
+instance_identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_identifier", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +68,14 @@ crn = ret {
         true
      }
 }
-label = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
+catalog_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }

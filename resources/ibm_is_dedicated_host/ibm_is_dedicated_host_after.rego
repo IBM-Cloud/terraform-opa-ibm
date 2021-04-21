@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_dedicated_host").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+instance_placement_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_placement_enabled", null) |
         res := resources_map[_]
         true
      }
 }
-instance_placement_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_placement_enabled", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

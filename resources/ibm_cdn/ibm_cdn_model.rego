@@ -11,20 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cdn", "managed").resources[_]
 }
-host_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_name", null) |
+origin_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin_type", null) |
         res := resources_map[_]
         true
      }
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_type", null) |
+file_extension = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file_extension", null) |
         res := resources_map[_]
         true
      }
@@ -41,26 +35,20 @@ path = ret {
         true
      }
 }
+host_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vendor_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vendor_name", null) |
         res := resources_map[_]
         true
      }
 }
-bucket_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-header = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "header", null) |
-        res := resources_map[_]
-        true
-     }
-}
-performance_configuration = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "performance_configuration", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }
@@ -71,26 +59,20 @@ status = ret {
         true
      }
 }
-cname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname", null) |
-        res := resources_map[_]
-        true
-     }
-}
 respect_headers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "respect_headers", null) |
         res := resources_map[_]
         true
      }
 }
-file_extension = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file_extension", null) |
+certificate_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_type", null) |
         res := resources_map[_]
         true
      }
 }
-origin_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin_type", null) |
+performance_configuration = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "performance_configuration", null) |
         res := resources_map[_]
         true
      }
@@ -101,14 +83,32 @@ origin_address = ret {
         true
      }
 }
-http_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "http_port", null) |
+bucket_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_name", null) |
         res := resources_map[_]
         true
      }
 }
 https_port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "https_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+http_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "http_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+header = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "header", null) |
         res := resources_map[_]
         true
      }
