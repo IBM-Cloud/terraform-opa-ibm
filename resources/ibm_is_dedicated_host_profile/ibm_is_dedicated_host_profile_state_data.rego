@@ -8,26 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host_profile", "data").resources[_]
 }
-memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+class = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
         res := resources_map[_]
         true
      }
 }
-socket_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "socket_count", null) |
+family = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
         res := resources_map[_]
         true
      }
 }
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-supported_instance_profiles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_instance_profiles", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +44,20 @@ name = ret {
         true
      }
 }
-class = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
+memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
         res := resources_map[_]
         true
      }
 }
-family = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
+socket_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "socket_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+supported_instance_profiles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_instance_profiles", null) |
         res := resources_map[_]
         true
      }

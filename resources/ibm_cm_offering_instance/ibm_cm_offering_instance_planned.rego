@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cm_offering_instance").resources[_]
 }
-cluster_namespaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_namespaces", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster_all_namespaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_all_namespaces", null) |
+cluster_region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_region", null) |
         res := resources_map[_]
         true
      }
@@ -37,12 +31,6 @@ offering_id = ret {
         true
      }
 }
-kind_format = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind_format", null) |
-        res := resources_map[_]
-        true
-     }
-}
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
@@ -55,8 +43,20 @@ cluster_id = ret {
         true
      }
 }
-cluster_region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_region", null) |
+kind_format = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind_format", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster_namespaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_namespaces", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster_all_namespaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_all_namespaces", null) |
         res := resources_map[_]
         true
      }

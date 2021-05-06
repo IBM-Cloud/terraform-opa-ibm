@@ -14,12 +14,6 @@ app_instance_limit = ret {
         true
      }
 }
-total_private_domains = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_private_domains", null) |
-        res := resources_map[_]
-        true
-     }
-}
 total_service_keys = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_service_keys", null) |
         res := resources_map[_]
@@ -32,14 +26,8 @@ total_reserved_route_ports = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-total_routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_routes", null) |
+non_basic_services_allowed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "non_basic_services_allowed", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +44,26 @@ trial_db_allowed = ret {
         true
      }
 }
-non_basic_services_allowed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "non_basic_services_allowed", null) |
+memory_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_limit", null) |
+        res := resources_map[_]
+        true
+     }
+}
+total_private_domains = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_private_domains", null) |
+        res := resources_map[_]
+        true
+     }
+}
+app_tasks_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_tasks_limit", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -68,14 +74,8 @@ total_services = ret {
         true
      }
 }
-memory_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
-app_tasks_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_tasks_limit", null) |
+total_routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_routes", null) |
         res := resources_map[_]
         true
      }

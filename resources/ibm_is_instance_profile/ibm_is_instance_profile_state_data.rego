@@ -26,3 +26,9 @@ architecture = ret {
         true
      }
 }
+disks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
+        res := resources_map[_]
+        true
+     }
+}

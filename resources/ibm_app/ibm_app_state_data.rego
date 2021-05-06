@@ -14,20 +14,26 @@ disk_quota = ret {
         true
      }
 }
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
 health_check_http_endpoint = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_http_endpoint", null) |
         res := resources_map[_]
         true
      }
 }
-instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
+service_instance_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_guid", null) |
         res := resources_map[_]
         true
      }
 }
-memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
         res := resources_map[_]
         true
      }
@@ -50,32 +56,14 @@ route_guid = ret {
         true
      }
 }
+memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+        res := resources_map[_]
+        true
+     }
+}
 package_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_check_timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
         true
      }
@@ -86,8 +74,20 @@ health_check_type = ret {
         true
      }
 }
-service_instance_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_guid", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_check_timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_timeout", null) |
         res := resources_map[_]
         true
      }

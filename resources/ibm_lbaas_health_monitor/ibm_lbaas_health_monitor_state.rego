@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lbaas_health_monitor", "managed").resources[_]
 }
-interval = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interval", null) |
-        res := resources_map[_]
-        true
-     }
-}
 max_retries = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_retries", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ protocol = ret {
 }
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+interval = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interval", null) |
         res := resources_map[_]
         true
      }

@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_space", "data").resources[_]
 }
+developers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "developers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+space = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -28,18 +40,6 @@ auditors = ret {
 }
 managers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-developers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "developers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space", null) |
         res := resources_map[_]
         true
      }

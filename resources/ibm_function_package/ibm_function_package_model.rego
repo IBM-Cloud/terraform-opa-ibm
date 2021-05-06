@@ -11,14 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_function_package", "managed").resources[_]
 }
-publish = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
+user_defined_parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
         res := resources_map[_]
         true
      }
 }
-user_defined_annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
+annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
         res := resources_map[_]
         true
      }
@@ -35,20 +35,14 @@ namespace = ret {
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+publish = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
         res := resources_map[_]
         true
      }
 }
-user_defined_parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
-annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
+user_defined_annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
         res := resources_map[_]
         true
      }
@@ -67,6 +61,12 @@ bind_package_name = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }

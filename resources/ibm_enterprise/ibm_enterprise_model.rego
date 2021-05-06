@@ -11,20 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_enterprise", "managed").resources[_]
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
 }
-domain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -35,14 +29,8 @@ url = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+enterprise_account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_account_id", null) |
         res := resources_map[_]
         true
      }
@@ -53,8 +41,14 @@ state = ret {
         true
      }
 }
-primary_contact_email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_contact_email", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -71,20 +65,26 @@ source_account_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 primary_contact_iam_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_contact_iam_id", null) |
         res := resources_map[_]
         true
      }
 }
-enterprise_account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_account_id", null) |
+domain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+primary_contact_email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_contact_email", null) |
         res := resources_map[_]
         true
      }

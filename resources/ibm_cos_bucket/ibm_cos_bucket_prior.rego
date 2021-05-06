@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_cos_bucket").resources[_]
 }
-bucket_region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
+bucket_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_type", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +25,14 @@ bucket_name = ret {
         true
      }
 }
-bucket_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_type", null) |
+resource_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bucket_region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_region", null) |
         res := resources_map[_]
         true
      }

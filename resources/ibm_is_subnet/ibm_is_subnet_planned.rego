@@ -13,32 +13,14 @@ tags = ret {
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ipv4_cidr_block = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv4_cidr_block", null) |
         res := resources_map[_]
         true
      }
 }
-network_acl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_acl", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ip_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
+total_ipv4_address_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_ipv4_address_count", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +31,32 @@ name = ret {
         true
      }
 }
+ip_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_acl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_acl", null) |
+        res := resources_map[_]
+        true
+     }
+}
 public_gateway = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_gateway", null) |
         res := resources_map[_]
         true
      }
 }
-total_ipv4_address_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_ipv4_address_count", null) |
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }

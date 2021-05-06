@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_resource_instance").resources[_]
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
 }
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -25,26 +25,8 @@ resource_group_id = ret {
         true
      }
 }
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
-        res := resources_map[_]
-        true
-     }
-}
-last_operation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_operation", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_endpoints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
-        res := resources_map[_]
-        true
-     }
-}
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +37,20 @@ name = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+        res := resources_map[_]
+        true
+     }
+}
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_endpoints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
         res := resources_map[_]
         true
      }

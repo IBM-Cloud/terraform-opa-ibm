@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_default_routing_table", "data").resources[_]
 }
-default_routing_table = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_routing_table", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
 route_transit_gateway_ingress = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_transit_gateway_ingress", null) |
         res := resources_map[_]
@@ -32,14 +20,14 @@ route_vpc_zone_ingress = ret {
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+is_default = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
         res := resources_map[_]
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +56,32 @@ created_at = ret {
         true
      }
 }
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_routing_table = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_routing_table", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
 route_direct_link_ingress = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_direct_link_ingress", null) |
-        res := resources_map[_]
-        true
-     }
-}
-is_default = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }

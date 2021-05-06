@@ -13,14 +13,14 @@ cis_id = ret {
         true
      }
 }
-page_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_id", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+page_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_id", null) |
         res := resources_map[_]
         true
      }

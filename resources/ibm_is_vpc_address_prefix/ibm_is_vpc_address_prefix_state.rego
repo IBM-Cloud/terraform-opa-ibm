@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_address_prefix", "managed").resources[_]
 }
-cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
@@ -40,6 +34,12 @@ name = ret {
 }
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cidr", null) |
         res := resources_map[_]
         true
      }

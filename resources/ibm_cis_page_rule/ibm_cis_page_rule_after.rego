@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_page_rule").resources[_]
 }
-targets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "targets", null) |
-        res := resources_map[_]
-        true
-     }
-}
-actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
@@ -39,6 +27,18 @@ priority = ret {
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+targets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "targets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
         res := resources_map[_]
         true
      }

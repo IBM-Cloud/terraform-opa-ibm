@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_kp_key").resources[_]
 }
-key_protect_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_protect_id", null) |
+key_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_name", null) |
         res := resources_map[_]
         true
      }
 }
-key_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_name", null) |
+key_protect_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_protect_id", null) |
         res := resources_map[_]
         true
      }

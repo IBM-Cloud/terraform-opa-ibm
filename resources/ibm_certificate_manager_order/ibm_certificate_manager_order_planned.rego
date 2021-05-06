@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_certificate_manager_order").resources[_]
 }
-auto_renew_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_renew_enabled", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ domain_validation_method = ret {
         true
      }
 }
-dns_provider_instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_provider_instance_crn", null) |
+certificate_manager_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ domains = ret {
         true
      }
 }
-renew_certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "renew_certificate", null) |
+dns_provider_instance_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_provider_instance_crn", null) |
         res := resources_map[_]
         true
      }
@@ -49,20 +49,20 @@ key_algorithm = ret {
         true
      }
 }
-certificate_manager_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
+renew_certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "renew_certificate", null) |
+        res := resources_map[_]
+        true
+     }
+}
+auto_renew_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_renew_enabled", null) |
         res := resources_map[_]
         true
      }
 }
 rotate_keys = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rotate_keys", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

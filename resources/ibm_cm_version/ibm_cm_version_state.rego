@@ -8,26 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cm_version", "managed").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }
 }
-catalog_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
+updated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
         res := resources_map[_]
         true
      }
 }
-tgz_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_kinds = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_kinds", null) |
+source_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_url", null) |
         res := resources_map[_]
         true
      }
@@ -38,26 +32,14 @@ zipurl = ret {
         true
      }
 }
-target_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_version", null) |
+created = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created", null) |
         res := resources_map[_]
         true
      }
 }
-sha = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sha", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kind_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-repo_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_url", null) |
+tgz_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +56,38 @@ offering_id = ret {
         true
      }
 }
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 content = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
+        res := resources_map[_]
+        true
+     }
+}
+catalog_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kind_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_kinds = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_kinds", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_version", null) |
         res := resources_map[_]
         true
      }
@@ -86,26 +98,14 @@ crn = ret {
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+sha = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sha", null) |
         res := resources_map[_]
         true
      }
 }
-created = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_url", null) |
+repo_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_url", null) |
         res := resources_map[_]
         true
      }
