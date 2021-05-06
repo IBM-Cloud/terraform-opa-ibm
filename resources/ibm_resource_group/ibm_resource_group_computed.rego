@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_resource_group").resources[_]
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-quota_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_url", null) |
+quota_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +25,8 @@ state = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +43,20 @@ payment_methods_url = ret {
         true
      }
 }
-quota_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_id", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+quota_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_url", null) |
         res := resources_map[_]
         true
      }

@@ -11,14 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_security_group_network_interface_attachment", "managed").resources[_]
 }
-port_speed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
+network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
         res := resources_map[_]
         true
      }
 }
-secondary_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secondary_address", null) |
+port_speed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
         res := resources_map[_]
         true
      }
@@ -29,14 +29,14 @@ status = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
         res := resources_map[_]
         true
      }
 }
-floating_ips = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ips", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
@@ -59,8 +59,20 @@ instance_network_interface = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+primary_ipv4_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ipv4_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+secondary_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secondary_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+floating_ips = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ips", null) |
         res := resources_map[_]
         true
      }
@@ -71,20 +83,8 @@ security_groups = ret {
         true
      }
 }
-network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
-        res := resources_map[_]
-        true
-     }
-}
-primary_ipv4_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ipv4_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }

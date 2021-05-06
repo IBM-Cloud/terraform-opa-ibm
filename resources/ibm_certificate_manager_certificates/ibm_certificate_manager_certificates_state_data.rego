@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_certificate_manager_certificates", "data").resources[_]
 }
-certificates = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificates", null) |
+certificate_manager_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-certificate_manager_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
+certificates = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificates", null) |
         res := resources_map[_]
         true
      }

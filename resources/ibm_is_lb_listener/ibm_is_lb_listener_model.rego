@@ -11,20 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_listener", "managed").resources[_]
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+connection_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
         res := resources_map[_]
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }
@@ -41,8 +35,8 @@ accept_proxy_protocol = ret {
         true
      }
 }
-connection_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }
@@ -59,14 +53,20 @@ status = ret {
         true
      }
 }
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }

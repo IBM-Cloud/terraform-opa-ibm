@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_attach_host_script", "data").resources[_]
 }
+host_script = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_script", null) |
+        res := resources_map[_]
+        true
+     }
+}
 location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
@@ -40,12 +46,6 @@ script_dir = ret {
 }
 script_path = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "script_path", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host_script = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_script", null) |
         res := resources_map[_]
         true
      }

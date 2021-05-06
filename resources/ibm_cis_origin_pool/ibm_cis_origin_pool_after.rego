@@ -7,26 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_origin_pool").resources[_]
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-notification_email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_email", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-minimum_origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +25,20 @@ monitor = ret {
         true
      }
 }
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +49,14 @@ check_regions = ret {
         true
      }
 }
-origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
+minimum_origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
+        res := resources_map[_]
+        true
+     }
+}
+notification_email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_email", null) |
         res := resources_map[_]
         true
      }

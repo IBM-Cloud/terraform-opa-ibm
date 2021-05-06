@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_bind_service", "managed").resources[_]
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+cluster_name_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
         res := resources_map[_]
         true
      }
@@ -23,26 +23,8 @@ service_instance_id = ret {
         true
      }
 }
-org_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-role = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
         true
      }
@@ -59,8 +41,14 @@ tags = ret {
         true
      }
 }
-cluster_name_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -77,8 +65,20 @@ namespace_id = ret {
         true
      }
 }
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+org_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+role = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
         res := resources_map[_]
         true
      }

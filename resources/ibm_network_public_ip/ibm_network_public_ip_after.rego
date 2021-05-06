@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_network_public_ip").resources[_]
 }
-routes_to = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes_to", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ tags = ret {
 }
 notes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routes_to = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes_to", null) |
         res := resources_map[_]
         true
      }

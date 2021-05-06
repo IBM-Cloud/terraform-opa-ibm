@@ -35,8 +35,14 @@ weight = ret {
         true
      }
 }
-usip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "usip", null) |
+health_check = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -53,14 +59,8 @@ connection_limit = ret {
         true
      }
 }
-health_check = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+usip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "usip", null) |
         res := resources_map[_]
         true
      }

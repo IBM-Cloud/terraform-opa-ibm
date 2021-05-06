@@ -19,26 +19,8 @@ priority = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 rules = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_http_status_code = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_http_status_code", null) |
         res := resources_map[_]
         true
      }
@@ -51,6 +33,24 @@ lb = ret {
 }
 listener = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_http_status_code = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_http_status_code", null) |
         res := resources_map[_]
         true
      }

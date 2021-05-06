@@ -11,14 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpn_gateway_connection", "managed").resources[_]
 }
-authentication_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
@@ -41,20 +35,8 @@ peer_address = ret {
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ipsec_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-admin_state_up = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin_state_up", null) |
+local_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
         res := resources_map[_]
         true
      }
@@ -65,38 +47,20 @@ timeout = ret {
         true
      }
 }
-ike_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
+authentication_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
         res := resources_map[_]
         true
      }
 }
-gateway_connection = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_connection", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-preshared_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
-local_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
+peer_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_cidrs", null) |
         res := resources_map[_]
         true
      }
@@ -107,8 +71,26 @@ interval = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+ipsec_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
+gateway_connection = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_connection", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+admin_state_up = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin_state_up", null) |
         res := resources_map[_]
         true
      }
@@ -125,8 +107,26 @@ tunnels = ret {
         true
      }
 }
-peer_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_cidrs", null) |
+preshared_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ike_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

@@ -13,8 +13,8 @@ addon_configuration = ret {
         true
      }
 }
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ firewall_type = ret {
         true
      }
 }
-pod = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pod", null) |
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+pod = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pod", null) |
         res := resources_map[_]
         true
      }

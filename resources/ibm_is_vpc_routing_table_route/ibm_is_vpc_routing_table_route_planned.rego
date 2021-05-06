@@ -13,20 +13,14 @@ zone = ret {
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+next_hop = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next_hop", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
+routing_table = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +31,20 @@ vpc = ret {
         true
      }
 }
-next_hop = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next_hop", null) |
+destination = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
         res := resources_map[_]
         true
      }
 }
-routing_table = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
