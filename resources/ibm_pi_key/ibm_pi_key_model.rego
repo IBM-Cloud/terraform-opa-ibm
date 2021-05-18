@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_key", "managed").resources[_]
 }
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+key_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_key_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_key_name", null) |
         res := resources_map[_]
@@ -25,18 +37,6 @@ pi_ssh_key = ret {
 }
 pi_creation_date = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_creation_date", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-key_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
         res := resources_map[_]
         true
      }

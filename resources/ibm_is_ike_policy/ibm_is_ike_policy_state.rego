@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_ike_policy", "managed").resources[_]
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 authentication_algorithm = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
         res := resources_map[_]
@@ -26,8 +20,8 @@ encryption_algorithm = ret {
         true
      }
 }
-dh_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dh_group", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +32,14 @@ ike_version = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +56,8 @@ name = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+dh_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dh_group", null) |
         res := resources_map[_]
         true
      }
@@ -74,14 +74,14 @@ negotiation_mode = ret {
         true
      }
 }
-vpn_connections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+vpn_connections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
         res := resources_map[_]
         true
      }

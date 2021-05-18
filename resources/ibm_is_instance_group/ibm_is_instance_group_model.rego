@@ -11,26 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group", "managed").resources[_]
 }
-load_balancer = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer", null) |
-        res := resources_map[_]
-        true
-     }
-}
-managers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -41,20 +29,32 @@ instance_template = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 subnets = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }
 }
-application_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "application_port", null) |
+load_balancer_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
+managers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
         res := resources_map[_]
         true
      }
@@ -77,14 +77,14 @@ instance_count = ret {
         true
      }
 }
-load_balancer_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+application_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "application_port", null) |
         res := resources_map[_]
         true
      }

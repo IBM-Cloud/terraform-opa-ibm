@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_zone").resources[_]
 }
-region_ = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region_", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+region_ = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region_", null) |
         res := resources_map[_]
         true
      }

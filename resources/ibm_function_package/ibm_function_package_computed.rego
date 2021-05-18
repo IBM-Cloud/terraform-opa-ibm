@@ -13,12 +13,6 @@ annotations = ret {
         true
      }
 }
-package_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 parameters = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ parameters = ret {
 }
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+package_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
         res := resources_map[_]
         true
      }

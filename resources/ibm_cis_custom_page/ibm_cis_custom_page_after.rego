@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_custom_page").resources[_]
 }
+page_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ cis_id = ret {
 }
 domain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-page_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_id", null) |
         res := resources_map[_]
         true
      }

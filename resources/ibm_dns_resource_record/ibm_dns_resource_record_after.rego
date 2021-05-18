@@ -7,38 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dns_resource_record").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-ttl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }
 }
-rdata = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rdata", null) |
-        res := resources_map[_]
-        true
-     }
-}
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +37,8 @@ name = ret {
         true
      }
 }
-preference = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preference", null) |
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }
@@ -67,14 +49,32 @@ weight = ret {
         true
      }
 }
+ttl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
+        res := resources_map[_]
+        true
+     }
+}
+preference = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preference", null) |
+        res := resources_map[_]
+        true
+     }
+}
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+rdata = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rdata", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
         res := resources_map[_]
         true
      }

@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_security_group_rule").resources[_]
 }
-security_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 direction = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
         res := resources_map[_]
@@ -51,6 +45,12 @@ remote_ip = ret {
 }
 protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_id", null) |
         res := resources_map[_]
         true
      }

@@ -26,20 +26,8 @@ architecture = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 checksum = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "checksum", null) |
-        res := resources_map[_]
-        true
-     }
-}
-encryption_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
         res := resources_map[_]
         true
      }
@@ -58,6 +46,18 @@ visibility = ret {
 }
 os = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encryption_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
         res := resources_map[_]
         true
      }

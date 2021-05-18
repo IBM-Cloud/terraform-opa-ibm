@@ -11,44 +11,32 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_security_group_network_interface_attachment", "managed").resources[_]
 }
-network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
-        res := resources_map[_]
-        true
-     }
-}
 port_speed = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+floating_ips = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ips", null) |
         res := resources_map[_]
         true
      }
 }
-subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
+security_groups = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
         res := resources_map[_]
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
 }
 security_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -71,20 +59,32 @@ secondary_address = ret {
         true
      }
 }
-floating_ips = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ips", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-security_groups = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
+subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
         res := resources_map[_]
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

@@ -8,8 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host_profile", "data").resources[_]
 }
+socket_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "socket_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vcpu_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
 class = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
+        res := resources_map[_]
+        true
+     }
+}
+disks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
         res := resources_map[_]
         true
      }
@@ -26,14 +44,8 @@ href = ret {
         true
      }
 }
-vcpu_architecture = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_architecture", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vcpu_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_count", null) |
+memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
         res := resources_map[_]
         true
      }
@@ -44,20 +56,14 @@ name = ret {
         true
      }
 }
-memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
-        res := resources_map[_]
-        true
-     }
-}
-socket_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "socket_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
 supported_instance_profiles = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_instance_profiles", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vcpu_architecture = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_architecture", null) |
         res := resources_map[_]
         true
      }

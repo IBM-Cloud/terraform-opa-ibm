@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_hardware_firewall_shared", "managed").resources[_]
 }
+hardware_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 billing_item_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "billing_item_id", null) |
         res := resources_map[_]
@@ -22,12 +28,6 @@ firewall_type = ret {
 }
 virtual_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-hardware_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
         res := resources_map[_]
         true
      }

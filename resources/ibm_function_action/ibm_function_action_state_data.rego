@@ -14,38 +14,8 @@ version = ret {
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-exec = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
-        res := resources_map[_]
-        true
-     }
-}
-publish = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
-        res := resources_map[_]
-        true
-     }
-}
 annotations = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
-        res := resources_map[_]
-        true
-     }
-}
-action_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_id", null) |
         res := resources_map[_]
         true
      }
@@ -64,6 +34,36 @@ namespace = ret {
 }
 limits = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
+        res := resources_map[_]
+        true
+     }
+}
+exec = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
+        res := resources_map[_]
+        true
+     }
+}
+action_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+publish = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
