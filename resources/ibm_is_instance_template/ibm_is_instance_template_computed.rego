@@ -7,14 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_instance_template").resources[_]
 }
-volume_attachments = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachments", null) |
+boot_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
         res := resources_map[_]
         true
      }
 }
-boot_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
+placement_target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume_attachments = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachments", null) |
         res := resources_map[_]
         true
      }

@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_storage_evault").resources[_]
 }
-virtual_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-hardware_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ datacenter = ret {
 }
 capacity = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hardware_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
         res := resources_map[_]
         true
      }

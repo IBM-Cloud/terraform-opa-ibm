@@ -13,14 +13,14 @@ priority = ret {
         true
      }
 }
-group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
         res := resources_map[_]
         true
      }

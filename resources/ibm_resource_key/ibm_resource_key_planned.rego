@@ -13,14 +13,8 @@ resource_instance_id = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_alias_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_alias_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +25,20 @@ parameters = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+role = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
         res := resources_map[_]
         true
      }
 }
-role = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_alias_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_alias_id", null) |
         res := resources_map[_]
         true
      }

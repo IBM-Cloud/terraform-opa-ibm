@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lbaas_server_instance_attachment", "managed").resources[_]
 }
+private_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
 weight = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
@@ -22,12 +28,6 @@ lbaas_id = ret {
 }
 uuid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uuid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address", null) |
         res := resources_map[_]
         true
      }

@@ -11,26 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_waf_group", "managed").resources[_]
 }
-group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rules_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_rules_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_rules_count", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
@@ -47,20 +29,38 @@ package_id = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+modified_rules_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_rules_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rules_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules_count", null) |
         res := resources_map[_]
         true
      }

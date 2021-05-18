@@ -11,32 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_certificate_manager_order", "managed").resources[_]
 }
+has_previous = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_previous", null) |
+        res := resources_map[_]
+        true
+     }
+}
+issuance_info = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuance_info", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain_validation_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_validation_method", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expires_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate_manager_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -47,14 +35,8 @@ domains = ret {
         true
      }
 }
-dns_provider_instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_provider_instance_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-issuer = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -65,8 +47,20 @@ key_algorithm = ret {
         true
      }
 }
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
+auto_renew_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_renew_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expires_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rotate_keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rotate_keys", null) |
         res := resources_map[_]
         true
      }
@@ -77,8 +71,8 @@ renew_certificate = ret {
         true
      }
 }
-auto_renew_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_renew_enabled", null) |
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
         res := resources_map[_]
         true
      }
@@ -95,26 +89,32 @@ status = ret {
         true
      }
 }
-issuance_info = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuance_info", null) |
+certificate_manager_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-rotate_keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rotate_keys", null) |
+domain_validation_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_validation_method", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dns_provider_instance_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_provider_instance_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+issuer = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer", null) |
         res := resources_map[_]
         true
      }
 }
 imported = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "imported", null) |
-        res := resources_map[_]
-        true
-     }
-}
-has_previous = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_previous", null) |
         res := resources_map[_]
         true
      }

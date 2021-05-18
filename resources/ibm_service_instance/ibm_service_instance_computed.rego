@@ -13,6 +13,12 @@ credentials = ret {
         true
      }
 }
+service_keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_keys", null) |
+        res := resources_map[_]
+        true
+     }
+}
 service_plan_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_plan_guid", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ service_plan_guid = ret {
 }
 dashboard_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_keys", null) |
         res := resources_map[_]
         true
      }

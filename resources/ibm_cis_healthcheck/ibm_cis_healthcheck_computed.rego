@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_healthcheck").resources[_]
 }
-create_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_on", null) |
+monitor_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
         res := resources_map[_]
         true
      }
 }
-monitor_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
+create_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_on", null) |
         res := resources_map[_]
         true
      }

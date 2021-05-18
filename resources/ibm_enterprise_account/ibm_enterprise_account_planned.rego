@@ -7,20 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_enterprise_account").resources[_]
 }
-enterprise_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_id", null) |
+owner_iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "owner_iam_id", null) |
         res := resources_map[_]
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+enterprise_account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_account_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +25,20 @@ parent = ret {
         true
      }
 }
-owner_iam_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "owner_iam_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-enterprise_account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_account_id", null) |
+enterprise_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }

@@ -26,6 +26,12 @@ resources = ret {
         true
      }
 }
+resource_attributes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_attributes", null) |
+        res := resources_map[_]
+        true
+     }
+}
 account_management = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_management", null) |
         res := resources_map[_]

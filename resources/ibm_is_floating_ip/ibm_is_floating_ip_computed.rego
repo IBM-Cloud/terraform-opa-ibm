@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_floating_ip").resources[_]
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
@@ -37,20 +31,26 @@ tags = ret {
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }
 }
 address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -67,8 +67,8 @@ resource_crn = ret {
         true
      }
 }
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }

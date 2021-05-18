@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_vpc_address_prefix").resources[_]
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -27,6 +21,18 @@ zone = ret {
 }
 cidr = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
+is_default = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
