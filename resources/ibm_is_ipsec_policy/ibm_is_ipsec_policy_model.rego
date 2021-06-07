@@ -11,8 +11,38 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_ipsec_policy", "managed").resources[_]
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+key_lifetime = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_lifetime", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encapsulation_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encapsulation_mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
+transform_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transform_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -35,38 +65,8 @@ pfs = ret {
         true
      }
 }
-encapsulation_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encapsulation_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-transform_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transform_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpn_connections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-key_lifetime = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_lifetime", null) |
         res := resources_map[_]
         true
      }
@@ -77,14 +77,14 @@ resource_controller_url = ret {
         true
      }
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }

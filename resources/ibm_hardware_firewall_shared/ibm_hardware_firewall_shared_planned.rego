@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_hardware_firewall_shared").resources[_]
 }
-hardware_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 firewall_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firewall_type", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ firewall_type = ret {
 }
 virtual_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hardware_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,26 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_lb_vpx_service").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vip_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-health_check = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +31,14 @@ usip = ret {
         true
      }
 }
-destination_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_ip_address", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vip_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +49,14 @@ destination_port = ret {
         true
      }
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+health_check = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_ip_address", null) |
         res := resources_map[_]
         true
      }

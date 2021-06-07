@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_kms_keys", "data").resources[_]
 }
+alias = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alias", null) |
+        res := resources_map[_]
+        true
+     }
+}
 endpoint_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
         res := resources_map[_]
@@ -28,12 +34,6 @@ instance_id = ret {
 }
 key_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-alias = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alias", null) |
         res := resources_map[_]
         true
      }

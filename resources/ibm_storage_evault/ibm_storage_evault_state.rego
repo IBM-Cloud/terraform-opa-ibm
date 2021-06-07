@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_storage_evault", "managed").resources[_]
 }
-username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
-        res := resources_map[_]
-        true
-     }
-}
-password = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -52,6 +34,24 @@ virtual_instance_id = ret {
 }
 hardware_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
+        res := resources_map[_]
+        true
+     }
+}
+password = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_resource_name", null) |
         res := resources_map[_]
         true
      }

@@ -25,6 +25,12 @@ secret_name = ret {
         true
      }
 }
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
 persistence = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ persistence = ret {
 }
 region = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }

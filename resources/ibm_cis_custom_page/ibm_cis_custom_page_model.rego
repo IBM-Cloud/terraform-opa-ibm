@@ -17,8 +17,14 @@ page_id = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+required_tokens = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "required_tokens", null) |
         res := resources_map[_]
         true
      }
@@ -53,20 +59,14 @@ domain_id = ret {
         true
      }
 }
-url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
-        res := resources_map[_]
-        true
-     }
-}
 state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
 }
-required_tokens = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "required_tokens", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

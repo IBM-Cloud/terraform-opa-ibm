@@ -13,6 +13,12 @@ cis_id = ret {
         true
      }
 }
+group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 domain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ package_id = ret {
 }
 mode = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group_id", null) |
         res := resources_map[_]
         true
      }

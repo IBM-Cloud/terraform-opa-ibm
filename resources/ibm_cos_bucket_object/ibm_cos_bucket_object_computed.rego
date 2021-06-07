@@ -7,14 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cos_bucket_object").resources[_]
 }
-body = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "body", null) |
+content_length = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
         res := resources_map[_]
         true
      }
 }
-etag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
+version_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+body = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "body", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +31,14 @@ last_modified = ret {
         true
      }
 }
-content_length = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
+content_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_type", null) |
         res := resources_map[_]
         true
      }
 }
-content_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_type", null) |
+etag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
         res := resources_map[_]
         true
      }

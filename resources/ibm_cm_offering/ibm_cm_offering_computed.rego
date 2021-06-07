@@ -7,8 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cm_offering").resources[_]
 }
-offering_docs_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_docs_url", null) |
+url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+long_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "long_description", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +49,8 @@ offering_id = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offering_support_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_support_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-long_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "long_description", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -61,8 +61,20 @@ public_publish_approved = ret {
         true
      }
 }
+publish_public_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish_public_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 portal_ui_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "portal_ui_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+repo_info = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_info", null) |
         res := resources_map[_]
         true
      }
@@ -73,26 +85,14 @@ offering_icon_url = ret {
         true
      }
 }
-ibm_publish_approved = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_publish_approved", null) |
+offering_docs_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_docs_url", null) |
         res := resources_map[_]
         true
      }
 }
-public_original_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_original_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+offering_support_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_support_url", null) |
         res := resources_map[_]
         true
      }
@@ -109,20 +109,20 @@ permit_request_ibm_public_publish = ret {
         true
      }
 }
-publish_public_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish_public_crn", null) |
+ibm_publish_approved = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_publish_approved", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_original_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_original_crn", null) |
         res := resources_map[_]
         true
      }
 }
 hidden = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hidden", null) |
-        res := resources_map[_]
-        true
-     }
-}
-repo_info = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_info", null) |
         res := resources_map[_]
         true
      }

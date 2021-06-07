@@ -13,8 +13,8 @@ crn = ret {
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +37,20 @@ apikey = ret {
         true
      }
 }
-entity_tag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
-        res := resources_map[_]
-        true
-     }
-}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
 }
-modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
+entity_tag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
