@@ -14,6 +14,12 @@ name = ret {
         true
      }
 }
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
 service = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
         res := resources_map[_]
@@ -38,18 +44,6 @@ parameters = ret {
         true
      }
 }
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_plan_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_plan_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
 plan = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
         res := resources_map[_]
@@ -70,6 +64,12 @@ wait_time_minutes = ret {
 }
 dashboard_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_plan_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_plan_guid", null) |
         res := resources_map[_]
         true
      }

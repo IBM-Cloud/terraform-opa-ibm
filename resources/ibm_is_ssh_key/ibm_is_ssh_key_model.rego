@@ -11,8 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_ssh_key", "managed").resources[_]
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+length = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "length", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -23,8 +35,8 @@ resource_crn = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+fingerprint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fingerprint", null) |
         res := resources_map[_]
         true
      }
@@ -41,20 +53,14 @@ type = ret {
         true
      }
 }
-fingerprint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fingerprint", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
 }
-length = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "length", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +71,8 @@ resource_group_name = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

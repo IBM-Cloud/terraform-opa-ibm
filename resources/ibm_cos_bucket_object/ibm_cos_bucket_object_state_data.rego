@@ -20,6 +20,30 @@ bucket_crn = ret {
         true
      }
 }
+content_length = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
+        res := resources_map[_]
+        true
+     }
+}
+content_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bucket_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_location", null) |
+        res := resources_map[_]
+        true
+     }
+}
 etag = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
         res := resources_map[_]
@@ -38,26 +62,8 @@ last_modified = ret {
         true
      }
 }
-bucket_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-content_length = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
-        res := resources_map[_]
-        true
-     }
-}
-content_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+version_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
         res := resources_map[_]
         true
      }

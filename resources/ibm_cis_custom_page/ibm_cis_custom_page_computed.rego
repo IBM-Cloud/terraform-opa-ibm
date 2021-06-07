@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_custom_page").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+required_tokens = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "required_tokens", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ state = ret {
         true
      }
 }
-required_tokens = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "required_tokens", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

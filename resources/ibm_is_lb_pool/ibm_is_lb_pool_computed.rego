@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_lb_pool").resources[_]
 }
-health_monitor_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_port", null) |
-        res := resources_map[_]
-        true
-     }
-}
 proxy_protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ related_crn = ret {
 }
 health_monitor_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_monitor_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_port", null) |
         res := resources_map[_]
         true
      }

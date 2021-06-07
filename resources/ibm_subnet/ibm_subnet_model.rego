@@ -11,6 +11,36 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_subnet", "managed").resources[_]
 }
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+notes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnet_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 private = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private", null) |
         res := resources_map[_]
@@ -29,38 +59,8 @@ ip_version = ret {
         true
      }
 }
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnet_cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
-notes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

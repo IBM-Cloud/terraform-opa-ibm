@@ -7,44 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_healthcheck").resources[_]
 }
-path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
-        res := resources_map[_]
-        true
-     }
-}
-method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
-        res := resources_map[_]
-        true
-     }
-}
-headers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "headers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expected_codes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-retries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retries", null) |
+allow_insecure = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_insecure", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +19,8 @@ expected_body = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+expected_codes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +37,8 @@ port = ret {
         true
      }
 }
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+retries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retries", null) |
         res := resources_map[_]
         true
      }
@@ -85,8 +49,44 @@ interval = ret {
         true
      }
 }
-allow_insecure = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_insecure", null) |
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
+        res := resources_map[_]
+        true
+     }
+}
+headers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "headers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

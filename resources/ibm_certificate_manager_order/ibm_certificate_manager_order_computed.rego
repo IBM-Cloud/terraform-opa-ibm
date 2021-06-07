@@ -7,26 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_certificate_manager_order").resources[_]
 }
-has_previous = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_previous", null) |
-        res := resources_map[_]
-        true
-     }
-}
-issuance_info = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuance_info", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expires_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
+imported = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "imported", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +19,8 @@ begins_on = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+expires_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +31,26 @@ issuer = ret {
         true
      }
 }
-imported = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "imported", null) |
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+issuance_info = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuance_info", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+has_previous = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_previous", null) |
         res := resources_map[_]
         true
      }

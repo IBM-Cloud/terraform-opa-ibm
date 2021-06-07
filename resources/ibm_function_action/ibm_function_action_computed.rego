@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_function_action").resources[_]
 }
-action_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
-        res := resources_map[_]
-        true
-     }
-}
 annotations = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
         res := resources_map[_]
@@ -31,14 +19,26 @@ parameters = ret {
         true
      }
 }
-limits = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
+action_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }
 }
 target_endpoint_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+limits = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
         res := resources_map[_]
         true
      }

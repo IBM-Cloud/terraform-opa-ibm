@@ -11,14 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_tg_gateway", "managed").resources[_]
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
@@ -35,20 +41,26 @@ global = ret {
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
@@ -77,20 +89,8 @@ resource_status = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_lbaas_health_monitor").resources[_]
 }
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
@@ -45,12 +51,6 @@ monitor_id = ret {
 }
 lbaas_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lbaas_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }

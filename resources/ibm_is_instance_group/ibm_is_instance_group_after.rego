@@ -19,12 +19,6 @@ subnets = ret {
         true
      }
 }
-load_balancer_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool", null) |
-        res := resources_map[_]
-        true
-     }
-}
 load_balancer = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer", null) |
         res := resources_map[_]
@@ -57,6 +51,12 @@ resource_group = ret {
 }
 application_port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "application_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool", null) |
         res := resources_map[_]
         true
      }

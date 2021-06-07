@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_function_action").resources[_]
 }
-publish = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+exec = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
         res := resources_map[_]
         true
      }
@@ -25,12 +31,6 @@ user_defined_parameters = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 namespace = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
@@ -43,8 +43,8 @@ limits = ret {
         true
      }
 }
-exec = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
+publish = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
         res := resources_map[_]
         true
      }

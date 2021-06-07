@@ -8,44 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lbaas", "managed").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip", null) |
-        res := resources_map[_]
-        true
-     }
-}
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
-        res := resources_map[_]
-        true
-     }
-}
-wait_time_minutes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +32,14 @@ ssl_ciphers = ret {
         true
      }
 }
-health_monitors = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
+wait_time_minutes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -80,14 +50,44 @@ resource_name = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_monitors = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }

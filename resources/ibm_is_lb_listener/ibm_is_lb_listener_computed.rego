@@ -19,12 +19,6 @@ status = ret {
         true
      }
 }
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 accept_proxy_protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ accept_proxy_protocol = ret {
 }
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }

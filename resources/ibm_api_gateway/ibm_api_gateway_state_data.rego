@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_api_gateway", "data").resources[_]
 }
-service_instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
+endpoints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoints", null) |
         res := resources_map[_]
         true
      }
 }
-endpoints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoints", null) |
+service_instance_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
         res := resources_map[_]
         true
      }

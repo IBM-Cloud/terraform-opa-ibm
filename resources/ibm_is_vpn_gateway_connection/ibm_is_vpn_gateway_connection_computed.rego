@@ -7,26 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_vpn_gateway_connection").resources[_]
 }
+mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tunnels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tunnels", null) |
         res := resources_map[_]
         true
      }
 }
-gateway_connection = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_connection", null) |
-        res := resources_map[_]
-        true
-     }
-}
-authentication_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+gateway_connection = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_connection", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +43,14 @@ created_at = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+authentication_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
         res := resources_map[_]
         true
      }
 }
-mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
