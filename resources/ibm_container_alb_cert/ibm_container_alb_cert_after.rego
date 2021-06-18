@@ -13,6 +13,12 @@ cert_crn = ret {
         true
      }
 }
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cluster_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ namespace = ret {
 }
 persistence = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_resource_key", "data").resources[_]
 }
-credentials = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
-        res := resources_map[_]
-        true
-     }
-}
-most_recent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
-        res := resources_map[_]
-        true
-     }
-}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -52,6 +40,18 @@ role = ret {
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+credentials = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
+        res := resources_map[_]
+        true
+     }
+}
+most_recent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
         res := resources_map[_]
         true
      }

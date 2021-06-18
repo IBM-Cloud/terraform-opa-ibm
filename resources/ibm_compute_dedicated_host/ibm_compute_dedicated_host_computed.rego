@@ -13,14 +13,14 @@ cpu_count = ret {
         true
      }
 }
-disk_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_capacity", null) |
+memory_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_capacity", null) |
         res := resources_map[_]
         true
      }
 }
-memory_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_capacity", null) |
+disk_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_capacity", null) |
         res := resources_map[_]
         true
      }

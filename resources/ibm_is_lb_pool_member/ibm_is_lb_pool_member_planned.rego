@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_lb_pool_member").resources[_]
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
@@ -19,26 +19,26 @@ pool = ret {
         true
      }
 }
-target_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 target_address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_address", null) |
         res := resources_map[_]
         true
      }
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+target_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
         res := resources_map[_]
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }

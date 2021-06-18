@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_network_interface_sg_attachment").resources[_]
 }
+network_interface_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 soft_reboot = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "soft_reboot", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ soft_reboot = ret {
 }
 security_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_interface_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface_id", null) |
         res := resources_map[_]
         true
      }

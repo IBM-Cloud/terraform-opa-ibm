@@ -13,12 +13,6 @@ description = ret {
         true
      }
 }
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
-        res := resources_map[_]
-        true
-     }
-}
 group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ group = ret {
 }
 allowed_modes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_modes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }

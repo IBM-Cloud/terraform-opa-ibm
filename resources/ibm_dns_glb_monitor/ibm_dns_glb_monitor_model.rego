@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_glb_monitor", "managed").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+monitor_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
         res := resources_map[_]
         true
      }
@@ -23,44 +23,14 @@ interval = ret {
         true
      }
 }
-retries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retries", null) |
-        res := resources_map[_]
-        true
-     }
-}
 allow_insecure = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_insecure", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
-method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expected_codes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
+expected_body = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_body", null) |
         res := resources_map[_]
         true
      }
@@ -71,8 +41,44 @@ created_on = ret {
         true
      }
 }
-monitor_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+headers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "headers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expected_codes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -89,26 +95,20 @@ port = ret {
         true
      }
 }
+retries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retries", null) |
+        res := resources_map[_]
+        true
+     }
+}
+method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
+        res := resources_map[_]
+        true
+     }
+}
 path = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
-        res := resources_map[_]
-        true
-     }
-}
-headers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "headers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expected_body = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_body", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }

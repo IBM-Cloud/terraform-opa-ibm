@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_network_port", "managed").resources[_]
 }
-public_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_network_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ portid = ret {
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip", null) |
         res := resources_map[_]
         true
      }

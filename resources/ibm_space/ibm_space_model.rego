@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_space", "managed").resources[_]
 }
-space_quota = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_quota", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -49,6 +37,18 @@ managers = ret {
 }
 developers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "developers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+space_quota = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_quota", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

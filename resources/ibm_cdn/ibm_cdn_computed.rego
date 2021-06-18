@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cdn").resources[_]
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cname = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ cname = ret {
 }
 header = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "header", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

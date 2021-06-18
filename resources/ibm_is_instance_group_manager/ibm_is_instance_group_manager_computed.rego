@@ -13,14 +13,14 @@ manager_id = ret {
         true
      }
 }
-actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
+policies = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
         res := resources_map[_]
         true
      }
 }
-policies = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
+actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
         res := resources_map[_]
         true
      }

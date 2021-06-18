@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_lb").resources[_]
 }
-ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
         res := resources_map[_]
         true
      }
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
         res := resources_map[_]
         true
      }

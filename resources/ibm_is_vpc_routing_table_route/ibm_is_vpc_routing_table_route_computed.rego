@@ -7,24 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_vpc_routing_table_route").resources[_]
 }
-route_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
 origin = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
         res := resources_map[_]
@@ -37,8 +19,26 @@ name = ret {
         true
      }
 }
+route_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }

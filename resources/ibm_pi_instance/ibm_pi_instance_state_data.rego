@@ -8,20 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_instance", "data").resources[_]
 }
-maxproc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maxproc", null) |
+volumes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volumes", null) |
         res := resources_map[_]
         true
      }
 }
-max_virtual_cores = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_virtual_cores", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_instance_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
+memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
         res := resources_map[_]
         true
      }
@@ -38,38 +32,14 @@ addresses = ret {
         true
      }
 }
-minmem = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minmem", null) |
+proctype = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proctype", null) |
         res := resources_map[_]
         true
      }
 }
-pin_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pin_policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-maxmem = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maxmem", null) |
-        res := resources_map[_]
-        true
-     }
-}
-virtual_cores_assigned = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_cores_assigned", null) |
-        res := resources_map[_]
-        true
-     }
-}
-volumes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volumes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-processors = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "processors", null) |
+maxproc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maxproc", null) |
         res := resources_map[_]
         true
      }
@@ -80,20 +50,20 @@ minproc = ret {
         true
      }
 }
-proctype = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proctype", null) |
+minmem = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minmem", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+max_virtual_cores = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_virtual_cores", null) |
         res := resources_map[_]
         true
      }
 }
-min_virtual_cores = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_virtual_cores", null) |
+pi_instance_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
         res := resources_map[_]
         true
      }
@@ -110,8 +80,38 @@ state = ret {
         true
      }
 }
-memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+processors = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "processors", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pin_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pin_policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+maxmem = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maxmem", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_cores_assigned = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_cores_assigned", null) |
+        res := resources_map[_]
+        true
+     }
+}
+min_virtual_cores = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_virtual_cores", null) |
         res := resources_map[_]
         true
      }

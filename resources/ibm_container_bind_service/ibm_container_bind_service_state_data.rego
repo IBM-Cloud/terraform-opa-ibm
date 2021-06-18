@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_bind_service", "data").resources[_]
 }
+namespace_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_key_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_key_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cluster_name_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
         res := resources_map[_]
@@ -22,18 +34,6 @@ service_instance_id = ret {
 }
 service_instance_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_key_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_key_name", null) |
         res := resources_map[_]
         true
      }

@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_app_config_environments").resources[_]
 }
-limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
+guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
         true
      }
 }
-guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
         res := resources_map[_]
         true
      }

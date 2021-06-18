@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_zones", "data").resources[_]
 }
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
 region_ = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region_", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ region_ = ret {
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
         true
      }

@@ -14,20 +14,32 @@ cert_crn = ret {
         true
      }
 }
+domain_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 expires_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
         res := resources_map[_]
         true
      }
 }
-issuer_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer_name", null) |
+cloud_cert_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_cert_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-cloud_cert_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_cert_instance_id", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }
@@ -56,20 +68,8 @@ persistence = ret {
         true
      }
 }
-domain_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+issuer_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer_name", null) |
         res := resources_map[_]
         true
      }

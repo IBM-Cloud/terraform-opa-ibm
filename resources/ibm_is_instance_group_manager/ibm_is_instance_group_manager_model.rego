@@ -23,20 +23,32 @@ aggregation_window = ret {
         true
      }
 }
+max_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+min_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
 manager_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_id", null) |
         res := resources_map[_]
         true
      }
 }
-actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
+policies = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
         res := resources_map[_]
         true
      }
@@ -53,26 +65,14 @@ instance_group = ret {
         true
      }
 }
-policies = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cooldown = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
         res := resources_map[_]
         true
      }
 }
-max_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-min_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

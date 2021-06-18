@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_iam_api_key").resources[_]
 }
+entity_lock = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_lock", null) |
+        res := resources_map[_]
+        true
+     }
+}
 apikey = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
         res := resources_map[_]
@@ -19,20 +25,14 @@ name = ret {
         true
      }
 }
-entity_lock = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_lock", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
 store_value = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "store_value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

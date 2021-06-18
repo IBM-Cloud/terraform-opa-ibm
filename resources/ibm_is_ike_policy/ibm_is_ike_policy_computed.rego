@@ -13,6 +13,12 @@ href = ret {
         true
      }
 }
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ negotiation_mode = ret {
 }
 vpn_connections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }

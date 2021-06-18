@@ -7,8 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_app_config_features").resources[_]
 }
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 includes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "includes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offset = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
+        res := resources_map[_]
+        true
+     }
+}
+segments = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segments", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +43,8 @@ guid = ret {
         true
      }
 }
-sort = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sort", null) |
-        res := resources_map[_]
-        true
-     }
-}
-collections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "collections", null) |
+environment_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
         res := resources_map[_]
         true
      }
@@ -43,26 +55,14 @@ expand = ret {
         true
      }
 }
-environment_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
+sort = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sort", null) |
         res := resources_map[_]
         true
      }
 }
-segments = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segments", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offset = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
+collections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "collections", null) |
         res := resources_map[_]
         true
      }

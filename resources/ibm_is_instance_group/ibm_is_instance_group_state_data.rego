@@ -20,6 +20,24 @@ membership_count = ret {
         true
      }
 }
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+application_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "application_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+managers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
@@ -38,32 +56,14 @@ name = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
-        res := resources_map[_]
-        true
-     }
-}
-application_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "application_port", null) |
-        res := resources_map[_]
-        true
-     }
-}
 load_balancer_pool = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool", null) |
         res := resources_map[_]
         true
      }
 }
-managers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

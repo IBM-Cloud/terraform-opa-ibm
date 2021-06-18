@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_resource_quota", "data").resources[_]
 }
+max_service_instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_service_instances", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vsi_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vsi_limit", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -40,18 +52,6 @@ max_app_instance_memory = ret {
 }
 total_app_memory = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_app_memory", null) |
-        res := resources_map[_]
-        true
-     }
-}
-max_service_instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_service_instances", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vsi_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vsi_limit", null) |
         res := resources_map[_]
         true
      }

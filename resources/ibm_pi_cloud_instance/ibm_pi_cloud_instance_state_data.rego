@@ -26,8 +26,32 @@ region = ret {
         true
      }
 }
+capabilities = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capabilities", null) |
+        res := resources_map[_]
+        true
+     }
+}
 total_memory_consumed = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_memory_consumed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+total_standard_storage_consumed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_standard_storage_consumed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+total_processors_consumed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_processors_consumed", null) |
         res := resources_map[_]
         true
      }
@@ -44,38 +68,14 @@ total_ssd_storage_consumed = ret {
         true
      }
 }
-total_standard_storage_consumed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_standard_storage_consumed", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pvm_instances = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pvm_instances", null) |
         res := resources_map[_]
         true
      }
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-capabilities = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capabilities", null) |
-        res := resources_map[_]
-        true
-     }
-}
-total_processors_consumed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_processors_consumed", null) |
         res := resources_map[_]
         true
      }
