@@ -13,6 +13,12 @@ class = ret {
         true
      }
 }
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
 family = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ name = ret {
 }
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }

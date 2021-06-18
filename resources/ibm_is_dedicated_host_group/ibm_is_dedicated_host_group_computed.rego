@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_dedicated_host_group").resources[_]
 }
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+dedicated_hosts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
         res := resources_map[_]
         true
      }
@@ -19,14 +19,14 @@ created_at = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-dedicated_hosts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,8 @@ resource_group = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

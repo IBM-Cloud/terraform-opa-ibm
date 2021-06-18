@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_network_port_attach", "managed").resources[_]
 }
+pi_network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_network_port_description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_port_description", null) |
         res := resources_map[_]
@@ -37,12 +43,6 @@ pi_cloud_instance_id = ret {
 }
 pi_instance_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_network_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
         res := resources_map[_]
         true
      }

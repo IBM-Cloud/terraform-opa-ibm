@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cm_offering_instance").resources[_]
 }
-_rev = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "_rev", null) |
+schematics_workspace_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "schematics_workspace_id", null) |
         res := resources_map[_]
         true
      }
 }
-schematics_workspace_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "schematics_workspace_id", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ url = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+_rev = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "_rev", null) |
         res := resources_map[_]
         true
      }

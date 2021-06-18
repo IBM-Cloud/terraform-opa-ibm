@@ -13,12 +13,6 @@ annotations = ret {
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
 publish = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ publish = ret {
 }
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }

@@ -19,8 +19,14 @@ aggregation_window = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+max_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+min_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +49,8 @@ cooldown = ret {
         true
      }
 }
-max_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-min_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

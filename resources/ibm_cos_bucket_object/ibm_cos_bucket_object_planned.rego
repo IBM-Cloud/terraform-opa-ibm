@@ -7,26 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cos_bucket_object").resources[_]
 }
-force_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
 key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bucket_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bucket_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_location", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +19,14 @@ endpoint_type = ret {
         true
      }
 }
-content = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
+etag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bucket_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_crn", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +43,20 @@ content_file = ret {
         true
      }
 }
-etag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
+force_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bucket_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+content = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
         true
      }

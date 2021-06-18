@@ -23,24 +23,6 @@ region = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 worker_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
         res := resources_map[_]
@@ -53,14 +35,32 @@ wait_till_albs = ret {
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
 }
 private_vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_container_alb").resources[_]
 }
-user_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
         res := resources_map[_]
         true
      }
@@ -19,20 +25,14 @@ disable_deployment = ret {
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
 alb_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_id", null) |
         res := resources_map[_]
         true
      }
 }
-enable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+user_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
         res := resources_map[_]
         true
      }

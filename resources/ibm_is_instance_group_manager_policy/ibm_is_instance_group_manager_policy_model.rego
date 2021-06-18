@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group_manager_policy", "managed").resources[_]
 }
+policy_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 policy_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_id", null) |
         res := resources_map[_]
@@ -43,12 +49,6 @@ metric_type = ret {
 }
 metric_value = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metric_value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-policy_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_type", null) |
         res := resources_map[_]
         true
      }

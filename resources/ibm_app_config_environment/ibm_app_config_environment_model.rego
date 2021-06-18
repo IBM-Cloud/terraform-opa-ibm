@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_app_config_environment", "managed").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 environment_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
         res := resources_map[_]
@@ -29,14 +23,26 @@ tags = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+created_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_time", null) |
         res := resources_map[_]
         true
      }
 }
 guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -53,14 +59,8 @@ color_code = ret {
         true
      }
 }
-created_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_time", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

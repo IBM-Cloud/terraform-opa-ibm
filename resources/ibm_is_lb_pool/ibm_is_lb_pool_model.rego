@@ -17,14 +17,50 @@ algorithm = ret {
         true
      }
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+health_retries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_retries", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_type", null) |
         res := resources_map[_]
         true
      }
 }
 proxy_protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+provisioning_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
@@ -47,32 +83,8 @@ health_delay = ret {
         true
      }
 }
-health_retries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_retries", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-session_persistence_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+session_persistence_cookie_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_cookie_name", null) |
         res := resources_map[_]
         true
      }
@@ -89,20 +101,8 @@ health_monitor_port = ret {
         true
      }
 }
-session_persistence_cookie_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_cookie_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-provisioning_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
+session_persistence_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_type", null) |
         res := resources_map[_]
         true
      }

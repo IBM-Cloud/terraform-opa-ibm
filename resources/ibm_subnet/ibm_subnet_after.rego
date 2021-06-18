@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_subnet").resources[_]
 }
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-endpoint_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_ip", null) |
+vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +37,20 @@ private = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ip_version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
         res := resources_map[_]
         true
      }
 }
-vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_ip", null) |
         res := resources_map[_]
         true
      }

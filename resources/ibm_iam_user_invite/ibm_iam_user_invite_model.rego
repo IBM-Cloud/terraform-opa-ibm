@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_user_invite", "managed").resources[_]
 }
+iam_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
 number_of_invited_users = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "number_of_invited_users", null) |
         res := resources_map[_]
@@ -43,12 +49,6 @@ users = ret {
 }
 access_groups = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_groups", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iam_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_policy", null) |
         res := resources_map[_]
         true
      }

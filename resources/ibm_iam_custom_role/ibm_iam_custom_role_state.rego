@@ -20,14 +20,14 @@ service = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +44,8 @@ actions = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }

@@ -13,6 +13,18 @@ proxy_protocol = ret {
         true
      }
 }
+provisioning_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
@@ -27,18 +39,6 @@ health_monitor_url = ret {
 }
 health_monitor_port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-provisioning_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
         res := resources_map[_]
         true
      }

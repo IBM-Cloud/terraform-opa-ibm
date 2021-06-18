@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_cis_waf_rules").resources[_]
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 domain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ domain_id = ret {
 }
 package_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }

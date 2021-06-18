@@ -13,8 +13,8 @@ name = ret {
         true
      }
 }
-exec = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
+limits = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ namespace = ret {
         true
      }
 }
-limits = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
+exec = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
         res := resources_map[_]
         true
      }

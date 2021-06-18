@@ -11,20 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cos_bucket", "managed").resources[_]
 }
-metrics_monitoring = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metrics_monitoring", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-s3_endpoint_public = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_public", null) |
+allowed_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip", null) |
         res := resources_map[_]
         true
      }
@@ -35,20 +23,20 @@ activity_tracking = ret {
         true
      }
 }
-object_versioning = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_versioning", null) |
+force_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
         res := resources_map[_]
         true
      }
 }
-bucket_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_name", null) |
+resource_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+expire_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expire_rule", null) |
         res := resources_map[_]
         true
      }
@@ -59,50 +47,8 @@ retention_rule = ret {
         true
      }
 }
-force_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region_location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cross_region_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cross_region_location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-archive_rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "archive_rule", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-s3_endpoint_private = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_private", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allowed_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expire_rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expire_rule", null) |
+bucket_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_name", null) |
         res := resources_map[_]
         true
      }
@@ -119,8 +65,62 @@ single_site_location = ret {
         true
      }
 }
+cross_region_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cross_region_location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+s3_endpoint_public = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_public", null) |
+        res := resources_map[_]
+        true
+     }
+}
+s3_endpoint_private = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_private", null) |
+        res := resources_map[_]
+        true
+     }
+}
+object_versioning = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_versioning", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region_location", null) |
+        res := resources_map[_]
+        true
+     }
+}
 storage_class = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_class", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+metrics_monitoring = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metrics_monitoring", null) |
+        res := resources_map[_]
+        true
+     }
+}
+archive_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "archive_rule", null) |
         res := resources_map[_]
         true
      }

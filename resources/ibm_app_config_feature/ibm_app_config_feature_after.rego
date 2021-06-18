@@ -19,8 +19,8 @@ type = ret {
         true
      }
 }
-enabled_value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled_value", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +31,8 @@ environment_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 disabled_value = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled_value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -57,6 +45,18 @@ segment_rules = ret {
 }
 guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enabled_value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled_value", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

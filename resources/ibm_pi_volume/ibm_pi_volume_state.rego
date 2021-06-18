@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_volume", "managed").resources[_]
 }
-delete_on_termination = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_on_termination", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_volume_size = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_size", null) |
         res := resources_map[_]
@@ -32,8 +26,8 @@ pi_cloud_instance_id = ret {
         true
      }
 }
-volume_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_status", null) |
+delete_on_termination = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_on_termination", null) |
         res := resources_map[_]
         true
      }
@@ -58,6 +52,12 @@ pi_volume_name = ret {
 }
 pi_volume_shareable = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_shareable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_status", null) |
         res := resources_map[_]
         true
      }

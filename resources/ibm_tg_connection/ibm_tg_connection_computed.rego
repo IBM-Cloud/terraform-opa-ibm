@@ -13,8 +13,20 @@ created_at = ret {
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+request_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "request_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+connection_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,26 +43,14 @@ network_account_id = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-request_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "request_status", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
 }
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-connection_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_id", null) |
         res := resources_map[_]
         true
      }

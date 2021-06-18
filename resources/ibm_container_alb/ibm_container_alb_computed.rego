@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_container_alb").resources[_]
 }
-user_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
+enable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
         res := resources_map[_]
         true
      }
@@ -19,20 +19,14 @@ disable_deployment = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +37,14 @@ alb_type = ret {
         true
      }
 }
-enable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
         res := resources_map[_]
         true
      }

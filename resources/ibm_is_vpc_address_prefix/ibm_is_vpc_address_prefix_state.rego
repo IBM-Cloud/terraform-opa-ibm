@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_address_prefix", "managed").resources[_]
 }
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+has_subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
@@ -34,18 +46,6 @@ cidr = ret {
 }
 is_default = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
-has_subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_subnets", null) |
         res := resources_map[_]
         true
      }

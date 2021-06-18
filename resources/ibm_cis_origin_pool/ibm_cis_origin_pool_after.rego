@@ -13,14 +13,14 @@ cis_id = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,14 @@ monitor = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+check_regions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "check_regions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+notification_email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_email", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +55,8 @@ origins = ret {
         true
      }
 }
-check_regions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "check_regions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-notification_email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_email", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }

@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_vpc_worker_pool", "managed").resources[_]
 }
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+        res := resources_map[_]
+        true
+     }
+}
 labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
@@ -26,8 +32,8 @@ vpc_id = ret {
         true
      }
 }
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+entitlement = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
         res := resources_map[_]
         true
      }
@@ -44,18 +50,6 @@ cluster = ret {
         true
      }
 }
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
-entitlement = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
-        res := resources_map[_]
-        true
-     }
-}
 flavor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
         res := resources_map[_]
@@ -64,6 +58,12 @@ flavor = ret {
 }
 worker_pool_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
         res := resources_map[_]
         true
      }
