@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cos_bucket").resources[_]
 }
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 s3_endpoint_public = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_public", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ s3_endpoint_public = ret {
 }
 s3_endpoint_private = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_private", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

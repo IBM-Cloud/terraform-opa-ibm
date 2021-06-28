@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_vpx_service", "managed").resources[_]
 }
-health_check = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }
 }
-usip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "usip", null) |
+health_check = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
         res := resources_map[_]
         true
      }
@@ -26,8 +26,8 @@ tags = ret {
         true
      }
 }
-vip_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
+destination_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_ip_address", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +38,8 @@ name = ret {
         true
      }
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+destination_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_port", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +50,14 @@ connection_limit = ret {
         true
      }
 }
-destination_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_ip_address", null) |
+usip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "usip", null) |
         res := resources_map[_]
         true
      }
 }
-destination_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_port", null) |
+vip_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
         res := resources_map[_]
         true
      }

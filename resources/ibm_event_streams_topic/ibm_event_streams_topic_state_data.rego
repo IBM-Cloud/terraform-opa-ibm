@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_event_streams_topic", "data").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-partitions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "partitions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
         res := resources_map[_]
@@ -40,6 +22,24 @@ kafka_http_url = ret {
 }
 kafka_brokers_sasl = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kafka_brokers_sasl", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+partitions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "partitions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config", null) |
         res := resources_map[_]
         true
      }

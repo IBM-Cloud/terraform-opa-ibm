@@ -8,26 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_function_trigger", "managed").resources[_]
 }
-user_defined_parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
-annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
-        res := resources_map[_]
-        true
-     }
-}
-feed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feed", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +26,20 @@ version = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+trigger_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
+feed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feed", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +50,20 @@ user_defined_annotations = ret {
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+user_defined_parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
         res := resources_map[_]
         true
      }
 }
-trigger_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
+annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }

@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_subnets", "data").resources[_]
 }
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routing_table_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routing_table = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subnets = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]

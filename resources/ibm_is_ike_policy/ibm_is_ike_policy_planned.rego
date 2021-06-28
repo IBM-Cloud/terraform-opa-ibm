@@ -13,8 +13,8 @@ name = ret {
         true
      }
 }
-encryption_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_algorithm", null) |
+authentication_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ ike_version = ret {
         true
      }
 }
-authentication_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
+encryption_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_algorithm", null) |
         res := resources_map[_]
         true
      }

@@ -11,24 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_virtual_endpoint_gateway", "managed").resources[_]
 }
-ips = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ips", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -47,8 +29,26 @@ resource_type = ret {
         true
      }
 }
+health_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lifecycle_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
@@ -65,8 +65,8 @@ created_at = ret {
         true
      }
 }
-health_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_state", null) |
+ips = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ips", null) |
         res := resources_map[_]
         true
      }

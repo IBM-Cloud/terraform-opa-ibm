@@ -13,12 +13,6 @@ created_date = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_created_date = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_created_date", null) |
         res := resources_map[_]
@@ -43,14 +37,20 @@ account = ret {
         true
      }
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+updated_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_on", null) |
         res := resources_map[_]
         true
      }
 }
-updated_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_on", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }

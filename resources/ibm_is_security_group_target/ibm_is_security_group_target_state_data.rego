@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_security_group_target", "data").resources[_]
 }
+security_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -22,18 +34,6 @@ resource_type = ret {
 }
 more_info = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "more_info", null) |
-        res := resources_map[_]
-        true
-     }
-}
-security_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
         res := resources_map[_]
         true
      }

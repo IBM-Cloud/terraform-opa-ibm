@@ -13,6 +13,12 @@ default_network_acl = ret {
         true
      }
 }
+default_security_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_security_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 classic_access = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "classic_access", null) |
         res := resources_map[_]
@@ -25,20 +31,8 @@ name = ret {
         true
      }
 }
-default_security_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_security_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address_prefix_management = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix_management", null) |
+default_network_acl_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_network_acl_name", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +43,20 @@ tags = ret {
         true
      }
 }
-default_network_acl_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_network_acl_name", null) |
+address_prefix_management = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix_management", null) |
         res := resources_map[_]
         true
      }
 }
 default_routing_table_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_routing_table_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

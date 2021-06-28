@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_firewall", "data").resources[_]
 }
-ua_rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ua_rule", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
@@ -40,6 +34,12 @@ lockdown = ret {
 }
 access_rule = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ua_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ua_rule", null) |
         res := resources_map[_]
         true
      }
