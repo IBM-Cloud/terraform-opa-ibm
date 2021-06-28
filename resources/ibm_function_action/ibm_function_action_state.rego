@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_function_action", "managed").resources[_]
 }
-target_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+limits = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
         res := resources_map[_]
         true
      }
@@ -26,14 +20,8 @@ exec = ret {
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_defined_annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
+user_defined_parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +38,14 @@ parameters = ret {
         true
      }
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-limits = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }
@@ -68,14 +56,26 @@ publish = ret {
         true
      }
 }
-user_defined_parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_defined_annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
         res := resources_map[_]
         true
      }
 }
 action_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_endpoint_url", null) |
         res := resources_map[_]
         true
      }

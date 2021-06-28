@@ -11,20 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_resource_instance", "managed").resources[_]
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
 }
-allow_cleanup = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_cleanup", null) |
-        res := resources_map[_]
-        true
-     }
-}
-locked = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -35,32 +29,32 @@ resource_keys_url = ret {
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }
 }
-dashboard_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
         res := resources_map[_]
         true
      }
 }
-target_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_crn", null) |
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
         res := resources_map[_]
         true
      }
 }
-restored_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restored_by", null) |
+allow_cleanup = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_cleanup", null) |
         res := resources_map[_]
         true
      }
@@ -89,14 +83,20 @@ scheduled_reclaim_by = ret {
         true
      }
 }
-deleted_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deleted_by", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_crn", null) |
         res := resources_map[_]
         true
      }
@@ -113,14 +113,20 @@ name = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+target_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_crn", null) |
         res := resources_map[_]
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+restored_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restored_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dashboard_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
         res := resources_map[_]
         true
      }
@@ -131,8 +137,20 @@ resource_plan_id = ret {
         true
      }
 }
-sub_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sub_type", null) |
+plan_history = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan_history", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+locked = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
         res := resources_map[_]
         true
      }
@@ -143,44 +161,44 @@ resource_bindings_url = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-update_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 deleted_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deleted_at", null) |
         res := resources_map[_]
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_endpoints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
+        res := resources_map[_]
+        true
+     }
+}
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sub_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sub_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+last_operation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_operation", null) |
+        res := resources_map[_]
+        true
+     }
+}
+restored_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restored_at", null) |
         res := resources_map[_]
         true
      }
@@ -197,50 +215,26 @@ guid = ret {
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-last_operation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_operation", null) |
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }
 }
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }
 }
-resource_aliases_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_aliases_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_crn", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -251,20 +245,26 @@ resource_id = ret {
         true
      }
 }
-service_endpoints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
+update_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_at", null) |
         res := resources_map[_]
         true
      }
 }
-plan_history = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan_history", null) |
+deleted_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deleted_by", null) |
         res := resources_map[_]
         true
      }
 }
-restored_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restored_at", null) |
+resource_aliases_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_aliases_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }

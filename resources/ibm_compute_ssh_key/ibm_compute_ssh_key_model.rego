@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_ssh_key", "managed").resources[_]
 }
-fingerprint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fingerprint", null) |
-        res := resources_map[_]
-        true
-     }
-}
 notes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
         res := resources_map[_]
@@ -37,6 +31,12 @@ label = ret {
 }
 public_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+fingerprint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fingerprint", null) |
         res := resources_map[_]
         true
      }

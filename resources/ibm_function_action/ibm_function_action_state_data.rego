@@ -14,8 +14,14 @@ name = ret {
         true
      }
 }
-limits = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
+exec = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +44,8 @@ action_id = ret {
         true
      }
 }
-target_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
-        res := resources_map[_]
-        true
-     }
-}
-exec = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
+limits = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
         res := resources_map[_]
         true
      }
@@ -64,6 +58,12 @@ version = ret {
 }
 annotations = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_endpoint_url", null) |
         res := resources_map[_]
         true
      }

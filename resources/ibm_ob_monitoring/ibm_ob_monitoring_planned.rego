@@ -13,6 +13,12 @@ private_endpoint = ret {
         true
      }
 }
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
 sysdig_access_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sysdig_access_key", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ sysdig_access_key = ret {
 }
 instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }

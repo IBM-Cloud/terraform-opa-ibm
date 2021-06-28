@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_iam_user_policy").resources[_]
 }
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ibm_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 roles = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "roles", null) |
         res := resources_map[_]
@@ -27,18 +39,6 @@ resource_attributes = ret {
 }
 account_management = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_management", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ibm_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
         res := resources_map[_]
         true
      }

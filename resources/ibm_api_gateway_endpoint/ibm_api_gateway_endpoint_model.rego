@@ -23,32 +23,14 @@ name = ret {
         true
      }
 }
-shared = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
+managed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed", null) |
         res := resources_map[_]
         true
      }
 }
 base_path = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_path", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed", null) |
         res := resources_map[_]
         true
      }
@@ -67,6 +49,24 @@ endpoint_id = ret {
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_instance_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+shared = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }

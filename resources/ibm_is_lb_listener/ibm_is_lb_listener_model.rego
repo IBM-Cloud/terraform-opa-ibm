@@ -11,14 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_listener", "managed").resources[_]
 }
-connection_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
@@ -29,8 +23,14 @@ protocol = ret {
         true
      }
 }
-accept_proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
+certificate_instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
+        res := resources_map[_]
+        true
+     }
+}
+connection_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
         res := resources_map[_]
         true
      }
@@ -47,26 +47,26 @@ listener_id = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate_instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
 }
 default_pool = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+accept_proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
         res := resources_map[_]
         true
      }

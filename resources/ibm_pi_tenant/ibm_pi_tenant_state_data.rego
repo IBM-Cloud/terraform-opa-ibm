@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_tenant", "data").resources[_]
 }
-cloud_instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_instances", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 creation_date = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
         res := resources_map[_]
@@ -34,6 +22,18 @@ enabled = ret {
 }
 tenant_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cloud_instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_instances", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

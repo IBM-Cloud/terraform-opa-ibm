@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_org_quota", "data").resources[_]
 }
-total_services = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_services", null) |
+total_routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_routes", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +38,8 @@ total_service_keys = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+total_reserved_route_ports = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_reserved_route_ports", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +50,8 @@ non_basic_services_allowed = ret {
         true
      }
 }
-total_routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_routes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-memory_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_limit", null) |
+total_services = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_services", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +68,14 @@ total_private_domains = ret {
         true
      }
 }
-total_reserved_route_ports = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_reserved_route_ports", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+memory_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_limit", null) |
         res := resources_map[_]
         true
      }

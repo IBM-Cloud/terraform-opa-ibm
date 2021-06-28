@@ -8,8 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_certificate_manager_import", "managed").resources[_]
 }
-data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
+key_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+certificate_manager_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+issuer = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer", null) |
         res := resources_map[_]
         true
      }
@@ -26,32 +44,8 @@ expires_on = ret {
         true
      }
 }
-key_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate_manager_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 imported = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "imported", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +56,14 @@ has_previous = ret {
         true
      }
 }
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +74,8 @@ description = ret {
         true
      }
 }
-issuer = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

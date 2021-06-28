@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_storage_block").resources[_]
 }
-iops = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
+hourly_billing = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hourly_billing", null) |
         res := resources_map[_]
         true
      }
@@ -19,32 +19,8 @@ datacenter = ret {
         true
      }
 }
-snapshot_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot_capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allowed_virtual_guest_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_virtual_guest_ids", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-os_format_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os_format_type", null) |
+iops = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +31,20 @@ notes = ret {
         true
      }
 }
+allowed_hardware_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_hardware_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
 allowed_ip_addresses = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip_addresses", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -67,14 +55,26 @@ type = ret {
         true
      }
 }
-allowed_hardware_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_hardware_ids", null) |
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
         res := resources_map[_]
         true
      }
 }
-hourly_billing = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hourly_billing", null) |
+snapshot_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot_capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+os_format_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os_format_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+allowed_virtual_guest_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_virtual_guest_ids", null) |
         res := resources_map[_]
         true
      }

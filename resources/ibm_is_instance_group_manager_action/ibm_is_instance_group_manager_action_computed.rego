@@ -13,6 +13,12 @@ resource_type = ret {
         true
      }
 }
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 auto_delete_timeout = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete_timeout", null) |
         res := resources_map[_]
@@ -31,8 +37,14 @@ next_run_at = ret {
         true
      }
 }
-target_manager_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_manager_name", null) |
+action_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -43,26 +55,14 @@ status = ret {
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+target_manager_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_manager_name", null) |
         res := resources_map[_]
         true
      }
 }
 action_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-action_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }

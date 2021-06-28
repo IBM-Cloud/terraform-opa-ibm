@@ -8,14 +8,68 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dl_gateway", "data").resources[_]
 }
+bgp_cer_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_cer_cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bgp_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+global = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global", null) |
+        res := resources_map[_]
+        true
+     }
+}
+operational_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operational_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
 gateway_vcs = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_vcs", null) |
         res := resources_map[_]
         true
      }
 }
-provider_api_managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_api_managed", null) |
+bgp_base_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_base_cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
+speed_mbps = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed_mbps", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vlan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
+        res := resources_map[_]
+        true
+     }
+}
+completion_notice_reject_reason = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "completion_notice_reject_reason", null) |
         res := resources_map[_]
         true
      }
@@ -32,26 +86,8 @@ link_status = ret {
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bgp_cer_cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_cer_cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bgp_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_status", null) |
+bgp_asn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_asn", null) |
         res := resources_map[_]
         true
      }
@@ -62,80 +98,20 @@ change_request = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-completion_notice_reject_reason = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "completion_notice_reject_reason", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location_display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_display_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bgp_asn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_asn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bgp_base_cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_base_cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
 bgp_ibm_cidr = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_ibm_cidr", null) |
         res := resources_map[_]
         true
      }
 }
-macsec_config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "macsec_config", null) |
+metered = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metered", null) |
         res := resources_map[_]
         true
      }
 }
-operational_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operational_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vlan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
-        res := resources_map[_]
-        true
-     }
-}
-speed_mbps = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed_mbps", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+provider_api_managed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_api_managed", null) |
         res := resources_map[_]
         true
      }
@@ -152,14 +128,38 @@ bgp_ibm_asn = ret {
         true
      }
 }
-global = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global", null) |
+location_display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_display_name", null) |
         res := resources_map[_]
         true
      }
 }
-metered = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metered", null) |
+location_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+macsec_config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "macsec_config", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }

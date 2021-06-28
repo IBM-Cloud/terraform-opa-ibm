@@ -8,32 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_cluster_config", "data").resources[_]
 }
-org_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-token = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "token", null) |
-        res := resources_map[_]
-        true
-     }
-}
-download = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "download", null) |
-        res := resources_map[_]
-        true
-     }
-}
-admin = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network", null) |
+config_file_path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config_file_path", null) |
         res := resources_map[_]
         true
      }
@@ -56,26 +32,62 @@ space_guid = ret {
         true
      }
 }
-account_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cluster_name_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
         res := resources_map[_]
         true
      }
 }
-host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host", null) |
+config_dir = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config_dir", null) |
+        res := resources_map[_]
+        true
+     }
+}
+admin = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin", null) |
+        res := resources_map[_]
+        true
+     }
+}
+org_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+token = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "token", null) |
         res := resources_map[_]
         true
      }
 }
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+download = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "download", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network", null) |
         res := resources_map[_]
         true
      }
@@ -92,20 +104,8 @@ ca_certificate = ret {
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-config_dir = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config_dir", null) |
-        res := resources_map[_]
-        true
-     }
-}
-config_file_path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config_file_path", null) |
+host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host", null) |
         res := resources_map[_]
         true
      }

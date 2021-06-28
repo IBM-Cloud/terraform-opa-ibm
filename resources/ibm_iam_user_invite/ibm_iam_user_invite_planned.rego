@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_iam_user_invite").resources[_]
 }
+classic_infra_roles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "classic_infra_roles", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cloud_foundry_roles = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_foundry_roles", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ access_groups = ret {
 }
 iam_policy = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-classic_infra_roles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "classic_infra_roles", null) |
         res := resources_map[_]
         true
      }
