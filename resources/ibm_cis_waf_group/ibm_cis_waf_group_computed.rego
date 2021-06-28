@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_waf_group").resources[_]
 }
-rules_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ name = ret {
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rules_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules_count", null) |
         res := resources_map[_]
         true
      }

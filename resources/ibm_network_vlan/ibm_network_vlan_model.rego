@@ -17,20 +17,20 @@ datacenter = ret {
         true
      }
 }
-router_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-softlayer_managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "softlayer_managed", null) |
+child_resource_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "child_resource_count", null) |
         res := resources_map[_]
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
@@ -47,20 +47,14 @@ resource_controller_url = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+router_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
         res := resources_map[_]
         true
      }
@@ -71,8 +65,14 @@ vlan_number = ret {
         true
      }
 }
-child_resource_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "child_resource_count", null) |
+softlayer_managed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "softlayer_managed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }

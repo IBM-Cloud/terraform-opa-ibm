@@ -19,12 +19,6 @@ created_time = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
 segment_exists = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segment_exists", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ segment_exists = ret {
 }
 updated_time = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

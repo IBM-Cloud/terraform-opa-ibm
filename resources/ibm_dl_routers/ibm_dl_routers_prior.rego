@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_dl_routers").resources[_]
 }
-offering_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_type", null) |
+location_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
         res := resources_map[_]
         true
      }
 }
-location_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
+offering_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_type", null) |
         res := resources_map[_]
         true
      }

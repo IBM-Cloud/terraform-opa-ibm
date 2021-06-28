@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cm_catalog", "data").resources[_]
 }
+catalog_identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_identifier", null) |
+        res := resources_map[_]
+        true
+     }
+}
+label = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
+        res := resources_map[_]
+        true
+     }
+}
 short_description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
         res := resources_map[_]
@@ -40,18 +52,6 @@ crn = ret {
 }
 offerings_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-catalog_identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_identifier", null) |
-        res := resources_map[_]
-        true
-     }
-}
-label = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]
         true
      }

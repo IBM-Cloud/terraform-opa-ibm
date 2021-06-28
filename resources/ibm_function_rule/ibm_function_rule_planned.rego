@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_function_rule").resources[_]
 }
+action_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 namespace = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ name = ret {
 }
 trigger_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-action_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_name", null) |
         res := resources_map[_]
         true
      }

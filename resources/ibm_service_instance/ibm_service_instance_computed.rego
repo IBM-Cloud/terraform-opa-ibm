@@ -19,14 +19,14 @@ service_keys = ret {
         true
      }
 }
-dashboard_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
+service_plan_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_plan_guid", null) |
         res := resources_map[_]
         true
      }
 }
-service_plan_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_plan_guid", null) |
+dashboard_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
         res := resources_map[_]
         true
      }

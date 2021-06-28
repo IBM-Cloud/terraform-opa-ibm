@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_certificate_manager_order").resources[_]
 }
-domain_validation_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_validation_method", null) |
+renew_certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "renew_certificate", null) |
+        res := resources_map[_]
+        true
+     }
+}
+auto_renew_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_renew_enabled", null) |
         res := resources_map[_]
         true
      }
@@ -25,26 +31,8 @@ domains = ret {
         true
      }
 }
-renew_certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "renew_certificate", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-auto_renew_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_renew_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate_manager_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
+key_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +43,20 @@ rotate_keys = ret {
         true
      }
 }
-key_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_validation_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_validation_method", null) |
+        res := resources_map[_]
+        true
+     }
+}
+certificate_manager_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_manager_instance_id", null) |
         res := resources_map[_]
         true
      }
