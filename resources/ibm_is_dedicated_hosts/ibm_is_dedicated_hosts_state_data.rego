@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_hosts", "data").resources[_]
 }
-total_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
 host_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_group", null) |
         res := resources_map[_]
@@ -40,6 +34,12 @@ limit = ret {
 }
 next = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next", null) |
+        res := resources_map[_]
+        true
+     }
+}
+total_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
         res := resources_map[_]
         true
      }

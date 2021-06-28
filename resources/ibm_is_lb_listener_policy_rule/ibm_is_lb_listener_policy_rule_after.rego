@@ -25,6 +25,12 @@ type = ret {
         true
      }
 }
+field = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "field", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lb = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
@@ -39,12 +45,6 @@ condition = ret {
 }
 value = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-field = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "field", null) |
         res := resources_map[_]
         true
      }

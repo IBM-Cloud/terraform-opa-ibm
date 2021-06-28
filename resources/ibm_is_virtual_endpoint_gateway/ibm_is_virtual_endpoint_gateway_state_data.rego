@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_virtual_endpoint_gateway", "data").resources[_]
 }
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 lifecycle_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ health_state = ret {
 }
 target = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }

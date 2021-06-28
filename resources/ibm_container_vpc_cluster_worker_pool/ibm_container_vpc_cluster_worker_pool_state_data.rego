@@ -26,12 +26,6 @@ labels = ret {
         true
      }
 }
-vpc_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 isolation = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "isolation", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ zones = ret {
 }
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
         res := resources_map[_]
         true
      }

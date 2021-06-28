@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_service_key", "managed").resources[_]
 }
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -31,12 +37,6 @@ parameters = ret {
 }
 credentials = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

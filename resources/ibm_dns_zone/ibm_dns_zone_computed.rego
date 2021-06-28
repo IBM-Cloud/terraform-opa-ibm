@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_zone").resources[_]
 }
+zone_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ created_on = ret {
 }
 modified_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
         res := resources_map[_]
         true
      }

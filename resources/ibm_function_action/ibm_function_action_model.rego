@@ -23,8 +23,8 @@ name = ret {
         true
      }
 }
-limits = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
+exec = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
         res := resources_map[_]
         true
      }
@@ -37,12 +37,6 @@ version = ret {
 }
 user_defined_annotations = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_defined_parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +59,20 @@ namespace = ret {
         true
      }
 }
-exec = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "exec", null) |
+limits = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
         res := resources_map[_]
         true
      }
 }
 publish = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_defined_parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
         res := resources_map[_]
         true
      }

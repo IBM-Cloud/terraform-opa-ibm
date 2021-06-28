@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_default_routing_table", "data").resources[_]
 }
+routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subnets = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
@@ -20,8 +26,14 @@ href = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+route_vpc_zone_ingress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_vpc_zone_ingress", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +80,8 @@ default_routing_table = ret {
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-route_vpc_zone_ingress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_vpc_zone_ingress", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

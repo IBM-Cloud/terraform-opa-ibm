@@ -13,14 +13,14 @@ location = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ resource_group_id = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

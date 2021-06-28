@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_object_storage_account", "managed").resources[_]
 }
+local_note = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_note", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -19,12 +25,6 @@ tags = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-local_note = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_note", null) |
         res := resources_map[_]
         true
      }

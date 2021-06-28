@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_rate_limit").resources[_]
 }
-rule_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
+match = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
         res := resources_map[_]
         true
      }
 }
-match = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
+rule_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]
         true
      }

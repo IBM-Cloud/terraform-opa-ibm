@@ -19,26 +19,14 @@ name = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-profile = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
+iops = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
         res := resources_map[_]
         true
      }
 }
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iops = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
         res := resources_map[_]
         true
      }
@@ -51,6 +39,18 @@ zone = ret {
 }
 capacity = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+profile = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
         res := resources_map[_]
         true
      }

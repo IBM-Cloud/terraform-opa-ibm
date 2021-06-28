@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_network_acl").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ tags = ret {
         true
      }
 }
-rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

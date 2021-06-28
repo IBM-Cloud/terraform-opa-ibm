@@ -13,12 +13,6 @@ target_endpoint_url = ret {
         true
      }
 }
-limits = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
-        res := resources_map[_]
-        true
-     }
-}
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ annotations = ret {
 }
 parameters = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+        res := resources_map[_]
+        true
+     }
+}
+limits = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
         res := resources_map[_]
         true
      }

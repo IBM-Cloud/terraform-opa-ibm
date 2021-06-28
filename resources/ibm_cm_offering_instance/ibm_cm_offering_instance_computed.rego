@@ -25,10 +25,4 @@ url = ret {
         true
      }
 }
-_rev = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "_rev", null) |
-        res := resources_map[_]
-        true
-     }
-}
 

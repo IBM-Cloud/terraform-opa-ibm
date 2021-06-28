@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_waf_rule").resources[_]
 }
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ group = ret {
 }
 allowed_modes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_modes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }

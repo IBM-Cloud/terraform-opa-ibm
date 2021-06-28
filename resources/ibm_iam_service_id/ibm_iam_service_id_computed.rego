@@ -25,4 +25,10 @@ iam_id = ret {
         true
      }
 }
+locked = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

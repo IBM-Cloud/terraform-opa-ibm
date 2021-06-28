@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dl_gateway").resources[_]
 }
-carrier_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "carrier_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -25,26 +19,20 @@ bgp_asn = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 speed_mbps = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed_mbps", null) |
         res := resources_map[_]
         true
      }
 }
-global = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global", null) |
-        res := resources_map[_]
-        true
-     }
-}
-customer_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bgp_cer_cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_cer_cidr", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +43,26 @@ resource_group = ret {
         true
      }
 }
-location_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
+loa_reject_reason = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "loa_reject_reason", null) |
         res := resources_map[_]
         true
      }
 }
-loa_reject_reason = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "loa_reject_reason", null) |
+global = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bgp_cer_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_cer_cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
@@ -73,14 +73,14 @@ bgp_ibm_cidr = ret {
         true
      }
 }
-metered = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metered", null) |
+location_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+carrier_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "carrier_name", null) |
         res := resources_map[_]
         true
      }
@@ -91,20 +91,20 @@ macsec_config = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+metered = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metered", null) |
+        res := resources_map[_]
+        true
+     }
+}
+customer_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_name", null) |
         res := resources_map[_]
         true
      }
 }
 bgp_base_cidr = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_base_cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }

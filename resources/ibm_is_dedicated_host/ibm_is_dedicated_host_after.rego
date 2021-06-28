@@ -13,14 +13,14 @@ name = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+profile = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
         res := resources_map[_]
         true
      }
 }
-host_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_group", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ instance_placement_enabled = ret {
         true
      }
 }
-profile = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
+host_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_group", null) |
         res := resources_map[_]
         true
      }

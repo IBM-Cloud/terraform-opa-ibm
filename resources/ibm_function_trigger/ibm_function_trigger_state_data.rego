@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_function_trigger", "data").resources[_]
 }
-trigger_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -46,6 +40,12 @@ annotations = ret {
 }
 parameters = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+        res := resources_map[_]
+        true
+     }
+}
+trigger_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cm_version").resources[_]
 }
-updated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }
@@ -19,14 +19,8 @@ repo_url = ret {
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+sha = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sha", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +31,14 @@ created = ret {
         true
      }
 }
-catalog_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
+tgz_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
         res := resources_map[_]
         true
      }
@@ -49,20 +49,20 @@ kind_id = ret {
         true
      }
 }
-tgz_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sha = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sha", null) |
-        res := resources_map[_]
-        true
-     }
-}
 source_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+catalog_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
         res := resources_map[_]
         true
      }

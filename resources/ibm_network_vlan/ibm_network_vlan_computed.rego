@@ -13,14 +13,14 @@ router_hostname = ret {
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+softlayer_managed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "softlayer_managed", null) |
         res := resources_map[_]
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +31,14 @@ resource_controller_url = ret {
         true
      }
 }
-vlan_number = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_number", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
 }
-softlayer_managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "softlayer_managed", null) |
+vlan_number = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_number", null) |
         res := resources_map[_]
         true
      }

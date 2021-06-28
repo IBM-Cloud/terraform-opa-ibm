@@ -29,20 +29,8 @@ type = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
-        res := resources_map[_]
-        true
-     }
-}
-provisioning_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+field = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "field", null) |
         res := resources_map[_]
         true
      }
@@ -65,8 +53,20 @@ value = ret {
         true
      }
 }
-field = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "field", null) |
+rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+provisioning_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
