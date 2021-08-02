@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_firewall").resources[_]
 }
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
 primary_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ username = ret {
 }
 password = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }

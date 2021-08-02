@@ -8,20 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dl_virtual_connection", "managed").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-network_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+network_account = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account", null) |
         res := resources_map[_]
         true
      }
@@ -44,20 +44,20 @@ gateway = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-network_account = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account", null) |
+network_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

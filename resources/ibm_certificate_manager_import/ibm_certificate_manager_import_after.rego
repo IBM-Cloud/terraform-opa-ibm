@@ -13,14 +13,14 @@ certificate_manager_instance_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
         res := resources_map[_]
         true
      }
 }
-data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

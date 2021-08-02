@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_app_config_feature").resources[_]
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
 segment_exists = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segment_exists", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ updated_time = ret {
 }
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
         res := resources_map[_]
         true
      }

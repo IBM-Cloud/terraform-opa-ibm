@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_global_load_balancers", "data").resources[_]
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cis_glb = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_glb", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ cis_glb = ret {
 }
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }

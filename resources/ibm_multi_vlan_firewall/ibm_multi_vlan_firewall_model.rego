@@ -11,8 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_multi_vlan_firewall", "managed").resources[_]
 }
+public_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
 public_ipv6 = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv6", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip", null) |
         res := resources_map[_]
         true
      }
@@ -25,12 +37,6 @@ datacenter = ret {
 }
 pod = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pod", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -53,14 +59,8 @@ firewall_type = ret {
         true
      }
 }
-public_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip", null) |
+username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
         res := resources_map[_]
         true
      }
@@ -71,14 +71,14 @@ password = ret {
         true
      }
 }
-addon_configuration = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addon_configuration", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
+addon_configuration = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addon_configuration", null) |
         res := resources_map[_]
         true
      }

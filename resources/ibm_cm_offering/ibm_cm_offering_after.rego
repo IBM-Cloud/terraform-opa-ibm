@@ -13,14 +13,14 @@ label = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+catalog_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
         res := resources_map[_]
         true
      }
 }
-catalog_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

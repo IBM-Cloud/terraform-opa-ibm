@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_rate_limit").resources[_]
 }
-threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+correlate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "correlate", null) |
         res := resources_map[_]
         true
      }
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+disabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +31,14 @@ bypass = ret {
         true
      }
 }
-period = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "period", null) |
+threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
         res := resources_map[_]
         true
      }
 }
-correlate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "correlate", null) |
+period = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "period", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +55,14 @@ match = ret {
         true
      }
 }
-disabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }

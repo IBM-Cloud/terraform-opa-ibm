@@ -13,14 +13,14 @@ status = ret {
         true
      }
 }
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
+default_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pool", null) |
         res := resources_map[_]
         true
      }
 }
-default_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pool", null) |
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }

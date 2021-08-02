@@ -11,26 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_ssl_certificate", "managed").resources[_]
 }
-common_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "common_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-validity_begin = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_begin", null) |
-        res := resources_map[_]
-        true
-     }
-}
 create_date = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_date", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+modify_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modify_date", null) |
         res := resources_map[_]
         true
      }
@@ -41,14 +29,14 @@ certificate = ret {
         true
      }
 }
-intermediate_certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
+common_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "common_name", null) |
         res := resources_map[_]
         true
      }
 }
-validity_days = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_days", null) |
+organization_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "organization_name", null) |
         res := resources_map[_]
         true
      }
@@ -65,8 +53,14 @@ key_size = ret {
         true
      }
 }
-modify_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modify_date", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+intermediate_certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
         res := resources_map[_]
         true
      }
@@ -77,8 +71,14 @@ private_key = ret {
         true
      }
 }
-organization_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "organization_name", null) |
+validity_begin = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_begin", null) |
+        res := resources_map[_]
+        true
+     }
+}
+validity_days = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_days", null) |
         res := resources_map[_]
         true
      }

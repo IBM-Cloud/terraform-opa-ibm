@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_image", "data").resources[_]
 }
+operatingsystem = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operatingsystem", null) |
+        res := resources_map[_]
+        true
+     }
+}
 hypervisor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hypervisor", null) |
         res := resources_map[_]
@@ -46,12 +52,6 @@ size = ret {
 }
 architecture = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
-        res := resources_map[_]
-        true
-     }
-}
-operatingsystem = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operatingsystem", null) |
         res := resources_map[_]
         true
      }

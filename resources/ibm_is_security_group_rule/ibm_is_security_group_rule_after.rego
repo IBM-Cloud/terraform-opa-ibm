@@ -7,24 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_security_group_rule").resources[_]
 }
-remote = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
-        res := resources_map[_]
-        true
-     }
-}
-icmp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "icmp", null) |
-        res := resources_map[_]
-        true
-     }
-}
-udp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp", null) |
-        res := resources_map[_]
-        true
-     }
-}
 direction = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
         res := resources_map[_]
@@ -37,6 +19,12 @@ ip_version = ret {
         true
      }
 }
+icmp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "icmp", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tcp = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tcp", null) |
         res := resources_map[_]
@@ -45,6 +33,18 @@ tcp = ret {
 }
 group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
+        res := resources_map[_]
+        true
+     }
+}
+udp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp", null) |
         res := resources_map[_]
         true
      }

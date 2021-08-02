@@ -7,26 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_satellite_cluster_worker_pool").resources[_]
 }
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zones = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
         true
      }
 }
-worker_pool_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -45,6 +33,18 @@ flavor = ret {
 }
 isolation = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "isolation", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_pool_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
         res := resources_map[_]
         true
      }

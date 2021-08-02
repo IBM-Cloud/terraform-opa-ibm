@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dl_virtual_connection").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +19,14 @@ gateway = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
         true
      }

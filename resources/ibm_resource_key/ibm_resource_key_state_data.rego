@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_resource_key", "data").resources[_]
 }
-resource_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_alias_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_alias_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-role = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
-        res := resources_map[_]
-        true
-     }
-}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -52,6 +34,24 @@ crn = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_alias_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_alias_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+role = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
         res := resources_map[_]
         true
      }

@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_service_key").resources[_]
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ name = ret {
 }
 service_instance_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
