@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_subnets").resources[_]
 }
+routing_table = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ resource_group = ret {
 }
 routing_table_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routing_table = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
         res := resources_map[_]
         true
      }

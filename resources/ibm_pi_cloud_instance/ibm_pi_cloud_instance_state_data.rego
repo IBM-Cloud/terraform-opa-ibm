@@ -20,8 +20,20 @@ region = ret {
         true
      }
 }
-total_processors_consumed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_processors_consumed", null) |
+total_instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_instances", null) |
+        res := resources_map[_]
+        true
+     }
+}
+total_memory_consumed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_memory_consumed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pvm_instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pvm_instances", null) |
         res := resources_map[_]
         true
      }
@@ -34,12 +46,6 @@ total_ssd_storage_consumed = ret {
 }
 total_standard_storage_consumed = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_standard_storage_consumed", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pvm_instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pvm_instances", null) |
         res := resources_map[_]
         true
      }
@@ -68,14 +74,8 @@ capabilities = ret {
         true
      }
 }
-total_instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_instances", null) |
-        res := resources_map[_]
-        true
-     }
-}
-total_memory_consumed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_memory_consumed", null) |
+total_processors_consumed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_processors_consumed", null) |
         res := resources_map[_]
         true
      }

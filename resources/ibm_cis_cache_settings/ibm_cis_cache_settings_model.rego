@@ -11,24 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_cache_settings", "managed").resources[_]
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-query_string_sort = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_string_sort", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 serve_stale_content = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "serve_stale_content", null) |
         res := resources_map[_]
@@ -47,14 +29,32 @@ development_mode = ret {
         true
      }
 }
-purge_all = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_all", null) |
+query_string_sort = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_string_sort", null) |
         res := resources_map[_]
         true
      }
 }
 purge_by_urls = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_urls", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+caching_level = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
         res := resources_map[_]
         true
      }
@@ -71,8 +71,8 @@ purge_by_hosts = ret {
         true
      }
 }
-caching_level = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
+purge_all = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_all", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_multi_vlan_firewall").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 addon_configuration = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addon_configuration", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ datacenter = ret {
 }
 pod = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pod", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

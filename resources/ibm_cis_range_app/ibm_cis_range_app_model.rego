@@ -17,6 +17,48 @@ ip_firewall = ret {
         true
      }
 }
+proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+edge_ips_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "edge_ips_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dns_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+edge_ips_connectivity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "edge_ips_connectivity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 domain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
@@ -41,8 +83,14 @@ origin_port = ret {
         true
      }
 }
-traffic_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "traffic_type", null) |
+tls = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tls", null) |
+        res := resources_map[_]
+        true
+     }
+}
+app_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_id", null) |
         res := resources_map[_]
         true
      }
@@ -59,56 +107,8 @@ origin_direct = ret {
         true
      }
 }
-proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-edge_ips_connectivity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "edge_ips_connectivity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dns_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tls = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tls", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-app_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-edge_ips_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "edge_ips_type", null) |
+traffic_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "traffic_type", null) |
         res := resources_map[_]
         true
      }

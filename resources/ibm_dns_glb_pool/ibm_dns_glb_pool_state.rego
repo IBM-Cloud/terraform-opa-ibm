@@ -8,20 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_glb_pool", "managed").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -32,26 +20,38 @@ pool_id = ret {
         true
      }
 }
+healthy_origins_threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy_origins_threshold", null) |
+        res := resources_map[_]
+        true
+     }
+}
+origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
+        res := resources_map[_]
+        true
+     }
+}
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 health = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
-        res := resources_map[_]
-        true
-     }
-}
-healthcheck_region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthcheck_region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-healthcheck_subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthcheck_subnets", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +68,8 @@ notification_channel = ret {
         true
      }
 }
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+healthcheck_region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthcheck_region", null) |
         res := resources_map[_]
         true
      }
@@ -80,14 +80,14 @@ name = ret {
         true
      }
 }
-healthy_origins_threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy_origins_threshold", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
 }
-origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
+healthcheck_subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthcheck_subnets", null) |
         res := resources_map[_]
         true
      }

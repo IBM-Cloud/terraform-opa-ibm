@@ -13,6 +13,18 @@ instance_id = ret {
         true
      }
 }
+limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
+        res := resources_map[_]
+        true
+     }
+}
+key_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 key_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_name", null) |
         res := resources_map[_]

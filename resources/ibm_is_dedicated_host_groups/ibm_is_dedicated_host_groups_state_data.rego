@@ -20,21 +20,3 @@ total_count = ret {
         true
      }
 }
-first = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "first", null) |
-        res := resources_map[_]
-        true
-     }
-}
-limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
-next = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next", null) |
-        res := resources_map[_]
-        true
-     }
-}

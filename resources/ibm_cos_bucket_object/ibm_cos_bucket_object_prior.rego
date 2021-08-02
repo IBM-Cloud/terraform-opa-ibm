@@ -13,6 +13,12 @@ bucket_crn = ret {
         true
      }
 }
+bucket_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_location", null) |
+        res := resources_map[_]
+        true
+     }
+}
 key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ key = ret {
 }
 endpoint_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bucket_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_location", null) |
         res := resources_map[_]
         true
      }

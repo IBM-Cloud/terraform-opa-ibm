@@ -11,8 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_listener_policy_rule", "managed").resources[_]
 }
-condition = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "condition", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+        res := resources_map[_]
+        true
+     }
+}
+listener = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
+        res := resources_map[_]
+        true
+     }
+}
+policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy", null) |
         res := resources_map[_]
         true
      }
@@ -41,6 +53,12 @@ rule = ret {
         true
      }
 }
+condition = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "condition", null) |
+        res := resources_map[_]
+        true
+     }
+}
 provisioning_status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
         res := resources_map[_]
@@ -49,24 +67,6 @@ provisioning_status = ret {
 }
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
-        res := resources_map[_]
-        true
-     }
-}
-listener = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
-        res := resources_map[_]
-        true
-     }
-}
-policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy", null) |
         res := resources_map[_]
         true
      }

@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_api_gateway_endpoint_subscription").resources[_]
 }
-generate_secret = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "generate_secret", null) |
-        res := resources_map[_]
-        true
-     }
-}
-artifact_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "artifact_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 client_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_id", null) |
         res := resources_map[_]
@@ -39,6 +27,18 @@ type = ret {
 }
 client_secret = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_secret", null) |
+        res := resources_map[_]
+        true
+     }
+}
+generate_secret = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "generate_secret", null) |
+        res := resources_map[_]
+        true
+     }
+}
+artifact_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "artifact_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_ob_logging").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-logdna_ingestion_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logdna_ingestion_key", null) |
+private_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_endpoint", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +19,14 @@ cluster = ret {
         true
      }
 }
-private_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_endpoint", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+logdna_ingestion_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logdna_ingestion_key", null) |
         res := resources_map[_]
         true
      }
