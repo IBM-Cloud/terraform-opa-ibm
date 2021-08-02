@@ -19,20 +19,8 @@ status = ret {
         true
      }
 }
-ssl_ciphers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_ciphers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+use_system_public_ip_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "use_system_public_ip_pool", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +31,8 @@ vip = ret {
         true
      }
 }
-use_system_public_ip_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "use_system_public_ip_pool", null) |
+ssl_ciphers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_ciphers", null) |
         res := resources_map[_]
         true
      }
@@ -57,6 +45,18 @@ resource_name = ret {
 }
 health_monitors = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }

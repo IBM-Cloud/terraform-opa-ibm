@@ -11,8 +11,26 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_vpc_alb", "managed").resources[_]
 }
-alb_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_id", null) |
+enable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+disable_deployment = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
@@ -23,8 +41,14 @@ cluster = ret {
         true
      }
 }
-disable_deployment = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
+alb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -47,32 +71,8 @@ state = ret {
         true
      }
 }
-alb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+alb_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_id", null) |
         res := resources_map[_]
         true
      }

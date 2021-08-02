@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_disk_management", "managed").resources[_]
 }
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+disks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
         res := resources_map[_]
         true
      }
 }
-disks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
         true
      }

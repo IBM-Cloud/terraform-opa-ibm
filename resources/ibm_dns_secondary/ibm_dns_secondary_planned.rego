@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_dns_secondary").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 master_ip_address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "master_ip_address", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ transfer_frequency = ret {
 }
 zone_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

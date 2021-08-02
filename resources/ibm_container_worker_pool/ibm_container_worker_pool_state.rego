@@ -20,12 +20,6 @@ machine_type = ret {
         true
      }
 }
-worker_pool_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 entitlement = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
         res := resources_map[_]
@@ -50,24 +44,6 @@ state = ret {
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-size_per_zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size_per_zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zones = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
@@ -80,8 +56,32 @@ labels = ret {
         true
      }
 }
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_pool_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+size_per_zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size_per_zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }

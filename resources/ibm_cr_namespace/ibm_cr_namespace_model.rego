@@ -11,20 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cr_namespace", "managed").resources[_]
 }
-account = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account", null) |
+updated_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_on", null) |
         res := resources_map[_]
         true
      }
 }
-created_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_date", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -41,8 +35,14 @@ updated_date = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -59,14 +59,14 @@ tags = ret {
         true
      }
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+account = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account", null) |
         res := resources_map[_]
         true
      }
 }
-updated_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_on", null) |
+created_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_date", null) |
         res := resources_map[_]
         true
      }

@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_secrets_manager_secrets").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 secret_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_type", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ secret_type = ret {
 }
 endpoint_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }

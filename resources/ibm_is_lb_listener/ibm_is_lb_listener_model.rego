@@ -11,26 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_listener", "managed").resources[_]
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
 protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate_instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
-        res := resources_map[_]
-        true
-     }
-}
-connection_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
         res := resources_map[_]
         true
      }
@@ -41,14 +23,20 @@ status = ret {
         true
      }
 }
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+connection_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
         res := resources_map[_]
         true
      }
@@ -59,8 +47,20 @@ default_pool = ret {
         true
      }
 }
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+certificate_instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
         res := resources_map[_]
         true
      }

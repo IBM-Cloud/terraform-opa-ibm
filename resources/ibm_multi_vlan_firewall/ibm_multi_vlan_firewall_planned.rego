@@ -19,14 +19,14 @@ pod = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+firewall_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firewall_type", null) |
         res := resources_map[_]
         true
      }
 }
-firewall_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firewall_type", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

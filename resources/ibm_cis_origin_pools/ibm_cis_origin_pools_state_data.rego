@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_origin_pools", "data").resources[_]
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+cis_origin_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_origin_pools", null) |
         res := resources_map[_]
         true
      }
 }
-cis_origin_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_origin_pools", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }

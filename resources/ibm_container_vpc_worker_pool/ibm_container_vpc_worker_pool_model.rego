@@ -17,8 +17,8 @@ cluster = ret {
         true
      }
 }
-flavor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
+worker_pool_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
         res := resources_map[_]
         true
      }
@@ -31,24 +31,6 @@ zones = ret {
 }
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_pool_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
         res := resources_map[_]
         true
      }
@@ -67,6 +49,24 @@ entitlement = ret {
 }
 resource_controller_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+flavor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
+        res := resources_map[_]
+        true
+     }
+}
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
         res := resources_map[_]
         true
      }

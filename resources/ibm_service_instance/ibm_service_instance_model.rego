@@ -11,8 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_service_instance", "managed").resources[_]
 }
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+dashboard_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -23,14 +29,14 @@ credentials = ret {
         true
      }
 }
-service_keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_keys", null) |
+service_plan_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_plan_guid", null) |
         res := resources_map[_]
         true
      }
 }
-service_plan_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_plan_guid", null) |
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
         res := resources_map[_]
         true
      }
@@ -47,32 +53,26 @@ wait_time_minutes = ret {
         true
      }
 }
-dashboard_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 space_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
         res := resources_map[_]
         true
      }
 }
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+service_keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_keys", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
