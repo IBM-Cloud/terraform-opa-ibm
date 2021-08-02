@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_container_cluster").resources[_]
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+alb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ cluster_name_id = ret {
         true
      }
 }
-alb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+account_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,14 @@ org_guid = ret {
         true
      }
 }
-account_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -51,12 +57,6 @@ space_guid = ret {
 }
 list_bounded_services = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "list_bounded_services", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

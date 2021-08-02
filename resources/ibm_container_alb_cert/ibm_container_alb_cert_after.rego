@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_container_alb_cert").resources[_]
 }
-cluster_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
+cert_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cert_crn", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ region = ret {
         true
      }
 }
-cert_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cert_crn", null) |
+cluster_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
         res := resources_map[_]
         true
      }

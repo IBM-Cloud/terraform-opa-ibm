@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_app_domain_private", "managed").resources[_]
 }
+org_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -16,12 +22,6 @@ tags = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-org_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
         res := resources_map[_]
         true
      }

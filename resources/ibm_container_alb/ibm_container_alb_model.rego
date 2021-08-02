@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_alb", "managed").resources[_]
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
 alb_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_id", null) |
         res := resources_map[_]
@@ -29,14 +23,26 @@ alb_type = ret {
         true
      }
 }
-user_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
+enable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
         res := resources_map[_]
         true
      }
 }
-enable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
         res := resources_map[_]
         true
      }
@@ -53,14 +59,8 @@ name = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_instance_group_membership").resources[_]
 }
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+instance_template = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_template", null) |
         res := resources_map[_]
         true
      }
 }
-instance_template = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_template", null) |
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
         true
      }

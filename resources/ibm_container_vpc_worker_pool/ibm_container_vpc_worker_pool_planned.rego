@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_container_vpc_worker_pool").resources[_]
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
 worker_pool_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
         res := resources_map[_]
@@ -37,14 +31,8 @@ worker_count = ret {
         true
      }
 }
-entitlement = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
-        res := resources_map[_]
-        true
-     }
-}
-flavor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +43,26 @@ labels = ret {
         true
      }
 }
+taints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "taints", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vpc_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+entitlement = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
+        res := resources_map[_]
+        true
+     }
+}
+flavor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
         res := resources_map[_]
         true
      }

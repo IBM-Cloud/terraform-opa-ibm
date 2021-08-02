@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_volume").resources[_]
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+delete_all_snapshots = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_all_snapshots", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +31,14 @@ name = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
 }
-iops = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
+encryption_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,14 @@ profile = ret {
         true
      }
 }
-encryption_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+iops = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
         res := resources_map[_]
         true
      }

@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_host", "managed").resources[_]
 }
-host_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ location = ret {
 }
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_id", null) |
         res := resources_map[_]
         true
      }

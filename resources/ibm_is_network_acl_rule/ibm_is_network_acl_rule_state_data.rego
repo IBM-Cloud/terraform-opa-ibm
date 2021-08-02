@@ -14,14 +14,8 @@ network_acl = ret {
         true
      }
 }
-source = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+rule_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]
         true
      }
@@ -32,20 +26,8 @@ href = ret {
         true
      }
 }
-ip_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tcp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tcp", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +38,8 @@ protocol = ret {
         true
      }
 }
-direction = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +50,38 @@ icmp = ret {
         true
      }
 }
-rule_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 before = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "before", null) |
         res := resources_map[_]
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+ip_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
+        res := resources_map[_]
+        true
+     }
+}
+direction = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tcp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tcp", null) |
         res := resources_map[_]
         true
      }

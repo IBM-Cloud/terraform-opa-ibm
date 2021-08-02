@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_app_route", "managed").resources[_]
 }
-path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 host = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host", null) |
         res := resources_map[_]
@@ -40,6 +28,18 @@ domain_guid = ret {
 }
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

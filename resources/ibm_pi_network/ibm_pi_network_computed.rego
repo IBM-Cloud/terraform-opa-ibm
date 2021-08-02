@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_pi_network").resources[_]
 }
+network_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ vlan_id = ret {
 }
 pi_cidr = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
         true
      }

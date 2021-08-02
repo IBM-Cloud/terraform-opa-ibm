@@ -14,14 +14,26 @@ name = ret {
         true
      }
 }
-class = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
+dedicated_hosts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
 }
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+class = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +50,8 @@ crn = ret {
         true
      }
 }
-dedicated_hosts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
-        res := resources_map[_]
-        true
-     }
-}
 family = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

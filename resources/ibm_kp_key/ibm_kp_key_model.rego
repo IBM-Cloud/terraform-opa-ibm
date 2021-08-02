@@ -11,14 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_kp_key", "managed").resources[_]
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-encrypted_nonce = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encrypted_nonce", null) |
+force_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
         res := resources_map[_]
         true
      }
@@ -29,26 +23,8 @@ crn = ret {
         true
      }
 }
-standard_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "standard_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
-key_protect_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_protect_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-key_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }
@@ -59,14 +35,20 @@ resource_status = ret {
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }
 }
-key_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
+key_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+standard_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "standard_key", null) |
         res := resources_map[_]
         true
      }
@@ -77,14 +59,32 @@ payload = ret {
         true
      }
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
 }
-force_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+key_protect_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_protect_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+key_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encrypted_nonce = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encrypted_nonce", null) |
         res := resources_map[_]
         true
      }

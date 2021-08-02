@@ -50,6 +50,12 @@ related_crn = ret {
         true
      }
 }
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+        res := resources_map[_]
+        true
+     }
+}
 listener = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
         res := resources_map[_]
@@ -58,12 +64,6 @@ listener = ret {
 }
 policy = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }

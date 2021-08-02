@@ -19,8 +19,14 @@ public_ipv6 = ret {
         true
      }
 }
-private_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip", null) |
+username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
+        res := resources_map[_]
+        true
+     }
+}
+password = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +43,8 @@ private_vlan_id = ret {
         true
      }
 }
-username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
-        res := resources_map[_]
-        true
-     }
-}
-password = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
+private_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip", null) |
         res := resources_map[_]
         true
      }

@@ -13,12 +13,6 @@ tags = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 subnet = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ resource_group = ret {
 }
 mode = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

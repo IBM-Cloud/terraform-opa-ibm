@@ -13,8 +13,8 @@ instance_group = ret {
         true
      }
 }
-action_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_delete", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ instance_group_membership = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+action_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_delete", null) |
         res := resources_map[_]
         true
      }

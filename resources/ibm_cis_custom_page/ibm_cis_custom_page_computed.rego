@@ -19,6 +19,12 @@ required_tokens = ret {
         true
      }
 }
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
 preview_target = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preview_target", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ created_on = ret {
 }
 modified_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
