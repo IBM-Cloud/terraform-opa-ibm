@@ -14,14 +14,8 @@ dashboard_url = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-credentials = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +26,8 @@ service_plan_guid = ret {
         true
      }
 }
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
@@ -44,14 +38,20 @@ tags = ret {
         true
      }
 }
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+        res := resources_map[_]
+        true
+     }
+}
 wait_time_minutes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
         res := resources_map[_]
         true
      }
 }
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -62,14 +62,14 @@ service = ret {
         true
      }
 }
-service_keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_keys", null) |
+credentials = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
         res := resources_map[_]
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+service_keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_keys", null) |
         res := resources_map[_]
         true
      }

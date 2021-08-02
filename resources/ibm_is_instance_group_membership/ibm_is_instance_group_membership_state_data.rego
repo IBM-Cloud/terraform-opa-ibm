@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group_membership", "data").resources[_]
 }
+load_balancer_pool_member = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool_member", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -46,12 +52,6 @@ instance = ret {
 }
 instance_template = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_template", null) |
-        res := resources_map[_]
-        true
-     }
-}
-load_balancer_pool_member = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool_member", null) |
         res := resources_map[_]
         true
      }

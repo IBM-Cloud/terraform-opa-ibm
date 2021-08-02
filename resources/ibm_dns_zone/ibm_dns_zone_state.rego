@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_zone", "managed").resources[_]
 }
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 zone_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
         res := resources_map[_]
@@ -46,12 +52,6 @@ created_on = ret {
 }
 modified_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }

@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_cluster_feature", "managed").resources[_]
 }
-private_service_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
 public_service_endpoint_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint_url", null) |
         res := resources_map[_]
@@ -55,6 +49,12 @@ cluster = ret {
 }
 public_service_endpoint = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_service_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint", null) |
         res := resources_map[_]
         true
      }

@@ -8,26 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_profile", "data").resources[_]
 }
-vcpu_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-architecture = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bandwidth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +20,26 @@ disks = ret {
         true
      }
 }
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vcpu_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
 memory = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port_speed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
         res := resources_map[_]
         true
      }
@@ -56,6 +56,12 @@ family = ret {
         true
      }
 }
+architecture = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
+        res := resources_map[_]
+        true
+     }
+}
 architecture_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture_type", null) |
         res := resources_map[_]
@@ -68,14 +74,8 @@ architecture_values = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port_speed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
+bandwidth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
         res := resources_map[_]
         true
      }

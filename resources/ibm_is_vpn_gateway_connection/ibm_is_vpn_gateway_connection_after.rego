@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_vpn_gateway_connection").resources[_]
 }
-preshared_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
+vpn_gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
         res := resources_map[_]
         true
      }
 }
-local_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
+preshared_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ interval = ret {
         true
      }
 }
-ipsec_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
         res := resources_map[_]
         true
      }
 }
-peer_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_address", null) |
+ike_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ admin_state_up = ret {
         true
      }
 }
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+local_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +55,8 @@ action = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpn_gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
+ipsec_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +67,14 @@ peer_cidrs = ret {
         true
      }
 }
-ike_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+peer_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_address", null) |
         res := resources_map[_]
         true
      }

@@ -25,20 +25,20 @@ resource_crn = ret {
         true
      }
 }
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_group_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,8 @@ floating_ip = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

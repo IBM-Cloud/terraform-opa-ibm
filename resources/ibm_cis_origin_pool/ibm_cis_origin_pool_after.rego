@@ -13,6 +13,12 @@ check_regions = ret {
         true
      }
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 monitor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
         res := resources_map[_]
@@ -37,20 +43,14 @@ name = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+minimum_origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
         res := resources_map[_]
         true
      }
 }
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-minimum_origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_resource_group").resources[_]
 }
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+teams_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "teams_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
 quota_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_url", null) |
         res := resources_map[_]
@@ -19,26 +31,14 @@ quota_id = ret {
         true
      }
 }
-default_ = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_", null) |
+resource_linkages = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_linkages", null) |
         res := resources_map[_]
         true
      }
 }
 state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-teams_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "teams_url", null) |
         res := resources_map[_]
         true
      }
@@ -61,8 +61,8 @@ payment_methods_url = ret {
         true
      }
 }
-resource_linkages = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_linkages", null) |
+default_ = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_", null) |
         res := resources_map[_]
         true
      }

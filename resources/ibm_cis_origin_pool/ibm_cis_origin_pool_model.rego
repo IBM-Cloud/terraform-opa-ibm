@@ -17,6 +17,24 @@ check_regions = ret {
         true
      }
 }
+health = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 monitor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
         res := resources_map[_]
@@ -25,12 +43,6 @@ monitor = ret {
 }
 notification_email = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_email", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
@@ -53,8 +65,8 @@ name = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+minimum_origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
         res := resources_map[_]
         true
      }
@@ -71,26 +83,14 @@ enabled = ret {
         true
      }
 }
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-minimum_origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
-        res := resources_map[_]
-        true
-     }
-}
 origins = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
         res := resources_map[_]
         true
      }
 }
-health = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }

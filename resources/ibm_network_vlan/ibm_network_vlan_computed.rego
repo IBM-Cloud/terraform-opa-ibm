@@ -25,12 +25,6 @@ resource_name = ret {
         true
      }
 }
-softlayer_managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "softlayer_managed", null) |
-        res := resources_map[_]
-        true
-     }
-}
 child_resource_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "child_resource_count", null) |
         res := resources_map[_]
@@ -45,6 +39,12 @@ subnets = ret {
 }
 resource_controller_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+softlayer_managed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "softlayer_managed", null) |
         res := resources_map[_]
         true
      }

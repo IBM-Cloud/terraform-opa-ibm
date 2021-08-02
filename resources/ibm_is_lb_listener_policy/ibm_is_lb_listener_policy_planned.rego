@@ -13,8 +13,14 @@ name = ret {
         true
      }
 }
-rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
+target_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_url", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +37,8 @@ listener = ret {
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
-        res := resources_map[_]
-        true
-     }
-}
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
+rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +49,14 @@ target_http_status_code = ret {
         true
      }
 }
-target_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_url", null) |
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }

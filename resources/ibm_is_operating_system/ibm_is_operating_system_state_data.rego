@@ -8,30 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_operating_system", "data").resources[_]
 }
-family = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vendor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vendor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 architecture = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
         res := resources_map[_]
@@ -52,6 +28,30 @@ dedicated_host_only = ret {
 }
 display_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+family = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vendor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vendor", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

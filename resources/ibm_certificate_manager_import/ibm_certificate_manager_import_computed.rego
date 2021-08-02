@@ -13,18 +13,6 @@ issuer = ret {
         true
      }
 }
-has_previous = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_previous", null) |
-        res := resources_map[_]
-        true
-     }
-}
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
 begins_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "begins_on", null) |
         res := resources_map[_]
@@ -49,8 +37,20 @@ status = ret {
         true
      }
 }
+has_previous = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_previous", null) |
+        res := resources_map[_]
+        true
+     }
+}
 key_algorithm = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
         res := resources_map[_]
         true
      }

@@ -11,24 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_firewall", "managed").resources[_]
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-primary_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
-        res := resources_map[_]
-        true
-     }
-}
 password = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
         res := resources_map[_]
@@ -55,6 +37,24 @@ public_vlan_id = ret {
 }
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+primary_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
         res := resources_map[_]
         true
      }
