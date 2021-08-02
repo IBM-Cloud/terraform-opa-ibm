@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_waf_rules", "data").resources[_]
 }
+waf_rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "waf_rules", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
@@ -22,12 +28,6 @@ domain_id = ret {
 }
 package_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-waf_rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "waf_rules", null) |
         res := resources_map[_]
         true
      }

@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_dns_permitted_network").resources[_]
 }
-vpc_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ zone_id = ret {
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_crn", null) |
         res := resources_map[_]
         true
      }

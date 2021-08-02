@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_waf_package").resources[_]
 }
+sensitivity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sensitivity", null) |
+        res := resources_map[_]
+        true
+     }
+}
 action_mode = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_mode", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ domain_id = ret {
 }
 package_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sensitivity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sensitivity", null) |
         res := resources_map[_]
         true
      }

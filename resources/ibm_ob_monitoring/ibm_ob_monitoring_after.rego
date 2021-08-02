@@ -7,26 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_ob_monitoring").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
 }
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 sysdig_access_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sysdig_access_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_endpoint", null) |
         res := resources_map[_]
         true
      }

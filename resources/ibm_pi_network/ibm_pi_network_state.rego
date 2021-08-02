@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_network", "managed").resources[_]
 }
+pi_dns = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dns", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_gateway = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_gateway", null) |
         res := resources_map[_]
@@ -40,18 +52,6 @@ pi_network_type = ret {
 }
 pi_network_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_dns = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dns", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cidr", null) |
         res := resources_map[_]
         true
      }

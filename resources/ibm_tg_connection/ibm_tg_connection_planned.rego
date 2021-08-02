@@ -13,30 +13,6 @@ base_connection_id = ret {
         true
      }
 }
-remote_gateway_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_gateway_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 gateway = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
         res := resources_map[_]
@@ -49,14 +25,14 @@ network_id = ret {
         true
      }
 }
-local_gateway_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_gateway_ip", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
 }
-local_tunnel_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_tunnel_ip", null) |
+local_gateway_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_gateway_ip", null) |
         res := resources_map[_]
         true
      }
@@ -67,14 +43,38 @@ remote_bgp_asn = ret {
         true
      }
 }
-remote_tunnel_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_tunnel_ip", null) |
+remote_gateway_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_gateway_ip", null) |
         res := resources_map[_]
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+network_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+local_tunnel_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_tunnel_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote_tunnel_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_tunnel_ip", null) |
         res := resources_map[_]
         true
      }

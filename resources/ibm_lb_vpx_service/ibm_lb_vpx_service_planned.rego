@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_lb_vpx_service").resources[_]
 }
-vip_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +31,14 @@ connection_limit = ret {
         true
      }
 }
-usip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "usip", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+vip_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
         res := resources_map[_]
         true
      }
@@ -57,6 +51,12 @@ weight = ret {
 }
 health_check = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
+        res := resources_map[_]
+        true
+     }
+}
+usip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "usip", null) |
         res := resources_map[_]
         true
      }

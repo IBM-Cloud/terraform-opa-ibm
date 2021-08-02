@@ -23,26 +23,14 @@ routing_method = ret {
         true
      }
 }
-routing_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 timeout = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-virtual_server_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
+service_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -59,8 +47,20 @@ port = ret {
         true
      }
 }
-service_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
+routing_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_server_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
         res := resources_map[_]
         true
      }

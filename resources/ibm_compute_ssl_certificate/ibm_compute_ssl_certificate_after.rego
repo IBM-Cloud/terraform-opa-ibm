@@ -13,12 +13,6 @@ tags = ret {
         true
      }
 }
-intermediate_certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
-        res := resources_map[_]
-        true
-     }
-}
 private_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ private_key = ret {
 }
 certificate = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
+        res := resources_map[_]
+        true
+     }
+}
+intermediate_certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
         res := resources_map[_]
         true
      }
