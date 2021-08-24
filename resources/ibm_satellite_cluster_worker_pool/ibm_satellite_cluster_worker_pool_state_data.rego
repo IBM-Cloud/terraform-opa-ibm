@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_cluster_worker_pool", "data").resources[_]
 }
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_pool_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
 region = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
@@ -28,24 +46,6 @@ cluster = ret {
 }
 flavor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_pool_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
         res := resources_map[_]
         true
      }

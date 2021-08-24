@@ -20,6 +20,18 @@ load_balancing_method = ret {
         true
      }
 }
+virtual_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_ip_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+persistence = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -40,18 +52,6 @@ type = ret {
 }
 security_certificate_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-virtual_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-persistence = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
         res := resources_map[_]
         true
      }

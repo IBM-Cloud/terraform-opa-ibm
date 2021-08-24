@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_kms_key").resources[_]
 }
-payload = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "payload", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+policies = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +25,14 @@ resource_name = ret {
         true
      }
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +55,8 @@ type = ret {
         true
      }
 }
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+payload = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "payload", null) |
         res := resources_map[_]
         true
      }
@@ -55,20 +67,8 @@ key_id = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-policies = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,20 @@ endpoint_type = ret {
         true
      }
 }
-key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key", null) |
+content = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
         true
      }
 }
-content = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
+content_base64 = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_base64", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bucket_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_crn", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +37,8 @@ content_file = ret {
         true
      }
 }
-bucket_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_crn", null) |
+key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key", null) |
         res := resources_map[_]
         true
      }
@@ -51,12 +57,6 @@ etag = ret {
 }
 force_delete = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-content_base64 = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_base64", null) |
         res := resources_map[_]
         true
      }

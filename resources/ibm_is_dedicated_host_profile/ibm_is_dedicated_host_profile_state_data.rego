@@ -14,26 +14,8 @@ supported_instance_profiles = ret {
         true
      }
 }
-class = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
-        res := resources_map[_]
-        true
-     }
-}
-family = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
-        res := resources_map[_]
-        true
-     }
-}
-memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
-        res := resources_map[_]
-        true
-     }
-}
-socket_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "socket_count", null) |
+vcpu_architecture = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_architecture", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +26,14 @@ vcpu_count = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+socket_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "socket_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+class = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +44,26 @@ disks = ret {
         true
      }
 }
+family = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
+        res := resources_map[_]
+        true
+     }
+}
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
 }
-vcpu_architecture = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_architecture", null) |
+memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

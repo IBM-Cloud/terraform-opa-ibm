@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group_membership", "managed").resources[_]
 }
-delete_instance_on_membership_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_instance_on_membership_delete", null) |
+action_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_delete", null) |
         res := resources_map[_]
         true
      }
 }
-load_balancer_pool_member = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool_member", null) |
+delete_instance_on_membership_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_instance_on_membership_delete", null) |
         res := resources_map[_]
         true
      }
@@ -38,12 +38,6 @@ name = ret {
         true
      }
 }
-action_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ instance = ret {
 }
 instance_template = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_template", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer_pool_member = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool_member", null) |
         res := resources_map[_]
         true
      }

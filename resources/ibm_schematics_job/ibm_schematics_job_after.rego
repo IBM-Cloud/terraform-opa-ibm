@@ -7,32 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_schematics_job").resources[_]
 }
-command_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-job_log_summary = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_log_summary", null) |
-        res := resources_map[_]
-        true
-     }
-}
-command_parameter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_parameter", null) |
-        res := resources_map[_]
-        true
-     }
-}
 data = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
+        res := resources_map[_]
+        true
+     }
+}
+command_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_name", null) |
         res := resources_map[_]
         true
      }
@@ -61,20 +43,38 @@ command_object = ret {
         true
      }
 }
-command_object_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-job_inputs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_inputs", null) |
+job_log_summary = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_log_summary", null) |
         res := resources_map[_]
         true
      }
 }
 bastion = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bastion", null) |
+        res := resources_map[_]
+        true
+     }
+}
+command_object_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+command_parameter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_parameter", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+job_inputs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_inputs", null) |
         res := resources_map[_]
         true
      }

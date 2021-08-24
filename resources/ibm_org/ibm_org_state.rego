@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_org", "managed").resources[_]
 }
-billing_managers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "billing_managers", null) |
-        res := resources_map[_]
-        true
-     }
-}
 managers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managers", null) |
         res := resources_map[_]
@@ -46,6 +40,12 @@ name = ret {
 }
 org_quota_definition_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_quota_definition_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+billing_managers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "billing_managers", null) |
         res := resources_map[_]
         true
      }

@@ -20,8 +20,8 @@ disable_deployment = ret {
         true
      }
 }
-load_balancer_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_hostname", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +68,8 @@ enable = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+load_balancer_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_hostname", null) |
         res := resources_map[_]
         true
      }

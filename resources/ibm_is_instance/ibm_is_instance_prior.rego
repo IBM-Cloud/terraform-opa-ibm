@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_instance").resources[_]
 }
-passphrase = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
+private_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ name = ret {
         true
      }
 }
-private_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
+passphrase = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
         res := resources_map[_]
         true
      }

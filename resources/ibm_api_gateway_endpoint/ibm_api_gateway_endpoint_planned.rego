@@ -19,20 +19,8 @@ service_instance_crn = ret {
         true
      }
 }
-open_api_doc_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "open_api_doc_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }
@@ -45,6 +33,18 @@ managed = ret {
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+open_api_doc_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "open_api_doc_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }

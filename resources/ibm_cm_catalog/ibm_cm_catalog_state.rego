@@ -38,6 +38,12 @@ offerings_url = ret {
         true
      }
 }
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+        res := resources_map[_]
+        true
+     }
+}
 label = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]

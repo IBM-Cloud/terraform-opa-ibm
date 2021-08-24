@@ -14,8 +14,14 @@ pi_instance_name = ret {
         true
      }
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+pi_network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ipoctet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipoctet", null) |
         res := resources_map[_]
         true
      }
@@ -32,14 +38,8 @@ external_ip = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_network_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +50,14 @@ ip = ret {
         true
      }
 }
-ipoctet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipoctet", null) |
+network_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
         true
      }
 }
-network_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }

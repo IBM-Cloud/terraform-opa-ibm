@@ -8,14 +8,32 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group_manager", "managed").resources[_]
 }
-min_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
+manager_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+max_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+manager_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_id", null) |
         res := resources_map[_]
         true
      }
 }
 policies = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
+        res := resources_map[_]
+        true
+     }
+}
+actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +50,8 @@ enable_manager = ret {
         true
      }
 }
-manager_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_type", null) |
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }
@@ -44,32 +62,14 @@ aggregation_window = ret {
         true
      }
 }
-max_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cooldown = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
         res := resources_map[_]
         true
      }
 }
-manager_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
+min_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
         res := resources_map[_]
         true
      }

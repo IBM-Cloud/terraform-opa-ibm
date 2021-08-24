@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_catalog_images", "data").resources[_]
 }
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 sap = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sap", null) |
         res := resources_map[_]
@@ -16,12 +22,6 @@ sap = ret {
 }
 images = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "images", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

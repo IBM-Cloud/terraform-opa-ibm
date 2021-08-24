@@ -13,8 +13,14 @@ resource_type = ret {
         true
      }
 }
-health_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_state", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +43,8 @@ resource_group = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+health_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_state", null) |
         res := resources_map[_]
         true
      }

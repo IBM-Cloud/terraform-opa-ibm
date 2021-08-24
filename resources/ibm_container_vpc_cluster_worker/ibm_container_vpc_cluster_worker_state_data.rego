@@ -14,8 +14,26 @@ pool_id = ret {
         true
      }
 }
+pool_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 network_interfaces = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kube_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
@@ -46,24 +64,6 @@ cluster_name_id = ret {
 }
 flavor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kube_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pool_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_name", null) |
         res := resources_map[_]
         true
      }

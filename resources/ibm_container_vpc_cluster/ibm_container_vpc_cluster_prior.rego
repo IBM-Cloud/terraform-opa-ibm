@@ -13,12 +13,6 @@ resource_group_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cluster_name_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ cluster_name_id = ret {
 }
 alb_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_public_network", "data").resources[_]
 }
-pi_network_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 network_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
@@ -40,6 +28,18 @@ type = ret {
 }
 vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

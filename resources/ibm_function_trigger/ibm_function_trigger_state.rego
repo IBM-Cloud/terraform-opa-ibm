@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_function_trigger", "managed").resources[_]
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
-        res := resources_map[_]
-        true
-     }
-}
-feed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feed", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -32,6 +26,12 @@ version = ret {
         true
      }
 }
+user_defined_annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
+        res := resources_map[_]
+        true
+     }
+}
 user_defined_parameters = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_parameters", null) |
         res := resources_map[_]
@@ -44,14 +44,14 @@ trigger_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }
 }
-user_defined_annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
+feed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feed", null) |
         res := resources_map[_]
         true
      }

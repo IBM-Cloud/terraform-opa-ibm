@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_instance_group_manager").resources[_]
 }
-min_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
+manager_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+max_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +31,8 @@ enable_manager = ret {
         true
      }
 }
-manager_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_type", null) |
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +43,14 @@ aggregation_window = ret {
         true
      }
 }
-max_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_membership_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cooldown = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
+        res := resources_map[_]
+        true
+     }
+}
+min_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
         res := resources_map[_]
         true
      }

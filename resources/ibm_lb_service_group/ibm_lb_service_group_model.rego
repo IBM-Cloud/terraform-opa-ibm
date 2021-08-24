@@ -17,32 +17,14 @@ load_balancer_id = ret {
         true
      }
 }
-routing_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
-        res := resources_map[_]
-        true
-     }
-}
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 allocation = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allocation", null) |
         res := resources_map[_]
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+routing_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
         res := resources_map[_]
         true
      }
@@ -61,6 +43,24 @@ tags = ret {
 }
 virtual_server_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
         res := resources_map[_]
         true
      }

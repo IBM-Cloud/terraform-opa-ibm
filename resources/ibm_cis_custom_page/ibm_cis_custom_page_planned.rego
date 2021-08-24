@@ -19,14 +19,14 @@ domain_id = ret {
         true
      }
 }
-url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+page_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_id", null) |
         res := resources_map[_]
         true
      }
 }
-page_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_id", null) |
+url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
         res := resources_map[_]
         true
      }

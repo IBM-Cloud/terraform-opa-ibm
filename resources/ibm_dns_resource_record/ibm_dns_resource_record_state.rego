@@ -14,8 +14,8 @@ instance_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+zone_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +38,8 @@ weight = ret {
         true
      }
 }
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +50,8 @@ resource_record_id = ret {
         true
      }
 }
-zone_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -68,14 +62,20 @@ type = ret {
         true
      }
 }
-preference = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preference", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
         res := resources_map[_]
         true
      }
@@ -86,14 +86,14 @@ protocol = ret {
         true
      }
 }
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+preference = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preference", null) |
         res := resources_map[_]
         true
      }
 }
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }
