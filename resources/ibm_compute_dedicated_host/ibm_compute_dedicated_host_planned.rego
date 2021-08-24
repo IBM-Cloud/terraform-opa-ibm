@@ -7,8 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_compute_dedicated_host").resources[_]
 }
-wait_time_minutes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+        res := resources_map[_]
+        true
+     }
+}
+flavor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +31,8 @@ tags = ret {
         true
      }
 }
-flavor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
+domain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +49,8 @@ router_hostname = ret {
         true
      }
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
-        res := resources_map[_]
-        true
-     }
-}
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+wait_time_minutes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
         res := resources_map[_]
         true
      }

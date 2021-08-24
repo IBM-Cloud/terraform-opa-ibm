@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_ipsec_vpn").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+internal_peer_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "internal_peer_ip_address", null) |
         res := resources_map[_]
         true
      }
 }
-internal_peer_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "internal_peer_ip_address", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

@@ -13,8 +13,8 @@ instance_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+zone_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +37,8 @@ weight = ret {
         true
      }
 }
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +49,20 @@ type = ret {
         true
      }
 }
-preference = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preference", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +73,8 @@ protocol = ret {
         true
      }
 }
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+preference = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preference", null) |
         res := resources_map[_]
         true
      }

@@ -7,26 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_container_worker_pool").resources[_]
 }
-worker_pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zones = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
         true
      }
 }
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+worker_pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_id", null) |
         res := resources_map[_]
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
         true
      }
@@ -39,6 +33,12 @@ resource_controller_url = ret {
 }
 state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

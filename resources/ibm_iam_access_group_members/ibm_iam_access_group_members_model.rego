@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_access_group_members", "managed").resources[_]
 }
+access_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 ibm_ids = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_ids", null) |
         res := resources_map[_]
@@ -25,12 +31,6 @@ iam_service_ids = ret {
 }
 members = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
-        res := resources_map[_]
-        true
-     }
-}
-access_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_group_id", null) |
         res := resources_map[_]
         true
      }

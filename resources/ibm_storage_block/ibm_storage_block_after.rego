@@ -13,26 +13,14 @@ capacity = ret {
         true
      }
 }
-hourly_billing = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hourly_billing", null) |
+allowed_virtual_guest_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_virtual_guest_ids", null) |
         res := resources_map[_]
         true
      }
 }
-notes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allowed_hardware_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_hardware_ids", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+allowed_ip_addresses = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip_addresses", null) |
         res := resources_map[_]
         true
      }
@@ -49,20 +37,26 @@ iops = ret {
         true
      }
 }
-os_format_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os_format_type", null) |
+hourly_billing = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hourly_billing", null) |
         res := resources_map[_]
         true
      }
 }
-allowed_virtual_guest_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_virtual_guest_ids", null) |
+allowed_hardware_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_hardware_ids", null) |
         res := resources_map[_]
         true
      }
 }
-allowed_ip_addresses = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip_addresses", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +67,14 @@ snapshot_capacity = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+os_format_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os_format_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+notes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
         res := resources_map[_]
         true
      }

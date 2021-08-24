@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_autoscale_group", "managed").resources[_]
 }
-network_vlan_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_vlan_ids", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 minimum_member_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_member_count", null) |
         res := resources_map[_]
@@ -35,8 +23,8 @@ cooldown = ret {
         true
      }
 }
-health_check = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
+termination_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "termination_policy", null) |
         res := resources_map[_]
         true
      }
@@ -53,8 +41,8 @@ virtual_guest_member_template = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +53,26 @@ regional_group = ret {
         true
      }
 }
-maximum_member_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_member_count", null) |
+health_check = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
         res := resources_map[_]
         true
      }
 }
-termination_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "termination_policy", null) |
+network_vlan_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_vlan_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+maximum_member_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_member_count", null) |
         res := resources_map[_]
         true
      }

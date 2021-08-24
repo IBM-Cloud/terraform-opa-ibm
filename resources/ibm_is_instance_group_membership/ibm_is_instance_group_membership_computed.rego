@@ -13,12 +13,6 @@ delete_instance_on_membership_delete = ret {
         true
      }
 }
-load_balancer_pool_member = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool_member", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ instance = ret {
 }
 instance_template = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_template", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer_pool_member = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool_member", null) |
         res := resources_map[_]
         true
      }

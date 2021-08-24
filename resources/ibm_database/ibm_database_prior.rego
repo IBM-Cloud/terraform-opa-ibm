@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_database").resources[_]
 }
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ resource_group_id = ret {
 }
 location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

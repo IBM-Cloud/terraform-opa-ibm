@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host_group", "managed").resources[_]
 }
-dedicated_hosts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -29,8 +29,8 @@ supported_instance_profiles = ret {
         true
      }
 }
-class = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
@@ -53,12 +53,6 @@ resource_group = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
@@ -71,8 +65,14 @@ crn = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+dedicated_hosts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
+        res := resources_map[_]
+        true
+     }
+}
+class = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
         res := resources_map[_]
         true
      }

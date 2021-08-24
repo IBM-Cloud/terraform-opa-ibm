@@ -13,6 +13,12 @@ cloud_cert_instance_id = ret {
         true
      }
 }
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
 domain_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ domain_name = ret {
 }
 expires_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

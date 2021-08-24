@@ -7,26 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_glb_monitor").resources[_]
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-monitor_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 modified_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }
 }
-expected_codes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +25,8 @@ created_on = ret {
         true
      }
 }
-path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
+method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +37,20 @@ allow_insecure = ret {
         true
      }
 }
-method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
+expected_codes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+monitor_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
         res := resources_map[_]
         true
      }

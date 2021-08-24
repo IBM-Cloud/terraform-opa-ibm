@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_network_vlan").resources[_]
 }
+router_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vlan_number = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_number", null) |
         res := resources_map[_]
@@ -19,14 +25,8 @@ softlayer_managed = ret {
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
-        res := resources_map[_]
-        true
-     }
-}
-router_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
+child_resource_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "child_resource_count", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ resource_name = ret {
         true
      }
 }
-child_resource_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "child_resource_count", null) |
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }

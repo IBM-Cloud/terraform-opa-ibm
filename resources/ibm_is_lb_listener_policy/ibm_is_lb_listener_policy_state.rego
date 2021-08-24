@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_listener_policy", "managed").resources[_]
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }
@@ -20,14 +20,14 @@ policy_id = ret {
         true
      }
 }
-rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
+provisioning_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
         res := resources_map[_]
         true
      }
 }
-target_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
@@ -50,8 +50,14 @@ lb = ret {
         true
      }
 }
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+listener = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
+        res := resources_map[_]
+        true
+     }
+}
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
@@ -62,20 +68,14 @@ name = ret {
         true
      }
 }
-provisioning_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-listener = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
+target_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
         res := resources_map[_]
         true
      }

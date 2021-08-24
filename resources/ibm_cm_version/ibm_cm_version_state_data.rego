@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cm_version", "data").resources[_]
 }
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sha = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sha", null) |
+        res := resources_map[_]
+        true
+     }
+}
 catalog_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
         res := resources_map[_]
@@ -40,18 +52,6 @@ version_loc_id = ret {
 }
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sha = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sha", null) |
         res := resources_map[_]
         true
      }

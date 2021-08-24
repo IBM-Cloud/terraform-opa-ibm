@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_page_rule", "managed").resources[_]
 }
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -43,12 +49,6 @@ domain_id = ret {
 }
 rule_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }

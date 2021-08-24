@@ -13,6 +13,18 @@ isolation = ret {
         true
      }
 }
+worker_pool_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
 worker_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
         res := resources_map[_]
@@ -25,12 +37,6 @@ zones = ret {
         true
      }
 }
-host_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
@@ -39,12 +45,6 @@ resource_group_id = ret {
 }
 flavor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_pool_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
         res := resources_map[_]
         true
      }

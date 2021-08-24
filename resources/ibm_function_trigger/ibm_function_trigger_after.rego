@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_function_trigger").resources[_]
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-feed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feed", null) |
+user_defined_annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ user_defined_parameters = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }
 }
-user_defined_annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_defined_annotations", null) |
+feed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feed", null) |
         res := resources_map[_]
         true
      }

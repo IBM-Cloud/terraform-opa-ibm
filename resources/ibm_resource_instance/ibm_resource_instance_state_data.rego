@@ -14,8 +14,8 @@ name = ret {
         true
      }
 }
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -26,14 +26,32 @@ plan = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+extensions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "extensions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +68,8 @@ resource_status = ret {
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
@@ -68,14 +80,8 @@ resource_crn = ret {
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-extensions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "extensions", null) |
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
         res := resources_map[_]
         true
      }
@@ -86,14 +92,8 @@ tags = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
