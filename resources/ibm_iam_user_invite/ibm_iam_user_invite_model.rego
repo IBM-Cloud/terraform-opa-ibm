@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_user_invite", "managed").resources[_]
 }
+classic_infra_roles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "classic_infra_roles", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cloud_foundry_roles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_foundry_roles", null) |
+        res := resources_map[_]
+        true
+     }
+}
 users = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "users", null) |
         res := resources_map[_]
@@ -37,18 +49,6 @@ number_of_invited_users = ret {
 }
 invited_users = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "invited_users", null) |
-        res := resources_map[_]
-        true
-     }
-}
-classic_infra_roles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "classic_infra_roles", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cloud_foundry_roles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_foundry_roles", null) |
         res := resources_map[_]
         true
      }

@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_network_public_ip", "managed").resources[_]
 }
+ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
 routes_to = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes_to", null) |
         res := resources_map[_]
@@ -25,12 +31,6 @@ tags = ret {
 }
 notes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
         res := resources_map[_]
         true
      }

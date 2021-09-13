@@ -19,6 +19,12 @@ tags = ret {
         true
      }
 }
+offset = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
+        res := resources_map[_]
+        true
+     }
+}
 expand = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ expand = ret {
 }
 limit = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offset = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
         res := resources_map[_]
         true
      }

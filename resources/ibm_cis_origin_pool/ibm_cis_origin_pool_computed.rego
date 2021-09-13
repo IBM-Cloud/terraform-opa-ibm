@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_origin_pool").resources[_]
 }
-healthy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 created_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
@@ -27,6 +15,18 @@ created_on = ret {
 }
 modified_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+healthy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
         res := resources_map[_]
         true
      }

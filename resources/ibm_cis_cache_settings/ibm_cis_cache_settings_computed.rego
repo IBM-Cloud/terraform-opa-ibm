@@ -13,14 +13,14 @@ development_mode = ret {
         true
      }
 }
-caching_level = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
+browser_expiration = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "browser_expiration", null) |
         res := resources_map[_]
         true
      }
 }
-browser_expiration = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "browser_expiration", null) |
+caching_level = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
         res := resources_map[_]
         true
      }

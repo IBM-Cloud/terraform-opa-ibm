@@ -11,14 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host_disk_management", "managed").resources[_]
 }
-dedicated_host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host", null) |
+disks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
         res := resources_map[_]
         true
      }
 }
-disks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
+dedicated_host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host", null) |
         res := resources_map[_]
         true
      }

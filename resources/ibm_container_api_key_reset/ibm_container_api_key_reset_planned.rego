@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_container_api_key_reset").resources[_]
 }
+reset_api_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_api_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
 region = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ region = ret {
 }
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reset_api_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_api_key", null) |
         res := resources_map[_]
         true
      }

@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_compute_monitor").resources[_]
 }
-ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
 query_type_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_type_id", null) |
         res := resources_map[_]
@@ -45,6 +39,12 @@ tags = ret {
 }
 guest_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guest_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
         res := resources_map[_]
         true
      }

@@ -13,12 +13,6 @@ monitor_id = ret {
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
 create_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_on", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ create_on = ret {
 }
 modified_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }

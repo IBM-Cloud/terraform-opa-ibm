@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_host", "managed").resources[_]
 }
-host_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
 location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
@@ -55,6 +49,12 @@ worker_pool = ret {
 }
 host_provider = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_provider", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_state", null) |
         res := resources_map[_]
         true
      }

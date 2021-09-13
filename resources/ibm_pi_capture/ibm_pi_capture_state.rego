@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_capture", "managed").resources[_]
 }
-pi_instance_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_capture_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_capture_name", null) |
+pi_capture_storage_image_path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_capture_storage_image_path", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +26,8 @@ pi_capture_destination = ret {
         true
      }
 }
-pi_capture_volume_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_capture_volume_ids", null) |
+pi_capture_cloud_storage_secret_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_capture_cloud_storage_secret_key", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +44,20 @@ pi_capture_cloud_storage_access_key = ret {
         true
      }
 }
-pi_capture_cloud_storage_secret_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_capture_cloud_storage_secret_key", null) |
+pi_instance_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
         res := resources_map[_]
         true
      }
 }
-pi_capture_storage_image_path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_capture_storage_image_path", null) |
+pi_capture_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_capture_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_capture_volume_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_capture_volume_ids", null) |
         res := resources_map[_]
         true
      }

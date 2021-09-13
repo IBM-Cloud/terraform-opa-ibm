@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_cluster_feature", "managed").resources[_]
 }
-reload_workers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reload_workers", null) |
-        res := resources_map[_]
-        true
-     }
-}
 private_service_endpoint_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint_url", null) |
         res := resources_map[_]
@@ -55,6 +49,12 @@ public_service_endpoint_url = ret {
 }
 refresh_api_servers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh_api_servers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+reload_workers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reload_workers", null) |
         res := resources_map[_]
         true
      }

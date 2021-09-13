@@ -13,8 +13,14 @@ updated = ret {
         true
      }
 }
-kind_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind_id", null) |
+tgz_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_url", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +37,8 @@ catalog_id = ret {
         true
      }
 }
-tgz_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
+kind_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind_id", null) |
         res := resources_map[_]
         true
      }
@@ -57,12 +63,6 @@ version = ret {
 }
 sha = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sha", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_url", null) |
         res := resources_map[_]
         true
      }

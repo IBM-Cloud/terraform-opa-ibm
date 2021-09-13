@@ -13,8 +13,20 @@ name = ret {
         true
      }
 }
-protocols = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocols", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+use_system_public_ip_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "use_system_public_ip_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +43,8 @@ description = ret {
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-use_system_public_ip_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "use_system_public_ip_pool", null) |
+protocols = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocols", null) |
         res := resources_map[_]
         true
      }

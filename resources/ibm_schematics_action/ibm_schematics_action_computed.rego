@@ -7,20 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_schematics_action").resources[_]
 }
-playbook_names = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "playbook_names", null) |
+source_created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_created_by", null) |
         res := resources_map[_]
         true
      }
 }
-source_updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
@@ -31,32 +25,20 @@ crn = ret {
         true
      }
 }
-source_created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_created_at", null) |
+account = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account", null) |
         res := resources_map[_]
         true
      }
 }
-source_created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_created_by", null) |
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
         res := resources_map[_]
         true
      }
 }
-sys_lock = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sys_lock", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_updated_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+playbook_names = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "playbook_names", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +55,26 @@ user_state = ret {
         true
      }
 }
-account = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account", null) |
+source_created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_updated_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sys_lock = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sys_lock", null) |
         res := resources_map[_]
         true
      }
@@ -91,8 +91,8 @@ state = ret {
         true
      }
 }
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+source_updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_updated_at", null) |
         res := resources_map[_]
         true
      }
