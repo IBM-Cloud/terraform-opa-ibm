@@ -7,6 +7,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_lb_vpx_vip").resources[_]
 }
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_ip_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 nad_controller_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nad_controller_id", null) |
         res := resources_map[_]
@@ -15,12 +33,6 @@ nad_controller_id = ret {
 }
 load_balancing_method = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancing_method", null) |
-        res := resources_map[_]
-        true
-     }
-}
-virtual_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_ip_address", null) |
         res := resources_map[_]
         true
      }
@@ -43,20 +55,8 @@ source_port = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 security_certificate_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

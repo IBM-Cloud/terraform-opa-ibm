@@ -7,8 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_lb_vpx_service").resources[_]
 }
+vip_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }
@@ -25,26 +43,8 @@ tags = ret {
         true
      }
 }
-vip_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 destination_ip_address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }

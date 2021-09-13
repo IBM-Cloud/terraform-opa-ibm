@@ -8,14 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group_membership", "managed").resources[_]
 }
-action_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_delete", null) |
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
         true
      }
 }
-delete_instance_on_membership_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_instance_on_membership_delete", null) |
+instance_template = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_template", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer_pool_member = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool_member", null) |
         res := resources_map[_]
         true
      }
@@ -38,26 +50,14 @@ name = ret {
         true
      }
 }
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+action_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_delete", null) |
         res := resources_map[_]
         true
      }
 }
-instance_template = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_template", null) |
-        res := resources_map[_]
-        true
-     }
-}
-load_balancer_pool_member = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_pool_member", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+delete_instance_on_membership_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_instance_on_membership_delete", null) |
         res := resources_map[_]
         true
      }

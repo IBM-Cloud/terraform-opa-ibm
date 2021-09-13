@@ -19,14 +19,26 @@ enterprise_account_id = ret {
         true
      }
 }
-enterprise_path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_path", null) |
+enterprise_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
 }
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
@@ -49,26 +61,14 @@ crn = ret {
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
 primary_contact_email = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_contact_email", null) |
         res := resources_map[_]
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enterprise_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_id", null) |
+enterprise_path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_path", null) |
         res := resources_map[_]
         true
      }

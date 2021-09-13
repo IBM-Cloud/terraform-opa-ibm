@@ -13,12 +13,6 @@ subnet_id = ret {
         true
      }
 }
-ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ssl_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_enabled", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ ssl_enabled = ret {
 }
 hostname = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
         res := resources_map[_]
         true
      }

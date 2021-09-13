@@ -7,20 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cm_version").resources[_]
 }
-target_kinds = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_kinds", null) |
-        res := resources_map[_]
-        true
-     }
-}
 target_version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_version", null) |
         res := resources_map[_]
         true
      }
 }
-catalog_identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_identifier", null) |
+content = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +37,14 @@ tags = ret {
         true
      }
 }
-content = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
+target_kinds = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_kinds", null) |
+        res := resources_map[_]
+        true
+     }
+}
+catalog_identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_identifier", null) |
         res := resources_map[_]
         true
      }

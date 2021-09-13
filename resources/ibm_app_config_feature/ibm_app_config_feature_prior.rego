@@ -13,6 +13,12 @@ guid = ret {
         true
      }
 }
+environment_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 feature_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feature_id", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ feature_id = ret {
 }
 includes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "includes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-environment_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
         res := resources_map[_]
         true
      }

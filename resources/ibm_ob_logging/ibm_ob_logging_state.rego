@@ -8,6 +8,30 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_ob_logging", "managed").resources[_]
 }
+logdna_ingestion_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logdna_ingestion_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+agent_namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "agent_namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 instance_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_name", null) |
         res := resources_map[_]
@@ -32,20 +56,8 @@ discovered_agent = ret {
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-logdna_ingestion_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logdna_ingestion_key", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }
@@ -58,18 +70,6 @@ private_endpoint = ret {
 }
 daemonset_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "daemonset_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-agent_namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "agent_namespace", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }

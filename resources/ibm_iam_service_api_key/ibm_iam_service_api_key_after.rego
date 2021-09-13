@@ -13,8 +13,8 @@ description = ret {
         true
      }
 }
-locked = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
+iam_service_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_service_id", null) |
         res := resources_map[_]
         true
      }
@@ -25,26 +25,26 @@ store_value = ret {
         true
      }
 }
+file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-iam_service_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_service_id", null) |
+locked = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
         res := resources_map[_]
         true
      }
 }
 apikey = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
-        res := resources_map[_]
-        true
-     }
-}
-file = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
         res := resources_map[_]
         true
      }

@@ -19,6 +19,12 @@ resource_group = ret {
         true
      }
 }
+key_lifetime = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_lifetime", null) |
+        res := resources_map[_]
+        true
+     }
+}
 authentication_algorithm = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ encryption_algorithm = ret {
 }
 pfs = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pfs", null) |
-        res := resources_map[_]
-        true
-     }
-}
-key_lifetime = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_lifetime", null) |
         res := resources_map[_]
         true
      }

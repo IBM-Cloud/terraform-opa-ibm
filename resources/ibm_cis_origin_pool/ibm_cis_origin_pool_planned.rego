@@ -7,32 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_origin_pool").resources[_]
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-check_regions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "check_regions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-notification_email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_email", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+monitor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
+        res := resources_map[_]
+        true
+     }
+}
+origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +43,20 @@ minimum_origins = ret {
         true
      }
 }
-monitor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
+notification_email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_email", null) |
         res := resources_map[_]
         true
      }
 }
-origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+check_regions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "check_regions", null) |
         res := resources_map[_]
         true
      }

@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_filter", "managed").resources[_]
 }
+expression = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expression", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
@@ -31,18 +43,6 @@ paused = ret {
 }
 filter_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "filter_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expression = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expression", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

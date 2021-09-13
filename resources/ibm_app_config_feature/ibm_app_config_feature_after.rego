@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_app_config_feature").resources[_]
 }
-environment_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
+feature_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feature_id", null) |
         res := resources_map[_]
         true
      }
@@ -19,26 +19,8 @@ enabled_value = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-feature_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feature_id", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +31,26 @@ disabled_value = ret {
         true
      }
 }
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+segment_rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segment_rules", null) |
+        res := resources_map[_]
+        true
+     }
+}
 collections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "collections", null) |
+        res := resources_map[_]
+        true
+     }
+}
+environment_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
         res := resources_map[_]
         true
      }
@@ -67,8 +67,8 @@ type = ret {
         true
      }
 }
-segment_rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segment_rules", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

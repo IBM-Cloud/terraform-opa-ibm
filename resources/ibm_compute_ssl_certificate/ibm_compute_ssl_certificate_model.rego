@@ -29,18 +29,6 @@ private_key = ret {
         true
      }
 }
-organization_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "organization_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-validity_end = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_end", null) |
-        res := resources_map[_]
-        true
-     }
-}
 common_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "common_name", null) |
         res := resources_map[_]
@@ -53,8 +41,20 @@ validity_begin = ret {
         true
      }
 }
+organization_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "organization_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 validity_days = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_days", null) |
+        res := resources_map[_]
+        true
+     }
+}
+validity_end = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "validity_end", null) |
         res := resources_map[_]
         true
      }

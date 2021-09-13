@@ -14,12 +14,6 @@ state = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
@@ -34,12 +28,6 @@ teams_url = ret {
 }
 payment_methods_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "payment_methods_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-quota_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_url", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +50,20 @@ tags = ret {
         true
      }
 }
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+quota_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_url", null) |
         res := resources_map[_]
         true
      }

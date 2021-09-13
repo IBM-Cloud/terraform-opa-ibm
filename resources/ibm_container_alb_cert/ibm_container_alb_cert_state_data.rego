@@ -14,8 +14,8 @@ persistence = ret {
         true
      }
 }
-domain_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -28,12 +28,6 @@ expires_on = ret {
 }
 cluster_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-issuer_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer_name", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +62,14 @@ namespace = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+domain_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+issuer_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer_name", null) |
         res := resources_map[_]
         true
      }

@@ -8,26 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_listener", "managed").resources[_]
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+certificate_instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
         res := resources_map[_]
         true
      }
 }
-accept_proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pool", null) |
+connection_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
         res := resources_map[_]
         true
      }
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +50,20 @@ port = ret {
         true
      }
 }
-certificate_instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }
 }
-connection_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_limit", null) |
+accept_proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
         res := resources_map[_]
         true
      }
 }
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
+default_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pool", null) |
         res := resources_map[_]
         true
      }

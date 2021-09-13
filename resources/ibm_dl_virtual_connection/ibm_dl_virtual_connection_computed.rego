@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dl_virtual_connection").resources[_]
 }
-network_account = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account", null) |
+network_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
         true
      }
 }
-network_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
+network_account = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account", null) |
         res := resources_map[_]
         true
      }

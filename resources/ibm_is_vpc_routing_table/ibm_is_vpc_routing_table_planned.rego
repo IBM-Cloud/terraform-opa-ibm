@@ -13,12 +13,6 @@ route_transit_gateway_ingress = ret {
         true
      }
 }
-route_vpc_zone_ingress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_vpc_zone_ingress", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ vpc = ret {
 }
 route_direct_link_ingress = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_direct_link_ingress", null) |
+        res := resources_map[_]
+        true
+     }
+}
+route_vpc_zone_ingress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_vpc_zone_ingress", null) |
         res := resources_map[_]
         true
      }

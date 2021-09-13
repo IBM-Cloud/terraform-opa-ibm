@@ -19,4 +19,10 @@ name = ret {
         true
      }
 }
+identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

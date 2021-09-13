@@ -17,6 +17,36 @@ primary_contact_iam_id = ret {
         true
      }
 }
+enterprise_account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+        res := resources_map[_]
+        true
+     }
+}
+url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -47,44 +77,14 @@ created_by = ret {
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
-        res := resources_map[_]
-        true
-     }
-}
-url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enterprise_account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enterprise_account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
 source_account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
