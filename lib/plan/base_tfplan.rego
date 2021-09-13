@@ -30,19 +30,32 @@ variables = vars{
 #   }
 # ]
 
-module_calls[msg] {
-  [_, value] := walk(tfplan["configuration"])
-  msg = value.module_calls
+module_calls = msg {
+    msg := { item | 
+        [paths, value] := walk(tfplan["configuration"])
+        module := value.module
+        path_original := concat(".", paths)
+        path_wo_prefix := trim_prefix(path_original, "root_module")
+        path_wo_module := replace(path_wo_prefix, ".module", "")
+        path := replace(path_wo_module, "_calls", ".module")
+        final_path := trim_prefix(path, ".")
+        item := { "path" : final_path, "resources": module.resources, "variables": object.get(module, "variables", {}) } 
+    }
 }
 
 root_module_resources = ret {
-    ret := [{"module_name": "root_module", "resources_list": get_resources_list_info(tfplan.configuration["root_module"]["resources"])}]
+    ret := [
+        {
+            "module_name": "root_module", 
+            "resources_list": get_resources_list_info(object.get(tfplan.configuration["root_module"], "resources", []))
+        }
+    ]
 }
 
 modules = mods {
-    some i, j
-    other_modules := [ {"module_name": j, "resources_list": get_resources_list_info(val.module.resources) } |
-         val := module_calls[i][j]
+    some i
+    other_modules := [ {"module_name": val.path, "resources_list": get_resources_list_info(val.resources) } |
+         val := module_calls[i]
          true
     ]
     mods := array.concat(other_modules, root_module_resources)
@@ -102,13 +115,13 @@ modules = mods {
 get_root_module_config = root_module_resource_config {
     x := object.get(tfplan["configuration"]["root_module"], "resources", [])
     variables := object.get(tfplan["configuration"]["root_module"], "variables", {})
-    root_module_resource_config := [{"name": "root_module", "resources": get_resources_config(x, variables) }]
+    root_module_resource_config := [{"name": "root_module", "resources": get_resources_config("", x, variables) }]
 }
 
 get_modules_config =  modules_config {
-    some i, j
-    other_modules_config := [ {"name": j, "resources": get_resources_config(val.module.resources, val.module.variables) } |
-         val := module_calls[i][j]
+    some i
+    other_modules_config := [ {"name": val.path, "resources": get_resources_config(val.path, val.resources, val.variables) } |
+         val := module_calls[i]
          true
     ]
     root_modules := get_root_module_config
@@ -702,8 +715,14 @@ get_provider_config(config) = pc {
     ]
 }
 
-get_resources_config(resources_list, vars) = resource_config{
-    resource_config := [ {"resource_name": r.name , "resource_type": r.type, "attributes": get_expressions(r.expressions, vars) } |
+get_resources_config(module, resources_list, vars) = resource_config{
+    resource_config := [
+        {
+            "address": trim_prefix(concat(".", [module, r.type, r.name]), "."), 
+            "resource_name": r.name, 
+            "resource_type": r.type, 
+            "attributes": get_expressions(r.expressions, vars) 
+        } |
         r := resources_list[_]
         true
     ]
