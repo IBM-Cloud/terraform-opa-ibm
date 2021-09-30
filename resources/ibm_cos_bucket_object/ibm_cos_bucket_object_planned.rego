@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cos_bucket_object").resources[_]
 }
-content = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
+content_file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_file", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,8 @@ bucket_crn = ret {
         true
      }
 }
-etag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+bucket_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_location", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +37,8 @@ force_delete = ret {
         true
      }
 }
-bucket_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_location", null) |
+content = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +49,14 @@ content_base64 = ret {
         true
      }
 }
-content_file = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_file", null) |
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+etag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
         res := resources_map[_]
         true
      }

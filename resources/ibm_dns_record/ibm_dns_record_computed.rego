@@ -19,8 +19,8 @@ retry = ret {
         true
      }
 }
-minimum_ttl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_ttl", null) |
+responsible_person = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ expire = ret {
         true
      }
 }
-responsible_person = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
+minimum_ttl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_ttl", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,14 @@ crn = ret {
         true
      }
 }
-url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+schematics_workspace_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "schematics_workspace_id", null) |
         res := resources_map[_]
         true
      }
 }
-schematics_workspace_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "schematics_workspace_id", null) |
+url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
         res := resources_map[_]
         true
      }

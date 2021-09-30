@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_function_package", "data").resources[_]
 }
-package_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ parameters = ret {
 }
 bind_package_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bind_package_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+package_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
         res := resources_map[_]
         true
      }

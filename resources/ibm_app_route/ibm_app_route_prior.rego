@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_app_route").resources[_]
 }
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
 host = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ path = ret {
 }
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_guid", null) |
         res := resources_map[_]
         true
      }

@@ -19,12 +19,6 @@ last_updated_date = ret {
         true
      }
 }
-volume_snapshots = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_snapshots", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_snap_shot_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_id", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ pi_snap_shot_id = ret {
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume_snapshots = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_snapshots", null) |
         res := resources_map[_]
         true
      }

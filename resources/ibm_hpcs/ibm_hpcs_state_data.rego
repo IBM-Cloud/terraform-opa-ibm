@@ -20,8 +20,8 @@ service = ret {
         true
      }
 }
-service_endpoints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
+units = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "units", null) |
         res := resources_map[_]
         true
      }
@@ -34,12 +34,6 @@ status = ret {
 }
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +62,26 @@ location = ret {
         true
      }
 }
-units = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "units", null) |
-        res := resources_map[_]
-        true
-     }
-}
 failover_units = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "failover_units", null) |
         res := resources_map[_]
         true
      }
 }
+service_endpoints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
+        res := resources_map[_]
+        true
+     }
+}
 plan = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+        res := resources_map[_]
+        true
+     }
+}
+guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
         true
      }

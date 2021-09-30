@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_domain", "managed").resources[_]
 }
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name_servers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name_servers", null) |
         res := resources_map[_]
@@ -40,12 +46,6 @@ domain = ret {
 }
 paused = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "paused", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

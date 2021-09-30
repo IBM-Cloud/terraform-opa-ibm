@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_satellite_endpoint").resources[_]
 }
-performance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "performance", null) |
+endpoint_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sources", null) |
         res := resources_map[_]
         true
      }
@@ -19,20 +25,8 @@ status = ret {
         true
      }
 }
-last_change = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_change", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+connector_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connector_port", null) |
         res := resources_map[_]
         true
      }
@@ -49,20 +43,26 @@ client_host = ret {
         true
      }
 }
+last_change = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_change", null) |
+        res := resources_map[_]
+        true
+     }
+}
 client_port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_port", null) |
         res := resources_map[_]
         true
      }
 }
-sources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sources", null) |
+performance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "performance", null) |
         res := resources_map[_]
         true
      }
 }
-connector_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connector_port", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,14 @@ protocol = ret {
         true
      }
 }
-rule_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
+before = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "before", null) |
         res := resources_map[_]
         true
      }
 }
-before = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "before", null) |
+rule_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]
         true
      }

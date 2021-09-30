@@ -13,14 +13,14 @@ health = ret {
         true
      }
 }
-healthy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy", null) |
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+healthy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy", null) |
         res := resources_map[_]
         true
      }

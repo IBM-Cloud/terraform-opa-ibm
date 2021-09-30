@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_domain", "managed").resources[_]
 }
-update_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_date", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -37,6 +25,18 @@ name = ret {
 }
 serial = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "serial", null) |
+        res := resources_map[_]
+        true
+     }
+}
+update_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_date", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
         res := resources_map[_]
         true
      }
