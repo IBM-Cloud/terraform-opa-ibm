@@ -14,8 +14,8 @@ aggregation_window = ret {
         true
      }
 }
-cooldown = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
+min_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
         res := resources_map[_]
         true
      }
@@ -32,12 +32,6 @@ policies = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
@@ -50,14 +44,8 @@ manager_type = ret {
         true
      }
 }
-actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enable_manager = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_manager", null) |
+cooldown = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +56,20 @@ max_membership_count = ret {
         true
      }
 }
-min_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
+actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable_manager = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_manager", null) |
         res := resources_map[_]
         true
      }

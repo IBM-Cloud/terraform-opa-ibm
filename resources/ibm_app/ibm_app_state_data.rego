@@ -20,14 +20,26 @@ memory = ret {
         true
      }
 }
-disk_quota = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_quota", null) |
+health_check_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_type", null) |
         res := resources_map[_]
         true
      }
 }
-package_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_state", null) |
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+environment_json = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_json", null) |
+        res := resources_map[_]
+        true
+     }
+}
+route_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_guid", null) |
         res := resources_map[_]
         true
      }
@@ -44,36 +56,6 @@ instances = ret {
         true
      }
 }
-route_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-environment_json = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_json", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_check_http_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_http_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_check_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
 buildpack = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "buildpack", null) |
         res := resources_map[_]
@@ -82,6 +64,24 @@ buildpack = ret {
 }
 service_instance_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+disk_quota = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_quota", null) |
+        res := resources_map[_]
+        true
+     }
+}
+package_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_check_http_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_http_endpoint", null) |
         res := resources_map[_]
         true
      }

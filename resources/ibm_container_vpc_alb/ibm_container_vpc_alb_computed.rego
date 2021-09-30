@@ -19,20 +19,14 @@ disable_deployment = ret {
         true
      }
 }
-load_balancer_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_hostname", null) |
         res := resources_map[_]
         true
      }
@@ -45,6 +39,12 @@ resize = ret {
 }
 state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

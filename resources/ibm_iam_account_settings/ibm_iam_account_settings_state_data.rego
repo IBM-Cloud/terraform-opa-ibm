@@ -38,18 +38,6 @@ session_invalidation_in_seconds = ret {
         true
      }
 }
-max_sessions_per_identity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_sessions_per_identity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-include_history = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "include_history", null) |
-        res := resources_map[_]
-        true
-     }
-}
 account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
@@ -70,6 +58,18 @@ allowed_ip_addresses = ret {
 }
 history = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "history", null) |
+        res := resources_map[_]
+        true
+     }
+}
+max_sessions_per_identity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_sessions_per_identity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+include_history = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "include_history", null) |
         res := resources_map[_]
         true
      }

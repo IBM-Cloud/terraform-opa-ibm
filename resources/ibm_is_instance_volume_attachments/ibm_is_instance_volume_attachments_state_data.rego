@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_volume_attachments", "data").resources[_]
 }
-volume_attachments = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachments", null) |
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
         true
      }
 }
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+volume_attachments = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachments", null) |
         res := resources_map[_]
         true
      }

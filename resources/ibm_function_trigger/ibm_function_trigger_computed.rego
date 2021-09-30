@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_function_trigger").resources[_]
 }
-annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
+trigger_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ parameters = ret {
         true
      }
 }
-trigger_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
+annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
         res := resources_map[_]
         true
      }

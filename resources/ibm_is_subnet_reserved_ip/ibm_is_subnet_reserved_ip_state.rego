@@ -14,6 +14,12 @@ href = ret {
         true
      }
 }
+owner = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "owner", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
@@ -22,6 +28,12 @@ resource_type = ret {
 }
 subnet = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
+        res := resources_map[_]
+        true
+     }
+}
+auto_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
         res := resources_map[_]
         true
      }
@@ -38,6 +50,12 @@ target = ret {
         true
      }
 }
+address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
+        res := resources_map[_]
+        true
+     }
+}
 reserved_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reserved_ip", null) |
         res := resources_map[_]
@@ -46,24 +64,6 @@ reserved_ip = ret {
 }
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-auto_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-owner = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "owner", null) |
         res := resources_map[_]
         true
      }

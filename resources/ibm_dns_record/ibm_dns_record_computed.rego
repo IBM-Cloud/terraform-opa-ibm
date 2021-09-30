@@ -13,8 +13,8 @@ refresh = ret {
         true
      }
 }
-responsible_person = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
+retry = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retry", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ minimum_ttl = ret {
         true
      }
 }
-retry = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retry", null) |
+expire = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expire", null) |
         res := resources_map[_]
         true
      }
 }
-expire = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expire", null) |
+responsible_person = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
         res := resources_map[_]
         true
      }

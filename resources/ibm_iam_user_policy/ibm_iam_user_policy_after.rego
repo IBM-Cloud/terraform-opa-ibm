@@ -43,4 +43,10 @@ tags = ret {
         true
      }
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

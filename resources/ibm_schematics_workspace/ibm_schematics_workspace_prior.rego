@@ -13,14 +13,14 @@ workspace_id = ret {
         true
      }
 }
-template_git_has_uploadedgitrepotar = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_has_uploadedgitrepotar", null) |
+template_values_metadata = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_values_metadata", null) |
         res := resources_map[_]
         true
      }
 }
-template_values_metadata = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_values_metadata", null) |
+template_git_has_uploadedgitrepotar = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_has_uploadedgitrepotar", null) |
         res := resources_map[_]
         true
      }

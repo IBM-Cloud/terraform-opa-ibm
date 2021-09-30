@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_ipsec_vpn").resources[_]
 }
+phase_one = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "phase_one", null) |
+        res := resources_map[_]
+        true
+     }
+}
 address_translation = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_translation", null) |
         res := resources_map[_]
@@ -19,38 +25,14 @@ preshared_key = ret {
         true
      }
 }
-internal_subnet_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "internal_subnet_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-remote_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet", null) |
-        res := resources_map[_]
-        true
-     }
-}
-phase_two = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "phase_two", null) |
-        res := resources_map[_]
-        true
-     }
-}
-phase_one = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "phase_one", null) |
-        res := resources_map[_]
-        true
-     }
-}
 customer_peer_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_peer_ip", null) |
         res := resources_map[_]
         true
      }
 }
-remote_subnet_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet_id", null) |
+internal_subnet_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "internal_subnet_id", null) |
         res := resources_map[_]
         true
      }
@@ -63,6 +45,24 @@ service_subnet_id = ret {
 }
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+        res := resources_map[_]
+        true
+     }
+}
+phase_two = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "phase_two", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote_subnet_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet", null) |
         res := resources_map[_]
         true
      }

@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_security_group_target", "managed").resources[_]
 }
-security_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 target = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
         res := resources_map[_]
@@ -29,8 +23,20 @@ name = ret {
         true
      }
 }
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
         res := resources_map[_]
         true
      }

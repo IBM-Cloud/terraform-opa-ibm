@@ -14,26 +14,8 @@ name = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dedicated_hosts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
-        res := resources_map[_]
-        true
-     }
-}
 family = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +32,32 @@ class = ret {
         true
      }
 }
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
+dedicated_hosts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
+        res := resources_map[_]
+        true
+     }
+}
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

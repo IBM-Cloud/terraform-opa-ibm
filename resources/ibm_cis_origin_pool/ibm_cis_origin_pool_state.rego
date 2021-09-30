@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_origin_pool", "managed").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-monitor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
@@ -26,14 +20,8 @@ origins = ret {
         true
      }
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+health = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
         res := resources_map[_]
         true
      }
@@ -44,14 +32,8 @@ cis_id = ret {
         true
      }
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-minimum_origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
+monitor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +50,8 @@ healthy = ret {
         true
      }
 }
-pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
@@ -86,8 +68,26 @@ check_regions = ret {
         true
      }
 }
-health = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+minimum_origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
+        res := resources_map[_]
+        true
+     }
+}
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,32 @@ command_parameter = ret {
         true
      }
 }
-job_env_settings = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_env_settings", null) |
+data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
         res := resources_map[_]
         true
      }
 }
-job_log_summary = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_log_summary", null) |
+command_object_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+job_inputs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_inputs", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+command_object = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object", null) |
         res := resources_map[_]
         true
      }
@@ -37,44 +55,26 @@ command_options = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+job_env_settings = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_env_settings", null) |
         res := resources_map[_]
         true
      }
 }
-data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bastion = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bastion", null) |
-        res := resources_map[_]
-        true
-     }
-}
-job_inputs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_inputs", null) |
-        res := resources_map[_]
-        true
-     }
-}
-command_object = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object", null) |
-        res := resources_map[_]
-        true
-     }
-}
-command_object_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "command_object_id", null) |
+job_log_summary = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "job_log_summary", null) |
         res := resources_map[_]
         true
      }
 }
 location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bastion = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bastion", null) |
         res := resources_map[_]
         true
      }

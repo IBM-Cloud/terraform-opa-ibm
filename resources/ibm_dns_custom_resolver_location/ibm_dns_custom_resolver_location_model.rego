@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_custom_resolver_location", "managed").resources[_]
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
 healthy = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy", null) |
         res := resources_map[_]
@@ -49,6 +43,12 @@ location_id = ret {
 }
 subnet_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }

@@ -19,14 +19,14 @@ secret_type = ret {
         true
      }
 }
-secret_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_id", null) |
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
         res := resources_map[_]
         true
      }
 }
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+secret_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_id", null) |
         res := resources_map[_]
         true
      }

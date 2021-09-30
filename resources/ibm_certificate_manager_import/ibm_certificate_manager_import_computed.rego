@@ -25,14 +25,8 @@ imported = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-key_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
+has_previous = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_previous", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +37,14 @@ expires_on = ret {
         true
      }
 }
-has_previous = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_previous", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+key_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_algorithm", null) |
         res := resources_map[_]
         true
      }
