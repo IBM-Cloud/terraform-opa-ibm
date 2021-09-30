@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_storage_file").resources[_]
 }
+allowed_virtual_guest_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_virtual_guest_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mountpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mountpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_controller_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
@@ -19,20 +31,14 @@ volumename = ret {
         true
      }
 }
-allowed_virtual_guest_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_virtual_guest_ids", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
 }
-allowed_hardware_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_hardware_ids", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mountpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mountpoint", null) |
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +49,8 @@ resource_status = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+allowed_hardware_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_hardware_ids", null) |
         res := resources_map[_]
         true
      }

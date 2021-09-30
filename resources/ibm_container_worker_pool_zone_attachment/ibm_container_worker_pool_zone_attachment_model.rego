@@ -17,14 +17,14 @@ worker_pool = ret {
         true
      }
 }
-public_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
+private_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
         res := resources_map[_]
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+public_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
         res := resources_map[_]
         true
      }
@@ -47,20 +47,20 @@ cluster = ret {
         true
      }
 }
-wait_till_albs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_till_albs", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+wait_till_albs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_till_albs", null) |
         res := resources_map[_]
         true
      }

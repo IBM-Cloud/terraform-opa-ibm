@@ -8,8 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_api_key", "managed").resources[_]
 }
-entity_lock = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_lock", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
         res := resources_map[_]
         true
      }
@@ -20,20 +32,26 @@ crn = ret {
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-store_value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "store_value", null) |
+apikey_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey_id", null) |
         res := resources_map[_]
         true
      }
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+apikey = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
+        res := resources_map[_]
+        true
+     }
+}
+entity_lock = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_lock", null) |
         res := resources_map[_]
         true
      }
@@ -46,18 +64,6 @@ entity_tag = ret {
 }
 locked = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iam_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-apikey_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey_id", null) |
         res := resources_map[_]
         true
      }
@@ -80,20 +86,14 @@ account_id = ret {
         true
      }
 }
-apikey = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
+store_value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "store_value", null) |
         res := resources_map[_]
         true
      }
 }
-file = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }

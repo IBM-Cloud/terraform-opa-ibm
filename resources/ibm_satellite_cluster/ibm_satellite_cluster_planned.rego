@@ -7,26 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_satellite_cluster").resources[_]
 }
-host_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn_token = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn_token", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+host_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_labels", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +25,8 @@ location = ret {
         true
      }
 }
-default_worker_pool_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_worker_pool_labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+kube_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +37,44 @@ disable_public_service_endpoint = ret {
         true
      }
 }
-service_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_subnet", null) |
+default_worker_pool_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_worker_pool_labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn_token = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn_token", null) |
+        res := resources_map[_]
+        true
+     }
+}
+patch_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "patch_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+retry_patch_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retry_patch_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -73,14 +91,8 @@ enable_config_admin = ret {
         true
      }
 }
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+service_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_subnet", null) |
         res := resources_map[_]
         true
      }
@@ -91,20 +103,8 @@ pull_secret = ret {
         true
      }
 }
-kube_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-retry_patch_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retry_patch_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-patch_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "patch_version", null) |
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
         res := resources_map[_]
         true
      }

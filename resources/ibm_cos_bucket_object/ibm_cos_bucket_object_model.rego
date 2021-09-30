@@ -11,36 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cos_bucket_object", "managed").resources[_]
 }
-content_base64 = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_base64", null) |
-        res := resources_map[_]
-        true
-     }
-}
-content_file = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_file", null) |
-        res := resources_map[_]
-        true
-     }
-}
-content_length = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
-        res := resources_map[_]
-        true
-     }
-}
-object_sql_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_sql_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-body = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "body", null) |
-        res := resources_map[_]
-        true
-     }
-}
 content = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
@@ -53,20 +23,8 @@ key = ret {
         true
      }
 }
-force_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
 bucket_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
         res := resources_map[_]
         true
      }
@@ -77,8 +35,44 @@ etag = ret {
         true
      }
 }
+body = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "body", null) |
+        res := resources_map[_]
+        true
+     }
+}
+content_length = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
+        res := resources_map[_]
+        true
+     }
+}
+last_modified = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 version_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+force_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
+        res := resources_map[_]
+        true
+     }
+}
+object_sql_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_sql_url", null) |
         res := resources_map[_]
         true
      }
@@ -89,14 +83,20 @@ bucket_location = ret {
         true
      }
 }
-content_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_type", null) |
+content_base64 = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_base64", null) |
         res := resources_map[_]
         true
      }
 }
-last_modified = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified", null) |
+content_file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_file", null) |
+        res := resources_map[_]
+        true
+     }
+}
+content_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_type", null) |
         res := resources_map[_]
         true
      }

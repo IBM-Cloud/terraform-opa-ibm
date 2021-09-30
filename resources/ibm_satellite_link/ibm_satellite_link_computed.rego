@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_satellite_link").resources[_]
 }
-satellite_link_host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "satellite_link_host", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 last_change = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_change", null) |
         res := resources_map[_]
@@ -31,14 +19,26 @@ performance = ret {
         true
      }
 }
-ws_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ws_endpoint", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+satellite_link_host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "satellite_link_host", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ws_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ws_endpoint", null) |
         res := resources_map[_]
         true
      }

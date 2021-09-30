@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_attach_host_script", "data").resources[_]
 }
-host_provider = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_provider", null) |
-        res := resources_map[_]
-        true
-     }
-}
-script_dir = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "script_dir", null) |
-        res := resources_map[_]
-        true
-     }
-}
-script_path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "script_path", null) |
-        res := resources_map[_]
-        true
-     }
-}
 host_script = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_script", null) |
         res := resources_map[_]
@@ -46,6 +28,24 @@ description = ret {
 }
 labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_provider = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_provider", null) |
+        res := resources_map[_]
+        true
+     }
+}
+script_dir = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "script_dir", null) |
+        res := resources_map[_]
+        true
+     }
+}
+script_path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "script_path", null) |
         res := resources_map[_]
         true
      }

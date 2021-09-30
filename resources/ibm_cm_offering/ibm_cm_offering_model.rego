@@ -11,48 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cm_offering", "managed").resources[_]
 }
-ibm_publish_approved = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_publish_approved", null) |
-        res := resources_map[_]
-        true
-     }
-}
-catalog_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-catalog_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-disclaimer = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disclaimer", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offering_icon_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_icon_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-short_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
-        res := resources_map[_]
-        true
-     }
-}
 long_description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "long_description", null) |
         res := resources_map[_]
@@ -65,14 +23,74 @@ public_publish_approved = ret {
         true
      }
 }
-public_original_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_original_crn", null) |
+repo_info = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_info", null) |
         res := resources_map[_]
         true
      }
 }
 offering_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+publish_public_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish_public_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+disclaimer = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disclaimer", null) |
+        res := resources_map[_]
+        true
+     }
+}
+permit_request_ibm_public_publish = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "permit_request_ibm_public_publish", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ibm_publish_approved = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_publish_approved", null) |
+        res := resources_map[_]
+        true
+     }
+}
+catalog_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offering_docs_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_docs_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+portal_approval_record = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "portal_approval_record", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offering_icon_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_icon_url", null) |
         res := resources_map[_]
         true
      }
@@ -89,50 +107,26 @@ tags = ret {
         true
      }
 }
-permit_request_ibm_public_publish = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "permit_request_ibm_public_publish", null) |
+short_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
         res := resources_map[_]
         true
      }
 }
-portal_approval_record = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "portal_approval_record", null) |
+public_original_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_original_crn", null) |
         res := resources_map[_]
         true
      }
 }
-portal_ui_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "portal_ui_url", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-repo_info = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_info", null) |
-        res := resources_map[_]
-        true
-     }
-}
-url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offering_docs_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_docs_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-publish_public_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish_public_crn", null) |
+label = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]
         true
      }
@@ -143,8 +137,14 @@ hidden = ret {
         true
      }
 }
-label = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
+portal_ui_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "portal_ui_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+catalog_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
         res := resources_map[_]
         true
      }

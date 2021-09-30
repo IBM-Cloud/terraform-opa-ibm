@@ -7,8 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_lb_listener").resources[_]
 }
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
 certificate_instance = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
+        res := resources_map[_]
+        true
+     }
+}
+accept_proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
         res := resources_map[_]
         true
      }
@@ -27,18 +39,6 @@ lb = ret {
 }
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-accept_proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
         res := resources_map[_]
         true
      }

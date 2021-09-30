@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_lb_service_group").resources[_]
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routing_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-load_balancer_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_id", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +19,8 @@ allocation = ret {
         true
      }
 }
-routing_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
+routing_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_type", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +31,20 @@ timeout = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+load_balancer_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routing_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
         res := resources_map[_]
         true
      }

@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_user_profile", "data").resources[_]
 }
-altphonenumber = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "altphonenumber", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iam_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 user_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
         res := resources_map[_]
@@ -56,8 +38,26 @@ phonenumber = ret {
         true
      }
 }
+altphonenumber = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "altphonenumber", null) |
+        res := resources_map[_]
+        true
+     }
+}
+iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 allowed_ip_addresses = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip_addresses", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ibm_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +68,8 @@ email = ret {
         true
      }
 }
-ibm_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }

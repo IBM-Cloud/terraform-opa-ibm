@@ -19,8 +19,8 @@ validity_begin = ret {
         true
      }
 }
-organization_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "organization_name", null) |
+key_size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_size", null) |
         res := resources_map[_]
         true
      }
@@ -37,12 +37,6 @@ validity_end = ret {
         true
      }
 }
-key_size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_size", null) |
-        res := resources_map[_]
-        true
-     }
-}
 create_date = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_date", null) |
         res := resources_map[_]
@@ -51,6 +45,12 @@ create_date = ret {
 }
 modify_date = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modify_date", null) |
+        res := resources_map[_]
+        true
+     }
+}
+organization_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "organization_name", null) |
         res := resources_map[_]
         true
      }
