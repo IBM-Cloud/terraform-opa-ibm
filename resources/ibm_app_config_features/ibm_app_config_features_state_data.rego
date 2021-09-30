@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_app_config_features", "data").resources[_]
 }
-includes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "includes", null) |
-        res := resources_map[_]
-        true
-     }
-}
 guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
@@ -26,8 +20,8 @@ environment_id = ret {
         true
      }
 }
-next = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next", null) |
+segments = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segments", null) |
         res := resources_map[_]
         true
      }
@@ -38,38 +32,14 @@ first = ret {
         true
      }
 }
-segments = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segments", null) |
+last = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last", null) |
         res := resources_map[_]
         true
      }
 }
-offset = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
-        res := resources_map[_]
-        true
-     }
-}
-limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
-previous = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "previous", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expand = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
+includes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "includes", null) |
         res := resources_map[_]
         true
      }
@@ -80,14 +50,14 @@ features = ret {
         true
      }
 }
-total_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
+next = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next", null) |
         res := resources_map[_]
         true
      }
 }
-last = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last", null) |
+previous = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "previous", null) |
         res := resources_map[_]
         true
      }
@@ -98,8 +68,38 @@ sort = ret {
         true
      }
 }
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 collections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "collections", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expand = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offset = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
+        res := resources_map[_]
+        true
+     }
+}
+total_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
         res := resources_map[_]
         true
      }

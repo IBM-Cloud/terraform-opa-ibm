@@ -13,8 +13,20 @@ machine_type = ret {
         true
      }
 }
-disk_encryption = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_encryption", null) |
+size_per_zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size_per_zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +43,8 @@ region = ret {
         true
      }
 }
-size_per_zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size_per_zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-entitlement = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
-        res := resources_map[_]
-        true
-     }
-}
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -61,14 +61,14 @@ hardware = ret {
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+disk_encryption = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_encryption", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+entitlement = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
         res := resources_map[_]
         true
      }

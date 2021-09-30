@@ -8,36 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_image", "data").resources[_]
 }
-visibility = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "visibility", null) |
-        res := resources_map[_]
-        true
-     }
-}
-os = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os", null) |
-        res := resources_map[_]
-        true
-     }
-}
-encryption_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
-encryption = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -62,14 +32,44 @@ checksum = ret {
         true
      }
 }
-source_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
+encryption = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 identifier = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
+        res := resources_map[_]
+        true
+     }
+}
+visibility = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "visibility", null) |
+        res := resources_map[_]
+        true
+     }
+}
+os = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encryption_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
         res := resources_map[_]
         true
      }

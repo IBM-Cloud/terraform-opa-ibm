@@ -11,24 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_monitor", "managed").resources[_]
 }
-wait_cycles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_cycles", null) |
-        res := resources_map[_]
-        true
-     }
-}
-notified_users = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notified_users", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 guest_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guest_id", null) |
         res := resources_map[_]
@@ -49,6 +31,24 @@ query_type_id = ret {
 }
 response_action_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "response_action_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+wait_cycles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_cycles", null) |
+        res := resources_map[_]
+        true
+     }
+}
+notified_users = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notified_users", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

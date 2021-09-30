@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_dedicated_host", "managed").resources[_]
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }
@@ -26,32 +20,8 @@ flavor = ret {
         true
      }
 }
-hourly_billing = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hourly_billing", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cpu_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
-        res := resources_map[_]
-        true
-     }
-}
-router_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
         res := resources_map[_]
         true
      }
@@ -70,6 +40,36 @@ memory_capacity = ret {
 }
 wait_time_minutes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hourly_billing = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hourly_billing", null) |
+        res := resources_map[_]
+        true
+     }
+}
+router_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
         res := resources_map[_]
         true
      }

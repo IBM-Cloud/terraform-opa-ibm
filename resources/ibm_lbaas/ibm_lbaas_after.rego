@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_lbaas").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+protocols = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocols", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +31,8 @@ type = ret {
         true
      }
 }
-protocols = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocols", null) |
-        res := resources_map[_]
-        true
-     }
-}
-wait_time_minutes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -51,6 +45,12 @@ use_system_public_ip_pool = ret {
 }
 ssl_ciphers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_ciphers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+wait_time_minutes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
         res := resources_map[_]
         true
      }

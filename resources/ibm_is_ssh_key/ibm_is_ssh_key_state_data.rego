@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_ssh_key", "data").resources[_]
 }
-public_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_key", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+length = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "length", null) |
         res := resources_map[_]
         true
      }
@@ -20,8 +26,8 @@ resource_controller_url = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -44,12 +50,6 @@ resource_group = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
@@ -62,8 +62,14 @@ fingerprint = ret {
         true
      }
 }
-length = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "length", null) |
+public_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }

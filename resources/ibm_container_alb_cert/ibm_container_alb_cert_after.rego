@@ -13,8 +13,8 @@ cert_crn = ret {
         true
      }
 }
-cluster_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ region = ret {
         true
      }
 }
-secret_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
+cluster_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
         res := resources_map[_]
         true
      }
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+secret_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
         res := resources_map[_]
         true
      }

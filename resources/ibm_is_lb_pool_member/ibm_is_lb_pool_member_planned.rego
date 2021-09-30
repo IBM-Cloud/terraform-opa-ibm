@@ -13,14 +13,14 @@ lb = ret {
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+target_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_address", null) |
         res := resources_map[_]
         true
      }
 }
-target_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_address", null) |
+target_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ pool = ret {
         true
      }
 }
-target_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }

@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_virtual_endpoint_gateway", "managed").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -35,8 +23,8 @@ created_at = ret {
         true
      }
 }
-ips = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ips", null) |
+health_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_state", null) |
         res := resources_map[_]
         true
      }
@@ -47,8 +35,8 @@ target = ret {
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -59,20 +47,32 @@ name = ret {
         true
      }
 }
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
-health_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_state", null) |
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+ips = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ips", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }

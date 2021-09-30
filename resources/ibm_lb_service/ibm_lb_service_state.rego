@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_service", "managed").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ip_address_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address_id", null) |
         res := resources_map[_]
@@ -46,6 +34,18 @@ health_check_type = ret {
 }
 weight = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
         res := resources_map[_]
         true
      }

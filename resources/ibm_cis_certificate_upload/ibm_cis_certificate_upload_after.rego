@@ -13,6 +13,12 @@ cis_id = ret {
         true
      }
 }
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
 bundle_method = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bundle_method", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ private_key = ret {
 }
 domain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }

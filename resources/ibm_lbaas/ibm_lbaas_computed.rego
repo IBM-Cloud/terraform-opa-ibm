@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_lbaas").resources[_]
 }
-health_monitors = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }
@@ -19,14 +19,14 @@ resource_controller_url = ret {
         true
      }
 }
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
 }
-vip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip", null) |
+health_monitors = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +55,8 @@ ssl_ciphers = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+vip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dl_provider_gateway").resources[_]
 }
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
 bgp_ibm_cidr = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_ibm_cidr", null) |
         res := resources_map[_]
@@ -19,8 +31,8 @@ type = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+vlan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
         res := resources_map[_]
         true
      }
@@ -37,26 +49,26 @@ bgp_cer_cidr = ret {
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 operational_status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operational_status", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+provider_api_managed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_api_managed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
@@ -73,20 +85,8 @@ resource_group_name = ret {
         true
      }
 }
-provider_api_managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_api_managed", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vlan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

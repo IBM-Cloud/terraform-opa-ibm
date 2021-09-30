@@ -8,20 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_service_group", "managed").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+virtual_server_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
         res := resources_map[_]
         true
      }
 }
-service_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
 }
-allocation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allocation", null) |
+routing_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +38,14 @@ timeout = ret {
         true
      }
 }
-virtual_server_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +56,8 @@ load_balancer_id = ret {
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routing_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
+allocation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allocation", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_container_cluster_versions").resources[_]
 }
+org_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
 account_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
         res := resources_map[_]
@@ -21,18 +33,6 @@ region = ret {
 }
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-org_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
         true
      }

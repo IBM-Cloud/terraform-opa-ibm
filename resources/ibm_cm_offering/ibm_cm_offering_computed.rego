@@ -13,8 +13,14 @@ long_description = ret {
         true
      }
 }
-public_publish_approved = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_publish_approved", null) |
+permit_request_ibm_public_publish = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "permit_request_ibm_public_publish", null) |
+        res := resources_map[_]
+        true
+     }
+}
+catalog_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_name", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +43,14 @@ url = ret {
         true
      }
 }
-publish_public_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish_public_crn", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-disclaimer = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disclaimer", null) |
-        res := resources_map[_]
-        true
-     }
-}
-permit_request_ibm_public_publish = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "permit_request_ibm_public_publish", null) |
+short_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
         res := resources_map[_]
         true
      }
@@ -61,14 +61,14 @@ ibm_publish_approved = ret {
         true
      }
 }
-catalog_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_name", null) |
+public_original_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_original_crn", null) |
         res := resources_map[_]
         true
      }
 }
-offering_docs_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_docs_url", null) |
+publish_public_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish_public_crn", null) |
         res := resources_map[_]
         true
      }
@@ -85,32 +85,26 @@ name = ret {
         true
      }
 }
-offering_icon_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_icon_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
 offering_support_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_support_url", null) |
         res := resources_map[_]
         true
      }
 }
-short_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
+public_publish_approved = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_publish_approved", null) |
         res := resources_map[_]
         true
      }
 }
-public_original_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_original_crn", null) |
+portal_ui_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "portal_ui_url", null) |
         res := resources_map[_]
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+disclaimer = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disclaimer", null) |
         res := resources_map[_]
         true
      }
@@ -121,8 +115,14 @@ hidden = ret {
         true
      }
 }
-portal_ui_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "portal_ui_url", null) |
+offering_icon_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_icon_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offering_docs_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_docs_url", null) |
         res := resources_map[_]
         true
      }

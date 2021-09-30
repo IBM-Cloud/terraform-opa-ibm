@@ -14,14 +14,26 @@ display_name = ret {
         true
      }
 }
-user_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
+email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
         res := resources_map[_]
         true
      }
 }
-meta = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +50,8 @@ status = ret {
         true
      }
 }
-email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
+meta = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
         res := resources_map[_]
         true
      }

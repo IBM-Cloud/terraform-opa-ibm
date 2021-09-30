@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_application", "managed").resources[_]
 }
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 client_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_id", null) |
         res := resources_map[_]
@@ -46,12 +52,6 @@ profiles_url = ret {
 }
 discovery_endpoint = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "discovery_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
         res := resources_map[_]
         true
      }
