@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_instance_group_manager").resources[_]
 }
+manager_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 policies = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ policies = ret {
 }
 actions = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-manager_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_id", null) |
         res := resources_map[_]
         true
      }

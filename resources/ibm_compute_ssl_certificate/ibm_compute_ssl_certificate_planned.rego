@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_compute_ssl_certificate").resources[_]
 }
-intermediate_certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
+certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
         res := resources_map[_]
         true
      }
 }
-certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
+intermediate_certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
         res := resources_map[_]
         true
      }

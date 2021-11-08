@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_custom_resolvers", "data").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+custom_resolvers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "custom_resolvers", null) |
         res := resources_map[_]
         true
      }
 }
-custom_resolvers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "custom_resolvers", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }

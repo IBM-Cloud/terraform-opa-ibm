@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_org", "managed").resources[_]
 }
+users = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "users", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 org_quota_definition_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_quota_definition_guid", null) |
         res := resources_map[_]
@@ -28,24 +46,6 @@ managers = ret {
 }
 auditors = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auditors", null) |
-        res := resources_map[_]
-        true
-     }
-}
-users = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "users", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

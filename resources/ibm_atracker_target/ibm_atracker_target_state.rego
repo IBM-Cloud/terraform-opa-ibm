@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_atracker_target", "managed").resources[_]
 }
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 encrypt_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encrypt_key", null) |
         res := resources_map[_]
@@ -46,12 +52,6 @@ target_type = ret {
 }
 cos_endpoint = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

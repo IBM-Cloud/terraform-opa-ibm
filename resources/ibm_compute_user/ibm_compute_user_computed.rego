@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_compute_user").resources[_]
 }
+username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
+        res := resources_map[_]
+        true
+     }
+}
 api_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ api_key = ret {
 }
 ibm_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
         res := resources_map[_]
         true
      }

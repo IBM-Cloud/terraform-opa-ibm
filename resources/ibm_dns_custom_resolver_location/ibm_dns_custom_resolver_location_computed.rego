@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_custom_resolver_location").resources[_]
 }
+dns_server_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_server_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
 location_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_id", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ location_id = ret {
 }
 healthy = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dns_server_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_server_ip", null) |
         res := resources_map[_]
         true
      }

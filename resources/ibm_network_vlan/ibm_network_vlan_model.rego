@@ -11,14 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_network_vlan", "managed").resources[_]
 }
-child_resource_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "child_resource_count", null) |
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+vlan_number = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_number", null) |
         res := resources_map[_]
         true
      }
@@ -35,8 +35,8 @@ resource_name = ret {
         true
      }
 }
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -59,20 +59,20 @@ router_hostname = ret {
         true
      }
 }
-vlan_number = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_number", null) |
-        res := resources_map[_]
-        true
-     }
-}
 softlayer_managed = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "softlayer_managed", null) |
         res := resources_map[_]
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+child_resource_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "child_resource_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }

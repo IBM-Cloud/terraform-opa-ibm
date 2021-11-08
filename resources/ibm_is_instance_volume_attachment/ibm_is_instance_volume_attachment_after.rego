@@ -7,26 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_instance_volume_attachment").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume", null) |
-        res := resources_map[_]
-        true
-     }
-}
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iops = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
+delete_volume_on_attachment_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_volume_on_attachment_delete", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +31,8 @@ encryption_key = ret {
         true
      }
 }
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+snapshot = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot", null) |
         res := resources_map[_]
         true
      }
@@ -61,14 +43,32 @@ delete_volume_on_instance_delete = ret {
         true
      }
 }
-delete_volume_on_attachment_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_volume_on_attachment_delete", null) |
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
         res := resources_map[_]
         true
      }
 }
-snapshot = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot", null) |
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume", null) |
+        res := resources_map[_]
+        true
+     }
+}
+iops = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
         res := resources_map[_]
         true
      }

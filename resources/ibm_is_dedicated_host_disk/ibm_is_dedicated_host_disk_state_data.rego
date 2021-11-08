@@ -14,6 +14,36 @@ href = ret {
         true
      }
 }
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+provisionable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisionable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dedicated_host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 instance_disks = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_disks", null) |
         res := resources_map[_]
@@ -26,44 +56,8 @@ interface_type = ret {
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dedicated_host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host", null) |
-        res := resources_map[_]
-        true
-     }
-}
-disk = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk", null) |
-        res := resources_map[_]
-        true
-     }
-}
-available = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -80,8 +74,14 @@ supported_instance_interface_types = ret {
         true
      }
 }
-provisionable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisionable", null) |
+disk = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk", null) |
+        res := resources_map[_]
+        true
+     }
+}
+available = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available", null) |
         res := resources_map[_]
         true
      }

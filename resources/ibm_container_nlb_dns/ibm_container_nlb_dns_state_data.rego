@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_nlb_dns", "data").resources[_]
 }
-nlb_config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_config", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+nlb_config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_config", null) |
         res := resources_map[_]
         true
      }

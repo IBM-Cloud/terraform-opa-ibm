@@ -13,6 +13,12 @@ issuer_name = ret {
         true
      }
 }
+expires_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ region = ret {
 }
 domain_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expires_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
         res := resources_map[_]
         true
      }
