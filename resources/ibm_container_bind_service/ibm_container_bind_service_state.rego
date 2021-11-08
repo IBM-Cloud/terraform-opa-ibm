@@ -20,6 +20,12 @@ service_instance_name = ret {
         true
      }
 }
+service_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 org_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
         res := resources_map[_]
@@ -28,36 +34,6 @@ org_guid = ret {
 }
 account_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +50,32 @@ role = ret {
         true
      }
 }
+namespace_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

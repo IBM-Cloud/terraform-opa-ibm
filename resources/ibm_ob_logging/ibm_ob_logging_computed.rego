@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_ob_logging").resources[_]
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+discovered_agent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "discovered_agent", null) |
+        res := resources_map[_]
+        true
+     }
+}
+logdna_ingestion_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logdna_ingestion_key", null) |
         res := resources_map[_]
         true
      }
@@ -31,18 +37,6 @@ agent_key = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-logdna_ingestion_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logdna_ingestion_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_name", null) |
         res := resources_map[_]
@@ -55,8 +49,14 @@ agent_namespace = ret {
         true
      }
 }
-discovered_agent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "discovered_agent", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }

@@ -19,14 +19,14 @@ subnet_id = ret {
         true
      }
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+ssl_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_enabled", null) |
         res := resources_map[_]
         true
      }
 }
-ssl_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_enabled", null) |
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
         res := resources_map[_]
         true
      }

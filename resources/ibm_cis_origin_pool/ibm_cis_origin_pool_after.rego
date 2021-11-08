@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_origin_pool").resources[_]
 }
-check_regions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "check_regions", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-minimum_origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
+monitor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,14 @@ enabled = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
+        res := resources_map[_]
+        true
+     }
+}
+check_regions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "check_regions", null) |
         res := resources_map[_]
         true
      }
@@ -43,20 +49,14 @@ description = ret {
         true
      }
 }
-monitor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
+minimum_origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_origins", null) |
         res := resources_map[_]
         true
      }
 }
 notification_email = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_email", null) |
-        res := resources_map[_]
-        true
-     }
-}
-origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_security_group_rule").resources[_]
 }
+udp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ip_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
 direction = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
         res := resources_map[_]
@@ -31,20 +43,8 @@ tcp = ret {
         true
      }
 }
-udp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp", null) |
-        res := resources_map[_]
-        true
-     }
-}
 group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ip_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
         res := resources_map[_]
         true
      }
