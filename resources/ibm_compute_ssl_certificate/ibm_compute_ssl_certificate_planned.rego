@@ -13,14 +13,14 @@ certificate = ret {
         true
      }
 }
-intermediate_certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
+private_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
         res := resources_map[_]
         true
      }
 }
-private_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
+intermediate_certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "intermediate_certificate", null) |
         res := resources_map[_]
         true
      }

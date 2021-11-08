@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_lbaas_server_instance_attachment").resources[_]
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+uuid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uuid", null) |
         res := resources_map[_]
         true
      }
 }
-uuid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uuid", null) |
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }

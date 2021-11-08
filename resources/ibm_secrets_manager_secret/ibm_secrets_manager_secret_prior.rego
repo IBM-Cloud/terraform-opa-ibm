@@ -19,14 +19,14 @@ instance_id = ret {
         true
      }
 }
-secret_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_id", null) |
+secret_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_type", null) |
         res := resources_map[_]
         true
      }
 }
-secret_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_type", null) |
+secret_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_id", null) |
         res := resources_map[_]
         true
      }

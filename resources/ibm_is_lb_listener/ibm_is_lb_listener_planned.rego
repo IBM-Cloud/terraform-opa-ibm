@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_lb_listener").resources[_]
 }
-accept_proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
+https_redirect_uri = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "https_redirect_uri", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +31,20 @@ default_pool = ret {
         true
      }
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+certificate_instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
+        res := resources_map[_]
+        true
+     }
+}
+https_redirect_status_code = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "https_redirect_status_code", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +55,14 @@ protocol = ret {
         true
      }
 }
-certificate_instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_instance", null) |
+accept_proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_proxy_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+https_redirect_listener = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "https_redirect_listener", null) |
         res := resources_map[_]
         true
      }

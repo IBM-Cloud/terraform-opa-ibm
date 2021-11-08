@@ -8,32 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_profile", "data").resources[_]
 }
-vcpu_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bandwidth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port_speed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vcpu_architecture = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_architecture", null) |
+architecture_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture_type", null) |
         res := resources_map[_]
         true
      }
@@ -44,14 +20,26 @@ architecture_values = ret {
         true
      }
 }
+bandwidth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
+        res := resources_map[_]
+        true
+     }
+}
 disks = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
         res := resources_map[_]
         true
      }
 }
-memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+vcpu_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vcpu_architecture = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_architecture", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +62,20 @@ architecture = ret {
         true
      }
 }
-architecture_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture_type", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port_speed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
         res := resources_map[_]
         true
      }

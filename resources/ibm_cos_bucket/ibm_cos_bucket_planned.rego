@@ -7,36 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cos_bucket").resources[_]
 }
-storage_class = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_class", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-archive_rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "archive_rule", null) |
-        res := resources_map[_]
-        true
-     }
-}
-object_versioning = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_versioning", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bucket_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 region_location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region_location", null) |
         res := resources_map[_]
@@ -49,20 +19,8 @@ cross_region_location = ret {
         true
      }
 }
-activity_tracking = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "activity_tracking", null) |
-        res := resources_map[_]
-        true
-     }
-}
-retention_rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retention_rule", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
+bucket_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_name", null) |
         res := resources_map[_]
         true
      }
@@ -79,20 +37,14 @@ single_site_location = ret {
         true
      }
 }
-force_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
 allowed_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip", null) |
         res := resources_map[_]
         true
      }
 }
-metrics_monitoring = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metrics_monitoring", null) |
+archive_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "archive_rule", null) |
         res := resources_map[_]
         true
      }
@@ -103,8 +55,56 @@ expire_rule = ret {
         true
      }
 }
+retention_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retention_rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+object_versioning = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_versioning", null) |
+        res := resources_map[_]
+        true
+     }
+}
 hard_quota = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hard_quota", null) |
+        res := resources_map[_]
+        true
+     }
+}
+force_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+metrics_monitoring = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metrics_monitoring", null) |
+        res := resources_map[_]
+        true
+     }
+}
+storage_class = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_class", null) |
+        res := resources_map[_]
+        true
+     }
+}
+activity_tracking = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "activity_tracking", null) |
         res := resources_map[_]
         true
      }

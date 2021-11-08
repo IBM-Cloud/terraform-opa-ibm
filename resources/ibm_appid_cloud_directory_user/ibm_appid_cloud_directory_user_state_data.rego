@@ -20,6 +20,12 @@ locked_until = ret {
         true
      }
 }
+subject = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
+        res := resources_map[_]
+        true
+     }
+}
 display_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
         res := resources_map[_]
@@ -28,6 +34,18 @@ display_name = ret {
 }
 user_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+meta = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
         res := resources_map[_]
         true
      }
@@ -44,26 +62,8 @@ user_id = ret {
         true
      }
 }
-subject = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 email = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
-        res := resources_map[_]
-        true
-     }
-}
-meta = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
         res := resources_map[_]
         true
      }

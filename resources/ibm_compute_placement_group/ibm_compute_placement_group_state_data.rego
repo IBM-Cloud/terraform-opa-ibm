@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_placement_group", "data").resources[_]
 }
-virtual_guests = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guests", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ pod = ret {
 }
 rule = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_guests = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guests", null) |
         res := resources_map[_]
         true
      }

@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_appid_languages").resources[_]
 }
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+languages = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "languages", null) |
         res := resources_map[_]
         true
      }
 }
-languages = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "languages", null) |
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
         res := resources_map[_]
         true
      }

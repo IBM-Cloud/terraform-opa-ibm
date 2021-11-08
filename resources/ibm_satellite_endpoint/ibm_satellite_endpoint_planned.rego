@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_satellite_endpoint").resources[_]
 }
-client_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_protocol", null) |
+sni = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sni", null) |
+        res := resources_map[_]
+        true
+     }
+}
+client_mutual_auth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_mutual_auth", null) |
         res := resources_map[_]
         true
      }
 }
 server_protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-server_mutual_auth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_mutual_auth", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,26 @@ certs = ret {
         true
      }
 }
-client_mutual_auth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_mutual_auth", null) |
+display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+server_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+server_mutual_auth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_mutual_auth", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
@@ -61,32 +79,14 @@ connection_type = ret {
         true
      }
 }
-display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 server_host = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_host", null) |
         res := resources_map[_]
         true
      }
 }
-sni = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sni", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-server_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_port", null) |
+client_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_protocol", null) |
         res := resources_map[_]
         true
      }

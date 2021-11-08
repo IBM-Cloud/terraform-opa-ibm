@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_si_providers", "data").resources[_]
 }
+total_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
 account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
@@ -28,12 +34,6 @@ limit = ret {
 }
 skip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "skip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-total_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
         res := resources_map[_]
         true
      }

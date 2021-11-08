@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_cluster_versions", "data").resources[_]
 }
-valid_kube_versions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "valid_kube_versions", null) |
-        res := resources_map[_]
-        true
-     }
-}
 valid_openshift_versions = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "valid_openshift_versions", null) |
         res := resources_map[_]
@@ -46,6 +40,12 @@ region = ret {
 }
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+valid_kube_versions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "valid_kube_versions", null) |
         res := resources_map[_]
         true
      }

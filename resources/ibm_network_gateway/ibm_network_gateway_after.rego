@@ -13,12 +13,6 @@ name = ret {
         true
      }
 }
-post_install_script_uri = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "post_install_script_uri", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ssh_key_ids = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssh_key_ids", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ ssh_key_ids = ret {
 }
 members = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
+        res := resources_map[_]
+        true
+     }
+}
+post_install_script_uri = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "post_install_script_uri", null) |
         res := resources_map[_]
         true
      }

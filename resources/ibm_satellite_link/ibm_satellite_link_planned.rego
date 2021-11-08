@@ -13,14 +13,14 @@ crn = ret {
         true
      }
 }
-ws_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ws_endpoint", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+ws_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ws_endpoint", null) |
         res := resources_map[_]
         true
      }

@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_service_group", "managed").resources[_]
 }
-routing_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
-        res := resources_map[_]
-        true
-     }
-}
 routing_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_type", null) |
         res := resources_map[_]
@@ -47,8 +41,8 @@ port = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+routing_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
         res := resources_map[_]
         true
      }
@@ -61,6 +55,12 @@ virtual_server_id = ret {
 }
 allocation = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allocation", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
