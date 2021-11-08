@@ -11,6 +11,24 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_autoscale_policy", "managed").resources[_]
 }
+scale_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scale_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+triggers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "triggers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -31,24 +49,6 @@ scale_amount = ret {
 }
 cooldown = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
-        res := resources_map[_]
-        true
-     }
-}
-scale_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scale_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-triggers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "triggers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

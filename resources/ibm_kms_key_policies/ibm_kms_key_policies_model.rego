@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_kms_key_policies", "managed").resources[_]
 }
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 key_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
         res := resources_map[_]
@@ -43,18 +55,6 @@ resource_name = ret {
 }
 resource_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }

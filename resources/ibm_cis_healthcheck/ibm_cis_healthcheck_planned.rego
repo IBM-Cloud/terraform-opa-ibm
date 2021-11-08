@@ -7,14 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_healthcheck").resources[_]
 }
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+expected_codes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
         res := resources_map[_]
         true
      }
 }
-retries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retries", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
+        res := resources_map[_]
+        true
+     }
+}
+path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +49,20 @@ port = ret {
         true
      }
 }
-expected_codes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
-method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+follow_redirects = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "follow_redirects", null) |
         res := resources_map[_]
         true
      }
@@ -61,32 +79,14 @@ description = ret {
         true
      }
 }
-follow_redirects = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "follow_redirects", null) |
+retries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retries", null) |
         res := resources_map[_]
         true
      }
 }
 expected_body = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_body", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
         res := resources_map[_]
         true
      }

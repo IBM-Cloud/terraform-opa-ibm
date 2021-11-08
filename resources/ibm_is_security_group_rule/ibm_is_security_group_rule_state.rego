@@ -14,8 +14,14 @@ direction = ret {
         true
      }
 }
-ip_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
+remote = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
+        res := resources_map[_]
+        true
+     }
+}
+icmp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "icmp", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +44,8 @@ related_crn = ret {
         true
      }
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +56,14 @@ rule_id = ret {
         true
      }
 }
-remote = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
+ip_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
         res := resources_map[_]
         true
      }
 }
-icmp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "icmp", null) |
-        res := resources_map[_]
-        true
-     }
-}
-group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }

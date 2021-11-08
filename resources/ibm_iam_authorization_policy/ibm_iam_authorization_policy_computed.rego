@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_iam_authorization_policy").resources[_]
 }
-source_service_account = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_service_account", null) |
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+source_service_account = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_service_account", null) |
         res := resources_map[_]
         true
      }

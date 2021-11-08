@@ -8,14 +8,38 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_cluster", "data").resources[_]
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }
 }
-workers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workers", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+server_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+list_bounded_services = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "list_bounded_services", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -32,26 +56,26 @@ ingress_secret = ret {
         true
      }
 }
-public_service_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint", null) |
+account_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
         res := resources_map[_]
         true
      }
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+public_service_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint_url", null) |
         res := resources_map[_]
         true
      }
 }
-api_key_owner_email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key_owner_email", null) |
+api_key_owner_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key_owner_name", null) |
         res := resources_map[_]
         true
      }
 }
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+workers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workers", null) |
         res := resources_map[_]
         true
      }
@@ -68,6 +92,24 @@ vlans = ret {
         true
      }
 }
+ingress_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ingress_hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 org_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
         res := resources_map[_]
@@ -80,50 +122,8 @@ space_guid = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-api_key_owner_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key_owner_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-list_bounded_services = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "list_bounded_services", null) |
-        res := resources_map[_]
-        true
-     }
-}
-api_key_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key_id", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }
@@ -140,20 +140,8 @@ worker_pools = ret {
         true
      }
 }
-ingress_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ingress_hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_service_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-server_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_url", null) |
+alb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
         res := resources_map[_]
         true
      }
@@ -164,26 +152,20 @@ cluster_name_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-alb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+api_key_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key_id", null) |
         res := resources_map[_]
         true
      }
 }
-private_service_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_service_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint_url", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -194,8 +176,26 @@ is_trusted = ret {
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+public_service_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_service_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_service_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+api_key_owner_email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key_owner_email", null) |
         res := resources_map[_]
         true
      }

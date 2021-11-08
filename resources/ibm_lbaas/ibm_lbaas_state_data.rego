@@ -8,20 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lbaas", "data").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }
 }
-vip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip", null) |
+server_instances_down = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_instances_down", null) |
         res := resources_map[_]
         true
      }
 }
-protocols = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocols", null) |
+ssl_ciphers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_ciphers", null) |
         res := resources_map[_]
         true
      }
@@ -38,32 +38,8 @@ type = ret {
         true
      }
 }
-health_monitors = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-use_system_public_ip_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "use_system_public_ip_pool", null) |
+vip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +50,32 @@ server_instances_up = ret {
         true
      }
 }
-server_instances_down = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_instances_down", null) |
+use_system_public_ip_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "use_system_public_ip_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+protocols = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocols", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -86,8 +86,8 @@ active_connections = ret {
         true
      }
 }
-ssl_ciphers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_ciphers", null) |
+health_monitors = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
         res := resources_map[_]
         true
      }

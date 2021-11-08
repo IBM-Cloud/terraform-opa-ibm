@@ -13,6 +13,12 @@ endpoint_type = ret {
         true
      }
 }
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 secret_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_id", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ secret_id = ret {
 }
 secret_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }

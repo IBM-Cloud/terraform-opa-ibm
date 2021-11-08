@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_hpcs").resources[_]
 }
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+signature_threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signature_threshold", null) |
         res := resources_map[_]
         true
      }
@@ -25,20 +19,8 @@ units = ret {
         true
      }
 }
-signature_server_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signature_server_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-signature_threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signature_threshold", null) |
+revocation_threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "revocation_threshold", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +31,8 @@ admins = ret {
         true
      }
 }
-failover_units = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "failover_units", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
@@ -61,8 +43,8 @@ resource_group_id = ret {
         true
      }
 }
-revocation_threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "revocation_threshold", null) |
+signature_server_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signature_server_url", null) |
         res := resources_map[_]
         true
      }
@@ -73,14 +55,32 @@ name = ret {
         true
      }
 }
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
         res := resources_map[_]
         true
      }
 }
 service_endpoints = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
+        res := resources_map[_]
+        true
+     }
+}
+failover_units = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "failover_units", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_atracker_target").resources[_]
 }
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 encrypt_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encrypt_key", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ created = ret {
 }
 updated = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

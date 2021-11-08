@@ -13,18 +13,6 @@ role = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
         res := resources_map[_]
@@ -39,6 +27,18 @@ parameters = ret {
 }
 resource_alias_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_alias_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

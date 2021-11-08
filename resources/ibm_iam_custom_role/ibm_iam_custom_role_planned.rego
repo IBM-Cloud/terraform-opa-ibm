@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_iam_custom_role").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+        res := resources_map[_]
+        true
+     }
+}
+actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +31,8 @@ display_name = ret {
         true
      }
 }
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
-        res := resources_map[_]
-        true
-     }
-}
-actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

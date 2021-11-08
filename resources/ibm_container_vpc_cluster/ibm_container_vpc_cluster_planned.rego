@@ -7,38 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_container_vpc_cluster").resources[_]
 }
-service_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_subnet", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cos_instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_instance_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-patch_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "patch_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-wait_for_worker_update = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_for_worker_update", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+wait_till = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_till", null) |
         res := resources_map[_]
         true
      }
@@ -49,20 +19,14 @@ flavor = ret {
         true
      }
 }
-retry_patch_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retry_patch_version", null) |
+vpc_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
         res := resources_map[_]
         true
      }
 }
-disable_public_service_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_public_service_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
-force_delete_storage = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete_storage", null) |
+wait_for_worker_update = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_for_worker_update", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +37,56 @@ name = ret {
         true
      }
 }
-vpc_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
+retry_patch_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retry_patch_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+update_all_workers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_all_workers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_subnet", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kube_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+patch_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "patch_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+taints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "taints", null) |
+        res := resources_map[_]
+        true
+     }
+}
+disable_public_service_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_public_service_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+entitlement = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cos_instance_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_instance_crn", null) |
         res := resources_map[_]
         true
      }
@@ -85,8 +97,14 @@ pod_subnet = ret {
         true
      }
 }
-wait_till = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_till", null) |
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+force_delete_storage = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete_storage", null) |
         res := resources_map[_]
         true
      }
@@ -103,14 +121,8 @@ zones = ret {
         true
      }
 }
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-entitlement = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entitlement", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -121,20 +133,8 @@ kms_config = ret {
         true
      }
 }
-kube_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-update_all_workers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_all_workers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-taints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "taints", null) |
+worker_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_labels", null) |
         res := resources_map[_]
         true
      }

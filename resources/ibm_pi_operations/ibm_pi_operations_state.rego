@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_operations", "managed").resources[_]
 }
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_instance_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 addresses = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addresses", null) |
         res := resources_map[_]
@@ -28,24 +46,6 @@ pi_operation = ret {
 }
 pi_progress = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_progress", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_instance_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
         res := resources_map[_]
         true
      }

@@ -14,24 +14,6 @@ catalog_identifier = ret {
         true
      }
 }
-short_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offerings_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
 kind = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
         res := resources_map[_]
@@ -40,6 +22,12 @@ kind = ret {
 }
 label = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
+        res := resources_map[_]
+        true
+     }
+}
+short_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
         res := resources_map[_]
         true
      }
@@ -58,6 +46,18 @@ tags = ret {
 }
 url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offerings_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
         res := resources_map[_]
         true
      }

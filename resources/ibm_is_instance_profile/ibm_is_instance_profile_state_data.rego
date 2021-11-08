@@ -8,20 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_profile", "data").resources[_]
 }
-vcpu_architecture = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_architecture", null) |
+vcpu_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_count", null) |
         res := resources_map[_]
         true
      }
 }
-architecture_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-architecture_values = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture_values", null) |
+bandwidth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +26,20 @@ href = ret {
         true
      }
 }
-bandwidth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
+port_speed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vcpu_architecture = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_architecture", null) |
+        res := resources_map[_]
+        true
+     }
+}
+architecture_values = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture_values", null) |
         res := resources_map[_]
         true
      }
@@ -46,18 +52,6 @@ disks = ret {
 }
 memory = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port_speed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vcpu_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu_count", null) |
         res := resources_map[_]
         true
      }
@@ -76,6 +70,12 @@ family = ret {
 }
 architecture = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
+        res := resources_map[_]
+        true
+     }
+}
+architecture_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture_type", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,14 @@ name = ret {
         true
      }
 }
-identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
+visibility = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "visibility", null) |
         res := resources_map[_]
         true
      }
 }
-visibility = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "visibility", null) |
+identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
         res := resources_map[_]
         true
      }

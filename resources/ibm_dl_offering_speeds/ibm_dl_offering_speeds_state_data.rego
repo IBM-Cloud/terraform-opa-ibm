@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dl_offering_speeds", "data").resources[_]
 }
-offering_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_type", null) |
+offering_speeds = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_speeds", null) |
         res := resources_map[_]
         true
      }
 }
-offering_speeds = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_speeds", null) |
+offering_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_type", null) |
         res := resources_map[_]
         true
      }

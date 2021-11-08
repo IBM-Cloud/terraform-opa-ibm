@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_network_gateway").resources[_]
 }
+private_ip_address_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 private_ipv4_address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ipv4_address", null) |
         res := resources_map[_]
@@ -19,8 +25,8 @@ public_ipv4_address = ret {
         true
      }
 }
-public_ip_address_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip_address_id", null) |
+private_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,26 +37,20 @@ public_ipv6_address_id = ret {
         true
      }
 }
+public_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-private_ip_address_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
+public_ip_address_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip_address_id", null) |
         res := resources_map[_]
         true
      }

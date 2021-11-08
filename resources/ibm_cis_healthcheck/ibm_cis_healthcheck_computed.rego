@@ -19,14 +19,14 @@ port = ret {
         true
      }
 }
-monitor_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }
 }
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+monitor_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
         res := resources_map[_]
         true
      }

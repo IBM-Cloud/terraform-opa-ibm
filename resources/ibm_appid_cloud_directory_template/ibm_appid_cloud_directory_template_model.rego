@@ -11,24 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_cloud_directory_template", "managed").resources[_]
 }
-language = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "language", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subject = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
-        res := resources_map[_]
-        true
-     }
-}
-html_body = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "html_body", null) |
-        res := resources_map[_]
-        true
-     }
-}
 base64_encoded_html_body = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base64_encoded_html_body", null) |
         res := resources_map[_]
@@ -49,6 +31,24 @@ tenant_id = ret {
 }
 template_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+language = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "language", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subject = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
+        res := resources_map[_]
+        true
+     }
+}
+html_body = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "html_body", null) |
         res := resources_map[_]
         true
      }

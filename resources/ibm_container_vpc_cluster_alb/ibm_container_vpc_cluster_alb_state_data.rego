@@ -8,26 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_vpc_cluster_alb", "data").resources[_]
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-load_balancer_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_hostname", null) |
+resize = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
         res := resources_map[_]
         true
      }
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +32,20 @@ alb_type = ret {
         true
      }
 }
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
 enable = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+load_balancer_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_hostname", null) |
         res := resources_map[_]
         true
      }
@@ -62,14 +62,14 @@ name = ret {
         true
      }
 }
-resize = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }

@@ -25,14 +25,14 @@ enterprise_id = ret {
         true
      }
 }
-parent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parent", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+parent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parent", null) |
         res := resources_map[_]
         true
      }

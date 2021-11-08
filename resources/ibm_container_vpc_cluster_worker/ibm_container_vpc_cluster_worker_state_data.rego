@@ -14,6 +14,12 @@ flavor = ret {
         true
      }
 }
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pool_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
         res := resources_map[_]
@@ -52,12 +58,6 @@ cluster_name_id = ret {
 }
 kube_version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }

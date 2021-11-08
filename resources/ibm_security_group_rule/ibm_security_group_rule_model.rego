@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_security_group_rule", "managed").resources[_]
 }
+remote_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
 security_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_id", null) |
         res := resources_map[_]
@@ -43,18 +55,6 @@ port_range_max = ret {
 }
 remote_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-remote_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }

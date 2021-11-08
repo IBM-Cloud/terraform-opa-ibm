@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_compute_dedicated_host").resources[_]
 }
-cpu_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_count", null) |
+disk_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_capacity", null) |
         res := resources_map[_]
         true
      }
 }
-disk_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_capacity", null) |
+cpu_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_count", null) |
         res := resources_map[_]
         true
      }

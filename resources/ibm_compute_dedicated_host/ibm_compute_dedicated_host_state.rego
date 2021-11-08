@@ -8,32 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_dedicated_host", "managed").resources[_]
 }
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
-        res := resources_map[_]
-        true
-     }
-}
-flavor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cpu_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
 disk_capacity = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-memory_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_capacity", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +26,14 @@ tags = ret {
         true
      }
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+domain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
         true
      }
 }
-domain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }
@@ -70,6 +46,30 @@ hourly_billing = ret {
 }
 router_hostname = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+flavor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cpu_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+memory_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_capacity", null) |
         res := resources_map[_]
         true
      }

@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_enterprise").resources[_]
 }
-primary_contact_iam_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_contact_iam_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
-        res := resources_map[_]
-        true
-     }
-}
 source_account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_account_id", null) |
         res := resources_map[_]
@@ -27,6 +15,18 @@ source_account_id = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+primary_contact_iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_contact_iam_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
         true
      }
