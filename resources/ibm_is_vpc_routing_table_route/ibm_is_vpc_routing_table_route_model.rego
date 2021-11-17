@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_routing_table_route", "managed").resources[_]
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routing_table = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
@@ -53,6 +41,18 @@ route_id = ret {
         true
      }
 }
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+origin = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
@@ -71,14 +71,14 @@ href = ret {
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
 }
-origin = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
+routing_table = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
         res := resources_map[_]
         true
      }

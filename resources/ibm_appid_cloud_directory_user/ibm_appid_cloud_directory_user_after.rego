@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_appid_cloud_directory_user").resources[_]
 }
-email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
+user_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+password = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +37,8 @@ locked_until = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
         res := resources_map[_]
         true
      }
@@ -43,20 +49,14 @@ create_profile = ret {
         true
      }
 }
-display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-user_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-password = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
+email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
         res := resources_map[_]
         true
      }

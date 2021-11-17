@@ -20,6 +20,12 @@ sap = ret {
         true
      }
 }
+vtl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vtl", null) |
+        res := resources_map[_]
+        true
+     }
+}
 images = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "images", null) |
         res := resources_map[_]

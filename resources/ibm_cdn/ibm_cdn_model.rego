@@ -11,38 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cdn", "managed").resources[_]
 }
-certificate_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vendor_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vendor_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
 header = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "header", null) |
         res := resources_map[_]
         true
      }
 }
-file_extension = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file_extension", null) |
+path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_name", null) |
         res := resources_map[_]
         true
      }
@@ -59,20 +41,20 @@ http_port = ret {
         true
      }
 }
-cname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname", null) |
+respect_headers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "respect_headers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+certificate_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_type", null) |
         res := resources_map[_]
         true
      }
 }
 cache_key_query_rule = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cache_key_query_rule", null) |
-        res := resources_map[_]
-        true
-     }
-}
-path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
         res := resources_map[_]
         true
      }
@@ -89,8 +71,8 @@ origin_address = ret {
         true
      }
 }
-https_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "https_port", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }
@@ -101,8 +83,26 @@ status = ret {
         true
      }
 }
-respect_headers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "respect_headers", null) |
+cname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vendor_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vendor_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+https_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "https_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+file_extension = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file_extension", null) |
         res := resources_map[_]
         true
      }

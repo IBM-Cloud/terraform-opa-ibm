@@ -13,14 +13,14 @@ header = ret {
         true
      }
 }
-cname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+cname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname", null) |
         res := resources_map[_]
         true
      }

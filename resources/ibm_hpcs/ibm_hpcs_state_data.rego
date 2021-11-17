@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_hpcs", "data").resources[_]
 }
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
 hsm_info = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hsm_info", null) |
         res := resources_map[_]
@@ -34,12 +40,6 @@ service_endpoints = ret {
 }
 plan = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

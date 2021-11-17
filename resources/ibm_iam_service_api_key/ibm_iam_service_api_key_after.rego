@@ -7,20 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_iam_service_api_key").resources[_]
 }
-file = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 iam_service_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_service_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-apikey = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +31,20 @@ store_value = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+apikey = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
+        res := resources_map[_]
+        true
+     }
+}
+file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
         res := resources_map[_]
         true
      }

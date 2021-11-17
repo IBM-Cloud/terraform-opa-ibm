@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_instance_group_manager_action").resources[_]
 }
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
+instance_group_manager = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group_manager", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cron_spec = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cron_spec", null) |
         res := resources_map[_]
         true
      }
@@ -19,20 +25,14 @@ membership_count = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_group_manager = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group_manager", null) |
-        res := resources_map[_]
-        true
-     }
-}
 target_manager = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_manager", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ run_at = ret {
         true
      }
 }
-cron_spec = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cron_spec", null) |
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }

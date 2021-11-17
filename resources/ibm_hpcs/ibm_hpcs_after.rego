@@ -13,20 +13,26 @@ service = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 signature_server_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signature_server_url", null) |
         res := resources_map[_]
         true
      }
 }
-admins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admins", null) |
+revocation_threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "revocation_threshold", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+units = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "units", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +43,8 @@ resource_group_id = ret {
         true
      }
 }
-service_endpoints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+admins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admins", null) |
         res := resources_map[_]
         true
      }
@@ -61,8 +61,8 @@ location = ret {
         true
      }
 }
-units = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "units", null) |
+service_endpoints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
         res := resources_map[_]
         true
      }
@@ -79,8 +79,8 @@ signature_threshold = ret {
         true
      }
 }
-revocation_threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "revocation_threshold", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

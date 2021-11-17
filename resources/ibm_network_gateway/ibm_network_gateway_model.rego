@@ -11,8 +11,26 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_network_gateway", "managed").resources[_]
 }
+private_ip_address_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_ipv4_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ipv4_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
 private_vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_ipv6_address_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv6_address_id", null) |
         res := resources_map[_]
         true
      }
@@ -29,12 +47,6 @@ status = ret {
         true
      }
 }
-associated_vlans = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "associated_vlans", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -47,8 +59,14 @@ ssh_key_ids = ret {
         true
      }
 }
-private_ipv4_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ipv4_address", null) |
+post_install_script_uri = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "post_install_script_uri", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_ipv4_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv4_address", null) |
         res := resources_map[_]
         true
      }
@@ -59,32 +77,14 @@ public_ip_address_id = ret {
         true
      }
 }
-public_ipv6_address_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv6_address_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 members = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
         res := resources_map[_]
         true
      }
 }
-post_install_script_uri = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "post_install_script_uri", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_ip_address_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_ipv4_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv4_address", null) |
+associated_vlans = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "associated_vlans", null) |
         res := resources_map[_]
         true
      }

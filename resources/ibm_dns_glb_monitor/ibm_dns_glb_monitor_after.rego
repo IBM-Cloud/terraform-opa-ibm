@@ -7,56 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dns_glb_monitor").resources[_]
 }
-interval = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interval", null) |
-        res := resources_map[_]
-        true
-     }
-}
 retries = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retries", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expected_body = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_body", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allow_insecure = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_insecure", null) |
-        res := resources_map[_]
-        true
-     }
-}
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
-headers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "headers", null) |
         res := resources_map[_]
         true
      }
@@ -79,6 +31,36 @@ description = ret {
         true
      }
 }
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+headers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "headers", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expected_body = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_body", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 method = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
         res := resources_map[_]
@@ -87,6 +69,24 @@ method = ret {
 }
 path = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
+        res := resources_map[_]
+        true
+     }
+}
+allow_insecure = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_insecure", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+interval = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interval", null) |
         res := resources_map[_]
         true
      }

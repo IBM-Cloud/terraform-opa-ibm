@@ -13,20 +13,14 @@ environment_crn = ret {
         true
      }
 }
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+include_data_events = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "include_data_events", null) |
         res := resources_map[_]
         true
      }
 }
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enable_cors = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_cors", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +31,8 @@ resource_group_id = ret {
         true
      }
 }
-service_endpoints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
-        res := resources_map[_]
-        true
-     }
-}
-include_data_events = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "include_data_events", null) |
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +43,8 @@ name = ret {
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
-legacy_credentials = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "legacy_credentials", null) |
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
         res := resources_map[_]
         true
      }
@@ -73,14 +55,32 @@ cors_config = ret {
         true
      }
 }
+legacy_credentials = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "legacy_credentials", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable_cors = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_cors", null) |
+        res := resources_map[_]
+        true
+     }
+}
 location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+service_endpoints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }

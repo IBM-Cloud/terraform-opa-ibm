@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_lb_service").resources[_]
 }
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 service_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_group_id", null) |
         res := resources_map[_]
@@ -33,18 +45,6 @@ enabled = ret {
 }
 health_check_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

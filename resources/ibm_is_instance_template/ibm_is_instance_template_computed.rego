@@ -13,26 +13,26 @@ volume_attachments = ret {
         true
      }
 }
-boot_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 placement_target = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_target", null) |
         res := resources_map[_]
         true
      }
 }
+boot_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

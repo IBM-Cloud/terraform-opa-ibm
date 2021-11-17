@@ -13,14 +13,14 @@ name = ret {
         true
      }
 }
-instance_group_manager = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group_manager", null) |
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }
 }
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
+instance_group_manager = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group_manager", null) |
         res := resources_map[_]
         true
      }

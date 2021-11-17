@@ -8,14 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host", "data").resources[_]
 }
-vcpu = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+available_memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available_memory", null) |
+        res := resources_map[_]
+        true
+     }
+}
+available_vcpu = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available_vcpu", null) |
         res := resources_map[_]
         true
      }
@@ -32,18 +44,6 @@ profile = ret {
         true
      }
 }
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
 lifecycle_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
@@ -56,20 +56,44 @@ provisionable = ret {
         true
      }
 }
+vcpu = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vcpu", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
 host_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_group", null) |
         res := resources_map[_]
         true
      }
 }
-available_memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available_memory", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+disks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -86,14 +110,8 @@ socket_count = ret {
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+supported_instance_profiles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_instance_profiles", null) |
         res := resources_map[_]
         true
      }
@@ -104,26 +122,8 @@ created_at = ret {
         true
      }
 }
-disks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
-        res := resources_map[_]
-        true
-     }
-}
-supported_instance_profiles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_instance_profiles", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-available_vcpu = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available_vcpu", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

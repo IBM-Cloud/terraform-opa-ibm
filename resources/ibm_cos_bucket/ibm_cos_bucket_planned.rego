@@ -7,20 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cos_bucket").resources[_]
 }
-region_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region_location", null) |
+hard_quota = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hard_quota", null) |
         res := resources_map[_]
         true
      }
 }
-cross_region_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cross_region_location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bucket_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_name", null) |
+resource_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +25,8 @@ key_protect = ret {
         true
      }
 }
-single_site_location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "single_site_location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allowed_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip", null) |
+activity_tracking = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "activity_tracking", null) |
         res := resources_map[_]
         true
      }
@@ -55,32 +43,20 @@ expire_rule = ret {
         true
      }
 }
-retention_rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retention_rule", null) |
+bucket_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_name", null) |
         res := resources_map[_]
         true
      }
 }
-object_versioning = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_versioning", null) |
+single_site_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "single_site_location", null) |
         res := resources_map[_]
         true
      }
 }
-hard_quota = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hard_quota", null) |
-        res := resources_map[_]
-        true
-     }
-}
-force_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
+region_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region_location", null) |
         res := resources_map[_]
         true
      }
@@ -91,8 +67,32 @@ endpoint_type = ret {
         true
      }
 }
+retention_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retention_rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
 metrics_monitoring = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metrics_monitoring", null) |
+        res := resources_map[_]
+        true
+     }
+}
+object_versioning = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_versioning", null) |
+        res := resources_map[_]
+        true
+     }
+}
+force_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cross_region_location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cross_region_location", null) |
         res := resources_map[_]
         true
      }
@@ -103,8 +103,8 @@ storage_class = ret {
         true
      }
 }
-activity_tracking = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "activity_tracking", null) |
+allowed_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip", null) |
         res := resources_map[_]
         true
      }

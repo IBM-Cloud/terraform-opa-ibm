@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_instance_group_manager_policy").resources[_]
 }
-policy_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
@@ -39,6 +27,18 @@ metric_type = ret {
 }
 metric_value = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metric_value", null) |
+        res := resources_map[_]
+        true
+     }
+}
+policy_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

@@ -25,12 +25,6 @@ lb = ret {
         true
      }
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
-        res := resources_map[_]
-        true
-     }
-}
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
@@ -39,6 +33,12 @@ port = ret {
 }
 target_address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }
