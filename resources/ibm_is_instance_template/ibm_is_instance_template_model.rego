@@ -11,26 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_template", "managed").resources[_]
 }
-placement_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_group", null) |
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
 }
-primary_network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dedicated_host_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host_group", null) |
+profile = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
         res := resources_map[_]
         true
      }
@@ -47,20 +35,20 @@ user_data = ret {
         true
      }
 }
+placement_target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 boot_volume = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-profile = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
         res := resources_map[_]
         true
      }
@@ -71,32 +59,8 @@ dedicated_host = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-placement_target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_target", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
-keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_interfaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+dedicated_host_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host_group", null) |
         res := resources_map[_]
         true
      }
@@ -109,6 +73,48 @@ crn = ret {
 }
 image = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
+        res := resources_map[_]
+        true
+     }
+}
+total_volume_bandwidth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_volume_bandwidth", null) |
+        res := resources_map[_]
+        true
+     }
+}
+placement_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+primary_network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_interfaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }

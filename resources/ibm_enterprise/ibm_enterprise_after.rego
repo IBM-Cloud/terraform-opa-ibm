@@ -13,6 +13,12 @@ name = ret {
         true
      }
 }
+primary_contact_iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_contact_iam_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 domain = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ domain = ret {
 }
 source_account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-primary_contact_iam_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_contact_iam_id", null) |
         res := resources_map[_]
         true
      }

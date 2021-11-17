@@ -13,14 +13,14 @@ cluster_id = ret {
         true
      }
 }
-secret_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+secret_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
         res := resources_map[_]
         true
      }

@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_iam_trusted_profile_link").resources[_]
 }
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
+link_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "link_id", null) |
         res := resources_map[_]
         true
      }
 }
-link_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "link_id", null) |
+profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
         res := resources_map[_]
         true
      }

@@ -19,12 +19,6 @@ authentication_algorithm = ret {
         true
      }
 }
-encryption_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
 dh_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dh_group", null) |
         res := resources_map[_]
@@ -39,6 +33,12 @@ resource_group = ret {
 }
 ike_version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encryption_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_algorithm", null) |
         res := resources_map[_]
         true
      }

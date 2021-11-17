@@ -13,6 +13,12 @@ worker_count = ret {
         true
      }
 }
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 zones = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ worker_pool_labels = ret {
 }
 host_labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }

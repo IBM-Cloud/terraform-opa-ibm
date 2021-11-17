@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_lb").resources[_]
 }
-connections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
-        res := resources_map[_]
-        true
-     }
-}
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
@@ -25,14 +19,8 @@ ha_enabled = ret {
         true
      }
 }
-security_certificate_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dedicated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated", null) |
+ssl_offload = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_offload", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +31,20 @@ tags = ret {
         true
      }
 }
-ssl_offload = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_offload", null) |
+connections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dedicated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_certificate_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
         res := resources_map[_]
         true
      }

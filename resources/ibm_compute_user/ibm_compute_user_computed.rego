@@ -13,14 +13,14 @@ username = ret {
         true
      }
 }
-api_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key", null) |
+ibm_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
         res := resources_map[_]
         true
      }
 }
-ibm_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
+api_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_key", null) |
         res := resources_map[_]
         true
      }

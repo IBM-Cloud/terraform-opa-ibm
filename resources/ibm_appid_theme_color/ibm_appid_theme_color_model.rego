@@ -11,14 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_theme_color", "managed").resources[_]
 }
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+header_color = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "header_color", null) |
         res := resources_map[_]
         true
      }
 }
-header_color = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "header_color", null) |
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
         res := resources_map[_]
         true
      }

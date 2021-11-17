@@ -14,8 +14,14 @@ hourly_billing = ret {
         true
      }
 }
-cpu_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_count", null) |
+disk_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +38,8 @@ router_hostname = ret {
         true
      }
 }
-disk_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_capacity", null) |
+cpu_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_count", null) |
         res := resources_map[_]
         true
      }
@@ -50,8 +56,8 @@ wait_time_minutes = ret {
         true
      }
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -64,12 +70,6 @@ domain = ret {
 }
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

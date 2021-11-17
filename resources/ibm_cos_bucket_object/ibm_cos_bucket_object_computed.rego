@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cos_bucket_object").resources[_]
 }
-last_modified = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified", null) |
+version_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ content_length = ret {
         true
      }
 }
-version_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
+last_modified = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified", null) |
         res := resources_map[_]
         true
      }

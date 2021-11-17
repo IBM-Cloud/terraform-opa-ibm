@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_storage_attachment", "managed").resources[_]
 }
-volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
@@ -55,6 +49,12 @@ volume_attachment_id = ret {
 }
 volume_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume", null) |
         res := resources_map[_]
         true
      }

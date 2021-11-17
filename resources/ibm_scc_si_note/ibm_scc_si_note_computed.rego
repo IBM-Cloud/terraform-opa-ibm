@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_scc_si_note").resources[_]
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+create_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_time", null) |
         res := resources_map[_]
         true
      }
 }
-create_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_time", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }

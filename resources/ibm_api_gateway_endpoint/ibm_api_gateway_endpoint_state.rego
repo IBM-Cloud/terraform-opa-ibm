@@ -8,42 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_api_gateway_endpoint", "managed").resources[_]
 }
-endpoint_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-base_path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_path", null) |
-        res := resources_map[_]
-        true
-     }
-}
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed", null) |
-        res := resources_map[_]
-        true
-     }
-}
-shared = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
@@ -62,8 +26,44 @@ open_api_doc_name = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 routes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+managed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+shared = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
+        res := resources_map[_]
+        true
+     }
+}
+base_path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_path", null) |
+        res := resources_map[_]
+        true
+     }
+}
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_id", null) |
         res := resources_map[_]
         true
      }

@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_app_route", "managed").resources[_]
 }
+host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host", null) |
+        res := resources_map[_]
+        true
+     }
+}
 space_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
@@ -37,12 +43,6 @@ path = ret {
 }
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host", null) |
         res := resources_map[_]
         true
      }
