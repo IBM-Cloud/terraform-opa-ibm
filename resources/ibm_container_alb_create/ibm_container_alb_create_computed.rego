@@ -13,8 +13,8 @@ user_ip = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+replicas = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replicas", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ alb_id = ret {
         true
      }
 }
-replicas = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replicas", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

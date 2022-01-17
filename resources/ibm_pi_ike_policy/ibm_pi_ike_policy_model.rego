@@ -17,6 +17,18 @@ pi_policy_encryption = ret {
         true
      }
 }
+pi_policy_preshared_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_preshared_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_policy_key_lifetime = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_key_lifetime", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_policy_version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_version", null) |
         res := resources_map[_]
@@ -29,26 +41,14 @@ pi_policy_authentication = ret {
         true
      }
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_policy_dh_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_dh_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_policy_preshared_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_preshared_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
 policy_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -59,8 +59,8 @@ pi_policy_name = ret {
         true
      }
 }
-pi_policy_key_lifetime = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_key_lifetime", null) |
+pi_policy_dh_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_dh_group", null) |
         res := resources_map[_]
         true
      }

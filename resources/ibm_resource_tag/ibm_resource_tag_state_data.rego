@@ -26,3 +26,9 @@ resource_type = ret {
         true
      }
 }
+tag_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tag_type", null) |
+        res := resources_map[_]
+        true
+     }
+}

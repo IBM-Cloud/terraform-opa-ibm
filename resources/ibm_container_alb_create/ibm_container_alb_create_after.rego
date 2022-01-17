@@ -19,20 +19,8 @@ ip = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ingress_image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ingress_image", null) |
-        res := resources_map[_]
-        true
-     }
-}
-nlb_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_version", null) |
+alb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +31,26 @@ vlan_id = ret {
         true
      }
 }
+ingress_image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ingress_image", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
 }
-alb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+nlb_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_version", null) |
         res := resources_map[_]
         true
      }

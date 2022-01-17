@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_enterprise_accounts", "data").resources[_]
 }
-accounts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accounts", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+accounts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accounts", null) |
         res := resources_map[_]
         true
      }

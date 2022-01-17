@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_appid_password_regex").resources[_]
 }
-error_message = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "error_message", null) |
-        res := resources_map[_]
-        true
-     }
-}
 regex = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regex", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ regex = ret {
 }
 tenant_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+error_message = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "error_message", null) |
         res := resources_map[_]
         true
      }

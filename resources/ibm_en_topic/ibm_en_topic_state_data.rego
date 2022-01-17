@@ -8,20 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_en_topic", "data").resources[_]
 }
+instance_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subscription_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_count", null) |
         res := resources_map[_]
         true
      }
 }
-subscriptions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
@@ -38,12 +44,6 @@ name = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
 source_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_count", null) |
         res := resources_map[_]
@@ -56,8 +56,8 @@ sources = ret {
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+subscriptions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
         res := resources_map[_]
         true
      }

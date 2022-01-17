@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cbr_rule").resources[_]
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+last_modified_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
         res := resources_map[_]
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ created_by_id = ret {
         true
      }
 }
-last_modified_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
+last_modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +37,14 @@ href = ret {
         true
      }
 }
-last_modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

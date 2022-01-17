@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dl_port", "data").resources[_]
 }
-location_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 provider_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_name", null) |
         res := resources_map[_]
@@ -46,6 +40,12 @@ label = ret {
 }
 location_display_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_display_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
         res := resources_map[_]
         true
      }

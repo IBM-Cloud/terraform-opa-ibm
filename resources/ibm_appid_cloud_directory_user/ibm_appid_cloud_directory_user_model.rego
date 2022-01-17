@@ -17,38 +17,8 @@ locked_until = ret {
         true
      }
 }
-user_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 subject = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
-        res := resources_map[_]
-        true
-     }
-}
-display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-password = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-create_profile = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_profile", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +35,44 @@ status = ret {
         true
      }
 }
-email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
+meta = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
         res := resources_map[_]
         true
      }
 }
-meta = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+create_profile = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_profile", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+password = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
+        res := resources_map[_]
+        true
+     }
+}
+email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
         res := resources_map[_]
         true
      }

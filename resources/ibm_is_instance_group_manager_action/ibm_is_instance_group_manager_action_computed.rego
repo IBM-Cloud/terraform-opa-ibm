@@ -13,26 +13,14 @@ target_manager_name = ret {
         true
      }
 }
-action_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-auto_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +37,8 @@ next_run_at = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+auto_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
         res := resources_map[_]
         true
      }
@@ -63,6 +51,18 @@ action_id = ret {
 }
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+action_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_type", null) |
         res := resources_map[_]
         true
      }

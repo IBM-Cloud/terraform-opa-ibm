@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_firewall").resources[_]
 }
+firewall_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firewall_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lockdown = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lockdown", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ cis_id = ret {
 }
 domain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-firewall_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firewall_type", null) |
         res := resources_map[_]
         true
      }

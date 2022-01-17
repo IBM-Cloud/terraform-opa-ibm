@@ -11,26 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_idp_cloud_directory", "managed").resources[_]
 }
-self_service_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "self_service_enabled", null) |
+welcome_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "welcome_enabled", null) |
         res := resources_map[_]
         true
      }
 }
-reset_password_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reset_password_notification_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_notification_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-identity_confirm_access_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identity_confirm_access_mode", null) |
+identity_confirm_methods = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identity_confirm_methods", null) |
         res := resources_map[_]
         true
      }
@@ -53,20 +41,32 @@ is_active = ret {
         true
      }
 }
+self_service_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "self_service_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
 signup_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signup_enabled", null) |
         res := resources_map[_]
         true
      }
 }
-welcome_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "welcome_enabled", null) |
+reset_password_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_enabled", null) |
         res := resources_map[_]
         true
      }
 }
-identity_confirm_methods = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identity_confirm_methods", null) |
+reset_password_notification_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_notification_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+identity_confirm_access_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identity_confirm_access_mode", null) |
         res := resources_map[_]
         true
      }

@@ -7,10 +7,4 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_scc_posture_scopes").resources[_]
 }
-scope_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scope_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 

@@ -8,20 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_si_note", "managed").resources[_]
 }
-kind = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
-        res := resources_map[_]
-        true
-     }
-}
-note_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-card = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "card", null) |
+short_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
         res := resources_map[_]
         true
      }
@@ -32,26 +20,14 @@ reported_by = ret {
         true
      }
 }
-related_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_url", null) |
+kpi = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
         res := resources_map[_]
         true
      }
 }
-section = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "section", null) |
-        res := resources_map[_]
-        true
-     }
-}
-create_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
-update_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
+card = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "card", null) |
         res := resources_map[_]
         true
      }
@@ -62,20 +38,8 @@ provider_id = ret {
         true
      }
 }
-short_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-long_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "long_description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+note_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_id", null) |
         res := resources_map[_]
         true
      }
@@ -92,8 +56,44 @@ finding = ret {
         true
      }
 }
-kpi = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
+update_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+        res := resources_map[_]
+        true
+     }
+}
+section = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "section", null) |
+        res := resources_map[_]
+        true
+     }
+}
+long_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "long_description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+related_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+create_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_time", null) |
         res := resources_map[_]
         true
      }

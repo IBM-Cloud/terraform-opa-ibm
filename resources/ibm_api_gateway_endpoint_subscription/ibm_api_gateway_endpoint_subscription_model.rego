@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_api_gateway_endpoint_subscription", "managed").resources[_]
 }
-artifact_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "artifact_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 client_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_id", null) |
         res := resources_map[_]
@@ -49,6 +43,12 @@ generate_secret = ret {
 }
 secret_provided = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_provided", null) |
+        res := resources_map[_]
+        true
+     }
+}
+artifact_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "artifact_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,4 +7,10 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_pi_capture").resources[_]
 }
+image_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dns_custom_resolver").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
 }
-locations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locations", null) |
+high_availability = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "high_availability", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +31,14 @@ name = ret {
         true
      }
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-high_availability = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "high_availability", null) |
+locations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locations", null) |
         res := resources_map[_]
         true
      }

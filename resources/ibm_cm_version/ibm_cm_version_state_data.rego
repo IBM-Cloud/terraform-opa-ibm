@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cm_version", "data").resources[_]
 }
+repo_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tgz_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
 version_loc_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_loc_id", null) |
         res := resources_map[_]
@@ -34,24 +52,6 @@ sha = ret {
 }
 catalog_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-repo_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tgz_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
         res := resources_map[_]
         true
      }

@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_sap_profile", "data").resources[_]
 }
-memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
@@ -40,6 +34,12 @@ certified = ret {
 }
 cores = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cores", null) |
+        res := resources_map[_]
+        true
+     }
+}
+memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
         res := resources_map[_]
         true
      }

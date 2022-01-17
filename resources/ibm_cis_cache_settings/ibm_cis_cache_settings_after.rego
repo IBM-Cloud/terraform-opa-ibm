@@ -19,6 +19,12 @@ domain_id = ret {
         true
      }
 }
+caching_level = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
+        res := resources_map[_]
+        true
+     }
+}
 browser_expiration = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "browser_expiration", null) |
         res := resources_map[_]
@@ -31,20 +37,8 @@ purge_all = ret {
         true
      }
 }
-purge_by_urls = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_urls", null) |
-        res := resources_map[_]
-        true
-     }
-}
 purge_by_hosts = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_hosts", null) |
-        res := resources_map[_]
-        true
-     }
-}
-caching_level = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
         res := resources_map[_]
         true
      }
@@ -63,6 +57,12 @@ development_mode = ret {
 }
 query_string_sort = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_string_sort", null) |
+        res := resources_map[_]
+        true
+     }
+}
+purge_by_urls = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purge_by_urls", null) |
         res := resources_map[_]
         true
      }

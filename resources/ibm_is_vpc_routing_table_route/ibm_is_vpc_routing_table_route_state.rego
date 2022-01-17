@@ -8,38 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_routing_table_route", "managed").resources[_]
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routing_table = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
 }
-destination = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
@@ -56,6 +32,12 @@ route_id = ret {
         true
      }
 }
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
@@ -68,14 +50,32 @@ lifecycle_state = ret {
         true
      }
 }
-origin = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
+routing_table = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
         res := resources_map[_]
         true
      }
 }
 next_hop = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next_hop", null) |
+        res := resources_map[_]
+        true
+     }
+}
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+origin = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
         res := resources_map[_]
         true
      }

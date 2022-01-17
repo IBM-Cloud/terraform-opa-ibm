@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_rate_limit").resources[_]
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
+period = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "period", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +25,14 @@ match = ret {
         true
      }
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
-disabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +43,20 @@ description = ret {
         true
      }
 }
-bypass = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bypass", null) |
+threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
         res := resources_map[_]
         true
      }
 }
-period = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "period", null) |
+disabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bypass = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bypass", null) |
         res := resources_map[_]
         true
      }

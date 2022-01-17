@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_operations", "managed").resources[_]
 }
-addresses = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addresses", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_health_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_health_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_operation = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_operation", null) |
         res := resources_map[_]
@@ -46,6 +34,18 @@ pi_status = ret {
 }
 pi_instance_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+addresses = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addresses", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_health_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_health_status", null) |
         res := resources_map[_]
         true
      }

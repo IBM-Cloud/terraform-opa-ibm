@@ -11,36 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_security_group_rule", "managed").resources[_]
 }
-tcp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tcp", null) |
-        res := resources_map[_]
-        true
-     }
-}
-udp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp", null) |
-        res := resources_map[_]
-        true
-     }
-}
-icmp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "icmp", null) |
-        res := resources_map[_]
-        true
-     }
-}
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
 group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
         res := resources_map[_]
@@ -59,6 +29,24 @@ direction = ret {
         true
      }
 }
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+udp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp", null) |
+        res := resources_map[_]
+        true
+     }
+}
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
 ip_version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_version", null) |
         res := resources_map[_]
@@ -67,6 +55,18 @@ ip_version = ret {
 }
 remote = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
+        res := resources_map[_]
+        true
+     }
+}
+icmp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "icmp", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tcp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tcp", null) |
         res := resources_map[_]
         true
      }

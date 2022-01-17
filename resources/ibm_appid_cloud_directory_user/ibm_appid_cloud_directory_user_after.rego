@@ -13,14 +13,14 @@ locked_until = ret {
         true
      }
 }
-display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+user_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
         res := resources_map[_]
         true
      }
 }
-password = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +37,14 @@ create_profile = ret {
         true
      }
 }
-user_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
+display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+password = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
         res := resources_map[_]
         true
      }

@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lbaas_health_monitor", "managed").resources[_]
 }
-url_path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url_path", null) |
-        res := resources_map[_]
-        true
-     }
-}
-monitor_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lbaas_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lbaas_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
@@ -52,6 +34,24 @@ max_retries = ret {
 }
 timeout = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+url_path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url_path", null) |
+        res := resources_map[_]
+        true
+     }
+}
+monitor_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lbaas_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lbaas_id", null) |
         res := resources_map[_]
         true
      }

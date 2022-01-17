@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_subnet_reserved_ips", "data").resources[_]
 }
-total_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
 subnet = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ subnet = ret {
 }
 reserved_ips = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reserved_ips", null) |
+        res := resources_map[_]
+        true
+     }
+}
+total_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
         res := resources_map[_]
         true
      }

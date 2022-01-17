@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_pi_vpn_connection").resources[_]
 }
-pi_networks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_networks", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_vpn_connection_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_vpn_connection_name", null) |
+pi_peer_gateway_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_peer_gateway_address", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +19,8 @@ pi_vpn_connection_mode = ret {
         true
      }
 }
-pi_peer_gateway_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_peer_gateway_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_peer_subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_peer_subnets", null) |
+pi_networks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_networks", null) |
         res := resources_map[_]
         true
      }
@@ -51,6 +33,24 @@ pi_ike_policy_id = ret {
 }
 pi_ipsec_policy_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_ipsec_policy_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_peer_subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_peer_subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_vpn_connection_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_vpn_connection_name", null) |
         res := resources_map[_]
         true
      }

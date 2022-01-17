@@ -13,20 +13,14 @@ body = ret {
         true
      }
 }
-version_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
+etag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
         res := resources_map[_]
         true
      }
 }
-object_sql_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_sql_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-content_length = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
+last_modified = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +31,20 @@ content_type = ret {
         true
      }
 }
-etag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
+content_length = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
         res := resources_map[_]
         true
      }
 }
-last_modified = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified", null) |
+version_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+object_sql_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_sql_url", null) |
         res := resources_map[_]
         true
      }

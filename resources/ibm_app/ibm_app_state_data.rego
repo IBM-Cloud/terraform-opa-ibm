@@ -8,20 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_app", "data").resources[_]
 }
-environment_json = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_json", null) |
+disk_quota = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_quota", null) |
         res := resources_map[_]
         true
      }
 }
-health_check_timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
         res := resources_map[_]
         true
      }
@@ -32,20 +26,14 @@ instances = ret {
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-disk_quota = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_quota", null) |
-        res := resources_map[_]
-        true
-     }
-}
 buildpack = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "buildpack", null) |
+        res := resources_map[_]
+        true
+     }
+}
+environment_json = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_json", null) |
         res := resources_map[_]
         true
      }
@@ -56,20 +44,8 @@ route_guid = ret {
         true
      }
 }
-service_instance_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-package_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_check_http_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_http_endpoint", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
@@ -86,8 +62,32 @@ space_guid = ret {
         true
      }
 }
-memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+health_check_http_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_http_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+package_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_check_timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check_timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service_instance_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_guid", null) |
         res := resources_map[_]
         true
      }

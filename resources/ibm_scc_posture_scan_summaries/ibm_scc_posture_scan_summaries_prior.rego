@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_scc_posture_scan_summaries").resources[_]
 }
-scope_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scope_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-scan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scan_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
+report_setting_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "report_setting_id", null) |
         res := resources_map[_]
         true
      }

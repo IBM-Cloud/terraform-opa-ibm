@@ -8,32 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cbr_rule", "data").resources[_]
 }
-resources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-last_modified_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 rule_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +20,8 @@ description = ret {
         true
      }
 }
-contexts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "contexts", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +32,38 @@ created_at = ret {
         true
      }
 }
-created_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
+last_modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
         res := resources_map[_]
         true
      }
 }
-last_modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
+last_modified_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+contexts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "contexts", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
         res := resources_map[_]
         true
      }

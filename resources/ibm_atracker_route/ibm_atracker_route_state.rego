@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_atracker_route", "managed").resources[_]
 }
-updated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-receive_global_events = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "receive_global_events", null) |
-        res := resources_map[_]
-        true
-     }
-}
 rules = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
@@ -46,6 +28,24 @@ version = ret {
 }
 created = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+receive_global_events = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "receive_global_events", null) |
         res := resources_map[_]
         true
      }

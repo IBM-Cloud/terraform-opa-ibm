@@ -8,80 +8,44 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_schematics_workspace", "data").resources[_]
 }
-template_git_branch = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_branch", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
 }
-frozen_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "frozen_at", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-locked = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
+template_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_type", null) |
         res := resources_map[_]
         true
      }
 }
-locked_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_by", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+template_env_settings = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_env_settings", null) |
         res := resources_map[_]
         true
      }
 }
-template_values_metadata = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_values_metadata", null) |
-        res := resources_map[_]
-        true
-     }
-}
-runtime_data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "runtime_data", null) |
-        res := resources_map[_]
-        true
-     }
-}
-template_uninstall_script_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_uninstall_script_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-template_git_repo_sha_value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_repo_sha_value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+template_git_folder = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_folder", null) |
         res := resources_map[_]
         true
      }
 }
 frozen = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "frozen", null) |
-        res := resources_map[_]
-        true
-     }
-}
-frozen_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "frozen_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -98,78 +62,6 @@ last_health_check_at = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-shared_data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared_data", null) |
-        res := resources_map[_]
-        true
-     }
-}
-applied_shareddata_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "applied_shareddata_ids", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-is_locked = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_locked", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status_code = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_code", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-template_env_settings = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_env_settings", null) |
-        res := resources_map[_]
-        true
-     }
-}
-template_git_release = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_release", null) |
-        res := resources_map[_]
-        true
-     }
-}
-workspace_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workspace_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-template_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 template_inputs = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_inputs", null) |
         res := resources_map[_]
@@ -182,20 +74,20 @@ template_ref = ret {
         true
      }
 }
-template_git_has_uploadedgitrepotar = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_has_uploadedgitrepotar", null) |
+locked = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
         res := resources_map[_]
         true
      }
 }
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+runtime_data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "runtime_data", null) |
         res := resources_map[_]
         true
      }
 }
-template_init_state_file = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_init_state_file", null) |
+shared_data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared_data", null) |
         res := resources_map[_]
         true
      }
@@ -206,8 +98,38 @@ template_values = ret {
         true
      }
 }
-locked_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_time", null) |
+template_git_branch = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_branch", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_git_full_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_full_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+is_locked = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_locked", null) |
+        res := resources_map[_]
+        true
+     }
+}
+locked_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status_msg = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_msg", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -218,26 +140,56 @@ tags = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+template_git_release = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_release", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
 }
-template_git_folder = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_folder", null) |
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
         res := resources_map[_]
         true
      }
 }
-template_git_full_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_full_url", null) |
+is_frozen = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_frozen", null) |
+        res := resources_map[_]
+        true
+     }
+}
+frozen_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "frozen_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+applied_shareddata_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "applied_shareddata_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_values_metadata = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_values_metadata", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_git_repo_sha_value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_repo_sha_value", null) |
         res := resources_map[_]
         true
      }
@@ -254,8 +206,32 @@ template_git_url = ret {
         true
      }
 }
-is_frozen = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_frozen", null) |
+workspace_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workspace_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_git_has_uploadedgitrepotar = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_has_uploadedgitrepotar", null) |
+        res := resources_map[_]
+        true
+     }
+}
+locked_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status_code = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_code", null) |
         res := resources_map[_]
         true
      }
@@ -266,8 +242,32 @@ catalog_ref = ret {
         true
      }
 }
-status_msg = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_msg", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_init_state_file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_init_state_file", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_uninstall_script_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_uninstall_script_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+frozen_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "frozen_by", null) |
         res := resources_map[_]
         true
      }
