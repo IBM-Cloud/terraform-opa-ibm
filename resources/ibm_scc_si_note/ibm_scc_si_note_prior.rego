@@ -13,14 +13,14 @@ provider_id = ret {
         true
      }
 }
-note_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_id", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+note_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_id", null) |
         res := resources_map[_]
         true
      }

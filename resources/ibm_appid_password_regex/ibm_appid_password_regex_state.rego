@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_password_regex", "managed").resources[_]
 }
-base64_encoded_regex = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base64_encoded_regex", null) |
-        res := resources_map[_]
-        true
-     }
-}
-error_message = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "error_message", null) |
-        res := resources_map[_]
-        true
-     }
-}
 regex = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regex", null) |
         res := resources_map[_]
@@ -28,6 +16,18 @@ regex = ret {
 }
 tenant_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+base64_encoded_regex = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base64_encoded_regex", null) |
+        res := resources_map[_]
+        true
+     }
+}
+error_message = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "error_message", null) |
         res := resources_map[_]
         true
      }

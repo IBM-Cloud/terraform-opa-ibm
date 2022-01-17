@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_idp_google", "managed").resources[_]
 }
-is_active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_active", null) |
-        res := resources_map[_]
-        true
-     }
-}
 config = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config", null) |
         res := resources_map[_]
@@ -31,6 +25,12 @@ redirect_url = ret {
 }
 tenant_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+is_active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_active", null) |
         res := resources_map[_]
         true
      }

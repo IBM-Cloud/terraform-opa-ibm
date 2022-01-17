@@ -7,14 +7,44 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_schematics_workspace").resources[_]
 }
+status_msg = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_msg", null) |
+        res := resources_map[_]
+        true
+     }
+}
 template_git_has_uploadedgitrepotar = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_has_uploadedgitrepotar", null) |
         res := resources_map[_]
         true
      }
 }
+locked = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
+        res := resources_map[_]
+        true
+     }
+}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+locked_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_time", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +67,8 @@ status = ret {
         true
      }
 }
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+locked_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_by", null) |
         res := resources_map[_]
         true
      }
@@ -49,50 +79,20 @@ template_values_metadata = ret {
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
         res := resources_map[_]
         true
      }
 }
 status_code = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_code", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status_msg = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_msg", null) |
-        res := resources_map[_]
-        true
-     }
-}
-locked_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
-locked = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
-        res := resources_map[_]
-        true
-     }
-}
-locked_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

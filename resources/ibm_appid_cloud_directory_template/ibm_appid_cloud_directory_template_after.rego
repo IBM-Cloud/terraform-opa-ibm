@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_appid_cloud_directory_template").resources[_]
 }
+language = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "language", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subject = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ tenant_id = ret {
 }
 template_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-language = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "language", null) |
         res := resources_map[_]
         true
      }

@@ -11,20 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_glb", "managed").resources[_]
 }
-zone_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-fallback_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
         res := resources_map[_]
         true
      }
@@ -37,6 +37,12 @@ created_on = ret {
 }
 health = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+        res := resources_map[_]
+        true
+     }
+}
+fallback_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +71,8 @@ instance_id = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+zone_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
         res := resources_map[_]
         true
      }

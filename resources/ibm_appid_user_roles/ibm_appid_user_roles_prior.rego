@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_appid_user_roles").resources[_]
 }
-subject = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
         res := resources_map[_]
         true
      }
 }
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+subject = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
         res := resources_map[_]
         true
      }

@@ -8,6 +8,60 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_template", "data").resources[_]
 }
+primary_network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_data", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume_attachments = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachments", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_interfaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+        res := resources_map[_]
+        true
+     }
+}
 image = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
         res := resources_map[_]
@@ -20,8 +74,8 @@ boot_volume_attachment = ret {
         true
      }
 }
-placement_target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_target", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -32,20 +86,14 @@ crn = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
 total_volume_bandwidth = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_volume_bandwidth", null) |
         res := resources_map[_]
         true
      }
 }
-network_interfaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+placement_target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_target", null) |
         res := resources_map[_]
         true
      }
@@ -56,56 +104,8 @@ identifier = ret {
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_data", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
-        res := resources_map[_]
-        true
-     }
-}
-primary_network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
-        res := resources_map[_]
-        true
-     }
-}
 profile = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
-        res := resources_map[_]
-        true
-     }
-}
-volume_attachments = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachments", null) |
         res := resources_map[_]
         true
      }

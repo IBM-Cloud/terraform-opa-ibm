@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_image", "data").resources[_]
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+architecture = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
         res := resources_map[_]
         true
      }
@@ -20,20 +20,20 @@ checksum = ret {
         true
      }
 }
+encryption_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
 encryption = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption", null) |
         res := resources_map[_]
         true
      }
 }
-os = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os", null) |
-        res := resources_map[_]
-        true
-     }
-}
-architecture = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
+identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
         res := resources_map[_]
         true
      }
@@ -44,14 +44,14 @@ visibility = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+os = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os", null) |
         res := resources_map[_]
         true
      }
 }
-encryption_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +68,8 @@ name = ret {
         true
      }
 }
-identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

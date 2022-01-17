@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pn_application_chrome", "data").resources[_]
 }
-server_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
 web_site_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "web_site_url", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ web_site_url = ret {
 }
 guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+server_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_key", null) |
         res := resources_map[_]
         true
      }

@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_tls_settings", "managed").resources[_]
 }
+min_tls_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_tls_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
@@ -31,12 +37,6 @@ universal_ssl = ret {
 }
 tls_1_3 = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tls_1_3", null) |
-        res := resources_map[_]
-        true
-     }
-}
-min_tls_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_tls_version", null) |
         res := resources_map[_]
         true
      }

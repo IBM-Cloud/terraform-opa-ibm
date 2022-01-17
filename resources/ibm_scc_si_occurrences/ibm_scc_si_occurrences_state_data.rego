@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_si_occurrences", "data").resources[_]
 }
+page_size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_size", null) |
+        res := resources_map[_]
+        true
+     }
+}
 page_token = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_token", null) |
         res := resources_map[_]
@@ -34,12 +40,6 @@ account_id = ret {
 }
 provider_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-page_size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "page_size", null) |
         res := resources_map[_]
         true
      }

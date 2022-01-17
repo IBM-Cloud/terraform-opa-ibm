@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_resource_tag").resources[_]
 }
-resource_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
@@ -27,6 +15,18 @@ resource_type = ret {
 }
 tag_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tag_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

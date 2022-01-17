@@ -14,12 +14,6 @@ profiles = ret {
         true
      }
 }
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 first = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "first", null) |
         res := resources_map[_]

@@ -13,14 +13,14 @@ modified_on = ret {
         true
      }
 }
-app_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_id", null) |
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+app_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_id", null) |
         res := resources_map[_]
         true
      }

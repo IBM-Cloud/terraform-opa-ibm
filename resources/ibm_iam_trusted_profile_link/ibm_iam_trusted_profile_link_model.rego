@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_trusted_profile_link", "managed").resources[_]
 }
+cr_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cr_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 link = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "link", null) |
         res := resources_map[_]
@@ -49,12 +55,6 @@ modified_at = ret {
 }
 profile_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cr_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cr_type", null) |
         res := resources_map[_]
         true
      }

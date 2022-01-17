@@ -13,16 +13,4 @@ status = ret {
         true
      }
 }
-pi_volume_shareable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_shareable", null) |
-        res := resources_map[_]
-        true
-     }
-}
-volumeattachid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volumeattachid", null) |
-        res := resources_map[_]
-        true
-     }
-}
 

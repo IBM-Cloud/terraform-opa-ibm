@@ -13,12 +13,6 @@ private_vlan_id = ret {
         true
      }
 }
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
 public_vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ public_vlan_id = ret {
 }
 region = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
         res := resources_map[_]
         true
      }

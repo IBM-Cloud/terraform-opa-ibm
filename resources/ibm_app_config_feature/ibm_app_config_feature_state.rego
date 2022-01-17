@@ -20,8 +20,8 @@ enabled = ret {
         true
      }
 }
-updated_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_time", null) |
+disabled_value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled_value", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +38,14 @@ name = ret {
         true
      }
 }
-feature_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feature_id", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-segment_rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segment_rules", null) |
-        res := resources_map[_]
-        true
-     }
-}
-segment_exists = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segment_exists", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +62,26 @@ guid = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 enabled_value = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled_value", null) |
         res := resources_map[_]
         true
      }
 }
-disabled_value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled_value", null) |
+segment_rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segment_rules", null) |
+        res := resources_map[_]
+        true
+     }
+}
+segment_exists = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "segment_exists", null) |
+        res := resources_map[_]
+        true
+     }
+}
+feature_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feature_id", null) |
         res := resources_map[_]
         true
      }
@@ -92,8 +92,8 @@ created_time = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+updated_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_time", null) |
         res := resources_map[_]
         true
      }

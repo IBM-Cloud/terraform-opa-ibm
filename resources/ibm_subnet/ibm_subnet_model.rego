@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_subnet", "managed").resources[_]
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+private = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private", null) |
         res := resources_map[_]
         true
      }
@@ -29,20 +29,20 @@ subnet_cidr = ret {
         true
      }
 }
-notes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-private = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private", null) |
+notes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }

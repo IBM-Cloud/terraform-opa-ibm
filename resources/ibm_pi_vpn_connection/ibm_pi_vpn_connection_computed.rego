@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_pi_vpn_connection").resources[_]
 }
-gateway_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
 connection_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_id", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ connection_status = ret {
 }
 dead_peer_detections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dead_peer_detections", null) |
+        res := resources_map[_]
+        true
+     }
+}
+gateway_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_address", null) |
         res := resources_map[_]
         true
      }

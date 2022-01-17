@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_iam_access_group_dynamic_rule").resources[_]
 }
+expiration = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expiration", null) |
+        res := resources_map[_]
+        true
+     }
+}
 identity_provider = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identity_provider", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ access_group_id = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expiration = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expiration", null) |
         res := resources_map[_]
         true
      }

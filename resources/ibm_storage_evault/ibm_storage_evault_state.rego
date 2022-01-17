@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_storage_evault", "managed").resources[_]
 }
+hardware_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 username = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
         res := resources_map[_]
@@ -46,12 +52,6 @@ capacity = ret {
 }
 virtual_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-hardware_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware_instance_id", null) |
         res := resources_map[_]
         true
      }

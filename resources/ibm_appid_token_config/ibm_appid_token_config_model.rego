@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_token_config", "managed").resources[_]
 }
+access_token_claim = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_token_claim", null) |
+        res := resources_map[_]
+        true
+     }
+}
 id_token_claim = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "id_token_claim", null) |
         res := resources_map[_]
@@ -49,12 +55,6 @@ anonymous_access_enabled = ret {
 }
 refresh_token_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh_token_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-access_token_claim = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_token_claim", null) |
         res := resources_map[_]
         true
      }

@@ -7,20 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_schematics_job").resources[_]
 }
-end_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "end_at", null) |
+submitted_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "submitted_by", null) |
         res := resources_map[_]
         true
      }
 }
-results_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "results_url", null) |
+state_store_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state_store_url", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +37,8 @@ log_summary = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-start_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "start_at", null) |
+end_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "end_at", null) |
         res := resources_map[_]
         true
      }
@@ -61,32 +61,32 @@ name = ret {
         true
      }
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+start_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "start_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+results_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "results_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
 submitted_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "submitted_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-submitted_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "submitted_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state_store_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state_store_url", null) |
         res := resources_map[_]
         true
      }

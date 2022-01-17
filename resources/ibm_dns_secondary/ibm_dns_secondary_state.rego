@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_secondary", "managed").resources[_]
 }
+status_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status_text = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_text", null) |
         res := resources_map[_]
@@ -34,12 +40,6 @@ transfer_frequency = ret {
 }
 zone_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_id", null) |
         res := resources_map[_]
         true
      }

@@ -32,14 +32,8 @@ units = ret {
         true
      }
 }
-service_endpoints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
-        res := resources_map[_]
-        true
-     }
-}
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -56,12 +50,6 @@ guid = ret {
         true
      }
 }
-hsm_info = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hsm_info", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -74,14 +62,26 @@ failover_units = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+service_endpoints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_endpoints", null) |
+        res := resources_map[_]
+        true
+     }
+}
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
         res := resources_map[_]
         true
      }
 }
 extensions = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "extensions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hsm_info = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hsm_info", null) |
         res := resources_map[_]
         true
      }

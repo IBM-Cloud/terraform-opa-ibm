@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_user_policy", "managed").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ibm_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 roles = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "roles", null) |
         res := resources_map[_]
@@ -46,6 +34,18 @@ account_management = ret {
 }
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ibm_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
         res := resources_map[_]
         true
      }

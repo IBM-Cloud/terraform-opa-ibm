@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_record").resources[_]
 }
-refresh = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh", null) |
-        res := resources_map[_]
-        true
-     }
-}
 retry = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retry", null) |
         res := resources_map[_]
@@ -25,14 +19,20 @@ minimum_ttl = ret {
         true
      }
 }
-expire = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expire", null) |
+refresh = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh", null) |
         res := resources_map[_]
         true
      }
 }
 responsible_person = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expire = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expire", null) |
         res := resources_map[_]
         true
      }

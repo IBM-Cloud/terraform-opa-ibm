@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_domain_registration", "data").resources[_]
 }
+id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -16,12 +22,6 @@ name = ret {
 }
 name_servers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name_servers", null) |
-        res := resources_map[_]
-        true
-     }
-}
-id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "id", null) |
         res := resources_map[_]
         true
      }

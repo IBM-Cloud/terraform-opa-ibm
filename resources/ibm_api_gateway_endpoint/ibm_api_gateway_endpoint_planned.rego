@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_api_gateway_endpoint").resources[_]
 }
-service_instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
+open_api_doc_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "open_api_doc_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }
@@ -19,20 +25,14 @@ managed = ret {
         true
      }
 }
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-open_api_doc_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "open_api_doc_name", null) |
+service_instance_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ name = ret {
         true
      }
 }
-routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
         res := resources_map[_]
         true
      }

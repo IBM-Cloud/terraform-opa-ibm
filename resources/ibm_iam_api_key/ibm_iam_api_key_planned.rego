@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_iam_api_key").resources[_]
 }
+file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
+        res := resources_map[_]
+        true
+     }
+}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ entity_lock = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-file = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
         res := resources_map[_]
         true
      }

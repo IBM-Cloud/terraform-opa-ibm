@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cr_retention_policy", "managed").resources[_]
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
-        res := resources_map[_]
-        true
-     }
-}
 images_per_repo = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "images_per_repo", null) |
         res := resources_map[_]
@@ -25,6 +19,12 @@ images_per_repo = ret {
 }
 retain_untagged = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retain_untagged", null) |
+        res := resources_map[_]
+        true
+     }
+}
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }
