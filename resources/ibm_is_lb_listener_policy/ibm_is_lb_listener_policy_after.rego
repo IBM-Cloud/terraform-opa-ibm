@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_lb_listener_policy").resources[_]
 }
-target_https_redirect_status_code = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_https_redirect_status_code", null) |
-        res := resources_map[_]
-        true
-     }
-}
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_url", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +19,14 @@ listener = ret {
         true
      }
 }
+target_https_redirect_uri = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_https_redirect_uri", null) |
+        res := resources_map[_]
+        true
+     }
+}
 target_https_redirect_listener = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_https_redirect_listener", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +37,8 @@ priority = ret {
         true
      }
 }
-rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_https_redirect_uri = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_https_redirect_uri", null) |
+target_https_redirect_status_code = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_https_redirect_status_code", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +49,32 @@ target_id = ret {
         true
      }
 }
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
 target_http_status_code = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_http_status_code", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
         true
      }

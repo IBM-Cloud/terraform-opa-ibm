@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_lb_pool").resources[_]
 }
-health_monitor_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
+health_timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_timeout", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +19,8 @@ name = ret {
         true
      }
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +31,14 @@ protocol = ret {
         true
      }
 }
-health_delay = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_delay", null) |
+health_retries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_retries", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_monitor_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_port", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,8 @@ session_persistence_type = ret {
         true
      }
 }
-session_persistence_app_cookie_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_app_cookie_name", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
@@ -61,14 +61,8 @@ algorithm = ret {
         true
      }
 }
-health_retries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_retries", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_timeout", null) |
+health_delay = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_delay", null) |
         res := resources_map[_]
         true
      }
@@ -81,6 +75,12 @@ health_type = ret {
 }
 health_monitor_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+session_persistence_app_cookie_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_app_cookie_name", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_vpc_route").resources[_]
 }
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
@@ -21,18 +33,6 @@ next_hop = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
         res := resources_map[_]
         true
      }

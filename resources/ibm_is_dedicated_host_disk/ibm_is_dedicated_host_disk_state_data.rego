@@ -14,14 +14,20 @@ created_at = ret {
         true
      }
 }
+instance_disks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_disks", null) |
+        res := resources_map[_]
+        true
+     }
+}
 interface_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interface_type", null) |
         res := resources_map[_]
         true
      }
 }
-provisionable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisionable", null) |
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +38,8 @@ resource_type = ret {
         true
      }
 }
-supported_instance_interface_types = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_instance_interface_types", null) |
+size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
         res := resources_map[_]
         true
      }
@@ -56,32 +62,26 @@ available = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
-        res := resources_map[_]
-        true
-     }
-}
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
 }
-instance_disks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_disks", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+provisionable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisionable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+supported_instance_interface_types = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_instance_interface_types", null) |
         res := resources_map[_]
         true
      }

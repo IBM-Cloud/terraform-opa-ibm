@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_snapshot").resources[_]
 }
-source_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+source_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
         res := resources_map[_]
         true
      }

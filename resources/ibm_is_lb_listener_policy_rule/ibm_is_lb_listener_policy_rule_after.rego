@@ -19,14 +19,14 @@ condition = ret {
         true
      }
 }
-value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "value", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-field = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "field", null) |
+value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "value", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ listener = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+field = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "field", null) |
         res := resources_map[_]
         true
      }

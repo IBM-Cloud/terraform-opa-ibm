@@ -8,26 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_hpcs", "data").resources[_]
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-hsm_info = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hsm_info", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
 }
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
 service = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+        res := resources_map[_]
+        true
+     }
+}
+units = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "units", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +56,8 @@ guid = ret {
         true
      }
 }
-extensions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "extensions", null) |
+hsm_info = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hsm_info", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +68,20 @@ name = ret {
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-units = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "units", null) |
-        res := resources_map[_]
-        true
-     }
-}
 failover_units = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "failover_units", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+extensions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "extensions", null) |
         res := resources_map[_]
         true
      }

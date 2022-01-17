@@ -8,32 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_si_occurrence", "data").resources[_]
 }
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-note_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-update_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
 context = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "context", null) |
+        res := resources_map[_]
+        true
+     }
+}
+finding = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +32,8 @@ account_id = ret {
         true
      }
 }
-occurrence_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kind = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+note_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +50,32 @@ create_time = ret {
         true
      }
 }
-finding = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
+update_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+occurrence_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
         res := resources_map[_]
         true
      }

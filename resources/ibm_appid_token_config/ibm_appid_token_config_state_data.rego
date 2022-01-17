@@ -8,30 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_token_config", "data").resources[_]
 }
-refresh_token_expires_in = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh_token_expires_in", null) |
-        res := resources_map[_]
-        true
-     }
-}
-anonymous_token_expires_in = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "anonymous_token_expires_in", null) |
-        res := resources_map[_]
-        true
-     }
-}
-anonymous_access_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "anonymous_access_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-refresh_token_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh_token_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
 access_token_claim = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_token_claim", null) |
         res := resources_map[_]
@@ -52,6 +28,30 @@ tenant_id = ret {
 }
 access_token_expires_in = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_token_expires_in", null) |
+        res := resources_map[_]
+        true
+     }
+}
+refresh_token_expires_in = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh_token_expires_in", null) |
+        res := resources_map[_]
+        true
+     }
+}
+anonymous_token_expires_in = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "anonymous_token_expires_in", null) |
+        res := resources_map[_]
+        true
+     }
+}
+anonymous_access_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "anonymous_access_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+refresh_token_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh_token_enabled", null) |
         res := resources_map[_]
         true
      }

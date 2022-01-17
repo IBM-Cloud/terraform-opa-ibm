@@ -13,18 +13,6 @@ status = ret {
         true
      }
 }
-ibm_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
 gre_source_address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gre_source_address", null) |
         res := resources_map[_]
@@ -39,6 +27,18 @@ cloud_connection_id = ret {
 }
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ibm_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_ip_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip_address", null) |
         res := resources_map[_]
         true
      }

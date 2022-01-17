@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_service_instance", "managed").resources[_]
 }
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
-        res := resources_map[_]
-        true
-     }
-}
-wait_time_minutes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
-        res := resources_map[_]
-        true
-     }
-}
 dashboard_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dashboard_url", null) |
         res := resources_map[_]
@@ -32,8 +20,8 @@ space_guid = ret {
         true
      }
 }
-service_keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_keys", null) |
+credentials = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +32,20 @@ service_plan_guid = ret {
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+        res := resources_map[_]
+        true
+     }
+}
+wait_time_minutes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_time_minutes", null) |
         res := resources_map[_]
         true
      }
@@ -62,14 +62,14 @@ service = ret {
         true
      }
 }
-credentials = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
+service_keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_keys", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }

@@ -19,26 +19,14 @@ snapshot_capacity = ret {
         true
      }
 }
-allowed_subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_subnets", null) |
+notes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
         res := resources_map[_]
         true
      }
 }
-snapshot_schedule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot_schedule", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allowed_virtual_guest_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_virtual_guest_ids", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allowed_hardware_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_hardware_ids", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +43,8 @@ type = ret {
         true
      }
 }
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iops = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
+snapshot_schedule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot_schedule", null) |
         res := resources_map[_]
         true
      }
@@ -73,14 +55,32 @@ allowed_ip_addresses = ret {
         true
      }
 }
-notes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
+allowed_virtual_guest_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_virtual_guest_ids", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+iops = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
+        res := resources_map[_]
+        true
+     }
+}
+allowed_hardware_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_hardware_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+allowed_subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
         res := resources_map[_]
         true
      }

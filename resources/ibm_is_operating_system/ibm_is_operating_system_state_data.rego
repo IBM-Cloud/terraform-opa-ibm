@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_operating_system", "data").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 architecture = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
         res := resources_map[_]
@@ -46,12 +52,6 @@ href = ret {
 }
 vendor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vendor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

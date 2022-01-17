@@ -13,12 +13,6 @@ hostname = ret {
         true
      }
 }
-global_identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global_identifier", null) |
-        res := resources_map[_]
-        true
-     }
-}
 most_recent = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ most_recent = ret {
 }
 domain = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+        res := resources_map[_]
+        true
+     }
+}
+global_identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global_identifier", null) |
         res := resources_map[_]
         true
      }

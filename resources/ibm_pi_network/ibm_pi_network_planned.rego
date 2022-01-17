@@ -13,20 +13,14 @@ pi_network_type = ret {
         true
      }
 }
-pi_network_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
+pi_dns = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dns", null) |
         res := resources_map[_]
         true
      }
 }
 pi_cidr = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_dns = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dns", null) |
         res := resources_map[_]
         true
      }
@@ -39,6 +33,12 @@ pi_gateway = ret {
 }
 pi_network_jumbo = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_jumbo", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
         res := resources_map[_]
         true
      }

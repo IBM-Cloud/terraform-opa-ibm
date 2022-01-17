@@ -7,6 +7,42 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_volume").resources[_]
 }
+status_reasons = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_reasons", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bandwidth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
 encryption_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_type", null) |
         res := resources_map[_]
@@ -25,44 +61,14 @@ status = ret {
         true
      }
 }
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status_reasons = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_reasons", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bandwidth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iops = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
@@ -73,20 +79,14 @@ resource_group_name = ret {
         true
      }
 }
+iops = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iops", null) |
+        res := resources_map[_]
+        true
+     }
+}
 source_snapshot = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_snapshot", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }

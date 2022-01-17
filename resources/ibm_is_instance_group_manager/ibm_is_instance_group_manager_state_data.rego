@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group_manager", "data").resources[_]
 }
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -26,12 +26,6 @@ cooldown = ret {
         true
      }
 }
-actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
-        res := resources_map[_]
-        true
-     }
-}
 manager_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_id", null) |
         res := resources_map[_]
@@ -44,8 +38,8 @@ policies = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }
@@ -64,6 +58,12 @@ max_membership_count = ret {
 }
 min_membership_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
         res := resources_map[_]
         true
      }

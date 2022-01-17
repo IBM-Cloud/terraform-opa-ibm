@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_appid_mfa_channel").resources[_]
 }
+sms_config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sms_config", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tenant_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ tenant_id = ret {
 }
 active = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sms_config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sms_config", null) |
         res := resources_map[_]
         true
      }
