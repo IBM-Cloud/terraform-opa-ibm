@@ -13,26 +13,20 @@ memory = ret {
         true
      }
 }
-ipv6_address_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv6_address_id", null) |
+private_ipv4_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ipv4_address", null) |
         res := resources_map[_]
         true
      }
 }
-private_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_subnet", null) |
+block_storage_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "block_storage_ids", null) |
         res := resources_map[_]
         true
      }
 }
-public_ipv4_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv4_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_ipv4_address_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ipv4_address_id", null) |
+redundant_power_supply = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "redundant_power_supply", null) |
         res := resources_map[_]
         true
      }
@@ -43,20 +37,38 @@ public_bandwidth = ret {
         true
      }
 }
-private_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
+public_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
         res := resources_map[_]
         true
      }
 }
-private_ipv4_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ipv4_address", null) |
+public_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_subnet", null) |
         res := resources_map[_]
         true
      }
 }
-block_storage_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "block_storage_ids", null) |
+private_ipv4_address_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ipv4_address_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+os_reference_code = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os_reference_code", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_ipv4_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv4_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ipv6_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv6_address", null) |
         res := resources_map[_]
         true
      }
@@ -73,32 +85,14 @@ file_storage_ids = ret {
         true
      }
 }
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+private_vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_vlan_id", null) |
         res := resources_map[_]
         true
      }
 }
-ipv6_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv6_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-os_reference_code = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "os_reference_code", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_vlan_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_ipv4_address_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv4_address_id", null) |
+private_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_subnet", null) |
         res := resources_map[_]
         true
      }
@@ -109,14 +103,20 @@ secondary_ip_addresses = ret {
         true
      }
 }
-redundant_power_supply = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "redundant_power_supply", null) |
+ipv6_address_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipv6_address_id", null) |
         res := resources_map[_]
         true
      }
 }
-public_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_subnet", null) |
+public_ipv4_address_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ipv4_address_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }

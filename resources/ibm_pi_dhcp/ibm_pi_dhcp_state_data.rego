@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_dhcp", "data").resources[_]
 }
+network = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network", null) |
+        res := resources_map[_]
+        true
+     }
+}
+leases = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "leases", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -22,18 +34,6 @@ pi_dhcp_id = ret {
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network", null) |
-        res := resources_map[_]
-        true
-     }
-}
-leases = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "leases", null) |
         res := resources_map[_]
         true
      }

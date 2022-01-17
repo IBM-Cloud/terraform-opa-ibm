@@ -13,14 +13,8 @@ pi_volume_type = ret {
         true
      }
 }
-volume_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-delete_on_termination = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_on_termination", null) |
+volume_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_status", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +31,14 @@ pi_volume_pool = ret {
         true
      }
 }
-volume_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_status", null) |
+volume_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+delete_on_termination = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_on_termination", null) |
         res := resources_map[_]
         true
      }

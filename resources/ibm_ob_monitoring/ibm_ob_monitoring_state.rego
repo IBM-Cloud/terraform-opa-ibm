@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_ob_monitoring", "managed").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sysdig_access_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sysdig_access_key", null) |
         res := resources_map[_]
         true
      }
@@ -20,8 +26,8 @@ private_endpoint = ret {
         true
      }
 }
-daemonset_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "daemonset_name", null) |
+instance_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_name", null) |
         res := resources_map[_]
         true
      }
@@ -32,14 +38,14 @@ crn = ret {
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-instance_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_name", null) |
+daemonset_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "daemonset_name", null) |
         res := resources_map[_]
         true
      }
@@ -64,12 +70,6 @@ discovered_agent = ret {
 }
 namespace = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sysdig_access_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sysdig_access_key", null) |
         res := resources_map[_]
         true
      }

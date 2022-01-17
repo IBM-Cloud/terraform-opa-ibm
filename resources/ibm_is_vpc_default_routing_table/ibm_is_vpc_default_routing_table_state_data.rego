@@ -8,26 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_default_routing_table", "data").resources[_]
 }
-route_vpc_zone_ingress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_vpc_zone_ingress", null) |
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
 }
-routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
+route_direct_link_ingress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_direct_link_ingress", null) |
         res := resources_map[_]
         true
      }
 }
-default_routing_table = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_routing_table", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+is_default = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +44,26 @@ lifecycle_state = ret {
         true
      }
 }
-route_direct_link_ingress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_direct_link_ingress", null) |
+route_transit_gateway_ingress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_transit_gateway_ingress", null) |
         res := resources_map[_]
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+route_vpc_zone_ingress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_vpc_zone_ingress", null) |
         res := resources_map[_]
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+default_routing_table = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_routing_table", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -74,14 +74,14 @@ name = ret {
         true
      }
 }
-route_transit_gateway_ingress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_transit_gateway_ingress", null) |
+routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }
 }
-is_default = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }

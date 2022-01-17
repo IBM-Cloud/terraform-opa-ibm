@@ -13,6 +13,18 @@ name = ret {
         true
      }
 }
+address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+reserved_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reserved_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
 target = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
         res := resources_map[_]
@@ -45,18 +57,6 @@ resource_type = ret {
 }
 auto_delete = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reserved_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reserved_ip", null) |
         res := resources_map[_]
         true
      }

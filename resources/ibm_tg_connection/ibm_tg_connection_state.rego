@@ -8,14 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_tg_connection", "managed").resources[_]
 }
-remote_bgp_asn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_bgp_asn", null) |
+gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
         res := resources_map[_]
         true
      }
 }
-remote_tunnel_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_tunnel_ip", null) |
+local_gateway_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_gateway_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote_bgp_asn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_bgp_asn", null) |
         res := resources_map[_]
         true
      }
@@ -32,26 +38,26 @@ related_crn = ret {
         true
      }
 }
-gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
+network_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+base_connection_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_connection_id", null) |
         res := resources_map[_]
         true
      }
 }
-local_tunnel_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_tunnel_ip", null) |
+remote_tunnel_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_tunnel_ip", null) |
         res := resources_map[_]
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+request_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "request_status", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +68,8 @@ network_type = ret {
         true
      }
 }
-network_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -80,26 +86,8 @@ created_at = ret {
         true
      }
 }
-request_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "request_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
 connection_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-base_connection_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_connection_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-remote_gateway_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_gateway_ip", null) |
         res := resources_map[_]
         true
      }
@@ -110,8 +98,20 @@ network_account_id = ret {
         true
      }
 }
-local_gateway_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_gateway_ip", null) |
+local_tunnel_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_tunnel_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote_gateway_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_gateway_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }

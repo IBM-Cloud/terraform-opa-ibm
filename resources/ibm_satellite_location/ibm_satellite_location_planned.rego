@@ -13,8 +13,26 @@ description = ret {
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+managed_from = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed_from", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cos_credentials = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_credentials", null) |
         res := resources_map[_]
         true
      }
@@ -31,32 +49,14 @@ logging_account_id = ret {
         true
      }
 }
-cos_credentials = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_credentials", null) |
-        res := resources_map[_]
-        true
-     }
-}
-managed_from = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed_from", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
 }
 cos_config = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_config", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

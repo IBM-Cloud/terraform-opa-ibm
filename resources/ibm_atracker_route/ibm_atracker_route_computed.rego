@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_atracker_route").resources[_]
 }
+updated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ version = ret {
 }
 created = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
         res := resources_map[_]
         true
      }

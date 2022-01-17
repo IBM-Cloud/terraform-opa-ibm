@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_lb").resources[_]
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+route_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_mode", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +31,8 @@ profile = ret {
         true
      }
 }
-logging = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logging", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +43,8 @@ type = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-route_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_mode", null) |
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +55,8 @@ tags = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+logging = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logging", null) |
         res := resources_map[_]
         true
      }

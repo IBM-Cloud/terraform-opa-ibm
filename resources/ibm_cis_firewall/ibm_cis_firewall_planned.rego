@@ -7,24 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_firewall").resources[_]
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-firewall_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firewall_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 lockdown = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lockdown", null) |
         res := resources_map[_]
@@ -39,6 +21,24 @@ access_rule = ret {
 }
 ua_rule = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ua_rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+firewall_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firewall_type", null) |
         res := resources_map[_]
         true
      }

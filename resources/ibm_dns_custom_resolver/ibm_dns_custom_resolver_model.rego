@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_custom_resolver", "managed").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+custom_resolver_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "custom_resolver_id", null) |
         res := resources_map[_]
         true
      }
@@ -23,8 +23,8 @@ description = ret {
         true
      }
 }
-health = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+locations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locations", null) |
         res := resources_map[_]
         true
      }
@@ -35,14 +35,20 @@ created_on = ret {
         true
      }
 }
+health = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+        res := resources_map[_]
+        true
+     }
+}
 modified_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }
 }
-custom_resolver_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "custom_resolver_id", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -61,12 +67,6 @@ enabled = ret {
 }
 high_availability = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "high_availability", null) |
-        res := resources_map[_]
-        true
-     }
-}
-locations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locations", null) |
         res := resources_map[_]
         true
      }

@@ -13,6 +13,12 @@ version = ret {
         true
      }
 }
+annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
+        res := resources_map[_]
+        true
+     }
+}
 parameters = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
@@ -25,20 +31,14 @@ action_id = ret {
         true
      }
 }
-limits = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
-        res := resources_map[_]
-        true
-     }
-}
-annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
-        res := resources_map[_]
-        true
-     }
-}
 target_endpoint_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+limits = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limits", null) |
         res := resources_map[_]
         true
      }

@@ -11,20 +11,20 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_schematics_inventory", "managed").resources[_]
 }
-resource_queries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_queries", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
 }
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
@@ -41,20 +41,8 @@ updated_by = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
@@ -67,6 +55,18 @@ resource_group = ret {
 }
 inventories_ini = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "inventories_ini", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_queries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_queries", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }

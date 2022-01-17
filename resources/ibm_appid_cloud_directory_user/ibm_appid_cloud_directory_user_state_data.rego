@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_cloud_directory_user", "data").resources[_]
 }
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
-        res := resources_map[_]
-        true
-     }
-}
-locked_until = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_until", null) |
-        res := resources_map[_]
-        true
-     }
-}
 user_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
         res := resources_map[_]
@@ -44,8 +26,32 @@ user_name = ret {
         true
      }
 }
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
 email = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
+        res := resources_map[_]
+        true
+     }
+}
+meta = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+locked_until = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_until", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +62,8 @@ subject = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-meta = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
+active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
         res := resources_map[_]
         true
      }

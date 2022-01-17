@@ -13,14 +13,14 @@ primary_contact_iam_id = ret {
         true
      }
 }
-parent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parent", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+parent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parent", null) |
         res := resources_map[_]
         true
      }

@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_storage_attachment", "data").resources[_]
 }
-volume_attachment_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachment_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-volume_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 volume_attachment_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachment_id", null) |
         res := resources_map[_]
@@ -52,6 +34,24 @@ resource_group_id = ret {
 }
 volume = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume_attachment_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachment_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volume_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_type", null) |
         res := resources_map[_]
         true
      }

@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_volume_attach", "managed").resources[_]
 }
-volumeattachid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volumeattachid", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -43,6 +37,12 @@ status = ret {
 }
 pi_volume_shareable = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_shareable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+volumeattachid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volumeattachid", null) |
         res := resources_map[_]
         true
      }

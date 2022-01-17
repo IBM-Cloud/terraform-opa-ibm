@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_instance_group_manager").resources[_]
 }
-enable_manager = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_manager", null) |
-        res := resources_map[_]
-        true
-     }
-}
-aggregation_window = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "aggregation_window", null) |
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +31,20 @@ name = ret {
         true
      }
 }
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
+enable_manager = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_manager", null) |
         res := resources_map[_]
         true
      }
 }
 manager_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+aggregation_window = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "aggregation_window", null) |
         res := resources_map[_]
         true
      }

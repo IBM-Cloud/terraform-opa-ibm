@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_container_alb_cert").resources[_]
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+cluster_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+persistence = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +37,8 @@ namespace = ret {
         true
      }
 }
-cluster_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-persistence = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

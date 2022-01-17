@@ -13,12 +13,6 @@ created_at = ret {
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ updated_at = ret {
 }
 updated_by = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }

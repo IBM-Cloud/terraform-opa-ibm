@@ -14,6 +14,18 @@ pi_image_name = ret {
         true
      }
 }
+hypervisor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hypervisor", null) |
+        res := resources_map[_]
+        true
+     }
+}
+storage_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -22,18 +34,6 @@ pi_cloud_instance_id = ret {
 }
 state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-operatingsystem = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operatingsystem", null) |
-        res := resources_map[_]
-        true
-     }
-}
-storage_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_pool", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +50,20 @@ architecture = ret {
         true
      }
 }
-hypervisor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hypervisor", null) |
+operatingsystem = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operatingsystem", null) |
         res := resources_map[_]
         true
      }
 }
 storage_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+image_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image_type", null) |
         res := resources_map[_]
         true
      }
