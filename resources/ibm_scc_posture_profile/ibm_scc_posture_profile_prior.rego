@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_scc_posture_profile").resources[_]
 }
-profile_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_type", null) |
+profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
         res := resources_map[_]
         true
      }
 }
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
+profile_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_type", null) |
         res := resources_map[_]
         true
      }

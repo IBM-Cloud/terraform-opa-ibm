@@ -7,20 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_container_vpc_worker_pool").resources[_]
 }
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
 }
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+taints = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "taints", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+vpc_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
         res := resources_map[_]
         true
      }
@@ -43,26 +49,20 @@ worker_pool_name = ret {
         true
      }
 }
-vpc_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
         true
      }
 }
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-taints = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "taints", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }

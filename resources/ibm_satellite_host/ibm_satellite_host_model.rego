@@ -11,20 +11,32 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_host", "managed").resources[_]
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+wait_till = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_till", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
 }
 host_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
         true
      }
@@ -47,14 +59,8 @@ host_provider = ret {
         true
      }
 }
-host_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }

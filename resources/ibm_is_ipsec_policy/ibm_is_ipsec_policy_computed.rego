@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_ipsec_policy").resources[_]
 }
-transform_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transform_protocol", null) |
+encapsulation_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encapsulation_mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +43,8 @@ resource_group = ret {
         true
      }
 }
-encapsulation_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encapsulation_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+transform_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transform_protocol", null) |
         res := resources_map[_]
         true
      }

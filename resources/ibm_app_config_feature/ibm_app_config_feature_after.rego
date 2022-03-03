@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_app_config_feature").resources[_]
 }
-collections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "collections", null) |
-        res := resources_map[_]
-        true
-     }
-}
 disabled_value = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled_value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-environment_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +31,14 @@ description = ret {
         true
      }
 }
-guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+enabled_value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled_value", null) |
         res := resources_map[_]
         true
      }
 }
-enabled_value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled_value", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -61,14 +49,26 @@ segment_rules = ret {
         true
      }
 }
+guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+environment_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 feature_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "feature_id", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+collections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "collections", null) |
         res := resources_map[_]
         true
      }

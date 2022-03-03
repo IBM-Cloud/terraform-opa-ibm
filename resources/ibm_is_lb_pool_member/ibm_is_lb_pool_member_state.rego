@@ -8,14 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_pool_member", "managed").resources[_]
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+target_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_address", null) |
         res := resources_map[_]
         true
      }
 }
-provisioning_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+target_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }
@@ -26,8 +32,8 @@ health = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +56,14 @@ port = ret {
         true
      }
 }
-target_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_address", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
 }
-target_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+provisioning_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
         res := resources_map[_]
         true
      }

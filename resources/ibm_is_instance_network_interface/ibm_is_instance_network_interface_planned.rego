@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_instance_network_interface").resources[_]
 }
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allow_ip_spoofing = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_ip_spoofing", null) |
+primary_ipv4_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ipv4_address", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +19,8 @@ name = ret {
         true
      }
 }
-primary_ipv4_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ipv4_address", null) |
+allow_ip_spoofing = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_ip_spoofing", null) |
         res := resources_map[_]
         true
      }
@@ -45,6 +33,18 @@ security_groups = ret {
 }
 floating_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
         res := resources_map[_]
         true
      }

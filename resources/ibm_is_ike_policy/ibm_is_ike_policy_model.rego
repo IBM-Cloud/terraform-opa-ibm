@@ -11,32 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_ike_policy", "managed").resources[_]
 }
-encryption_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ike_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-negotiation_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "negotiation_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+vpn_connections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
         res := resources_map[_]
         true
      }
@@ -47,14 +23,14 @@ name = ret {
         true
      }
 }
-dh_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dh_group", null) |
+key_lifetime = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_lifetime", null) |
         res := resources_map[_]
         true
      }
 }
-key_lifetime = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_lifetime", null) |
+negotiation_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "negotiation_mode", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +41,20 @@ href = ret {
         true
      }
 }
-vpn_connections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
+ike_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_version", null) |
         res := resources_map[_]
         true
      }
 }
 resource_controller_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
@@ -85,6 +67,24 @@ resource_group_name = ret {
 }
 authentication_algorithm = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encryption_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dh_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dh_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

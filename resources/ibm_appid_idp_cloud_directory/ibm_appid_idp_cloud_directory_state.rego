@@ -8,8 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_idp_cloud_directory", "managed").resources[_]
 }
-welcome_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "welcome_enabled", null) |
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+is_active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_active", null) |
+        res := resources_map[_]
+        true
+     }
+}
+reset_password_notification_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_notification_enabled", null) |
         res := resources_map[_]
         true
      }
@@ -26,18 +38,6 @@ identity_field = ret {
         true
      }
 }
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-is_active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_active", null) |
-        res := resources_map[_]
-        true
-     }
-}
 self_service_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "self_service_enabled", null) |
         res := resources_map[_]
@@ -50,14 +50,14 @@ signup_enabled = ret {
         true
      }
 }
-reset_password_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_enabled", null) |
+welcome_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "welcome_enabled", null) |
         res := resources_map[_]
         true
      }
 }
-reset_password_notification_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_notification_enabled", null) |
+reset_password_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_enabled", null) |
         res := resources_map[_]
         true
      }

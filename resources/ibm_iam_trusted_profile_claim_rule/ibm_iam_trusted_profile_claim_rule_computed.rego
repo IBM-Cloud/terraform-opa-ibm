@@ -13,12 +13,6 @@ modified_at = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 rule_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ rule_id = ret {
 }
 entity_tag = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }

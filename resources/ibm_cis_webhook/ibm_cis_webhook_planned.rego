@@ -1,0 +1,34 @@
+package ibmcloud.resources.planned.ibm_cis_webhook
+import data.ibmcloud.tfplan as plan
+# fetches the list of resource's attributes map.
+resource_name_ = ret {
+    ret := "ibm_cis_webhook"
+}
+resources_map[attr]{
+    attr := plan.planned_values("ibm_cis_webhook").resources[_]
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+secret = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret", null) |
+        res := resources_map[_]
+        true
+     }
+}
+

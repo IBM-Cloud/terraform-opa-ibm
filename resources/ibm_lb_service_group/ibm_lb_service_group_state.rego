@@ -8,26 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_service_group", "managed").resources[_]
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routing_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routing_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 timeout = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +32,14 @@ load_balancer_id = ret {
         true
      }
 }
-allocation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allocation", null) |
+routing_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routing_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_type", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +50,14 @@ service_group_id = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+allocation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allocation", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }

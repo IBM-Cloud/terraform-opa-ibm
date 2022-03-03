@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_scc_si_providers").resources[_]
 }
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 limit = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ limit = ret {
 }
 skip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "skip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }

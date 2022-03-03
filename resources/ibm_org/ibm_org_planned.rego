@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_org").resources[_]
 }
-org_quota_definition_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_quota_definition_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
 billing_managers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "billing_managers", null) |
         res := resources_map[_]
@@ -45,6 +39,12 @@ tags = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+org_quota_definition_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_quota_definition_guid", null) |
         res := resources_map[_]
         true
      }

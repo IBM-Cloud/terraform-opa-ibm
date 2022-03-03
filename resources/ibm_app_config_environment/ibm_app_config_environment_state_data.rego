@@ -8,8 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_app_config_environment", "data").resources[_]
 }
-created_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
+color_code = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "color_code", null) |
+        res := resources_map[_]
+        true
+     }
+}
+guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expand = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
         res := resources_map[_]
         true
      }
@@ -20,20 +32,8 @@ name = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-color_code = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "color_code", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+created_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +50,20 @@ href = ret {
         true
      }
 }
-guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
 environment_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
         res := resources_map[_]
         true
      }
 }
-expand = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

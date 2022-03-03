@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_service_key", "data").resources[_]
 }
-credentials = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -28,6 +22,12 @@ service_instance_name = ret {
 }
 space_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+credentials = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
         res := resources_map[_]
         true
      }

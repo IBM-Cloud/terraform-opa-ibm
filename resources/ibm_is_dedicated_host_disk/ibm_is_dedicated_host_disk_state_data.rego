@@ -8,26 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host_disk", "data").resources[_]
 }
-instance_disks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_disks", null) |
+provisionable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisionable", null) |
         res := resources_map[_]
         true
      }
 }
-interface_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interface_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -44,6 +32,36 @@ disk = ret {
         true
      }
 }
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+interface_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interface_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dedicated_host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host", null) |
+        res := resources_map[_]
+        true
+     }
+}
 available = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available", null) |
         res := resources_map[_]
@@ -56,32 +74,14 @@ href = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+instance_disks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_disks", null) |
         res := resources_map[_]
         true
      }
 }
-provisionable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisionable", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dedicated_host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
         res := resources_map[_]
         true
      }

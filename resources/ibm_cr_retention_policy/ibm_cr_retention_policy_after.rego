@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cr_retention_policy").resources[_]
 }
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
 images_per_repo = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "images_per_repo", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ images_per_repo = ret {
 }
 retain_untagged = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "retain_untagged", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
         res := resources_map[_]
         true
      }

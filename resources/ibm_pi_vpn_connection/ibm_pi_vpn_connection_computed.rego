@@ -13,26 +13,26 @@ connection_id = ret {
         true
      }
 }
-local_gateway_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_gateway_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
 connection_status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_status", null) |
         res := resources_map[_]
         true
      }
 }
-dead_peer_detections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dead_peer_detections", null) |
+local_gateway_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_gateway_address", null) |
         res := resources_map[_]
         true
      }
 }
 gateway_address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dead_peer_detections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dead_peer_detections", null) |
         res := resources_map[_]
         true
      }

@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_dhcp", "managed").resources[_]
 }
+pi_cloud_connection_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_connection_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 dhcp_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dhcp_id", null) |
         res := resources_map[_]

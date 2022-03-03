@@ -8,30 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_account_location", "data").resources[_]
 }
-compliance_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "compliance_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-analytics_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "analytics_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-si_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "si_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-regions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regions", null) |
-        res := resources_map[_]
-        true
-     }
-}
 location_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_id", null) |
         res := resources_map[_]
@@ -52,6 +28,30 @@ governance_endpoint_url = ret {
 }
 results_endpoint_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "results_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+compliance_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "compliance_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+analytics_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "analytics_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+si_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "si_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+regions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regions", null) |
         res := resources_map[_]
         true
      }

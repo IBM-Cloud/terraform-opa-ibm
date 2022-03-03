@@ -13,14 +13,14 @@ weight = ret {
         true
      }
 }
-provisioning_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+health = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
         res := resources_map[_]
         true
      }
 }
-health = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ related_crn = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+provisioning_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
         res := resources_map[_]
         true
      }

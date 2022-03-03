@@ -14,8 +14,14 @@ pi_cloud_instance_id = ret {
         true
      }
 }
-cidr = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cidr", null) |
+gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -32,14 +38,20 @@ available_ip_count = ret {
         true
      }
 }
+used_ip_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "used_ip_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
 used_ip_percent = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "used_ip_percent", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+dns = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +62,14 @@ pi_network_name = ret {
         true
      }
 }
+cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
-        res := resources_map[_]
-        true
-     }
-}
-used_ip_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "used_ip_count", null) |
         res := resources_map[_]
         true
      }

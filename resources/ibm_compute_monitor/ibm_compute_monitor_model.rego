@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_monitor", "managed").resources[_]
 }
-response_action_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "response_action_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 wait_cycles = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_cycles", null) |
         res := resources_map[_]
@@ -49,6 +43,12 @@ ip_address = ret {
 }
 query_type_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_type_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+response_action_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "response_action_id", null) |
         res := resources_map[_]
         true
      }

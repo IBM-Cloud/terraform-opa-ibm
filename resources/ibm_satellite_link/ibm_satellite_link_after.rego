@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_satellite_link").resources[_]
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+ws_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ws_endpoint", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ location = ret {
         true
      }
 }
-ws_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ws_endpoint", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

@@ -19,12 +19,6 @@ zone = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 routing_table = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
         res := resources_map[_]
@@ -45,6 +39,12 @@ next_hop = ret {
 }
 action = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

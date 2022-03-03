@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_function_package").resources[_]
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+annotations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
         res := resources_map[_]
         true
      }
 }
-annotations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "annotations", null) |
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }

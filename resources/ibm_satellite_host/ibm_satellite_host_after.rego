@@ -7,20 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_satellite_host").resources[_]
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+wait_till = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_till", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
 }
 host_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +49,8 @@ host_provider = ret {
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_idp_cloud_directory", "data").resources[_]
 }
-is_active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_active", null) |
+self_service_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "self_service_enabled", null) |
         res := resources_map[_]
         true
      }
 }
 signup_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signup_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+reset_password_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_enabled", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +56,14 @@ tenant_id = ret {
         true
      }
 }
-self_service_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "self_service_enabled", null) |
+is_active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_active", null) |
         res := resources_map[_]
         true
      }
 }
 welcome_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "welcome_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reset_password_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reset_password_enabled", null) |
         res := resources_map[_]
         true
      }

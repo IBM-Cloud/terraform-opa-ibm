@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cbr_zone").resources[_]
 }
-excluded = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ addresses = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+excluded = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded", null) |
         res := resources_map[_]
         true
      }

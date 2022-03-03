@@ -8,26 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_cloud_connection", "data").resources[_]
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+networks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "networks", null) |
         res := resources_map[_]
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+pi_cloud_connection_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_connection_name", null) |
         res := resources_map[_]
         true
      }
 }
-vpc_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-speed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed", null) |
+ibm_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_ip_address", null) |
         res := resources_map[_]
         true
      }
@@ -38,14 +32,14 @@ user_ip_address = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+global_routing = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global_routing", null) |
         res := resources_map[_]
         true
      }
 }
-networks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "networks", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
@@ -62,20 +56,20 @@ gre_source_address = ret {
         true
      }
 }
-vpc_crns = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_crns", null) |
+vpc_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_enabled", null) |
         res := resources_map[_]
         true
      }
 }
-pi_cloud_connection_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_connection_name", null) |
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-global_routing = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global_routing", null) |
+speed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed", null) |
         res := resources_map[_]
         true
      }
@@ -86,14 +80,20 @@ metered = ret {
         true
      }
 }
-ibm_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_ip_address", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
 classic_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "classic_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc_crns = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_crns", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_worker_pool", "data").resources[_]
 }
-worker_pool_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
+disk_encryption = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_encryption", null) |
         res := resources_map[_]
         true
      }
 }
-hardware = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
@@ -44,26 +44,26 @@ cluster = ret {
         true
      }
 }
+machine_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "machine_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 size_per_zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size_per_zone", null) |
         res := resources_map[_]
         true
      }
 }
-disk_encryption = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_encryption", null) |
+worker_pool_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_name", null) |
         res := resources_map[_]
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-machine_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "machine_type", null) |
+hardware = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware", null) |
         res := resources_map[_]
         true
      }

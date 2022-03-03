@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_user_profile", "data").resources[_]
 }
+firstname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firstname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lastname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lastname", null) |
+        res := resources_map[_]
+        true
+     }
+}
 state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
@@ -26,6 +38,12 @@ ibm_id = ret {
         true
      }
 }
+iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 allowed_ip_addresses = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_ip_addresses", null) |
         res := resources_map[_]
@@ -34,24 +52,6 @@ allowed_ip_addresses = ret {
 }
 user_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-firstname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firstname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lastname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lastname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iam_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
         res := resources_map[_]
         true
      }
