@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_container_nlb_dns").resources[_]
 }
-nlb_host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_host", null) |
-        res := resources_map[_]
-        true
-     }
-}
 nlb_ips = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ips", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ resource_group_id = ret {
 }
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+nlb_host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_host", null) |
         res := resources_map[_]
         true
      }

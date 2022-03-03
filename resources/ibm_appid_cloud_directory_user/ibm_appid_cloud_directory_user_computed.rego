@@ -13,12 +13,6 @@ subject = ret {
         true
      }
 }
-meta = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
-        res := resources_map[_]
-        true
-     }
-}
 user_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ user_id = ret {
 }
 display_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+meta = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
         res := resources_map[_]
         true
      }

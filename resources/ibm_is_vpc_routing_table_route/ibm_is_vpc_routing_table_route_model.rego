@@ -23,14 +23,8 @@ zone = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-route_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_id", null) |
+origin = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
         res := resources_map[_]
         true
      }
@@ -43,12 +37,6 @@ href = ret {
 }
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }
@@ -77,8 +65,20 @@ action = ret {
         true
      }
 }
-origin = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+route_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }

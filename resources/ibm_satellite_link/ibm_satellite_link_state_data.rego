@@ -20,8 +20,8 @@ crn = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+satellite_link_host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "satellite_link_host", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +44,8 @@ ws_endpoint = ret {
         true
      }
 }
-satellite_link_host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "satellite_link_host", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,14 @@ session_persistence_app_cookie_name = ret {
         true
      }
 }
-proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
+health_retries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_retries", null) |
         res := resources_map[_]
         true
      }
 }
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
+health_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_type", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,26 @@ protocol = ret {
         true
      }
 }
+health_timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
 health_delay = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_delay", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_monitor_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +67,8 @@ session_persistence_type = ret {
         true
      }
 }
-health_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_monitor_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_port", null) |
+proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
         res := resources_map[_]
         true
      }
@@ -69,18 +81,6 @@ name = ret {
 }
 lb = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_retries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_retries", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_timeout", null) |
         res := resources_map[_]
         true
      }

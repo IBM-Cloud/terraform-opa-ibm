@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_edge_functions_trigger").resources[_]
 }
+pattern_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pattern_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
 action_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_name", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ cis_id = ret {
 }
 domain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pattern_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pattern_url", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_cloud_directory_user", "data").resources[_]
 }
-active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
+locked_until = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_until", null) |
         res := resources_map[_]
         true
      }
 }
-user_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -26,8 +26,26 @@ email = ret {
         true
      }
 }
+meta = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tenant_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
         res := resources_map[_]
         true
      }
@@ -46,24 +64,6 @@ display_name = ret {
 }
 user_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-meta = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
-        res := resources_map[_]
-        true
-     }
-}
-locked_until = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_until", null) |
         res := resources_map[_]
         true
      }

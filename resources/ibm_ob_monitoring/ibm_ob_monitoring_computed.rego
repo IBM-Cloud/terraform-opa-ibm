@@ -7,8 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_ob_monitoring").resources[_]
 }
+private_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
 instance_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+agent_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "agent_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -25,12 +43,6 @@ sysdig_access_key = ret {
         true
      }
 }
-private_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
 daemonset_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "daemonset_name", null) |
         res := resources_map[_]
@@ -43,20 +55,8 @@ agent_namespace = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 discovered_agent = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "discovered_agent", null) |
-        res := resources_map[_]
-        true
-     }
-}
-agent_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "agent_key", null) |
         res := resources_map[_]
         true
      }

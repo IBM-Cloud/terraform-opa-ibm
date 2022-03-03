@@ -11,8 +11,26 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_autoscale_group", "managed").resources[_]
 }
+network_vlan_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_vlan_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+regional_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regional_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
 minimum_member_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_member_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+maximum_member_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_member_count", null) |
         res := resources_map[_]
         true
      }
@@ -23,14 +41,20 @@ cooldown = ret {
         true
      }
 }
+termination_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "termination_policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
 virtual_server_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
         res := resources_map[_]
         true
      }
 }
-network_vlan_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_vlan_ids", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
@@ -47,18 +71,6 @@ name = ret {
         true
      }
 }
-regional_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regional_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
 health_check = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
         res := resources_map[_]
@@ -67,18 +79,6 @@ health_check = ret {
 }
 virtual_guest_member_template = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guest_member_template", null) |
-        res := resources_map[_]
-        true
-     }
-}
-maximum_member_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_member_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-termination_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "termination_policy", null) |
         res := resources_map[_]
         true
      }

@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_si_occurrence", "data").resources[_]
 }
+create_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+finding = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 occurrence_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
         res := resources_map[_]
@@ -26,14 +44,8 @@ remediation = ret {
         true
      }
 }
-update_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
-finding = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
+context = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "context", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +56,8 @@ kpi = ret {
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
         res := resources_map[_]
         true
      }
@@ -62,20 +74,8 @@ kind = ret {
         true
      }
 }
-create_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
-context = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "context", null) |
-        res := resources_map[_]
-        true
-     }
-}
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
+update_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,14 @@ endpoint_id = ret {
         true
      }
 }
-shared = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
+base_path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_path", null) |
         res := resources_map[_]
         true
      }
 }
-base_path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_path", null) |
+shared = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
         res := resources_map[_]
         true
      }

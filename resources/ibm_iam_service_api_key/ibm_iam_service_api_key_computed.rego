@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_iam_service_api_key").resources[_]
 }
-apikey = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ modified_at = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,8 @@ account_id = ret {
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+apikey = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
         res := resources_map[_]
         true
      }

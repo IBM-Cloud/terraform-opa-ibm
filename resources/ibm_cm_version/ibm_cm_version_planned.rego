@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cm_version").resources[_]
 }
-zipurl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zipurl", null) |
+content = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
         true
      }
 }
-target_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_version", null) |
+zipurl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zipurl", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,8 @@ tags = ret {
         true
      }
 }
-content = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_kinds = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_kinds", null) |
+target_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_version", null) |
         res := resources_map[_]
         true
      }
@@ -45,6 +39,12 @@ catalog_identifier = ret {
 }
 offering_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_kinds = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_kinds", null) |
         res := resources_map[_]
         true
      }

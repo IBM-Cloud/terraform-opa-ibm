@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_schematics_resource_query").resources[_]
 }
-queries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "queries", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ type = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+queries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "queries", null) |
         res := resources_map[_]
         true
      }

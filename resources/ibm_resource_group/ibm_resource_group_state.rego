@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_resource_group", "managed").resources[_]
 }
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
@@ -16,6 +28,12 @@ updated_at = ret {
 }
 quota_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+quota_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_id", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +50,8 @@ name = ret {
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+default_ = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_", null) |
         res := resources_map[_]
         true
      }
@@ -46,24 +64,6 @@ crn = ret {
 }
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-quota_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "quota_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_ = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

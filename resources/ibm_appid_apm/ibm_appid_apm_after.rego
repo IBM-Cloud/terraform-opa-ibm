@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_appid_apm").resources[_]
 }
+min_password_change_interval = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_password_change_interval", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tenant_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
         res := resources_map[_]
@@ -39,12 +45,6 @@ password_expiration = ret {
 }
 lockout_policy = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lockout_policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-min_password_change_interval = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_password_change_interval", null) |
         res := resources_map[_]
         true
      }

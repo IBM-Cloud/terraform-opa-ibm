@@ -19,4 +19,10 @@ related_crn = ret {
         true
      }
 }
+address_prefix = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

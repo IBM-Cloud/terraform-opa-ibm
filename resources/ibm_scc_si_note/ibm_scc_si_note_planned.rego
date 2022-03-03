@@ -19,6 +19,12 @@ reported_by = ret {
         true
      }
 }
+finding = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
+        res := resources_map[_]
+        true
+     }
+}
 kpi = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
         res := resources_map[_]
@@ -31,8 +37,8 @@ card = ret {
         true
      }
 }
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }
@@ -43,20 +49,14 @@ note_id = ret {
         true
      }
 }
-shared = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
+section = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "section", null) |
         res := resources_map[_]
         true
      }
 }
-finding = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
         res := resources_map[_]
         true
      }
@@ -67,20 +67,20 @@ kind = ret {
         true
      }
 }
-section = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "section", null) |
+related_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+shared = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
         res := resources_map[_]
         true
      }
 }
 long_description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "long_description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-related_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_url", null) |
         res := resources_map[_]
         true
      }

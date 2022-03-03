@@ -13,14 +13,14 @@ guid = ret {
         true
      }
 }
-environment_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
+expand = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
         res := resources_map[_]
         true
      }
 }
-expand = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
+environment_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
         res := resources_map[_]
         true
      }

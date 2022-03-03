@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_en_topics", "data").resources[_]
 }
+instance_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
 total_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
         res := resources_map[_]
@@ -22,12 +28,6 @@ search_key = ret {
 }
 topics = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topics", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
         res := resources_map[_]
         true
      }

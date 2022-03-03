@@ -8,38 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_snapshot", "managed").resources[_]
 }
-operating_system = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operating_system", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-source_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
+source_image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_image", null) |
+        res := resources_map[_]
+        true
+     }
+}
+operating_system = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operating_system", null) |
         res := resources_map[_]
         true
      }
 }
 lifecycle_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
-        res := resources_map[_]
-        true
-     }
-}
-encryption = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption", null) |
         res := resources_map[_]
         true
      }
@@ -52,12 +40,6 @@ resource_type = ret {
 }
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_image", null) |
         res := resources_map[_]
         true
      }
@@ -80,6 +62,18 @@ minimum_capacity = ret {
         true
      }
 }
+source_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encryption = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption", null) |
+        res := resources_map[_]
+        true
+     }
+}
 bootable = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bootable", null) |
         res := resources_map[_]
@@ -88,6 +82,12 @@ bootable = ret {
 }
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
         res := resources_map[_]
         true
      }
