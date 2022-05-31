@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_user_profile", "data").resources[_]
 }
+ibm_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 firstname = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "firstname", null) |
         res := resources_map[_]
@@ -28,18 +40,6 @@ state = ret {
 }
 phonenumber = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "phonenumber", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ibm_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-iam_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
         res := resources_map[_]
         true
      }

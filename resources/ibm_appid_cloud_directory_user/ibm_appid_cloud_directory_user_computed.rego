@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_appid_cloud_directory_user").resources[_]
 }
-subject = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
+display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ user_id = ret {
         true
      }
 }
-display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+subject = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
         res := resources_map[_]
         true
      }

@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_satellite_attach_host_script").resources[_]
 }
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host_provider = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_provider", null) |
-        res := resources_map[_]
-        true
-     }
-}
 script_dir = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "script_dir", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ custom_script = ret {
 }
 location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_provider = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_provider", null) |
         res := resources_map[_]
         true
      }

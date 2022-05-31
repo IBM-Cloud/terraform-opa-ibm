@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_container_alb_create").resources[_]
 }
+nlb_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
@@ -25,20 +31,14 @@ ingress_image = ret {
         true
      }
 }
-nlb_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip", null) |
         res := resources_map[_]
         true
      }
 }
-alb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+vlan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,8 @@ zone = ret {
         true
      }
 }
-vlan_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
+alb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
         res := resources_map[_]
         true
      }

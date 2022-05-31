@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_resource_tag", "managed").resources[_]
 }
-resource_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
@@ -37,6 +25,18 @@ tag_type = ret {
 }
 acccount_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "acccount_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_posture_profiles", "data").resources[_]
 }
-previous = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "previous", null) |
-        res := resources_map[_]
-        true
-     }
-}
-profiles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profiles", null) |
-        res := resources_map[_]
-        true
-     }
-}
 first = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "first", null) |
         res := resources_map[_]
@@ -28,6 +16,18 @@ first = ret {
 }
 last = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last", null) |
+        res := resources_map[_]
+        true
+     }
+}
+previous = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "previous", null) |
+        res := resources_map[_]
+        true
+     }
+}
+profiles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profiles", null) |
         res := resources_map[_]
         true
      }

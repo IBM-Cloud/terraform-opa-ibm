@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_placement_group", "data").resources[_]
 }
+policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -22,12 +28,6 @@ members = ret {
 }
 pi_placement_group_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_placement_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy", null) |
         res := resources_map[_]
         true
      }

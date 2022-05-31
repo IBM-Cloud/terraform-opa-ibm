@@ -11,14 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cbr_zone", "managed").resources[_]
 }
-last_modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }
@@ -35,8 +29,8 @@ address_count = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+created_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
         res := resources_map[_]
         true
      }
@@ -47,20 +41,8 @@ description = ret {
         true
      }
 }
-last_modified_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-addresses = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addresses", null) |
+excluded = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded", null) |
         res := resources_map[_]
         true
      }
@@ -71,14 +53,26 @@ excluded_count = ret {
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
 }
-excluded = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded", null) |
+last_modified_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+addresses = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addresses", null) |
         res := resources_map[_]
         true
      }
@@ -89,8 +83,14 @@ created_at = ret {
         true
      }
 }
-created_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
+last_modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }

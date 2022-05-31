@@ -25,8 +25,50 @@ profile = ret {
         true
      }
 }
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+operating_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operating_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_ips = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ips", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -43,32 +85,8 @@ status = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_ips = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ips", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+private_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip", null) |
         res := resources_map[_]
         true
      }
@@ -79,14 +97,8 @@ security_groups = ret {
         true
      }
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-operating_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operating_status", null) |
+udp_supported = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp_supported", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_vpc_cluster_worker", "data").resources[_]
 }
-cluster_name_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
+worker_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_id", null) |
         res := resources_map[_]
         true
      }
 }
-flavor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
+cluster_name_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
         res := resources_map[_]
         true
      }
@@ -26,20 +26,14 @@ kube_version = ret {
         true
      }
 }
-network_interfaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+pool_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_name", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_id", null) |
+flavor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +50,14 @@ pool_id = ret {
         true
      }
 }
-pool_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_name", null) |
+network_interfaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }

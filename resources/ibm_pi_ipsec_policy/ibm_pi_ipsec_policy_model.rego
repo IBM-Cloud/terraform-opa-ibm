@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_ipsec_policy", "managed").resources[_]
 }
+pi_policy_encryption = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_encryption", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_policy_key_lifetime = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_key_lifetime", null) |
         res := resources_map[_]
@@ -49,12 +55,6 @@ pi_policy_name = ret {
 }
 pi_policy_dh_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_dh_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_policy_encryption = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_encryption", null) |
         res := resources_map[_]
         true
      }

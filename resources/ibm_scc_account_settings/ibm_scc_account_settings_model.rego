@@ -17,4 +17,16 @@ location_id = ret {
         true
      }
 }
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+event_notifications = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "event_notifications", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

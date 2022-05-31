@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_pi_image_export").resources[_]
 }
+pi_image_bucket_region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_bucket_region", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ pi_image_access_key = ret {
 }
 pi_image_secret_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_secret_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_image_bucket_region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_bucket_region", null) |
         res := resources_map[_]
         true
      }

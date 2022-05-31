@@ -26,6 +26,12 @@ iam_service_ids = ret {
         true
      }
 }
+iam_profile_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_profile_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
 members = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
         res := resources_map[_]

@@ -19,12 +19,6 @@ modified_on = ret {
         true
      }
 }
-pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 health = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ health = ret {
 }
 created_on = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
         res := resources_map[_]
         true
      }

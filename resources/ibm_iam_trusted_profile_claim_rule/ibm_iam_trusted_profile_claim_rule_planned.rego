@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_iam_trusted_profile_claim_rule").resources[_]
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 conditions = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "conditions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-realm_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "realm_name", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +19,20 @@ profile_id = ret {
         true
      }
 }
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+realm_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "realm_name", null) |
         res := resources_map[_]
         true
      }

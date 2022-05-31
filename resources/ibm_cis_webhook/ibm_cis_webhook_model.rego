@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_webhook", "managed").resources[_]
 }
+secret = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
@@ -37,12 +43,6 @@ url = ret {
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-secret = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret", null) |
         res := resources_map[_]
         true
      }

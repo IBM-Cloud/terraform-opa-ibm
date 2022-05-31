@@ -19,8 +19,8 @@ public_ip_address2 = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+private_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +31,8 @@ created_at = ret {
         true
      }
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 members = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip_address", null) |
         res := resources_map[_]
         true
      }
@@ -61,8 +49,20 @@ resource_controller_url = ret {
         true
      }
 }
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +73,8 @@ status = ret {
         true
      }
 }
-private_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_ip_address", null) |
+public_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip_address", null) |
         res := resources_map[_]
         true
      }
@@ -85,14 +85,14 @@ private_ip_address2 = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }
 }
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }

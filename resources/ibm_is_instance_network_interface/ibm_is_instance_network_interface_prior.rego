@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_instance_network_interface").resources[_]
 }
-network_interface_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface_name", null) |
+instance_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_name", null) |
         res := resources_map[_]
         true
      }
 }
-instance_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_name", null) |
+network_interface_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface_name", null) |
         res := resources_map[_]
         true
      }

@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_en_topic", "managed").resources[_]
 }
-source_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subscriptions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
         res := resources_map[_]
@@ -28,12 +16,6 @@ instance_guid = ret {
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sources", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +32,32 @@ updated_at = ret {
         true
      }
 }
-subscription_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_count", null) |
+source_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_count", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sources", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subscription_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subscriptions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
         res := resources_map[_]
         true
      }

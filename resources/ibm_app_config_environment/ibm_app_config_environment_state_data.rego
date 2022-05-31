@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_app_config_environment", "data").resources[_]
 }
-color_code = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "color_code", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -20,8 +20,8 @@ guid = ret {
         true
      }
 }
-expand = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
+environment_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
         res := resources_map[_]
         true
      }
@@ -50,8 +50,8 @@ href = ret {
         true
      }
 }
-environment_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
+expand = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +62,8 @@ description = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+color_code = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "color_code", null) |
         res := resources_map[_]
         true
      }

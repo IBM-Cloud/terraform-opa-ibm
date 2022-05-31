@@ -11,6 +11,24 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_custom_resolver_location", "managed").resources[_]
 }
+subnet_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+healthy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy", null) |
+        res := resources_map[_]
+        true
+     }
+}
 dns_server_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_server_ip", null) |
         res := resources_map[_]
@@ -37,24 +55,6 @@ resolver_id = ret {
 }
 location_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnet_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-healthy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthy", null) |
         res := resources_map[_]
         true
      }

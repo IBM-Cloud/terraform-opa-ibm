@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_scc_posture_collector").resources[_]
 }
+passphrase = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
+        res := resources_map[_]
+        true
+     }
+}
+is_ubi_image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_ubi_image", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -27,18 +39,6 @@ managed_by = ret {
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-passphrase = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
-        res := resources_map[_]
-        true
-     }
-}
-is_ubi_image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_ubi_image", null) |
         res := resources_map[_]
         true
      }

@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_satellite_host").resources[_]
 }
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-wait_till = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_till", null) |
-        res := resources_map[_]
-        true
-     }
-}
 location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
@@ -31,26 +19,38 @@ host_id = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
 worker_pool = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool", null) |
         res := resources_map[_]
         true
      }
 }
-host_provider = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_provider", null) |
+wait_till = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wait_till", null) |
         res := resources_map[_]
         true
      }
 }
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_provider = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_provider", null) |
         res := resources_map[_]
         true
      }

@@ -8,62 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpn_gateway_connection", "data").resources[_]
 }
-vpn_gateway_connection_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpn_gateway_connection = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection", null) |
-        res := resources_map[_]
-        true
-     }
-}
 dead_peer_detection = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dead_peer_detection", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ike_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tunnels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tunnels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-authentication_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -80,38 +26,8 @@ peer_address = ret {
         true
      }
 }
-psk = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "psk", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpn_gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpn_gateway_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-admin_state_up = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin_state_up", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ipsec_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -122,14 +38,98 @@ routing_protocol = ret {
         true
      }
 }
-local_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
+vpn_gateway_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpn_gateway_connection = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection", null) |
+        res := resources_map[_]
+        true
+     }
+}
+authentication_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+psk = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "psk", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tunnels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tunnels", null) |
         res := resources_map[_]
         true
      }
 }
 peer_cidrs = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_cidrs", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpn_gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpn_gateway_connection_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+admin_state_up = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin_state_up", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ipsec_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+local_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ike_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
         res := resources_map[_]
         true
      }

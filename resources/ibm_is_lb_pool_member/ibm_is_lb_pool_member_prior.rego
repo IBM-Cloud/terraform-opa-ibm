@@ -13,14 +13,14 @@ lb = ret {
         true
      }
 }
-pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool", null) |
+member = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "member", null) |
         res := resources_map[_]
         true
      }
 }
-member = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "member", null) |
+pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool", null) |
         res := resources_map[_]
         true
      }

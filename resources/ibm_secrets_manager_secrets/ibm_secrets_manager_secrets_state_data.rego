@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_secrets_manager_secrets", "data").resources[_]
 }
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 metadata = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metadata", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ instance_id = ret {
 }
 secret_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
         res := resources_map[_]
         true
      }

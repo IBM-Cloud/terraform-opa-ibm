@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_dns_custom_resolver_location").resources[_]
 }
+subnet_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cr_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cr_enabled", null) |
         res := resources_map[_]
@@ -21,18 +33,6 @@ instance_id = ret {
 }
 resolver_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resolver_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnet_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }

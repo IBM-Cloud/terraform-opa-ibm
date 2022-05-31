@@ -13,8 +13,8 @@ snapshot_id = ret {
         true
      }
 }
-creation_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ pi_snap_shot_id = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+creation_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
         res := resources_map[_]
         true
      }

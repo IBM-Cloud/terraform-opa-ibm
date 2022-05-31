@@ -7,26 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_scc_si_note").resources[_]
 }
-short_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reported_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reported_by", null) |
+related_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_url", null) |
         res := resources_map[_]
         true
      }
 }
 finding = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kpi = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +31,8 @@ account_id = ret {
         true
      }
 }
-note_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_id", null) |
+long_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "long_description", null) |
         res := resources_map[_]
         true
      }
@@ -61,14 +49,20 @@ provider_id = ret {
         true
      }
 }
-kind = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+reported_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reported_by", null) |
         res := resources_map[_]
         true
      }
 }
-related_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_url", null) |
+note_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
         res := resources_map[_]
         true
      }
@@ -79,8 +73,14 @@ shared = ret {
         true
      }
 }
-long_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "long_description", null) |
+kpi = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
+        res := resources_map[_]
+        true
+     }
+}
+short_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
         res := resources_map[_]
         true
      }

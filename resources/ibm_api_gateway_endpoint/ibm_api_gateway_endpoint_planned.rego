@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_api_gateway_endpoint").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
+managed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +37,14 @@ open_api_doc_name = ret {
         true
      }
 }
-managed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }

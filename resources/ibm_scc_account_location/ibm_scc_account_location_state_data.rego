@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_account_location", "data").resources[_]
 }
+si_endpoint_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "si_endpoint_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+regions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regions", null) |
+        res := resources_map[_]
+        true
+     }
+}
 location_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_id", null) |
         res := resources_map[_]
@@ -40,18 +52,6 @@ compliance_endpoint_url = ret {
 }
 analytics_endpoint_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "analytics_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-si_endpoint_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "si_endpoint_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-regions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regions", null) |
         res := resources_map[_]
         true
      }
