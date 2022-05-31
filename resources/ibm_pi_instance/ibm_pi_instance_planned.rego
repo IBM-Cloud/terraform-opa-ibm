@@ -7,32 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_pi_instance").resources[_]
 }
-pi_image_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_processors = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_processors", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_key_pair_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_key_pair_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_anti_affinity_instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_anti_affinity_instances", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +25,14 @@ pi_affinity_policy = ret {
         true
      }
 }
-pi_replicants = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_replicants", null) |
+pi_network = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network", null) |
         res := resources_map[_]
         true
      }
 }
-pi_replication_scheme = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_replication_scheme", null) |
+pi_replicants = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_replicants", null) |
         res := resources_map[_]
         true
      }
@@ -67,56 +43,14 @@ pi_health_status = ret {
         true
      }
 }
-pi_user_data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_user_data", null) |
+pi_migratable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_migratable", null) |
         res := resources_map[_]
         true
      }
 }
-pi_storage_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_storage_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_placement_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_placement_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_memory", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_sap_profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_sap_profile_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_volume_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_ids", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_storage_connection = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_storage_connection", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_network = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_sys_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_sys_type", null) |
+pi_storage_pool_affinity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_storage_pool_affinity", null) |
         res := resources_map[_]
         true
      }
@@ -127,14 +61,44 @@ pi_license_repository_capacity = ret {
         true
      }
 }
-pi_proc_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_proc_type", null) |
+pi_anti_affinity_volumes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_anti_affinity_volumes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_key_pair_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_key_pair_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_memory", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_pin_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_pin_policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_anti_affinity_instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_anti_affinity_instances", null) |
         res := resources_map[_]
         true
      }
 }
 pi_virtual_cores_assigned = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_virtual_cores_assigned", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_affinity_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_affinity_volume", null) |
         res := resources_map[_]
         true
      }
@@ -151,8 +115,8 @@ pi_instance_name = ret {
         true
      }
 }
-pi_storage_pool_affinity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_storage_pool_affinity", null) |
+pi_replication_scheme = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_replication_scheme", null) |
         res := resources_map[_]
         true
      }
@@ -163,26 +127,62 @@ pi_replication_policy = ret {
         true
      }
 }
-pi_anti_affinity_volumes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_anti_affinity_volumes", null) |
+pi_user_data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_user_data", null) |
         res := resources_map[_]
         true
      }
 }
-pi_affinity_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_affinity_volume", null) |
+pi_storage_connection = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_storage_connection", null) |
         res := resources_map[_]
         true
      }
 }
-pi_pin_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_pin_policy", null) |
+pi_placement_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_placement_group_id", null) |
         res := resources_map[_]
         true
      }
 }
-pi_migratable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_migratable", null) |
+pi_image_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_proc_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_proc_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_volume_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_ids", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_storage_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_storage_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_processors = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_processors", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_sap_profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_sap_profile_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_sys_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_sys_type", null) |
         res := resources_map[_]
         true
      }

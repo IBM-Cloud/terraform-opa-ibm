@@ -19,14 +19,14 @@ description = ret {
         true
      }
 }
-sources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sources", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+sources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sources", null) |
         res := resources_map[_]
         true
      }

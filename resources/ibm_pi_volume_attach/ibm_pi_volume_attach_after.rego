@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_pi_volume_attach").resources[_]
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_volume_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_id", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ pi_volume_id = ret {
 }
 pi_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

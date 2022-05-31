@@ -31,14 +31,14 @@ domain_id = ret {
         true
      }
 }
-bundle_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bundle_method", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+bundle_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bundle_method", null) |
         res := resources_map[_]
         true
      }

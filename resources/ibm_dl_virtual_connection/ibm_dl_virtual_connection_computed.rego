@@ -13,12 +13,6 @@ network_id = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
@@ -39,6 +33,12 @@ network_account = ret {
 }
 virtual_connection_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_connection_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }

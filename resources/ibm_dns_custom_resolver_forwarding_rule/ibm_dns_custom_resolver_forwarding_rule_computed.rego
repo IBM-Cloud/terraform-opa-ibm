@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_custom_resolver_forwarding_rule").resources[_]
 }
+match = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
+        res := resources_map[_]
+        true
+     }
+}
 rule_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]

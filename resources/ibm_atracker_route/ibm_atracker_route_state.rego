@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_atracker_route", "managed").resources[_]
 }
+rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -40,12 +46,6 @@ name = ret {
 }
 receive_global_events = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "receive_global_events", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
         true
      }

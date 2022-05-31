@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_atracker_target", "managed").resources[_]
 }
-updated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 target_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_type", null) |
         res := resources_map[_]
@@ -55,6 +43,18 @@ cos_write_status = ret {
 }
 created = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

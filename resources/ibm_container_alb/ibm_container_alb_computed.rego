@@ -7,26 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_container_alb").resources[_]
 }
-replicas = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replicas", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
 }
-resize = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+disable_deployment = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +25,8 @@ name = ret {
         true
      }
 }
-disable_deployment = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
+resize = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +43,20 @@ alb_type = ret {
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+user_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+replicas = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replicas", null) |
         res := resources_map[_]
         true
      }

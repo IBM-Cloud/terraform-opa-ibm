@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_pi_sap_profile").resources[_]
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+pi_sap_profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_sap_profile_id", null) |
         res := resources_map[_]
         true
      }
 }
-pi_sap_profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_sap_profile_id", null) |
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

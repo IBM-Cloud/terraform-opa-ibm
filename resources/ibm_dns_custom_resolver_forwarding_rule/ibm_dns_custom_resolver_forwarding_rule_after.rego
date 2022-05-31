@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dns_custom_resolver_forwarding_rule").resources[_]
 }
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+match = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
+        res := resources_map[_]
+        true
+     }
+}
 forward_to = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "forward_to", null) |
         res := resources_map[_]
@@ -27,18 +39,6 @@ resolver_id = ret {
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-match = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
         res := resources_map[_]
         true
      }

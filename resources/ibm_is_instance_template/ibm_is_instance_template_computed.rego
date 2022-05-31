@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_instance_template").resources[_]
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+default_trusted_profile_auto_link = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_trusted_profile_auto_link", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+boot_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +31,20 @@ volume_attachments = ret {
         true
      }
 }
-boot_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "boot_volume", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
-default_trusted_profile_auto_link = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_trusted_profile_auto_link", null) |
+availability_policy_host_failure = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "availability_policy_host_failure", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

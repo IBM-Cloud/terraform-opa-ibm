@@ -8,14 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host_group", "managed").resources[_]
 }
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+dedicated_hosts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
         res := resources_map[_]
         true
      }
@@ -26,8 +32,8 @@ href = ret {
         true
      }
 }
-class = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
+family = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
         res := resources_map[_]
         true
      }
@@ -38,14 +44,14 @@ name = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
 }
-dedicated_hosts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_hosts", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -62,14 +68,8 @@ supported_instance_profiles = ret {
         true
      }
 }
-family = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+class = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "class", null) |
         res := resources_map[_]
         true
      }

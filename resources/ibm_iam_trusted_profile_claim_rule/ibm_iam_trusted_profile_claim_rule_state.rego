@@ -8,26 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_trusted_profile_claim_rule", "managed").resources[_]
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 conditions = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "conditions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-realm_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "realm_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
         res := resources_map[_]
         true
      }
@@ -38,14 +20,20 @@ profile_id = ret {
         true
      }
 }
-rule_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+realm_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "realm_name", null) |
         res := resources_map[_]
         true
      }
@@ -70,6 +58,18 @@ entity_tag = ret {
 }
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rule_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
         res := resources_map[_]
         true
      }

@@ -7,26 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dns_record").resources[_]
 }
-minimum_ttl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_ttl", null) |
+expire = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expire", null) |
         res := resources_map[_]
         true
      }
 }
-ttl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+refresh = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +31,14 @@ priority = ret {
         true
      }
 }
-data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
         res := resources_map[_]
         true
      }
@@ -61,32 +49,8 @@ host = ret {
         true
      }
 }
-refresh = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh", null) |
-        res := resources_map[_]
-        true
-     }
-}
-responsible_person = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expire = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expire", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mx_priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mx_priority", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
@@ -103,8 +67,44 @@ port = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+service = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
+        res := resources_map[_]
+        true
+     }
+}
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mx_priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mx_priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
+responsible_person = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "responsible_person", null) |
+        res := resources_map[_]
+        true
+     }
+}
+minimum_ttl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_ttl", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ttl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
         res := resources_map[_]
         true
      }

@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_bare_metal_server_disk", "data").resources[_]
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
 id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "id", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ bare_metal_server = ret {
 }
 disk = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

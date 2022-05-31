@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_atracker_route").resources[_]
 }
+rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ name = ret {
 }
 receive_global_events = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "receive_global_events", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
         true
      }

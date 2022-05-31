@@ -25,14 +25,14 @@ rule_id = ret {
         true
      }
 }
-mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
+package_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
         res := resources_map[_]
         true
      }
 }
-package_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
+mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
         res := resources_map[_]
         true
      }

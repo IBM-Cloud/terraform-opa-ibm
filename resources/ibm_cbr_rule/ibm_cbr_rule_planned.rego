@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cbr_rule").resources[_]
 }
-contexts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "contexts", null) |
+resources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ description = ret {
         true
      }
 }
-resources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
+contexts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "contexts", null) |
         res := resources_map[_]
         true
      }

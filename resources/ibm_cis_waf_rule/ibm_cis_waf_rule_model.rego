@@ -17,6 +17,24 @@ cis_id = ret {
         true
      }
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
+allowed_modes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_modes", null) |
+        res := resources_map[_]
+        true
+     }
+}
 domain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
@@ -29,38 +47,20 @@ rule_id = ret {
         true
      }
 }
-mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
-        res := resources_map[_]
-        true
-     }
-}
-group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 package_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
         res := resources_map[_]
         true
      }
 }
-allowed_modes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_modes", null) |
+group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
         res := resources_map[_]
         true
      }

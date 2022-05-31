@@ -11,24 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_reserved_capacity", "managed").resources[_]
 }
-flavor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-force_create = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_create", null) |
-        res := resources_map[_]
-        true
-     }
-}
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
@@ -49,6 +31,24 @@ name = ret {
 }
 instances = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
+        res := resources_map[_]
+        true
+     }
+}
+flavor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+force_create = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_create", null) |
         res := resources_map[_]
         true
      }

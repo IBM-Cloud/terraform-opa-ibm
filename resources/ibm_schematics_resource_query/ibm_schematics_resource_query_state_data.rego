@@ -8,38 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_schematics_resource_query", "data").resources[_]
 }
-queries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "queries", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-query_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_id", null) |
         res := resources_map[_]
         true
      }
@@ -58,6 +28,36 @@ created_at = ret {
 }
 created_by = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+queries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "queries", null) |
+        res := resources_map[_]
+        true
+     }
+}
+query_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "id", null) |
         res := resources_map[_]
         true
      }
