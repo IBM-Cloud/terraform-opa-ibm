@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_dedicated_host_pool", "data").resources[_]
 }
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pools", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_pool_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -34,24 +52,6 @@ host_count = ret {
 }
 state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pools", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host_pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_pool_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_mtls_app").resources[_]
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+domain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
         true
      }
@@ -19,20 +19,14 @@ name = ret {
         true
      }
 }
+session_duration = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_duration", null) |
+        res := resources_map[_]
+        true
+     }
+}
 common_rule_val = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "common_rule_val", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
-        res := resources_map[_]
-        true
-     }
-}
-policy_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_name", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +49,14 @@ cis_id = ret {
         true
      }
 }
-session_duration = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_duration", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+policy_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_name", null) |
         res := resources_map[_]
         true
      }

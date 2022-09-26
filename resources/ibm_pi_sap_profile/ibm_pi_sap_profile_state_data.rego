@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_sap_profile", "data").resources[_]
 }
+pi_sap_profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_sap_profile_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+certified = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certified", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cores = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cores", null) |
         res := resources_map[_]
@@ -28,18 +40,6 @@ type = ret {
 }
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_sap_profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_sap_profile_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certified = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certified", null) |
         res := resources_map[_]
         true
      }

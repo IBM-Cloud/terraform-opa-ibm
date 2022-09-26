@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cd_toolchain_tool_gitlab").resources[_]
 }
-initialization = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "initialization", null) |
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+initialization = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "initialization", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ toolchain_id = ret {
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

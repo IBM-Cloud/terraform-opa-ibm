@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_cloud_directory_user", "data").resources[_]
 }
-active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
+user_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+email = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
         res := resources_map[_]
         true
      }
@@ -26,20 +32,14 @@ user_id = ret {
         true
      }
 }
-subject = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
+display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
         res := resources_map[_]
         true
      }
 }
-user_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-email = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +56,14 @@ tenant_id = ret {
         true
      }
 }
-display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+subject = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
         res := resources_map[_]
         true
      }

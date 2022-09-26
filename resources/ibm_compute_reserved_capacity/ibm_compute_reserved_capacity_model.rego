@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_reserved_capacity", "managed").resources[_]
 }
+instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
+        res := resources_map[_]
+        true
+     }
+}
 flavor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
         res := resources_map[_]
@@ -43,12 +49,6 @@ pod = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
         res := resources_map[_]
         true
      }

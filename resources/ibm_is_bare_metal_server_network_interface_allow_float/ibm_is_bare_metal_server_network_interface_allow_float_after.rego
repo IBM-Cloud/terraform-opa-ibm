@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_bare_metal_server_network_interface_allow_float").resources[_]
 }
-primary_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
+allow_ip_spoofing = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_ip_spoofing", null) |
         res := resources_map[_]
         true
      }
 }
-subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
+enable_infrastructure_nat = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_infrastructure_nat", null) |
         res := resources_map[_]
         true
      }
@@ -31,26 +31,26 @@ vlan = ret {
         true
      }
 }
-security_groups = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
-        res := resources_map[_]
-        true
-     }
-}
 bare_metal_server = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
         res := resources_map[_]
         true
      }
 }
-allow_ip_spoofing = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_ip_spoofing", null) |
+primary_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
         res := resources_map[_]
         true
      }
 }
-enable_infrastructure_nat = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_infrastructure_nat", null) |
+subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_groups = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
         res := resources_map[_]
         true
      }

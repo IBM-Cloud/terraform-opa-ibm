@@ -8,20 +8,38 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_domain", "data").resources[_]
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+verification_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "verification_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cname_suffix = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname_suffix", null) |
+        res := resources_map[_]
+        true
+     }
+}
 domain = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }

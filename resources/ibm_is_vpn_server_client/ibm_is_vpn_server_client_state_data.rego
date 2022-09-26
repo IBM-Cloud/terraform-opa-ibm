@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpn_server_client", "data").resources[_]
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+vpn_server = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_server", null) |
+        res := resources_map[_]
+        true
+     }
+}
+client_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_ip", null) |
         res := resources_map[_]
         true
      }
@@ -20,26 +26,14 @@ remote_port = ret {
         true
      }
 }
-vpn_server = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_server", null) |
-        res := resources_map[_]
-        true
-     }
-}
-identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 disconnected_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disconnected_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -62,20 +56,26 @@ status = ret {
         true
      }
 }
-username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
-        res := resources_map[_]
-        true
-     }
-}
-client_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_ip", null) |
+identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
         res := resources_map[_]
         true
      }
 }
 common_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "common_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
         res := resources_map[_]
         true
      }

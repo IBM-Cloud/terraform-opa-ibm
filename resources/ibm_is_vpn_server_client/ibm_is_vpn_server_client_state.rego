@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpn_server_client", "managed").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpn_server = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_server", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ delete = ret {
 }
 status_code = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_code", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

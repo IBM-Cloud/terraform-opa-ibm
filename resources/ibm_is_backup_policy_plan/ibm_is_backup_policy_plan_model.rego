@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_backup_policy_plan", "managed").resources[_]
 }
-attach_user_tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attach_user_tags", null) |
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }
@@ -29,20 +29,32 @@ created_at = ret {
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+cron_spec = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cron_spec", null) |
         res := resources_map[_]
         true
      }
 }
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
         res := resources_map[_]
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+attach_user_tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attach_user_tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+deletion_trigger = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deletion_trigger", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -65,26 +77,14 @@ backup_policy_plan_id = ret {
         true
      }
 }
-cron_spec = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cron_spec", null) |
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }
 }
-active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
-        res := resources_map[_]
-        true
-     }
-}
-deletion_trigger = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deletion_trigger", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }

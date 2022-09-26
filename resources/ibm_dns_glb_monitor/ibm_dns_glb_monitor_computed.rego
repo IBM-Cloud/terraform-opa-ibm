@@ -13,14 +13,8 @@ monitor_id = ret {
         true
      }
 }
-method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expected_codes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
+allow_insecure = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_insecure", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +25,20 @@ created_on = ret {
         true
      }
 }
-path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }
 }
-allow_insecure = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_insecure", null) |
+method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "method", null) |
+        res := resources_map[_]
+        true
+     }
+}
+path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,8 @@ port = ret {
         true
      }
 }
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+expected_codes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expected_codes", null) |
         res := resources_map[_]
         true
      }

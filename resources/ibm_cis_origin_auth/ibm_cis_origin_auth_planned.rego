@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_origin_auth").resources[_]
 }
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
 certificate = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
         res := resources_map[_]
@@ -25,20 +31,14 @@ domain_id = ret {
         true
      }
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+level = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "level", null) |
         res := resources_map[_]
         true
      }
 }
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-level = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "level", null) |
         res := resources_map[_]
         true
      }

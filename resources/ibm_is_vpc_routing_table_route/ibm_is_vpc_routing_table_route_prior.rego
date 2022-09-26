@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_vpc_routing_table_route").resources[_]
 }
-route_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_id", null) |
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ routing_table = ret {
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+route_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_snapshot").resources[_]
 }
-backup_policy_plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "backup_policy_plan", null) |
+encryption_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
         res := resources_map[_]
         true
      }
@@ -19,32 +19,14 @@ resource_group = ret {
         true
      }
 }
-bootable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bootable", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-minimum_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
 source_image = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_image", null) |
         res := resources_map[_]
         true
      }
 }
-encryption_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_key", null) |
+operating_system = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operating_system", null) |
         res := resources_map[_]
         true
      }
@@ -61,20 +43,8 @@ encryption = ret {
         true
      }
 }
-size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+backup_policy_plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "backup_policy_plan", null) |
         res := resources_map[_]
         true
      }
@@ -85,14 +55,44 @@ name = ret {
         true
      }
 }
-operating_system = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operating_system", null) |
+bootable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bootable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
         res := resources_map[_]
         true
      }
 }
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+minimum_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

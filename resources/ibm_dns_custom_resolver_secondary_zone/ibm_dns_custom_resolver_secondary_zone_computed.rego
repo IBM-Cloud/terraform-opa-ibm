@@ -13,14 +13,14 @@ created_on = ret {
         true
      }
 }
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+secondary_zone_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secondary_zone_id", null) |
         res := resources_map[_]
         true
      }
 }
-secondary_zone_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secondary_zone_id", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
         res := resources_map[_]
         true
      }

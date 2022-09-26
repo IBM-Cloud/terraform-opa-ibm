@@ -11,14 +11,26 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cd_tekton_pipeline", "managed").resources[_]
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+pipeline_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
         res := resources_map[_]
         true
      }
 }
-toolchain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+properties = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "properties", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pipeline_definition = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_definition", null) |
         res := resources_map[_]
         true
      }
@@ -47,26 +59,14 @@ name = ret {
         true
      }
 }
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 definitions = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "definitions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pipeline_definition = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_definition", null) |
-        res := resources_map[_]
-        true
-     }
-}
-properties = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "properties", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
@@ -77,26 +77,26 @@ created = ret {
         true
      }
 }
-triggers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "triggers", null) |
-        res := resources_map[_]
-        true
-     }
-}
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
 }
-pipeline_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
+toolchain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+triggers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "triggers", null) |
         res := resources_map[_]
         true
      }

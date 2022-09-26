@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_ike_policy").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+ike_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
         res := resources_map[_]
         true
      }
 }
-ike_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_container_dedicated_host").resources[_]
 }
-resources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
-        res := resources_map[_]
-        true
-     }
-}
-workers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workers", null) |
-        res := resources_map[_]
-        true
-     }
-}
 placement_enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_enabled", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ host_id = ret {
 }
 life_cycle = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "life_cycle", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
+        res := resources_map[_]
+        true
+     }
+}
+workers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workers", null) |
         res := resources_map[_]
         true
      }

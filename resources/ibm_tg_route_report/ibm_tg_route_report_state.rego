@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_tg_route_report", "managed").resources[_]
 }
+route_report_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_report_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 connections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
         res := resources_map[_]
@@ -40,12 +46,6 @@ updated_at = ret {
 }
 gateway = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
-        res := resources_map[_]
-        true
-     }
-}
-route_report_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_report_id", null) |
         res := resources_map[_]
         true
      }

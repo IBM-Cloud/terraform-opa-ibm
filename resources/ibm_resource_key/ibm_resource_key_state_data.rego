@@ -20,20 +20,20 @@ role = ret {
         true
      }
 }
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+credentials = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
+        res := resources_map[_]
+        true
+     }
+}
 most_recent = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-credentials_json = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials_json", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +50,14 @@ resource_alias_id = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+credentials_json = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials_json", null) |
         res := resources_map[_]
         true
      }
 }
-credentials = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

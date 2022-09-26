@@ -8,26 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_dhcp", "managed").resources[_]
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+pi_dns_server = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dns_server", null) |
         res := resources_map[_]
         true
      }
 }
-pi_cloud_connection_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_connection_id", null) |
+pi_dhcp_snat_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dhcp_snat_enabled", null) |
         res := resources_map[_]
         true
      }
 }
-dhcp_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dhcp_id", null) |
+network = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network", null) |
         res := resources_map[_]
         true
      }
 }
-network_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_name", null) |
+network_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
         true
      }
@@ -44,14 +44,14 @@ pi_cidr = ret {
         true
      }
 }
-pi_dns_server = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dns_server", null) |
+pi_cloud_connection_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_connection_id", null) |
         res := resources_map[_]
         true
      }
 }
-pi_dhcp_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dhcp_name", null) |
+dhcp_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dhcp_id", null) |
         res := resources_map[_]
         true
      }
@@ -62,14 +62,20 @@ leases = ret {
         true
      }
 }
-network = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network", null) |
+network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_name", null) |
         res := resources_map[_]
         true
      }
 }
-network_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_dhcp_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dhcp_name", null) |
         res := resources_map[_]
         true
      }

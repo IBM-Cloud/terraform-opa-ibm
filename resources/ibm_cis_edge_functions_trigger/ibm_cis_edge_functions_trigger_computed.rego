@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_edge_functions_trigger").resources[_]
 }
-request_limit_fail_open = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "request_limit_fail_open", null) |
+trigger_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
         res := resources_map[_]
         true
      }
 }
-trigger_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
+request_limit_fail_open = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "request_limit_fail_open", null) |
         res := resources_map[_]
         true
      }

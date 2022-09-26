@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_pi_vpn_connection").resources[_]
 }
-pi_ipsec_policy_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_ipsec_policy_id", null) |
+pi_ike_policy_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_ike_policy_id", null) |
         res := resources_map[_]
         true
      }
@@ -25,6 +25,18 @@ pi_networks = ret {
         true
      }
 }
+pi_peer_gateway_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_peer_gateway_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_peer_subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_peer_subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -37,20 +49,8 @@ pi_vpn_connection_name = ret {
         true
      }
 }
-pi_ike_policy_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_ike_policy_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_peer_gateway_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_peer_gateway_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_peer_subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_peer_subnets", null) |
+pi_ipsec_policy_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_ipsec_policy_id", null) |
         res := resources_map[_]
         true
      }

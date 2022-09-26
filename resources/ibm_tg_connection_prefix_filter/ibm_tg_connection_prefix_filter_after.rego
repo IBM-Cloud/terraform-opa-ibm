@@ -7,26 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_tg_connection_prefix_filter").resources[_]
 }
-prefix = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "prefix", null) |
-        res := resources_map[_]
-        true
-     }
-}
-le = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "le", null) |
-        res := resources_map[_]
-        true
-     }
-}
 before = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "before", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ge = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ge", null) |
         res := resources_map[_]
         true
      }
@@ -45,6 +27,24 @@ connection_id = ret {
 }
 action = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ge = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ge", null) |
+        res := resources_map[_]
+        true
+     }
+}
+le = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "le", null) |
+        res := resources_map[_]
+        true
+     }
+}
+prefix = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "prefix", null) |
         res := resources_map[_]
         true
      }

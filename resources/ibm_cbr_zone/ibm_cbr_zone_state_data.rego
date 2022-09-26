@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cbr_zone", "data").resources[_]
 }
-last_modified_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_count", null) |
+excluded_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded_count", null) |
         res := resources_map[_]
         true
      }
@@ -44,20 +38,8 @@ last_modified_at = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+last_modified_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +50,26 @@ crn = ret {
         true
      }
 }
-excluded_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded_count", null) |
+address_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -80,8 +80,8 @@ created_at = ret {
         true
      }
 }
-zone_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

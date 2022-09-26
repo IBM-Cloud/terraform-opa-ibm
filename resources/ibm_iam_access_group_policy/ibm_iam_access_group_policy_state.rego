@@ -8,14 +8,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_access_group_policy", "managed").resources[_]
 }
-resource_tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_tags", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+roles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "roles", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
         res := resources_map[_]
         true
      }
@@ -32,14 +38,14 @@ account_management = ret {
         true
      }
 }
-resources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+resource_tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_tags", null) |
         res := resources_map[_]
         true
      }
@@ -58,12 +64,6 @@ version = ret {
 }
 access_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-roles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "roles", null) |
         res := resources_map[_]
         true
      }

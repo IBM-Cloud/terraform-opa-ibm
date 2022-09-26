@@ -8,32 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_pool", "data").resources[_]
 }
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_monitor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-members = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
+proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +32,14 @@ name = ret {
         true
      }
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_monitor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +50,20 @@ provisioning_status = ret {
         true
      }
 }
-proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
+session_persistence = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -80,8 +74,14 @@ instance_group = ret {
         true
      }
 }
-session_persistence = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence", null) |
+members = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
+        res := resources_map[_]
+        true
+     }
+}
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }

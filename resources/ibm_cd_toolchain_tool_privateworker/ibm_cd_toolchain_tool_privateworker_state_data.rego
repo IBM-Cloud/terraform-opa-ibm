@@ -20,8 +20,8 @@ toolchain_crn = ret {
         true
      }
 }
-referent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referent", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -50,12 +50,6 @@ resource_group_id = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -70,6 +64,12 @@ parameters = ret {
 }
 toolchain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+referent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referent", null) |
         res := resources_map[_]
         true
      }

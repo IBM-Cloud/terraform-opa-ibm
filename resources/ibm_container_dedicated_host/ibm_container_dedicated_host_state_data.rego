@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_dedicated_host", "data").resources[_]
 }
-resources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
-        res := resources_map[_]
-        true
-     }
-}
-workers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workers", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
@@ -52,6 +40,18 @@ placement_enabled = ret {
 }
 life_cycle = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "life_cycle", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
+        res := resources_map[_]
+        true
+     }
+}
+workers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "workers", null) |
         res := resources_map[_]
         true
      }

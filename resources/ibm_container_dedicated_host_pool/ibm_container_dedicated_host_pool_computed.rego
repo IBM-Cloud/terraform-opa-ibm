@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_container_dedicated_host_pool").resources[_]
 }
+worker_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pools", null) |
+        res := resources_map[_]
+        true
+     }
+}
 host_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_count", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ state = ret {
 }
 zones = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pools", null) |
         res := resources_map[_]
         true
      }

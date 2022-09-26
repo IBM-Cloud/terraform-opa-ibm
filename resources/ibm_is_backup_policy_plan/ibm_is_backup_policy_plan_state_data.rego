@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_backup_policy_plan", "data").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+attach_user_tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attach_user_tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+copy_user_tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "copy_user_tags", null) |
         res := resources_map[_]
         true
      }
@@ -20,8 +26,14 @@ cron_spec = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +50,14 @@ identifier = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 active = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
-        res := resources_map[_]
-        true
-     }
-}
-attach_user_tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attach_user_tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-copy_user_tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "copy_user_tags", null) |
         res := resources_map[_]
         true
      }
@@ -68,14 +74,8 @@ deletion_trigger = ret {
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

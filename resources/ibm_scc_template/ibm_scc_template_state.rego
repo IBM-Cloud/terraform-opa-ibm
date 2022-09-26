@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_template", "managed").resources[_]
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
@@ -34,18 +46,6 @@ account_id = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-template_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
         res := resources_map[_]
         true
      }

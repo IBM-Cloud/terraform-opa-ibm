@@ -19,12 +19,6 @@ routing_type = ret {
         true
      }
 }
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
 load_balancer_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancer_id", null) |
         res := resources_map[_]
@@ -39,6 +33,12 @@ port = ret {
 }
 routing_method = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_method", null) |
+        res := resources_map[_]
+        true
+     }
+}
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
         res := resources_map[_]
         true
      }

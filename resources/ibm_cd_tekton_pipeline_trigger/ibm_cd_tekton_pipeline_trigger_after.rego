@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cd_tekton_pipeline_trigger").resources[_]
 }
-pipeline_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
+trigger = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger", null) |
         res := resources_map[_]
         true
      }
 }
-trigger = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger", null) |
+pipeline_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
         res := resources_map[_]
         true
      }

@@ -31,4 +31,10 @@ permitted_target_regions = ret {
         true
      }
 }
+metadata_region_backup = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metadata_region_backup", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

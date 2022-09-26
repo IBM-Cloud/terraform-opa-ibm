@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_lbaas_health_monitor").resources[_]
 }
-interval = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interval", null) |
-        res := resources_map[_]
-        true
-     }
-}
-max_retries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_retries", null) |
-        res := resources_map[_]
-        true
-     }
-}
 timeout = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
         res := resources_map[_]
@@ -51,6 +39,18 @@ protocol = ret {
 }
 port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+interval = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interval", null) |
+        res := resources_map[_]
+        true
+     }
+}
+max_retries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_retries", null) |
         res := resources_map[_]
         true
      }

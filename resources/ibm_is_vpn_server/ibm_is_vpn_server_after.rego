@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_vpn_server").resources[_]
 }
-enable_split_tunneling = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_split_tunneling", null) |
+client_ip_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_ip_pool", null) |
         res := resources_map[_]
         true
      }
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,20 @@ resource_group = ret {
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+security_groups = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
+        res := resources_map[_]
+        true
+     }
+}
+client_authentication = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_authentication", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable_split_tunneling = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_split_tunneling", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +49,8 @@ certificate_crn = ret {
         true
      }
 }
-client_dns_server_ips = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_dns_server_ips", null) |
-        res := resources_map[_]
-        true
-     }
-}
-client_ip_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_ip_pool", null) |
+client_idle_timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_idle_timeout", null) |
         res := resources_map[_]
         true
      }
@@ -61,26 +67,20 @@ port = ret {
         true
      }
 }
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }
 }
-client_authentication = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_authentication", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }
 }
-security_groups = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
-        res := resources_map[_]
-        true
-     }
-}
-client_idle_timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_idle_timeout", null) |
+client_dns_server_ips = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_dns_server_ips", null) |
         res := resources_map[_]
         true
      }

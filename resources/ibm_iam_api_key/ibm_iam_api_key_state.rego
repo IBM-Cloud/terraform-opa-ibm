@@ -14,20 +14,8 @@ name = ret {
         true
      }
 }
-store_value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "store_value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }
@@ -44,14 +32,20 @@ apikey_id = ret {
         true
      }
 }
-apikey = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
+locked = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
         res := resources_map[_]
         true
      }
 }
-file = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
+store_value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "store_value", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +62,26 @@ created_at = ret {
         true
      }
 }
+modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 iam_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+apikey = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "apikey", null) |
         res := resources_map[_]
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+file = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
         res := resources_map[_]
         true
      }
@@ -92,8 +92,8 @@ entity_tag = ret {
         true
      }
 }
-locked = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }

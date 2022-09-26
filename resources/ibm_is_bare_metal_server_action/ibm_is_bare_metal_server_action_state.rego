@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_bare_metal_server_action", "managed").resources[_]
 }
-stop_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "stop_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 action = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ status_reasons = ret {
 }
 bare_metal_server = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
+        res := resources_map[_]
+        true
+     }
+}
+stop_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "stop_type", null) |
         res := resources_map[_]
         true
      }

@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cloudant_database", "managed").resources[_]
 }
+instance_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 db = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "db", null) |
         res := resources_map[_]
@@ -22,12 +28,6 @@ partitioned = ret {
 }
 shards = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shards", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_crn", null) |
         res := resources_map[_]
         true
      }

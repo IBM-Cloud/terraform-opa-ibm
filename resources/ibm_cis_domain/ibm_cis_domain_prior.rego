@@ -13,6 +13,18 @@ cis_id = ret {
         true
      }
 }
+verification_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "verification_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cname_suffix = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cname_suffix", null) |
+        res := resources_map[_]
+        true
+     }
+}
 domain = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]

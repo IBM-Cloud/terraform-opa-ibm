@@ -19,50 +19,8 @@ health_type = ret {
         true
      }
 }
-health_monitor_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-session_persistence_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
-        res := resources_map[_]
-        true
-     }
-}
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-session_persistence_app_cookie_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_app_cookie_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 proxy_protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health_delay = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_delay", null) |
         res := resources_map[_]
         true
      }
@@ -81,6 +39,48 @@ health_timeout = ret {
 }
 health_monitor_port = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+session_persistence_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_monitor_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitor_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health_delay = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_delay", null) |
+        res := resources_map[_]
+        true
+     }
+}
+session_persistence_app_cookie_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence_app_cookie_name", null) |
         res := resources_map[_]
         true
      }

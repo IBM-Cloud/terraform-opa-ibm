@@ -11,20 +11,26 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_kms_key_policies", "managed").resources[_]
 }
-key_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 endpoint_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
         res := resources_map[_]
         true
      }
 }
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+key_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
         res := resources_map[_]
         true
      }
@@ -43,12 +49,6 @@ rotation = ret {
 }
 dual_auth_delete = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dual_auth_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }

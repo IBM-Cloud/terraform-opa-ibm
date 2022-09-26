@@ -7,14 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_origin_auth").resources[_]
 }
-expires_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-auth_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auth_id", null) |
+cert_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cert_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expires_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +31,8 @@ uploaded_on = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cert_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cert_id", null) |
+auth_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auth_id", null) |
         res := resources_map[_]
         true
      }

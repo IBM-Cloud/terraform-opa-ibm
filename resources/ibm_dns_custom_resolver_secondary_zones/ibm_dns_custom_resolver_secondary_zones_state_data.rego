@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_custom_resolver_secondary_zones", "data").resources[_]
 }
-secondary_zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secondary_zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ instance_id = ret {
 }
 resolver_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resolver_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+secondary_zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secondary_zones", null) |
         res := resources_map[_]
         true
      }

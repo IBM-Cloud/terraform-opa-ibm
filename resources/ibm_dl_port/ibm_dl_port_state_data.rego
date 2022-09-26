@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dl_port", "data").resources[_]
 }
-location_display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_display_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-location_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-provider_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 supported_link_speeds = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_link_speeds", null) |
         res := resources_map[_]
@@ -46,6 +28,24 @@ direct_link_count = ret {
 }
 label = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location_display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_display_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+provider_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_name", null) |
         res := resources_map[_]
         true
      }

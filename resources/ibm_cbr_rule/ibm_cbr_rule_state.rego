@@ -8,32 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cbr_rule", "managed").resources[_]
 }
-created_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
+operations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operations", null) |
         res := resources_map[_]
         true
      }
 }
-last_modified_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-contexts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "contexts", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enforcement_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enforcement_mode", null) |
+x_correlation_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "x_correlation_id", null) |
         res := resources_map[_]
         true
      }
@@ -46,6 +28,12 @@ crn = ret {
 }
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+transaction_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +56,38 @@ description = ret {
         true
      }
 }
-x_correlation_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "x_correlation_id", null) |
+contexts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "contexts", null) |
         res := resources_map[_]
         true
      }
 }
-transaction_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
+resources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resources", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enforcement_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enforcement_mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
         res := resources_map[_]
         true
      }
 }
 last_modified_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+last_modified_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_instance_group_membership").resources[_]
 }
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
+action_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_delete", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ name = ret {
         true
      }
 }
-action_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_delete", null) |
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }

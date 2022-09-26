@@ -7,8 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_pi_ike_policy").resources[_]
 }
-pi_policy_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_version", null) |
+pi_policy_dh_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_dh_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_policy_key_lifetime = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_key_lifetime", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_policy_preshared_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_preshared_key", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +37,8 @@ pi_cloud_instance_id = ret {
         true
      }
 }
-pi_policy_dh_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_dh_group", null) |
+pi_policy_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_name", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +49,8 @@ pi_policy_encryption = ret {
         true
      }
 }
-pi_policy_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_policy_key_lifetime = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_key_lifetime", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_policy_preshared_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_preshared_key", null) |
+pi_policy_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_version", null) |
         res := resources_map[_]
         true
      }

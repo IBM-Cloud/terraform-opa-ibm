@@ -11,6 +11,24 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_dedicated_host_pool", "managed").resources[_]
 }
+worker_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pools", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+metro = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metro", null) |
+        res := resources_map[_]
+        true
+     }
+}
 flavor_class = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor_class", null) |
         res := resources_map[_]
@@ -37,24 +55,6 @@ state = ret {
 }
 zones = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pools", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-metro = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metro", null) |
         res := resources_map[_]
         true
      }

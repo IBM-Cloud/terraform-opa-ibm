@@ -13,14 +13,14 @@ instance_id = ret {
         true
      }
 }
-uko_vault = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uko_vault", null) |
+keystore_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keystore_id", null) |
         res := resources_map[_]
         true
      }
 }
-keystore_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keystore_id", null) |
+uko_vault = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uko_vault", null) |
         res := resources_map[_]
         true
      }

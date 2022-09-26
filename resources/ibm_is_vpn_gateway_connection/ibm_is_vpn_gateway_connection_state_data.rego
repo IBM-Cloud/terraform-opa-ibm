@@ -14,8 +14,26 @@ routing_protocol = ret {
         true
      }
 }
-vpn_gateway_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_name", null) |
+vpn_gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
+        res := resources_map[_]
+        true
+     }
+}
+admin_state_up = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin_state_up", null) |
+        res := resources_map[_]
+        true
+     }
+}
+authentication_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -32,68 +50,20 @@ name = ret {
         true
      }
 }
-psk = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "psk", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ike_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-authentication_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpn_gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpn_gateway_connection = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpn_gateway_connection_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection_name", null) |
         res := resources_map[_]
         true
      }
 }
-admin_state_up = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin_state_up", null) |
+psk = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "psk", null) |
         res := resources_map[_]
         true
      }
 }
-tunnels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tunnels", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -104,8 +74,14 @@ local_cidrs = ret {
         true
      }
 }
-peer_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_cidrs", null) |
+vpn_gateway_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -122,14 +98,38 @@ peer_address = ret {
         true
      }
 }
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+vpn_gateway_connection = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ike_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
         res := resources_map[_]
         true
      }
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tunnels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tunnels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+peer_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_cidrs", null) |
         res := resources_map[_]
         true
      }

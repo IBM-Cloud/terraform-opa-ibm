@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cd_toolchain_tool_devopsinsights").resources[_]
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-toolchain_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_crn", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
 }
 referent = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referent", null) |
+        res := resources_map[_]
+        true
+     }
+}
+toolchain_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_crn", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,8 @@ resource_group_id = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

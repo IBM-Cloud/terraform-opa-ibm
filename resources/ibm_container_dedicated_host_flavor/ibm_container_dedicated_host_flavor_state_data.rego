@@ -8,30 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_dedicated_host_flavor", "data").resources[_]
 }
-instance_storage = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_storage", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host_flavor_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_flavor_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-flavor_class = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor_class", null) |
-        res := resources_map[_]
-        true
-     }
-}
 region = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
@@ -52,6 +28,30 @@ max_vcpus = ret {
 }
 max_memory = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_memory", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_storage = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_storage", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_flavor_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_flavor_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+flavor_class = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor_class", null) |
         res := resources_map[_]
         true
      }

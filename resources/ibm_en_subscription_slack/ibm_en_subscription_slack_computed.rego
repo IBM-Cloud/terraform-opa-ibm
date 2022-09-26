@@ -7,20 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_en_subscription_slack").resources[_]
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 destination_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
         res := resources_map[_]
         true
      }
 }
-topic_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
@@ -33,6 +27,12 @@ subscription_id = ret {
 }
 destination_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
         res := resources_map[_]
         true
      }

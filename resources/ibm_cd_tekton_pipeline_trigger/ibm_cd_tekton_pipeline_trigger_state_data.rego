@@ -14,8 +14,8 @@ type = ret {
         true
      }
 }
-event_listener = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "event_listener", null) |
+properties = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "properties", null) |
         res := resources_map[_]
         true
      }
@@ -26,56 +26,26 @@ tags = ret {
         true
      }
 }
-cron = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cron", null) |
-        res := resources_map[_]
-        true
-     }
-}
-disabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-scm_source = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scm_source", null) |
-        res := resources_map[_]
-        true
-     }
-}
-events = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "events", null) |
-        res := resources_map[_]
-        true
-     }
-}
-trigger_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker", null) |
-        res := resources_map[_]
-        true
-     }
-}
 concurrency = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "concurrency", null) |
         res := resources_map[_]
         true
      }
 }
-timezone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timezone", null) |
+secret = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret", null) |
         res := resources_map[_]
         true
      }
 }
-secret = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret", null) |
+service_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cron = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cron", null) |
         res := resources_map[_]
         true
      }
@@ -92,14 +62,44 @@ name = ret {
         true
      }
 }
-properties = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "properties", null) |
+event_listener = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "event_listener", null) |
         res := resources_map[_]
         true
      }
 }
-service_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_id", null) |
+worker = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker", null) |
+        res := resources_map[_]
+        true
+     }
+}
+disabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+trigger_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+timezone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timezone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+scm_source = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scm_source", null) |
+        res := resources_map[_]
+        true
+     }
+}
+events = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "events", null) |
         res := resources_map[_]
         true
      }

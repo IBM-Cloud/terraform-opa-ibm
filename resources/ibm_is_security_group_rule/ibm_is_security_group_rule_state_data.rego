@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_security_group_rule", "data").resources[_]
 }
-direction = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
+security_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
         res := resources_map[_]
         true
      }
@@ -20,8 +20,14 @@ href = ret {
         true
      }
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+remote = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +44,14 @@ port_min = ret {
         true
      }
 }
-security_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
+security_group_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+direction = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
         res := resources_map[_]
         true
      }
@@ -50,26 +62,14 @@ ip_version = ret {
         true
      }
 }
-remote = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }
 }
 code = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "code", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-security_group_rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_rule", null) |
         res := resources_map[_]
         true
      }

@@ -13,18 +13,6 @@ profile_id = ret {
         true
      }
 }
-conditions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "conditions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-realm_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "realm_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
@@ -37,8 +25,20 @@ name = ret {
         true
      }
 }
+realm_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "realm_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cr_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cr_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+conditions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "conditions", null) |
         res := resources_map[_]
         true
      }

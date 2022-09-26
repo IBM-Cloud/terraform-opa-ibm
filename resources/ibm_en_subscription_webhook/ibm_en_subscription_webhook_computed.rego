@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_en_subscription_webhook").resources[_]
 }
-destination_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-topic_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 subscription_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_id", null) |
         res := resources_map[_]
@@ -27,6 +15,18 @@ subscription_id = ret {
 }
 destination_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
         res := resources_map[_]
         true
      }

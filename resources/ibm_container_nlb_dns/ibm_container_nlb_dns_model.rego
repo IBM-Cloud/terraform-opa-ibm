@@ -29,8 +29,8 @@ nlb_ssl_secret_name = ret {
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+nlb_ssl_secret_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_status", null) |
         res := resources_map[_]
         true
      }
@@ -59,14 +59,14 @@ nlb_monitor_state = ret {
         true
      }
 }
-nlb_ssl_secret_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_status", null) |
+nlb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_type", null) |
         res := resources_map[_]
         true
      }
 }
-nlb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_type", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }

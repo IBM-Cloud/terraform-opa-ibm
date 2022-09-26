@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_backup_policy").resources[_]
 }
-last_job_completed_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_job_completed_at", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -19,14 +19,14 @@ version = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+match_resource_types = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match_resource_types", null) |
         res := resources_map[_]
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -43,6 +43,12 @@ href = ret {
         true
      }
 }
+last_job_completed_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_job_completed_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lifecycle_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
@@ -51,12 +57,6 @@ lifecycle_state = ret {
 }
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-match_resource_types = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match_resource_types", null) |
         res := resources_map[_]
         true
      }

@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_atracker_settings", "managed").resources[_]
 }
-api_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_version", null) |
-        res := resources_map[_]
-        true
-     }
-}
 metadata_region_primary = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metadata_region_primary", null) |
         res := resources_map[_]
@@ -37,6 +31,18 @@ default_targets = ret {
 }
 permitted_target_regions = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "permitted_target_regions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+metadata_region_backup = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metadata_region_backup", null) |
+        res := resources_map[_]
+        true
+     }
+}
+api_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_version", null) |
         res := resources_map[_]
         true
      }

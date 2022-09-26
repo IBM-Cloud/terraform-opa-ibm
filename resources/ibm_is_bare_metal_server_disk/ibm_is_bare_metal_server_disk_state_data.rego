@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_bare_metal_server_disk", "data").resources[_]
 }
+size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bare_metal_server = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
+        res := resources_map[_]
+        true
+     }
+}
+disk = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk", null) |
+        res := resources_map[_]
+        true
+     }
+}
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
@@ -34,24 +52,6 @@ name = ret {
 }
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bare_metal_server = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
-        res := resources_map[_]
-        true
-     }
-}
-disk = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk", null) |
         res := resources_map[_]
         true
      }

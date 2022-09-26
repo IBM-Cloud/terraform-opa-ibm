@@ -8,8 +8,32 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_trusted_profile", "data").resources[_]
 }
-ims_account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_account_id", null) |
+entity_tag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
         res := resources_map[_]
         true
      }
@@ -20,14 +44,8 @@ ims_user_id = ret {
         true
      }
 }
-history = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "history", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
         res := resources_map[_]
         true
      }
@@ -50,32 +68,14 @@ account_id = ret {
         true
      }
 }
-modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
+ims_account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_account_id", null) |
         res := resources_map[_]
         true
      }
 }
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-entity_tag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+history = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "history", null) |
         res := resources_map[_]
         true
      }

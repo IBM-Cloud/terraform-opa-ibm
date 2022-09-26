@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_database_backup", "data").resources[_]
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-backup_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "backup_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 deployment_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deployment_id", null) |
         res := resources_map[_]
@@ -52,6 +40,18 @@ is_restorable = ret {
 }
 download_link = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "download_link", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+backup_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "backup_id", null) |
         res := resources_map[_]
         true
      }

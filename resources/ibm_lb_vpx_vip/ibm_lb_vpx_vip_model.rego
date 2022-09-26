@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_vpx_vip", "managed").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+virtual_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_ip_address", null) |
         res := resources_map[_]
         true
      }
@@ -23,8 +23,8 @@ nad_controller_id = ret {
         true
      }
 }
-persistence = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
+load_balancing_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancing_method", null) |
         res := resources_map[_]
         true
      }
@@ -41,14 +41,8 @@ security_certificate_id = ret {
         true
      }
 }
-virtual_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-load_balancing_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "load_balancing_method", null) |
+persistence = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
         res := resources_map[_]
         true
      }
@@ -61,6 +55,12 @@ name = ret {
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

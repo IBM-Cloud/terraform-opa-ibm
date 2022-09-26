@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_app_config_feature").resources[_]
 }
-includes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "includes", null) |
-        res := resources_map[_]
-        true
-     }
-}
 guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ feature_id = ret {
 }
 environment_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environment_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+includes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "includes", null) |
         res := resources_map[_]
         true
      }

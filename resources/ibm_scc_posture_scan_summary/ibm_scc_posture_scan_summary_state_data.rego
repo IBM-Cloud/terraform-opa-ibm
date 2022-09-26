@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_posture_scan_summary", "data").resources[_]
 }
+scope_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scope_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 controls = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "controls", null) |
         res := resources_map[_]
@@ -34,12 +40,6 @@ discover_id = ret {
 }
 profile_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-scope_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scope_id", null) |
         res := resources_map[_]
         true
      }

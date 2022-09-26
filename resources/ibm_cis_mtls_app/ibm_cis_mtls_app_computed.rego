@@ -25,6 +25,12 @@ policy_id = ret {
         true
      }
 }
+pol_created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pol_created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 app_created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_created_at", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ app_created_at = ret {
 }
 app_updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pol_created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pol_created_at", null) |
         res := resources_map[_]
         true
      }

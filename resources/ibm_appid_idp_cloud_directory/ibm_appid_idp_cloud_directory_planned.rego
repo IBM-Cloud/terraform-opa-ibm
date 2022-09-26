@@ -31,8 +31,14 @@ is_active = ret {
         true
      }
 }
-welcome_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "welcome_enabled", null) |
+self_service_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "self_service_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+signup_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signup_enabled", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +55,8 @@ identity_confirm_access_mode = ret {
         true
      }
 }
-self_service_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "self_service_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-signup_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signup_enabled", null) |
+welcome_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "welcome_enabled", null) |
         res := resources_map[_]
         true
      }

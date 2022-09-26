@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host_disk", "data").resources[_]
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+disk = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }
@@ -26,14 +26,20 @@ provisionable = ret {
         true
      }
 }
-dedicated_host = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-disk = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dedicated_host = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated_host", null) |
         res := resources_map[_]
         true
      }
@@ -64,12 +70,6 @@ instance_disks = ret {
 }
 interface_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interface_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }

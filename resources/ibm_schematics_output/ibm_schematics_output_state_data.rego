@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_schematics_output", "data").resources[_]
 }
+template_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+output_values = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "output_values", null) |
+        res := resources_map[_]
+        true
+     }
+}
 output_json = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "output_json", null) |
         res := resources_map[_]
@@ -26,14 +38,8 @@ workspace_id = ret {
         true
      }
 }
-template_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-output_values = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "output_values", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }

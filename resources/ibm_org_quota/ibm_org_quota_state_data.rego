@@ -14,8 +14,14 @@ non_basic_services_allowed = ret {
         true
      }
 }
-app_instance_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_instance_limit", null) |
+memory_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_limit", null) |
+        res := resources_map[_]
+        true
+     }
+}
+trial_db_allowed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trial_db_allowed", null) |
         res := resources_map[_]
         true
      }
@@ -56,20 +62,14 @@ total_routes = ret {
         true
      }
 }
-memory_limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory_limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_memory_limit = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_memory_limit", null) |
         res := resources_map[_]
         true
      }
 }
-trial_db_allowed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trial_db_allowed", null) |
+app_instance_limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "app_instance_limit", null) |
         res := resources_map[_]
         true
      }

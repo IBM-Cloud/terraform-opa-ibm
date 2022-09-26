@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_routing_table_route", "managed").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
@@ -23,14 +29,8 @@ created_at = ret {
         true
      }
 }
-creator = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creator", null) |
-        res := resources_map[_]
-        true
-     }
-}
-routing_table = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
+origin = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
         res := resources_map[_]
         true
      }
@@ -53,8 +53,8 @@ zone = ret {
         true
      }
 }
-next_hop = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next_hop", null) |
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +65,14 @@ lifecycle_state = ret {
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+routing_table = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routing_table", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+next_hop = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next_hop", null) |
         res := resources_map[_]
         true
      }
@@ -83,8 +83,8 @@ route_id = ret {
         true
      }
 }
-origin = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin", null) |
+creator = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creator", null) |
         res := resources_map[_]
         true
      }

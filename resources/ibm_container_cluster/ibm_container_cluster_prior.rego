@@ -13,8 +13,8 @@ cluster_name_id = ret {
         true
      }
 }
-org_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
+account_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
         res := resources_map[_]
         true
      }
@@ -25,20 +25,8 @@ resource_group_id = ret {
         true
      }
 }
-account_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-list_bounded_services = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "list_bounded_services", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+org_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +43,20 @@ region = ret {
         true
      }
 }
+list_bounded_services = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "list_bounded_services", null) |
+        res := resources_map[_]
+        true
+     }
+}
 alb_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
         true
      }

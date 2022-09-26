@@ -13,8 +13,26 @@ network_type = ret {
         true
      }
 }
+network_account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+local_gateway_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_gateway_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
 remote_bgp_asn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_bgp_asn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote_gateway_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_gateway_ip", null) |
         res := resources_map[_]
         true
      }
@@ -25,20 +43,14 @@ gateway = ret {
         true
      }
 }
-network_account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account_id", null) |
+base_connection_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_connection_id", null) |
         res := resources_map[_]
         true
      }
 }
 local_tunnel_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_tunnel_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-remote_gateway_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_gateway_ip", null) |
         res := resources_map[_]
         true
      }
@@ -61,20 +73,8 @@ network_id = ret {
         true
      }
 }
-local_gateway_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_gateway_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-base_connection_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_connection_id", null) |
         res := resources_map[_]
         true
      }

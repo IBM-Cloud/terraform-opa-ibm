@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_iam_access_group_members").resources[_]
 }
-ibm_ids = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_ids", null) |
-        res := resources_map[_]
-        true
-     }
-}
 iam_service_ids = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_service_ids", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ iam_profile_ids = ret {
 }
 access_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ibm_ids = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ibm_ids", null) |
         res := resources_map[_]
         true
      }

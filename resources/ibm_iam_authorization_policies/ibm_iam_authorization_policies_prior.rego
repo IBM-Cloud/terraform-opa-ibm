@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_iam_authorization_policies").resources[_]
 }
+transaction_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ account_id = ret {
 }
 sort = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sort", null) |
-        res := resources_map[_]
-        true
-     }
-}
-transaction_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
         res := resources_map[_]
         true
      }

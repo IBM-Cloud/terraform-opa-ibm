@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_iam_account_settings").resources[_]
 }
-mfa = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mfa", null) |
-        res := resources_map[_]
-        true
-     }
-}
 restrict_create_service_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restrict_create_service_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-restrict_create_platform_apikey = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restrict_create_platform_apikey", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +31,26 @@ session_expiration_in_seconds = ret {
         true
      }
 }
-session_invalidation_in_seconds = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_invalidation_in_seconds", null) |
+max_sessions_per_identity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_sessions_per_identity", null) |
         res := resources_map[_]
         true
      }
 }
-max_sessions_per_identity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_sessions_per_identity", null) |
+restrict_create_platform_apikey = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restrict_create_platform_apikey", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mfa = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mfa", null) |
+        res := resources_map[_]
+        true
+     }
+}
+session_invalidation_in_seconds = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_invalidation_in_seconds", null) |
         res := resources_map[_]
         true
      }

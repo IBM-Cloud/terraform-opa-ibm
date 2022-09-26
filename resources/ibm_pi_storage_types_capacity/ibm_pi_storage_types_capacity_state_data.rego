@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_storage_types_capacity", "data").resources[_]
 }
-storage_types_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_types_capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ pi_cloud_instance_id = ret {
 }
 maximum_storage_allocation = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_storage_allocation", null) |
+        res := resources_map[_]
+        true
+     }
+}
+storage_types_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_types_capacity", null) |
         res := resources_map[_]
         true
      }

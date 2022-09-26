@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_backup_policy", "managed").resources[_]
 }
-last_job_completed_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_job_completed_at", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -20,14 +26,14 @@ version = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+match_resource_types = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match_resource_types", null) |
         res := resources_map[_]
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }
@@ -44,6 +50,12 @@ href = ret {
         true
      }
 }
+last_job_completed_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_job_completed_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lifecycle_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
@@ -56,20 +68,8 @@ resource_type = ret {
         true
      }
 }
-match_resource_types = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match_resource_types", null) |
-        res := resources_map[_]
-        true
-     }
-}
 match_user_tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match_user_tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

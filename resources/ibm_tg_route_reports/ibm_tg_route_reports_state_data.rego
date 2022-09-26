@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_tg_route_reports", "data").resources[_]
 }
-gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
+route_reports = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_reports", null) |
         res := resources_map[_]
         true
      }
 }
-route_reports = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_reports", null) |
+gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_address_prefix", "data").resources[_]
 }
+is_default = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+vpc_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+address_prefix = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +50,8 @@ has_subnets = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address_prefix = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix", null) |
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +62,8 @@ address_prefix_name = ret {
         true
      }
 }
-is_default = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

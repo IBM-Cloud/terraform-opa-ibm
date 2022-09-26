@@ -8,74 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc", "data").resources[_]
 }
-security_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_network_acl_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_network_acl_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_security_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_security_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cse_source_addresses = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cse_source_addresses", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_network_acl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_network_acl", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_routing_table_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_routing_table_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
         res := resources_map[_]
         true
      }
@@ -86,26 +20,20 @@ default_network_acl_name = ret {
         true
      }
 }
-default_security_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_security_group_name", null) |
+default_security_group_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_security_group_crn", null) |
         res := resources_map[_]
         true
      }
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -122,20 +50,98 @@ default_routing_table = ret {
         true
      }
 }
-default_security_group_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_security_group_crn", null) |
+default_routing_table_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_routing_table_name", null) |
         res := resources_map[_]
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_network_acl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_network_acl", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cse_source_addresses = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cse_source_addresses", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_security_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_security_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_network_acl_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_network_acl_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_security_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_security_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
 }
 resource_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

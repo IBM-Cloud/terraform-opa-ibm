@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_tg_connection_prefix_filters").resources[_]
 }
-gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
+connection_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_id", null) |
         res := resources_map[_]
         true
      }
 }
-connection_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_id", null) |
+gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
         res := resources_map[_]
         true
      }

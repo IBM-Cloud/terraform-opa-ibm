@@ -25,14 +25,14 @@ related_crn = ret {
         true
      }
 }
-provisioning_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+policy_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_id", null) |
         res := resources_map[_]
         true
      }
 }
-policy_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_id", null) |
+provisioning_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
         res := resources_map[_]
         true
      }

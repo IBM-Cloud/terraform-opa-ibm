@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_en_topic", "data").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subscriptions = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
         res := resources_map[_]
@@ -26,14 +38,14 @@ instance_guid = ret {
         true
      }
 }
-topic_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
+source_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_count", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+sources = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sources", null) |
         res := resources_map[_]
         true
      }
@@ -44,20 +56,8 @@ subscription_count = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sources = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sources", null) |
+topic_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cd_tekton_pipeline").resources[_]
 }
-worker = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker", null) |
+pipeline_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ pipeline_definition = ret {
         true
      }
 }
-pipeline_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
+worker = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker", null) |
         res := resources_map[_]
         true
      }

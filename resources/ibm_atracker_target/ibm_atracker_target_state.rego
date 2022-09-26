@@ -8,20 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_atracker_target", "managed").resources[_]
 }
-encrypt_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encrypt_key", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-created = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +26,8 @@ logdna_endpoint = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+encrypt_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encrypt_key", null) |
         res := resources_map[_]
         true
      }
@@ -44,20 +38,14 @@ encryption_key = ret {
         true
      }
 }
-api_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_version", null) |
+created = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created", null) |
         res := resources_map[_]
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_type", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +62,14 @@ updated = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+cos_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }
@@ -86,14 +80,20 @@ cos_write_status = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
 }
-cos_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_endpoint", null) |
+api_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_type", null) |
         res := resources_map[_]
         true
      }

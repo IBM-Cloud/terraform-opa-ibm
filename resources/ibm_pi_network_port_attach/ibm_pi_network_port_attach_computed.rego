@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_pi_network_port_attach").resources[_]
 }
-port_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 network_port_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_port_id", null) |
         res := resources_map[_]
@@ -25,8 +19,8 @@ status = ret {
         true
      }
 }
-public_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip", null) |
+macaddress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "macaddress", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +31,14 @@ pi_network_port_ipaddress = ret {
         true
      }
 }
-macaddress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "macaddress", null) |
+port_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip", null) |
         res := resources_map[_]
         true
      }

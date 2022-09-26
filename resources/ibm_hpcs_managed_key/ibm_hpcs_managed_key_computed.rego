@@ -13,14 +13,8 @@ size = ret {
         true
      }
 }
-verification_patterns = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "verification_patterns", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+activation_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "activation_date", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +25,32 @@ created_at = ret {
         true
      }
 }
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+verification_patterns = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "verification_patterns", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expiration_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expiration_date", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -49,26 +67,8 @@ state = ret {
         true
      }
 }
-activation_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "activation_date", null) |
-        res := resources_map[_]
-        true
-     }
-}
-referenced_keystores = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referenced_keystores", null) |
-        res := resources_map[_]
-        true
-     }
-}
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
         res := resources_map[_]
         true
      }
@@ -79,26 +79,26 @@ created_by = ret {
         true
      }
 }
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+referenced_keystores = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referenced_keystores", null) |
+        res := resources_map[_]
+        true
+     }
+}
 instances = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instances", null) |
         res := resources_map[_]
         true
      }
 }
-template = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template", null) |
-        res := resources_map[_]
-        true
-     }
-}
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expiration_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expiration_date", null) |
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }

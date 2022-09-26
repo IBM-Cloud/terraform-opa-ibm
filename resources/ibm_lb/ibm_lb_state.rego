@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb", "managed").resources[_]
 }
-dedicated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
 connections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
         res := resources_map[_]
@@ -32,8 +20,8 @@ datacenter = ret {
         true
      }
 }
-ha_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ha_enabled", null) |
+security_certificate_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
         res := resources_map[_]
         true
      }
@@ -44,14 +32,26 @@ ip_address = ret {
         true
      }
 }
-subnet_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_id", null) |
+dedicated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated", null) |
         res := resources_map[_]
         true
      }
 }
-security_certificate_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
+hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ha_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ha_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnet_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_id", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +68,8 @@ ssl_offload = ret {
         true
      }
 }
-hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

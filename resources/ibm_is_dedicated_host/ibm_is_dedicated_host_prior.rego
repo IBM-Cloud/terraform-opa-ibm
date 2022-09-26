@@ -13,14 +13,14 @@ name = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+host_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_group", null) |
         res := resources_map[_]
         true
      }
 }
-host_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_group", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

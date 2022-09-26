@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_schematics_workspace").resources[_]
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+status_msg = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_msg", null) |
         res := resources_map[_]
         true
      }
 }
-locked = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
+locked_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_by", null) |
         res := resources_map[_]
         true
      }
 }
-template_values_metadata = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_values_metadata", null) |
+locked_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_time", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +31,38 @@ crn = ret {
         true
      }
 }
-status_msg = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_msg", null) |
+last_health_check_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_health_check_at", null) |
         res := resources_map[_]
         true
      }
 }
-locked_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_by", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+locked = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_values_metadata = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_values_metadata", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
@@ -61,38 +85,20 @@ status_code = ret {
         true
      }
 }
-locked_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-last_health_check_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_health_check_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 updated_by = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
         res := resources_map[_]
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+template_git_has_uploadedgitrepotar = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_has_uploadedgitrepotar", null) |
         res := resources_map[_]
         true
      }
 }
-template_git_has_uploadedgitrepotar = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_git_has_uploadedgitrepotar", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }

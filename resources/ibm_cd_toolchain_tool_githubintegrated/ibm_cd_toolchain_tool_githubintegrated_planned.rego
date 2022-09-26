@@ -13,6 +13,12 @@ toolchain_id = ret {
         true
      }
 }
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+        res := resources_map[_]
+        true
+     }
+}
 initialization = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "initialization", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ initialization = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }

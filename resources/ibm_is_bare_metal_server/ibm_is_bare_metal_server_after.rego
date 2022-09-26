@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_bare_metal_server").resources[_]
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
+        res := resources_map[_]
+        true
+     }
+}
+image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +25,20 @@ primary_network_interface = ret {
         true
      }
 }
-keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
+network_interfaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+        res := resources_map[_]
+        true
+     }
+}
+delete_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+profile = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +55,8 @@ name = ret {
         true
      }
 }
-network_interfaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
@@ -55,20 +67,8 @@ tags = ret {
         true
      }
 }
-delete_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
-        res := resources_map[_]
-        true
-     }
-}
-profile = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }

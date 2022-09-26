@@ -13,12 +13,6 @@ name = ret {
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpn_server = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_server", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ vpn_server = ret {
 }
 destination = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination", null) |
+        res := resources_map[_]
+        true
+     }
+}
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }

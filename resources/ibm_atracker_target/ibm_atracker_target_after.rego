@@ -13,18 +13,6 @@ logdna_endpoint = ret {
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ name = ret {
 }
 cos_endpoint = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_type", null) |
         res := resources_map[_]
         true
      }

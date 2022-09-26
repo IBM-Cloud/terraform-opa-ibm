@@ -25,8 +25,8 @@ enabled = ret {
         true
      }
 }
-locations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locations", null) |
+high_availability = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "high_availability", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ description = ret {
         true
      }
 }
-high_availability = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "high_availability", null) |
+locations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locations", null) |
         res := resources_map[_]
         true
      }

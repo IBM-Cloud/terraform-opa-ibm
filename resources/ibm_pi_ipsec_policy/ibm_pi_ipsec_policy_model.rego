@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_ipsec_policy", "managed").resources[_]
 }
-policy_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -55,6 +49,12 @@ pi_policy_pfs = ret {
 }
 pi_policy_authentication = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_authentication", null) |
+        res := resources_map[_]
+        true
+     }
+}
+policy_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_id", null) |
         res := resources_map[_]
         true
      }

@@ -19,6 +19,12 @@ modified_on = ret {
         true
      }
 }
+custom_resolver_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "custom_resolver_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 health = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ health = ret {
 }
 rules = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
-        res := resources_map[_]
-        true
-     }
-}
-custom_resolver_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "custom_resolver_id", null) |
         res := resources_map[_]
         true
      }

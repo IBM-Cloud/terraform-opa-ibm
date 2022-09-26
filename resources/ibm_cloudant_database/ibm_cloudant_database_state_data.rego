@@ -20,14 +20,44 @@ disk_format_version = ret {
         true
      }
 }
-engine = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "engine", null) |
+doc_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "doc_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+committed_update_seq = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "committed_update_seq", null) |
+        res := resources_map[_]
+        true
+     }
+}
+compact_running = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "compact_running", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+doc_del_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "doc_del_count", null) |
         res := resources_map[_]
         true
      }
 }
 props = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "props", null) |
+        res := resources_map[_]
+        true
+     }
+}
+update_seq = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_seq", null) |
         res := resources_map[_]
         true
      }
@@ -44,50 +74,20 @@ compacted_seq = ret {
         true
      }
 }
-doc_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "doc_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-compact_running = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "compact_running", null) |
-        res := resources_map[_]
-        true
-     }
-}
-update_seq = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_seq", null) |
-        res := resources_map[_]
-        true
-     }
-}
-uuid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uuid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-committed_update_seq = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "committed_update_seq", null) |
-        res := resources_map[_]
-        true
-     }
-}
-doc_del_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "doc_del_count", null) |
+engine = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "engine", null) |
         res := resources_map[_]
         true
      }
 }
 sizes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sizes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+uuid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uuid", null) |
         res := resources_map[_]
         true
      }

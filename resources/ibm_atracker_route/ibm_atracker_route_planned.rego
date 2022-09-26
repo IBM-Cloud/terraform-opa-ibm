@@ -13,14 +13,14 @@ name = ret {
         true
      }
 }
-receive_global_events = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "receive_global_events", null) |
+rules = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
         res := resources_map[_]
         true
      }
 }
-rules = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rules", null) |
+receive_global_events = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "receive_global_events", null) |
         res := resources_map[_]
         true
      }
