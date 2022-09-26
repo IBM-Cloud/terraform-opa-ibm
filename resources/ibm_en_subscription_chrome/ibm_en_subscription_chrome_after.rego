@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_en_subscription_chrome").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-topic_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ description = ret {
 }
 destination_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
         res := resources_map[_]
         true
      }

@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_reserved_capacity", "managed").resources[_]
 }
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pod = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pod", null) |
         res := resources_map[_]
@@ -49,6 +43,12 @@ tags = ret {
 }
 force_create = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_create", null) |
+        res := resources_map[_]
+        true
+     }
+}
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }

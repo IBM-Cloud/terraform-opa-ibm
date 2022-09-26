@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_dhcps", "data").resources[_]
 }
-servers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "servers", null) |
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+servers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "servers", null) |
         res := resources_map[_]
         true
      }

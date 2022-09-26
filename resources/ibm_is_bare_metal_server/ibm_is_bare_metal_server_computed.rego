@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_bare_metal_server").resources[_]
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status_reasons = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_reasons", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bandwidth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
+cpu = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +19,20 @@ disks = ret {
         true
      }
 }
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
 memory = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "memory", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bandwidth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
         res := resources_map[_]
         true
      }
@@ -43,38 +43,8 @@ boot_target = ret {
         true
      }
 }
-cpu = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_interfaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+status_reasons = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_reasons", null) |
         res := resources_map[_]
         true
      }
@@ -85,8 +55,38 @@ resource_group = ret {
         true
      }
 }
+network_interfaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

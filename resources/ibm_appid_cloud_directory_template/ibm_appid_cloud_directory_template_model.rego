@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_cloud_directory_template", "managed").resources[_]
 }
+tenant_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 language = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "language", null) |
         res := resources_map[_]
@@ -37,18 +49,6 @@ base64_encoded_html_body = ret {
 }
 plain_text_body = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plain_text_body", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tenant_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tenant_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-template_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_name", null) |
         res := resources_map[_]
         true
      }

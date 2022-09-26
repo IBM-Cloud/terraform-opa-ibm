@@ -25,14 +25,14 @@ key_size = ret {
         true
      }
 }
-create_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_date", null) |
+modify_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modify_date", null) |
         res := resources_map[_]
         true
      }
 }
-modify_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modify_date", null) |
+create_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_date", null) |
         res := resources_map[_]
         true
      }

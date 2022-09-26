@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_satellite_endpoint").resources[_]
 }
-sni = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sni", null) |
+reject_unauth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reject_unauth", null) |
         res := resources_map[_]
         true
      }
 }
-server_mutual_auth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_mutual_auth", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ certs = ret {
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+server_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_port", null) |
         res := resources_map[_]
         true
      }
@@ -43,32 +43,8 @@ server_host = ret {
         true
      }
 }
-client_mutual_auth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_mutual_auth", null) |
-        res := resources_map[_]
-        true
-     }
-}
-server_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-timeout = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
-        res := resources_map[_]
-        true
-     }
-}
-client_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+server_mutual_auth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_mutual_auth", null) |
         res := resources_map[_]
         true
      }
@@ -79,14 +55,38 @@ connection_type = ret {
         true
      }
 }
-server_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_port", null) |
+sni = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sni", null) |
         res := resources_map[_]
         true
      }
 }
-reject_unauth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reject_unauth", null) |
+client_mutual_auth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_mutual_auth", null) |
+        res := resources_map[_]
+        true
+     }
+}
+timeout = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timeout", null) |
+        res := resources_map[_]
+        true
+     }
+}
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+server_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+client_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_protocol", null) |
         res := resources_map[_]
         true
      }

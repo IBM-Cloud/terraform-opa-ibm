@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_posture_credential", "managed").resources[_]
 }
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
@@ -43,12 +49,6 @@ group = ret {
 }
 purpose = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "purpose", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }

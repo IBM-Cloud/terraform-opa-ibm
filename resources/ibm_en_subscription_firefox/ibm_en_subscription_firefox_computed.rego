@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_en_subscription_firefox").resources[_]
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+subscription_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_id", null) |
         res := resources_map[_]
         true
      }
 }
-subscription_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_id", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }

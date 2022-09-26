@@ -19,14 +19,8 @@ created = ret {
         true
      }
 }
-updated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+api_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_version", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +31,20 @@ created_at = ret {
         true
      }
 }
+updated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
+        res := resources_map[_]
+        true
+     }
+}
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
 }
-api_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_version", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

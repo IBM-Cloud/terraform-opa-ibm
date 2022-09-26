@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_container_bind_service").resources[_]
 }
-role = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -25,20 +19,14 @@ cluster_name_id = ret {
         true
      }
 }
+namespace_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 org_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +61,20 @@ service_instance_id = ret {
         true
      }
 }
-namespace_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace_id", null) |
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+role = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
         res := resources_map[_]
         true
      }

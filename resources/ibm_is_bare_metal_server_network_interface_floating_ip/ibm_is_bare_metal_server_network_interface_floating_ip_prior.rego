@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_bare_metal_server_network_interface_floating_ip").resources[_]
 }
-bare_metal_server = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
+floating_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
         res := resources_map[_]
         true
      }
 }
-floating_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
+bare_metal_server = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
         res := resources_map[_]
         true
      }

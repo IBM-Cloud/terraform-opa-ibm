@@ -19,18 +19,6 @@ boot_volume = ret {
         true
      }
 }
-default_trusted_profile_auto_link = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_trusted_profile_auto_link", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
@@ -45,6 +33,18 @@ placement_target = ret {
 }
 availability_policy_host_failure = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "availability_policy_host_failure", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_trusted_profile_auto_link = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_trusted_profile_auto_link", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

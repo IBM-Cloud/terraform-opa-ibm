@@ -17,6 +17,12 @@ ingress_hostname = ret {
         true
      }
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 logging_account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logging_account_id", null) |
         res := resources_map[_]
@@ -29,26 +35,8 @@ resource_group_id = ret {
         true
      }
 }
-cos_config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_config", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cos_credentials = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_credentials", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }
@@ -65,14 +53,14 @@ created_on = ret {
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+managed_from = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed_from", null) |
         res := resources_map[_]
         true
      }
 }
-managed_from = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed_from", null) |
+cos_credentials = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_credentials", null) |
         res := resources_map[_]
         true
      }
@@ -83,14 +71,20 @@ host_attached_count = ret {
         true
      }
 }
-host_available_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_available_count", null) |
+ingress_secret = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ingress_secret", null) |
         res := resources_map[_]
         true
      }
 }
-ingress_secret = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ingress_secret", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cos_config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cos_config", null) |
         res := resources_map[_]
         true
      }
@@ -101,8 +95,14 @@ zones = ret {
         true
      }
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_available_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_available_count", null) |
         res := resources_map[_]
         true
      }

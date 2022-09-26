@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_logpush_job", "managed").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 dataset = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dataset", null) |
         res := resources_map[_]
@@ -35,14 +41,14 @@ cis_id = ret {
         true
      }
 }
-logdna = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logdna", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+logdna = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logdna", null) |
         res := resources_map[_]
         true
      }
@@ -61,12 +67,6 @@ logpull_options = ret {
 }
 frequency = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "frequency", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }

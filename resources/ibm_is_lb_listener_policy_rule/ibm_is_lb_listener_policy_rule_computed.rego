@@ -13,14 +13,14 @@ provisioning_status = ret {
         true
      }
 }
-rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
         res := resources_map[_]
         true
      }

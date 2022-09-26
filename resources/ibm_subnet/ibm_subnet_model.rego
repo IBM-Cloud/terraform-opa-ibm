@@ -29,12 +29,6 @@ ip_version = ret {
         true
      }
 }
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
         res := resources_map[_]
@@ -47,6 +41,18 @@ endpoint_ip = ret {
         true
      }
 }
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subnet_cidr = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_cidr", null) |
         res := resources_map[_]
@@ -55,12 +61,6 @@ subnet_cidr = ret {
 }
 notes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

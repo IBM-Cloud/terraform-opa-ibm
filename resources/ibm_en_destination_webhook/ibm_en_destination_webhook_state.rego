@@ -20,8 +20,20 @@ name = ret {
         true
      }
 }
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
         res := resources_map[_]
         true
      }
@@ -32,20 +44,8 @@ subscription_count = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 config = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
         res := resources_map[_]
         true
      }

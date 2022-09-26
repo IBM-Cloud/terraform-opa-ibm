@@ -8,6 +8,30 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_cloud_directory_user", "managed").resources[_]
 }
+locked_until = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_until", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subject = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
+        res := resources_map[_]
+        true
+     }
+}
+display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 password = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
         res := resources_map[_]
@@ -16,6 +40,12 @@ password = ret {
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+meta = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
         res := resources_map[_]
         true
      }
@@ -38,44 +68,14 @@ user_id = ret {
         true
      }
 }
-display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 email = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "email", null) |
         res := resources_map[_]
         true
      }
 }
-meta = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "meta", null) |
-        res := resources_map[_]
-        true
-     }
-}
 active = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
-        res := resources_map[_]
-        true
-     }
-}
-locked_until = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "locked_until", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subject = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_name", null) |
         res := resources_map[_]
         true
      }

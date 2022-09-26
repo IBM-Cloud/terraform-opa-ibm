@@ -13,6 +13,12 @@ deployment_id = ret {
         true
      }
 }
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 user_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ user_type = ret {
 }
 user_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
         res := resources_map[_]
         true
      }

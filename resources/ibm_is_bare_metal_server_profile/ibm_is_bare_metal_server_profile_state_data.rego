@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_bare_metal_server_profile", "data").resources[_]
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bandwidth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
+family = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
         res := resources_map[_]
         true
      }
@@ -26,32 +20,14 @@ resource_type = ret {
         true
      }
 }
-cpu_core_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_core_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-supported_trusted_platform_module_modes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_trusted_platform_module_modes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cpu_architecture = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_architecture", null) |
         res := resources_map[_]
         true
      }
 }
-cpu_socket_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_socket_count", null) |
+cpu_core_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_core_count", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +50,32 @@ disks = ret {
         true
      }
 }
-family = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "family", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bandwidth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bandwidth", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cpu_socket_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cpu_socket_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+supported_trusted_platform_module_modes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "supported_trusted_platform_module_modes", null) |
         res := resources_map[_]
         true
      }

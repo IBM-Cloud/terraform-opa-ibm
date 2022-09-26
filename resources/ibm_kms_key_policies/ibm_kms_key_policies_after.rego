@@ -13,6 +13,18 @@ alias = ret {
         true
      }
 }
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rotation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rotation", null) |
+        res := resources_map[_]
+        true
+     }
+}
 dual_auth_delete = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dual_auth_delete", null) |
         res := resources_map[_]
@@ -27,18 +39,6 @@ instance_id = ret {
 }
 key_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rotation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rotation", null) |
         res := resources_map[_]
         true
      }

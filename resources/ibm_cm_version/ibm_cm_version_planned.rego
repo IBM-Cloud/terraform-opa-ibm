@@ -13,8 +13,8 @@ catalog_identifier = ret {
         true
      }
 }
-content = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
+offering_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_id", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ zipurl = ret {
         true
      }
 }
-offering_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_id", null) |
+target_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_version", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ target_kinds = ret {
         true
      }
 }
-target_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_version", null) |
+content = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
         true
      }

@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_si_occurrence", "managed").resources[_]
 }
-note_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-occurrence_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_url", null) |
         res := resources_map[_]
@@ -41,36 +29,6 @@ create_time = ret {
         true
      }
 }
-kpi = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
-        res := resources_map[_]
-        true
-     }
-}
-replace_if_exists = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replace_if_exists", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kind = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
-        res := resources_map[_]
-        true
-     }
-}
 update_time = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
         res := resources_map[_]
@@ -85,6 +43,48 @@ context = ret {
 }
 finding = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kpi = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+note_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+        res := resources_map[_]
+        true
+     }
+}
+occurrence_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+replace_if_exists = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replace_if_exists", null) |
+        res := resources_map[_]
+        true
+     }
+}
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
         res := resources_map[_]
         true
      }

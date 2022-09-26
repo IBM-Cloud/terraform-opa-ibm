@@ -20,30 +20,6 @@ updated_at = ret {
         true
      }
 }
-before = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "before", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ge = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ge", null) |
-        res := resources_map[_]
-        true
-     }
-}
-le = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "le", null) |
-        res := resources_map[_]
-        true
-     }
-}
 gateway = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
         res := resources_map[_]
@@ -62,8 +38,32 @@ filter_id = ret {
         true
      }
 }
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 action = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+before = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "before", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ge = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ge", null) |
+        res := resources_map[_]
+        true
+     }
+}
+le = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "le", null) |
         res := resources_map[_]
         true
      }

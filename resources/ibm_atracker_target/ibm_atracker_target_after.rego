@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_atracker_target").resources[_]
 }
-target_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_type", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ region = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+target_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_type", null) |
         res := resources_map[_]
         true
      }

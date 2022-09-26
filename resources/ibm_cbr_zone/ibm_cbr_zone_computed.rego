@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cbr_zone").resources[_]
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
 created_by_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
         res := resources_map[_]
@@ -25,8 +19,20 @@ last_modified_at = ret {
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+address_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }
@@ -43,26 +49,14 @@ excluded_count = ret {
         true
      }
 }
-address_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 last_modified_by_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
         res := resources_map[_]
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }

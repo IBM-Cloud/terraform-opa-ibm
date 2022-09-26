@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_network_gateway").resources[_]
 }
-members = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+members = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
         res := resources_map[_]
         true
      }

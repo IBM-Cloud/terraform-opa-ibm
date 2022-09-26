@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_alb", "data").resources[_]
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
-        res := resources_map[_]
-        true
-     }
-}
 disable_deployment = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
         res := resources_map[_]
@@ -52,6 +34,24 @@ alb_id = ret {
 }
 alb_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
         res := resources_map[_]
         true
      }

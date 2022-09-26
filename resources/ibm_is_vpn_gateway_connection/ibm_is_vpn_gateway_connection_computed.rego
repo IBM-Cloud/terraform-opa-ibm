@@ -13,8 +13,8 @@ status = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
         res := resources_map[_]
         true
      }
@@ -25,20 +25,20 @@ tunnels = ret {
         true
      }
 }
+gateway_connection = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_connection", null) |
+        res := resources_map[_]
+        true
+     }
+}
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
 }
-mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-gateway_connection = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway_connection", null) |
+authentication_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +49,8 @@ resource_type = ret {
         true
      }
 }
-authentication_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_mode", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }

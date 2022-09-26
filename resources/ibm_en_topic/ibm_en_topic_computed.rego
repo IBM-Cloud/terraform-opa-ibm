@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_en_topic").resources[_]
 }
-subscription_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_count", null) |
+subscriptions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
         res := resources_map[_]
         true
      }
 }
-subscriptions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
+topic_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ source_count = ret {
         true
      }
 }
-topic_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
+subscription_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_count", null) |
         res := resources_map[_]
         true
      }

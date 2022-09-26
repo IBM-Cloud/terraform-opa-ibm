@@ -7,50 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_iam_authorization_policy").resources[_]
 }
-transaction_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subject_attributes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject_attributes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_resource_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_resource_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_service_account = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_service_account", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_attributes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_attributes", null) |
+source_service_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_service_name", null) |
         res := resources_map[_]
         true
      }
@@ -67,8 +25,20 @@ roles = ret {
         true
      }
 }
-target_resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_resource_type", null) |
+source_resource_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_resource_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subject_attributes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subject_attributes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_attributes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_attributes", null) |
         res := resources_map[_]
         true
      }
@@ -79,14 +49,44 @@ description = ret {
         true
      }
 }
-source_service_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_service_name", null) |
+target_resource_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_resource_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-target_resource_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_resource_instance_id", null) |
+source_resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_service_account = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_service_account", null) |
+        res := resources_map[_]
+        true
+     }
+}
+transaction_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
         res := resources_map[_]
         true
      }

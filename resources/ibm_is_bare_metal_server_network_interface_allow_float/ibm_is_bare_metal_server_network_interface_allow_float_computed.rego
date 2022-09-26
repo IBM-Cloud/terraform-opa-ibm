@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_bare_metal_server_network_interface_allow_float").resources[_]
 }
-floating_ips = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ips", null) |
+interface_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interface_type", null) |
         res := resources_map[_]
         true
      }
 }
-mac_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mac_address", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ port_speed = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+security_groups = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ href = ret {
         true
      }
 }
-interface_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interface_type", null) |
+primary_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
         res := resources_map[_]
         true
      }
@@ -49,20 +49,20 @@ resource_type = ret {
         true
      }
 }
-primary_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-security_groups = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
 allow_interface_to_float = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_interface_to_float", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
         res := resources_map[_]
         true
      }
@@ -79,14 +79,14 @@ enable_infrastructure_nat = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+floating_ips = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ips", null) |
         res := resources_map[_]
         true
      }
 }
-network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
+mac_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mac_address", null) |
         res := resources_map[_]
         true
      }

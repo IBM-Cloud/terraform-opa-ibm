@@ -14,20 +14,14 @@ security_certificate_id = ret {
         true
      }
 }
-ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ssl_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ssl_offload = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_offload", null) |
+        res := resources_map[_]
+        true
+     }
+}
+connections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +38,26 @@ ha_enabled = ret {
         true
      }
 }
+ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnet_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 dedicated = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ssl_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_enabled", null) |
         res := resources_map[_]
         true
      }
@@ -58,18 +70,6 @@ tags = ret {
 }
 hostname = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
-connections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
-        res := resources_map[_]
-        true
-     }
-}
-subnet_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cbr_zone").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+excluded = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }
@@ -19,14 +25,26 @@ addresses = ret {
         true
      }
 }
-excluded = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+x_correlation_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "x_correlation_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+transaction_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
         res := resources_map[_]
         true
      }

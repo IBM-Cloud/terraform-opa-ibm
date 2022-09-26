@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb_vpx_vip", "managed").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_certificate_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 nad_controller_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nad_controller_id", null) |
         res := resources_map[_]
@@ -20,8 +32,8 @@ load_balancing_method = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+persistence = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
         res := resources_map[_]
         true
      }
@@ -32,20 +44,8 @@ source_port = ret {
         true
      }
 }
-persistence = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
-        res := resources_map[_]
-        true
-     }
-}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-security_certificate_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
         res := resources_map[_]
         true
      }

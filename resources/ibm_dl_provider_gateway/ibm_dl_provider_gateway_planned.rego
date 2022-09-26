@@ -19,20 +19,8 @@ port = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vlan = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +31,26 @@ bgp_ibm_cidr = ret {
         true
      }
 }
+speed_mbps = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed_mbps", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
 bgp_asn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_asn", null) |
         res := resources_map[_]
         true
      }
 }
-speed_mbps = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed_mbps", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

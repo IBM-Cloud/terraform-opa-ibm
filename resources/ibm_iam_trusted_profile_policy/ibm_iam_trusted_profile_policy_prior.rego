@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_iam_trusted_profile_policy").resources[_]
 }
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 iam_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ sort = ret {
 }
 transaction_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
         res := resources_map[_]
         true
      }

@@ -29,20 +29,14 @@ base_path = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+endpoint_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_id", null) |
         res := resources_map[_]
         true
      }
 }
 service_instance_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -65,8 +59,14 @@ provider_id = ret {
         true
      }
 }
-endpoint_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_id", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

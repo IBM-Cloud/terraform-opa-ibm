@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_lb_listener_policy_rule").resources[_]
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy", null) |
         res := resources_map[_]
         true
      }
 }
-rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ listener = ret {
         true
      }
 }
-policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy", null) |
+rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule", null) |
         res := resources_map[_]
         true
      }

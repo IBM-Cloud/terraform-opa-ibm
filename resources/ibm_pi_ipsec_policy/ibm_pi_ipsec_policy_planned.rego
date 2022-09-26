@@ -7,24 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_pi_ipsec_policy").resources[_]
 }
-pi_policy_authentication = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_authentication", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_policy_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_policy_dh_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_dh_group", null) |
         res := resources_map[_]
@@ -45,6 +27,24 @@ pi_policy_key_lifetime = ret {
 }
 pi_policy_pfs = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_pfs", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_policy_authentication = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_authentication", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_policy_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_policy_name", null) |
         res := resources_map[_]
         true
      }

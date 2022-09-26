@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_application", "managed").resources[_]
 }
+oauth_server_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "oauth_server_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
 profiles_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profiles_url", null) |
         res := resources_map[_]
@@ -49,12 +55,6 @@ type = ret {
 }
 secret = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret", null) |
-        res := resources_map[_]
-        true
-     }
-}
-oauth_server_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "oauth_server_url", null) |
         res := resources_map[_]
         true
      }

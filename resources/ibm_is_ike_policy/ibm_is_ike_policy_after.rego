@@ -13,14 +13,8 @@ name = ret {
         true
      }
 }
-encryption_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dh_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dh_group", null) |
+authentication_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +25,14 @@ key_lifetime = ret {
         true
      }
 }
-authentication_algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "authentication_algorithm", null) |
+encryption_algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encryption_algorithm", null) |
+        res := resources_map[_]
+        true
+     }
+}
+dh_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dh_group", null) |
         res := resources_map[_]
         true
      }

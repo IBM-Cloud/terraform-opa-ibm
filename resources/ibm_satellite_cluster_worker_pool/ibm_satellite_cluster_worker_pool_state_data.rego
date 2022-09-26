@@ -8,26 +8,32 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_cluster_worker_pool", "data").resources[_]
 }
+auto_scale_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_scale_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
 }
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_pool_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
 }
 host_labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+isolation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "isolation", null) |
         res := resources_map[_]
         true
      }
@@ -62,20 +68,14 @@ flavor = ret {
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
         true
      }
 }
-isolation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "isolation", null) |
-        res := resources_map[_]
-        true
-     }
-}
-auto_scale_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_scale_enabled", null) |
+worker_pool_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
         res := resources_map[_]
         true
      }

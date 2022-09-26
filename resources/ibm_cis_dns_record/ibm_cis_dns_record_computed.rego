@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cis_dns_record").resources[_]
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+zone_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_name", null) |
         res := resources_map[_]
         true
      }
 }
-zone_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_name", null) |
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }

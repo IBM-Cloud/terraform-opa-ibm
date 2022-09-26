@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_resource_record", "managed").resources[_]
 }
-zone_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
+resource_record_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_record_id", null) |
         res := resources_map[_]
         true
      }
@@ -23,14 +23,8 @@ name = ret {
         true
      }
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-preference = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preference", null) |
+ttl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
         res := resources_map[_]
         true
      }
@@ -41,44 +35,14 @@ service = ret {
         true
      }
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+zone_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
         res := resources_map[_]
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ttl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ttl", null) |
-        res := resources_map[_]
-        true
-     }
-}
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
-        res := resources_map[_]
-        true
-     }
-}
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_record_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_record_id", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
@@ -89,14 +53,50 @@ port = ret {
         true
      }
 }
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
 protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
         res := resources_map[_]
         true
      }
 }
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 rdata = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rdata", null) |
+        res := resources_map[_]
+        true
+     }
+}
+preference = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preference", null) |
+        res := resources_map[_]
+        true
+     }
+}
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }

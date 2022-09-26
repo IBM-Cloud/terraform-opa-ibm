@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_nlb_dns", "managed").resources[_]
 }
+nlb_ssl_secret_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 nlb_host = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_host", null) |
         res := resources_map[_]
@@ -29,20 +41,14 @@ nlb_monitor_state = ret {
         true
      }
 }
-nlb_ssl_secret_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_status", null) |
+nlb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_type", null) |
         res := resources_map[_]
         true
      }
 }
 secret_namespace = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_namespace", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -61,12 +67,6 @@ nlb_dns_type = ret {
 }
 nlb_ssl_secret_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-nlb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_type", null) |
         res := resources_map[_]
         true
      }

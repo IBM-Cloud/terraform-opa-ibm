@@ -26,12 +26,6 @@ subscription_count = ret {
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 subscription_names = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_names", null) |
         res := resources_map[_]
@@ -58,6 +52,12 @@ type = ret {
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }

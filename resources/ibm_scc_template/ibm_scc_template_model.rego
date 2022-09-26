@@ -11,24 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_template", "managed").resources[_]
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
-        res := resources_map[_]
-        true
-     }
-}
-customized_defaults = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customized_defaults", null) |
-        res := resources_map[_]
-        true
-     }
-}
 account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
@@ -49,6 +31,24 @@ description = ret {
 }
 template_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+customized_defaults = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customized_defaults", null) |
         res := resources_map[_]
         true
      }

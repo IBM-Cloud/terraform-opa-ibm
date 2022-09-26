@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_object_storage_account").resources[_]
 }
-local_note = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_note", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+local_note = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_note", null) |
         res := resources_map[_]
         true
      }

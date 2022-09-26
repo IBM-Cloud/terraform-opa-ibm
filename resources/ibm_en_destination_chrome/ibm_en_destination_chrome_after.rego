@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_en_destination_chrome").resources[_]
 }
-instance_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ config = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+instance_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ type = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

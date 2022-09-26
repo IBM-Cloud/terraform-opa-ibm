@@ -11,20 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_cluster_worker_pool", "managed").resources[_]
 }
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+disk_encryption = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_encryption", null) |
         res := resources_map[_]
         true
      }
 }
-worker_pool_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host_labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_labels", null) |
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
         res := resources_map[_]
         true
      }
@@ -53,8 +47,20 @@ entitlement = ret {
         true
      }
 }
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+        res := resources_map[_]
+        true
+     }
+}
+worker_pool_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool_labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_labels", null) |
         res := resources_map[_]
         true
      }
@@ -67,12 +73,6 @@ resource_group_id = ret {
 }
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-disk_encryption = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_encryption", null) |
         res := resources_map[_]
         true
      }

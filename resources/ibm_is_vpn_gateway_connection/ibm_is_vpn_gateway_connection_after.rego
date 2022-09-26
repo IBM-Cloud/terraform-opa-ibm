@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_vpn_gateway_connection").resources[_]
 }
-admin_state_up = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin_state_up", null) |
+peer_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_address", null) |
         res := resources_map[_]
         true
      }
@@ -25,6 +25,18 @@ ipsec_policy = ret {
         true
      }
 }
+admin_state_up = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "admin_state_up", null) |
+        res := resources_map[_]
+        true
+     }
+}
+local_cidrs = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -33,6 +45,12 @@ name = ret {
 }
 vpn_gateway = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
+        res := resources_map[_]
+        true
+     }
+}
+interval = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interval", null) |
         res := resources_map[_]
         true
      }
@@ -57,24 +75,6 @@ timeout = ret {
 }
 ike_policy = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ike_policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-peer_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "peer_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-local_cidrs = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "local_cidrs", null) |
-        res := resources_map[_]
-        true
-     }
-}
-interval = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interval", null) |
         res := resources_map[_]
         true
      }

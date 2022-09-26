@@ -13,14 +13,14 @@ network_interface = ret {
         true
      }
 }
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+reserved_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reserved_ip", null) |
         res := resources_map[_]
         true
      }
 }
-reserved_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reserved_ip", null) |
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
         true
      }

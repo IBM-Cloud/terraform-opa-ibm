@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_lb_pool_member").resources[_]
 }
-pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool", null) |
+member = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "member", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ lb = ret {
         true
      }
 }
-member = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "member", null) |
+pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool", null) |
         res := resources_map[_]
         true
      }

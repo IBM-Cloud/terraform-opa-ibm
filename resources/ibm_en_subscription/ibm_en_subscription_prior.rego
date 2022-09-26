@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_en_subscription").resources[_]
 }
-subscription_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_id", null) |
+instance_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
         res := resources_map[_]
         true
      }
 }
-instance_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
+subscription_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_id", null) |
         res := resources_map[_]
         true
      }

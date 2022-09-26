@@ -8,44 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_database_connection", "data").resources[_]
 }
-deployment_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deployment_id", null) |
+bi_connector = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bi_connector", null) |
         res := resources_map[_]
         true
      }
 }
-user_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-postgres = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "postgres", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rediss = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rediss", null) |
-        res := resources_map[_]
-        true
-     }
-}
-https = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "https", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mongodb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mongodb", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mysql = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mysql", null) |
+analytics = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "analytics", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +26,8 @@ secure = ret {
         true
      }
 }
-emp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "emp", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
+deployment_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deployment_id", null) |
         res := resources_map[_]
         true
      }
@@ -74,26 +38,8 @@ endpoint_type = ret {
         true
      }
 }
-amqps = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "amqps", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mqtts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mqtts", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ops_manager = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ops_manager", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cli = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cli", null) |
+mongodb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mongodb", null) |
         res := resources_map[_]
         true
      }
@@ -110,14 +56,68 @@ grpc = ret {
         true
      }
 }
-bi_connector = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bi_connector", null) |
+user_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
         res := resources_map[_]
         true
      }
 }
-analytics = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "analytics", null) |
+https = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "https", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mqtts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mqtts", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mysql = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mysql", null) |
+        res := resources_map[_]
+        true
+     }
+}
+emp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "emp", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cli = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cli", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ops_manager = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ops_manager", null) |
+        res := resources_map[_]
+        true
+     }
+}
+postgres = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "postgres", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rediss = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rediss", null) |
+        res := resources_map[_]
+        true
+     }
+}
+amqps = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "amqps", null) |
         res := resources_map[_]
         true
      }

@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_scc_si_occurrence").resources[_]
 }
-note_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-occurrence_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_url", null) |
         res := resources_map[_]
@@ -31,14 +19,20 @@ remediation = ret {
         true
      }
 }
-kpi = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
+context = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "context", null) |
         res := resources_map[_]
         true
      }
 }
-replace_if_exists = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replace_if_exists", null) |
+finding = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kpi = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +43,8 @@ account_id = ret {
         true
      }
 }
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
+note_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
         res := resources_map[_]
         true
      }
@@ -61,14 +55,20 @@ kind = ret {
         true
      }
 }
-context = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "context", null) |
+occurrence_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
         res := resources_map[_]
         true
      }
 }
-finding = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
+replace_if_exists = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replace_if_exists", null) |
+        res := resources_map[_]
+        true
+     }
+}
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
         res := resources_map[_]
         true
      }

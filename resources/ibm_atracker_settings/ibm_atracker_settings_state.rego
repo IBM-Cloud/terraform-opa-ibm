@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_atracker_settings", "managed").resources[_]
 }
-metadata_region_primary = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metadata_region_primary", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_api_endpoint_only = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_api_endpoint_only", null) |
-        res := resources_map[_]
-        true
-     }
-}
 default_targets = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_targets", null) |
         res := resources_map[_]
@@ -34,6 +22,18 @@ permitted_target_regions = ret {
 }
 api_version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+metadata_region_primary = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metadata_region_primary", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_api_endpoint_only = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_api_endpoint_only", null) |
         res := resources_map[_]
         true
      }

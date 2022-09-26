@@ -8,14 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_volume", "data").resources[_]
 }
+pi_volume_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
 bootable = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bootable", null) |
         res := resources_map[_]
         true
      }
 }
-volume_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_pool", null) |
+wwn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wwn", null) |
         res := resources_map[_]
         true
      }
@@ -44,20 +56,8 @@ disk_type = ret {
         true
      }
 }
-wwn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "wwn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_volume_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_volume_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+volume_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_pool", null) |
         res := resources_map[_]
         true
      }

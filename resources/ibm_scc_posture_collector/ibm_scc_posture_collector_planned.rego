@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_scc_posture_collector").resources[_]
 }
-is_ubi_image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_ubi_image", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 is_public = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_public", null) |
         res := resources_map[_]
@@ -39,6 +27,18 @@ description = ret {
 }
 passphrase = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
+        res := resources_map[_]
+        true
+     }
+}
+is_ubi_image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_ubi_image", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

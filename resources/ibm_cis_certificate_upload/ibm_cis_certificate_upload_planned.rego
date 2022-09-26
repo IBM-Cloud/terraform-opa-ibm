@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cis_certificate_upload").resources[_]
 }
-certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ private_key = ret {
         true
      }
 }
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+bundle_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bundle_method", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ cis_id = ret {
         true
      }
 }
-bundle_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bundle_method", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }

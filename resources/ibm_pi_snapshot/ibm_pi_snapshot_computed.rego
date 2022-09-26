@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_pi_snapshot").resources[_]
 }
-creation_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
+snapshot_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +31,14 @@ status = ret {
         true
      }
 }
-pi_snap_shot_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_id", null) |
+creation_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
         res := resources_map[_]
         true
      }
 }
-snapshot_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot_id", null) |
+pi_snap_shot_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_id", null) |
         res := resources_map[_]
         true
      }

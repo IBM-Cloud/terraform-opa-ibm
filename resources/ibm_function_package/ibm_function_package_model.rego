@@ -17,6 +17,12 @@ namespace = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 publish = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
         res := resources_map[_]
@@ -25,6 +31,12 @@ publish = ret {
 }
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+package_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
         res := resources_map[_]
         true
      }
@@ -47,12 +59,6 @@ annotations = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 parameters = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
@@ -61,12 +67,6 @@ parameters = ret {
 }
 bind_package_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bind_package_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-package_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_scc_rule").resources[_]
 }
-enforcement_actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enforcement_actions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-required_config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "required_config", null) |
-        res := resources_map[_]
-        true
-     }
-}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
@@ -27,6 +15,18 @@ description = ret {
 }
 labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enforcement_actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enforcement_actions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+required_config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "required_config", null) |
         res := resources_map[_]
         true
      }

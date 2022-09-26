@@ -8,30 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_rule", "managed").resources[_]
 }
-modification_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modification_date", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enforcement_actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enforcement_actions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-required_config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "required_config", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
 creation_date = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
         res := resources_map[_]
@@ -44,8 +20,32 @@ created_by = ret {
         true
      }
 }
+modification_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modification_date", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 labels = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rule_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_type", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +56,14 @@ modified_by = ret {
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+enforcement_actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enforcement_actions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+required_config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "required_config", null) |
         res := resources_map[_]
         true
      }
@@ -76,12 +82,6 @@ account_id = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rule_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_type", null) |
         res := resources_map[_]
         true
      }

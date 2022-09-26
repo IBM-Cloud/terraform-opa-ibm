@@ -13,14 +13,14 @@ policy_id = ret {
         true
      }
 }
-listener = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+listener = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
         res := resources_map[_]
         true
      }

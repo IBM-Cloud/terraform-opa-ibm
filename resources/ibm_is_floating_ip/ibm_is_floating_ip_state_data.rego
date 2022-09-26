@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_floating_ip", "data").resources[_]
 }
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_list = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_list", null) |
-        res := resources_map[_]
-        true
-     }
-}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -52,6 +40,18 @@ status = ret {
 }
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_list = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_list", null) |
         res := resources_map[_]
         true
      }

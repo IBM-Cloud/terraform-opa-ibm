@@ -13,12 +13,6 @@ name = ret {
         true
      }
 }
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
-        res := resources_map[_]
-        true
-     }
-}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -39,6 +33,12 @@ crn = ret {
 }
 address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
         res := resources_map[_]
         true
      }

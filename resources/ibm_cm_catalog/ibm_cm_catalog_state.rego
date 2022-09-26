@@ -14,32 +14,14 @@ label = ret {
         true
      }
 }
-short_description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
 url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offerings_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kind = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +38,26 @@ resource_group_id = ret {
         true
      }
 }
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+        res := resources_map[_]
+        true
+     }
+}
+short_description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "short_description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 catalog_icon_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_icon_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offerings_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
         res := resources_map[_]
         true
      }

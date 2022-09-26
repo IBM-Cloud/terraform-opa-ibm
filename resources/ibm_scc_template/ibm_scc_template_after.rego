@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_scc_template").resources[_]
 }
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
-        res := resources_map[_]
-        true
-     }
-}
-customized_defaults = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customized_defaults", null) |
-        res := resources_map[_]
-        true
-     }
-}
 account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ name = ret {
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+customized_defaults = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customized_defaults", null) |
         res := resources_map[_]
         true
      }

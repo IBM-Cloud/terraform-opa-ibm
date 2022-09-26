@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_bare_metal_server_network_interface").resources[_]
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allowed_vlans = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_vlans", null) |
-        res := resources_map[_]
-        true
-     }
-}
 network_interface = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
         res := resources_map[_]
@@ -31,26 +19,8 @@ allow_ip_spoofing = ret {
         true
      }
 }
-interface_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interface_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-primary_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mac_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mac_address", null) |
         res := resources_map[_]
         true
      }
@@ -61,26 +31,8 @@ name = ret {
         true
      }
 }
-port_speed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
-        res := resources_map[_]
-        true
-     }
-}
-security_groups = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
-        res := resources_map[_]
-        true
-     }
-}
-allow_interface_to_float = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_interface_to_float", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enable_infrastructure_nat = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_infrastructure_nat", null) |
+primary_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
         res := resources_map[_]
         true
      }
@@ -91,8 +43,14 @@ resource_type = ret {
         true
      }
 }
-floating_ips = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ips", null) |
+allow_interface_to_float = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allow_interface_to_float", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vlan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
         res := resources_map[_]
         true
      }
@@ -103,8 +61,50 @@ status = ret {
         true
      }
 }
-vlan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
+port_speed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_speed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mac_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mac_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_groups = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+floating_ips = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ips", null) |
+        res := resources_map[_]
+        true
+     }
+}
+interface_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "interface_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+allowed_vlans = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "allowed_vlans", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable_infrastructure_nat = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_infrastructure_nat", null) |
         res := resources_map[_]
         true
      }

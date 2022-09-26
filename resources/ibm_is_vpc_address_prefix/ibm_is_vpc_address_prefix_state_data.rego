@@ -8,20 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_address_prefix", "data").resources[_]
 }
-vpc_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 address_prefix = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address_prefix_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix_name", null) |
         res := resources_map[_]
         true
      }
@@ -34,24 +22,6 @@ cidr = ret {
 }
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
-has_subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_subnets", null) |
         res := resources_map[_]
         true
      }
@@ -70,6 +40,36 @@ name = ret {
 }
 zone = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+address_prefix_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+has_subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

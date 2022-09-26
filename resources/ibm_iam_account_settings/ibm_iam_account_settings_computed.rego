@@ -7,32 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_iam_account_settings").resources[_]
 }
-history = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "history", null) |
-        res := resources_map[_]
-        true
-     }
-}
-session_expiration_in_seconds = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_expiration_in_seconds", null) |
-        res := resources_map[_]
-        true
-     }
-}
 restrict_create_service_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restrict_create_service_id", null) |
         res := resources_map[_]
         true
      }
 }
-restrict_create_platform_apikey = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restrict_create_platform_apikey", null) |
+history = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "history", null) |
         res := resources_map[_]
         true
      }
 }
-mfa = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mfa", null) |
+session_invalidation_in_seconds = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_invalidation_in_seconds", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +31,26 @@ max_sessions_per_identity = ret {
         true
      }
 }
+restrict_create_platform_apikey = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "restrict_create_platform_apikey", null) |
+        res := resources_map[_]
+        true
+     }
+}
 entity_tag = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
         res := resources_map[_]
         true
      }
 }
-session_invalidation_in_seconds = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_invalidation_in_seconds", null) |
+mfa = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mfa", null) |
+        res := resources_map[_]
+        true
+     }
+}
+session_expiration_in_seconds = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_expiration_in_seconds", null) |
         res := resources_map[_]
         true
      }

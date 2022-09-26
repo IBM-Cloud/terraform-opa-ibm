@@ -20,12 +20,6 @@ resource_url = ret {
         true
      }
 }
-note_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 kind = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
         res := resources_map[_]
@@ -38,14 +32,26 @@ context = ret {
         true
      }
 }
-finding = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
+kpi = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
         res := resources_map[_]
         true
      }
 }
 account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+occurrence_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+note_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
         res := resources_map[_]
         true
      }
@@ -68,14 +74,8 @@ update_time = ret {
         true
      }
 }
-kpi = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
-        res := resources_map[_]
-        true
-     }
-}
-occurrence_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
+finding = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "finding", null) |
         res := resources_map[_]
         true
      }

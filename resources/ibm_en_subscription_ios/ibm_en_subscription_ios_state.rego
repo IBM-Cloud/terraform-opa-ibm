@@ -8,20 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_en_subscription_ios", "managed").resources[_]
 }
-destination_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-topic_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-topic_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
+destination_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
         res := resources_map[_]
         true
      }
@@ -32,20 +20,14 @@ subscription_id = ret {
         true
      }
 }
-destination_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
+destination_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
         res := resources_map[_]
         true
      }
 }
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +44,26 @@ description = ret {
         true
      }
 }
-destination_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
+destination_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
         res := resources_map[_]
         true
      }

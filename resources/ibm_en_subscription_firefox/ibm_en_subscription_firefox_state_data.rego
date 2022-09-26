@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_en_subscription_firefox", "data").resources[_]
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 topic_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
         res := resources_map[_]
@@ -34,18 +46,6 @@ subscription_id = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
         res := resources_map[_]
         true
      }

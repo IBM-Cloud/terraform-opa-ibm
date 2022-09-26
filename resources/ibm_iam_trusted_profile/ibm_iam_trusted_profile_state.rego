@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_trusted_profile", "managed").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
         res := resources_map[_]
         true
      }
@@ -26,8 +26,20 @@ created_at = ret {
         true
      }
 }
+modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 iam_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ims_user_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_user_id", null) |
         res := resources_map[_]
         true
      }
@@ -44,14 +56,8 @@ name = ret {
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -62,20 +68,14 @@ entity_tag = ret {
         true
      }
 }
-modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ims_account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_account_id", null) |
         res := resources_map[_]
         true
      }
 }
-ims_user_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_user_id", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }

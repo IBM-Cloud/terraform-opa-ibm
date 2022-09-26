@@ -8,20 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_vpc_alb", "managed").resources[_]
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-alb_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-alb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +20,20 @@ enable = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+disable_deployment = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resize = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
+        res := resources_map[_]
+        true
+     }
+}
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
@@ -50,20 +50,20 @@ zone = ret {
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+alb_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_id", null) |
         res := resources_map[_]
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+alb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "alb_type", null) |
         res := resources_map[_]
         true
      }
 }
-disable_deployment = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +74,8 @@ load_balancer_hostname = ret {
         true
      }
 }
-resize = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }

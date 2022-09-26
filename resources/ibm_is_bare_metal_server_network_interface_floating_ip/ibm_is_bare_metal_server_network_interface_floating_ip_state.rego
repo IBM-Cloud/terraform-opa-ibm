@@ -14,24 +14,6 @@ name = ret {
         true
      }
 }
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
-        res := resources_map[_]
-        true
-     }
-}
-floating_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -50,14 +32,32 @@ crn = ret {
         true
      }
 }
-bare_metal_server = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
+floating_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
         res := resources_map[_]
         true
      }
 }
 address = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bare_metal_server = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
         res := resources_map[_]
         true
      }

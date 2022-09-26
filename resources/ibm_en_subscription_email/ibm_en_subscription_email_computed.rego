@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_en_subscription_email").resources[_]
 }
-destination_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
+from = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "from", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +25,8 @@ subscription_id = ret {
         true
      }
 }
-destination_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
+destination_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +37,8 @@ topic_name = ret {
         true
      }
 }
-from = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "from", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+destination_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
         res := resources_map[_]
         true
      }

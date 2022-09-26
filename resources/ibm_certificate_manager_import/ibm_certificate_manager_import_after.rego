@@ -13,8 +13,8 @@ name = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ certificate_manager_instance_id = ret {
         true
      }
 }
-data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "data", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
