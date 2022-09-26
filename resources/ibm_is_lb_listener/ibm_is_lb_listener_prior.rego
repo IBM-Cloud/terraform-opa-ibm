@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_lb_listener").resources[_]
 }
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }

@@ -13,8 +13,8 @@ name = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ inventories_ini = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

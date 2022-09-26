@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_flow_log", "data").resources[_]
 }
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lifecycle_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
@@ -20,38 +26,8 @@ resource_group = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 identifier = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
-        res := resources_map[_]
-        true
-     }
-}
-auto_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
@@ -76,6 +52,30 @@ href = ret {
 }
 storage_bucket = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_bucket", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+auto_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
         res := resources_map[_]
         true
      }

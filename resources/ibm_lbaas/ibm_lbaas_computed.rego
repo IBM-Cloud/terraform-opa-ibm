@@ -13,14 +13,8 @@ status = ret {
         true
      }
 }
-health_monitors = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +25,20 @@ datacenter = ret {
         true
      }
 }
-vip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip", null) |
+ssl_ciphers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_ciphers", null) |
         res := resources_map[_]
         true
      }
 }
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
+health_monitors = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_monitors", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
         res := resources_map[_]
         true
      }
@@ -49,14 +49,14 @@ use_system_public_ip_pool = ret {
         true
      }
 }
-ssl_ciphers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_ciphers", null) |
+vip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vip", null) |
         res := resources_map[_]
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }

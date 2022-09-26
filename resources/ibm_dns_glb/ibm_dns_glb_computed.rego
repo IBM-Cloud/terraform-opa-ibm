@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_glb").resources[_]
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+glb_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "glb_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +31,8 @@ modified_on = ret {
         true
      }
 }
-glb_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "glb_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }

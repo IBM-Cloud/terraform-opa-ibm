@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_image_export", "managed").resources[_]
 }
+pi_image_secret_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_secret_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_image_bucket_region = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_bucket_region", null) |
         res := resources_map[_]
@@ -37,12 +43,6 @@ pi_image_bucket_name = ret {
 }
 pi_image_access_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_access_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_image_secret_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_image_secret_key", null) |
         res := resources_map[_]
         true
      }

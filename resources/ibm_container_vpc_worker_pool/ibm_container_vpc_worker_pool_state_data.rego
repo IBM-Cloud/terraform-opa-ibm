@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_vpc_worker_pool", "data").resources[_]
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -20,20 +20,14 @@ vpc_id = ret {
         true
      }
 }
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+host_pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_pool_id", null) |
         res := resources_map[_]
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-isolation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "isolation", null) |
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +50,32 @@ zones = ret {
         true
      }
 }
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+isolation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "isolation", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kms_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kms_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crk = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crk", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }

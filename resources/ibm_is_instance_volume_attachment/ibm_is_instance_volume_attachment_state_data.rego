@@ -14,6 +14,30 @@ instance = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+delete_volume_on_instance_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_volume_on_instance_delete", null) |
+        res := resources_map[_]
+        true
+     }
+}
 device = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "device", null) |
         res := resources_map[_]
@@ -26,38 +50,14 @@ volume_attachment_id = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
 volume_reference = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_reference", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-delete_volume_on_instance_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_volume_on_instance_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }

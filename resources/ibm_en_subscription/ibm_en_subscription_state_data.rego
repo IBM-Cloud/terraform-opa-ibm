@@ -20,8 +20,8 @@ name = ret {
         true
      }
 }
-destination_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +32,8 @@ topic_name = ret {
         true
      }
 }
-attributes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attributes", null) |
+from = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "from", null) |
         res := resources_map[_]
         true
      }
@@ -50,8 +50,8 @@ instance_guid = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+destination_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +74,8 @@ topic_id = ret {
         true
      }
 }
-from = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "from", null) |
+attributes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attributes", null) |
         res := resources_map[_]
         true
      }

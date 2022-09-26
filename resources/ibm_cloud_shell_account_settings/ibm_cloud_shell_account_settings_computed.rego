@@ -13,24 +13,6 @@ updated_at = ret {
         true
      }
 }
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rev = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rev", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 features = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "features", null) |
         res := resources_map[_]
@@ -51,6 +33,24 @@ created_at = ret {
 }
 created_by = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rev = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rev", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
         res := resources_map[_]
         true
      }

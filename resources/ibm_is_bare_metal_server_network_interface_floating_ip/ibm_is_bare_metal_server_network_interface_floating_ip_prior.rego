@@ -13,14 +13,14 @@ bare_metal_server = ret {
         true
      }
 }
-network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
+floating_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
         res := resources_map[_]
         true
      }
 }
-floating_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
+network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interface", null) |
         res := resources_map[_]
         true
      }

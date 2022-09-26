@@ -13,8 +13,8 @@ instance_guid = ret {
         true
      }
 }
-topic_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -25,20 +25,20 @@ destination_id = ret {
         true
      }
 }
-attributes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attributes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+attributes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attributes", null) |
         res := resources_map[_]
         true
      }

@@ -14,18 +14,6 @@ type = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-router_hostname = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vlan_number = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_number", null) |
         res := resources_map[_]
@@ -38,8 +26,20 @@ subnets = ret {
         true
      }
 }
+resource_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+        res := resources_map[_]
+        true
+     }
+}
+router_hostname = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "router_hostname", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +68,8 @@ resource_controller_url = ret {
         true
      }
 }
-resource_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_name", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

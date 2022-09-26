@@ -13,14 +13,14 @@ pi_cloud_instance_id = ret {
         true
      }
 }
-pi_instance_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
+pi_network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
         res := resources_map[_]
         true
      }
 }
-pi_network_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
+pi_instance_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
         res := resources_map[_]
         true
      }

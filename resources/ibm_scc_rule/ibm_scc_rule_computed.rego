@@ -13,14 +13,8 @@ modification_date = ret {
         true
      }
 }
-modified_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rule_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_type", null) |
+creation_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +25,20 @@ created_by = ret {
         true
      }
 }
-creation_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
+modified_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_by", null) |
         res := resources_map[_]
         true
      }
 }
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rule_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_type", null) |
         res := resources_map[_]
         true
      }

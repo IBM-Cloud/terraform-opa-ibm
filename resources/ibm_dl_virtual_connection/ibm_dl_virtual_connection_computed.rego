@@ -25,8 +25,8 @@ status = ret {
         true
      }
 }
-network_account = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ virtual_connection_id = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+network_account = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_account", null) |
         res := resources_map[_]
         true
      }

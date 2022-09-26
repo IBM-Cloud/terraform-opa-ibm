@@ -13,14 +13,14 @@ hostname = ret {
         true
      }
 }
-most_recent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
+domain = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
         res := resources_map[_]
         true
      }
 }
-domain = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain", null) |
+most_recent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
         res := resources_map[_]
         true
      }

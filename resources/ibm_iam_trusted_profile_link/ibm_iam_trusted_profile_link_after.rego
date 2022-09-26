@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_iam_trusted_profile_link").resources[_]
 }
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cr_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cr_type", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ link = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
         res := resources_map[_]
         true
      }

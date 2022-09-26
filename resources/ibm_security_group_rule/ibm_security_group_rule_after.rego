@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_security_group_rule").resources[_]
 }
+direction = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ether_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ether_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 port_range_min = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_range_min", null) |
         res := resources_map[_]
@@ -39,18 +51,6 @@ protocol = ret {
 }
 security_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-direction = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ether_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ether_type", null) |
         res := resources_map[_]
         true
      }

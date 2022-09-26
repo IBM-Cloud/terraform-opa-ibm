@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_custom_resolver_forwarding_rule", "managed").resources[_]
 }
+resolver_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resolver_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
@@ -37,18 +49,6 @@ rule_id = ret {
 }
 instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resolver_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resolver_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

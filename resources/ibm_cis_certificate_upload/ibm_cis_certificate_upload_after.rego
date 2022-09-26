@@ -13,6 +13,12 @@ certificate = ret {
         true
      }
 }
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 private_key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ private_key = ret {
 }
 priority = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }

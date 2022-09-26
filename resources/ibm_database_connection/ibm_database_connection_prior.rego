@@ -13,14 +13,14 @@ deployment_id = ret {
         true
      }
 }
-user_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
+user_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
         res := resources_map[_]
         true
      }
 }
-user_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
+user_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_pi_snapshot").resources[_]
 }
-snapshot_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot_id", null) |
+creation_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+last_update_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_update_date", null) |
         res := resources_map[_]
         true
      }
@@ -25,20 +25,20 @@ volume_snapshots = ret {
         true
      }
 }
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_snap_shot_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_snap_shot_id", null) |
         res := resources_map[_]
         true
      }
 }
-creation_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
-        res := resources_map[_]
-        true
-     }
-}
-last_update_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_update_date", null) |
+snapshot_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshot_id", null) |
         res := resources_map[_]
         true
      }

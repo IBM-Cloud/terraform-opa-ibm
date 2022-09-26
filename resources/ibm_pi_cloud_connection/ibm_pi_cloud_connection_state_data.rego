@@ -14,38 +14,8 @@ pi_cloud_instance_id = ret {
         true
      }
 }
-networks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "networks", null) |
-        res := resources_map[_]
-        true
-     }
-}
-gre_destination_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gre_destination_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc_crns = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_crns", null) |
-        res := resources_map[_]
-        true
-     }
-}
-speed = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-global_routing = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global_routing", null) |
+metered = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metered", null) |
         res := resources_map[_]
         true
      }
@@ -56,20 +26,8 @@ ibm_ip_address = ret {
         true
      }
 }
-classic_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "classic_enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-gre_source_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gre_source_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc_enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_enabled", null) |
+networks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "networks", null) |
         res := resources_map[_]
         true
      }
@@ -80,8 +38,44 @@ pi_cloud_connection_name = ret {
         true
      }
 }
-metered = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "metered", null) |
+user_ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+        res := resources_map[_]
+        true
+     }
+}
+speed = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "speed", null) |
+        res := resources_map[_]
+        true
+     }
+}
+gre_destination_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gre_destination_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+gre_source_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gre_source_address", null) |
+        res := resources_map[_]
+        true
+     }
+}
+connection_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
+global_routing = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "global_routing", null) |
         res := resources_map[_]
         true
      }
@@ -92,8 +86,20 @@ status = ret {
         true
      }
 }
-user_ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_ip_address", null) |
+classic_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "classic_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc_enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc_crns = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_crns", null) |
         res := resources_map[_]
         true
      }

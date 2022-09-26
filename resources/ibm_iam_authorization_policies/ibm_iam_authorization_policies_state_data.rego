@@ -20,6 +20,12 @@ sort = ret {
         true
      }
 }
+transaction_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 policies = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
         res := resources_map[_]

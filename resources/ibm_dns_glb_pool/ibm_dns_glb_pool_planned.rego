@@ -13,8 +13,14 @@ name = ret {
         true
      }
 }
-healthcheck_subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthcheck_subnets", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+monitor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +31,14 @@ healthcheck_region = ret {
         true
      }
 }
-origins = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
+healthcheck_subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "healthcheck_subnets", null) |
         res := resources_map[_]
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+notification_channel = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_channel", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +61,8 @@ healthy_origins_threshold = ret {
         true
      }
 }
-monitor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "monitor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-notification_channel = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notification_channel", null) |
+origins = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origins", null) |
         res := resources_map[_]
         true
      }

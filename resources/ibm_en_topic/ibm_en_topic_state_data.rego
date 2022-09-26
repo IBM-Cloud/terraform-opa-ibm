@@ -26,8 +26,14 @@ subscription_count = ret {
         true
      }
 }
-subscriptions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
+instance_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
         res := resources_map[_]
         true
      }
@@ -44,20 +50,14 @@ description = ret {
         true
      }
 }
+subscriptions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscriptions", null) |
+        res := resources_map[_]
+        true
+     }
+}
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-topic_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
         res := resources_map[_]
         true
      }

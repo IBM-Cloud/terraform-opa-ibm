@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_tg_connection_prefix_filter").resources[_]
 }
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 filter_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "filter_id", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ filter_id = ret {
 }
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }

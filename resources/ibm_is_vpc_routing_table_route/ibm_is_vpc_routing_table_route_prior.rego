@@ -13,6 +13,12 @@ routing_table = ret {
         true
      }
 }
+route_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ name = ret {
 }
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
-route_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_id", null) |
         res := resources_map[_]
         true
      }

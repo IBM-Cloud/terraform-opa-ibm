@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_pi_key").resources[_]
 }
-pi_creation_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_creation_date", null) |
+creation_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
         res := resources_map[_]
         true
      }

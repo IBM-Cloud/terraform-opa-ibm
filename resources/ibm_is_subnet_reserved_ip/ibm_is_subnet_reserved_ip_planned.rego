@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_subnet_reserved_ip").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subnet = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
         res := resources_map[_]
@@ -21,18 +33,6 @@ target = ret {
 }
 auto_delete = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address", null) |
         res := resources_map[_]
         true
      }

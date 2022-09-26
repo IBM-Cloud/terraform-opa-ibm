@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_en_destinations", "data").resources[_]
 }
-destinations = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destinations", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
         res := resources_map[_]
@@ -28,6 +22,12 @@ search_key = ret {
 }
 total_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destinations = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destinations", null) |
         res := resources_map[_]
         true
      }

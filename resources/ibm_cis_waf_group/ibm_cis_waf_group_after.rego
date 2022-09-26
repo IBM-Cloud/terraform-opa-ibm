@@ -13,8 +13,8 @@ mode = ret {
         true
      }
 }
-package_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ cis_id = ret {
         true
      }
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+package_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "package_id", null) |
         res := resources_map[_]
         true
      }

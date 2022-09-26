@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_cache_settings", "data").resources[_]
 }
+query_string_sort = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_string_sort", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
@@ -40,12 +46,6 @@ browser_expiration = ret {
 }
 development_mode = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "development_mode", null) |
-        res := resources_map[_]
-        true
-     }
-}
-query_string_sort = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_string_sort", null) |
         res := resources_map[_]
         true
      }

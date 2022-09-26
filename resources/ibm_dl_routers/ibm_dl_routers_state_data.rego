@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dl_routers", "data").resources[_]
 }
-cross_connect_routers = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cross_connect_routers", null) |
-        res := resources_map[_]
-        true
-     }
-}
 offering_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offering_type", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ offering_type = ret {
 }
 location_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cross_connect_routers = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cross_connect_routers", null) |
         res := resources_map[_]
         true
      }

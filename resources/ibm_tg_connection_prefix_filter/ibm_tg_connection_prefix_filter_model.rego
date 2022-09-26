@@ -11,14 +11,26 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_tg_connection_prefix_filter", "managed").resources[_]
 }
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+before = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "before", null) |
+        res := resources_map[_]
+        true
+     }
+}
 prefix = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "prefix", null) |
         res := resources_map[_]
         true
      }
 }
-gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
@@ -29,8 +41,8 @@ filter_id = ret {
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+connection_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_id", null) |
         res := resources_map[_]
         true
      }
@@ -47,26 +59,14 @@ ge = ret {
         true
      }
 }
-connection_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-before = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "before", null) |
-        res := resources_map[_]
-        true
-     }
-}
 le = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "le", null) |
         res := resources_map[_]
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
         res := resources_map[_]
         true
      }

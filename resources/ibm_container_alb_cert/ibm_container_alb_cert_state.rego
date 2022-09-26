@@ -8,8 +8,32 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_alb_cert", "managed").resources[_]
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
+persistence = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expires_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+issuer_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer_name", null) |
         res := resources_map[_]
         true
      }
@@ -26,50 +50,26 @@ cert_crn = ret {
         true
      }
 }
-secret_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-persistence = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
-        res := resources_map[_]
-        true
-     }
-}
-expires_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cluster_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
         res := resources_map[_]
         true
      }
 }
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+secret_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
         res := resources_map[_]
         true
      }
 }
-domain_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-issuer_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer_name", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

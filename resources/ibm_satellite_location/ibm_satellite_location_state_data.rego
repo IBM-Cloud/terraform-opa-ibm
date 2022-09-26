@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_location", "data").resources[_]
 }
-managed_from = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed_from", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -20,14 +26,14 @@ logging_account_id = ret {
         true
      }
 }
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+host_attached_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_attached_count", null) |
         res := resources_map[_]
         true
      }
 }
-hosts = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hosts", null) |
+zones = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +44,8 @@ crn = ret {
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 host_available_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_available_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +56,26 @@ ingress_hostname = ret {
         true
      }
 }
-zones = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zones", null) |
+managed_from = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed_from", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
@@ -80,20 +92,8 @@ ingress_secret = ret {
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-host_attached_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_attached_count", null) |
+hosts = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hosts", null) |
         res := resources_map[_]
         true
      }

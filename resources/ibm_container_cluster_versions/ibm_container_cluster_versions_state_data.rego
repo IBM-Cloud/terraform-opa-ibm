@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_cluster_versions", "data").resources[_]
 }
+account_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
 region = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
@@ -40,12 +46,6 @@ org_guid = ret {
 }
 space_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,14 @@ domain_id = ret {
         true
      }
 }
-bypass = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bypass", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
+bypass = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bypass", null) |
         res := resources_map[_]
         true
      }
@@ -31,20 +31,14 @@ period = ret {
         true
      }
 }
-match = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
         res := resources_map[_]
         true
      }
@@ -57,6 +51,12 @@ correlate = ret {
 }
 action = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+        res := resources_map[_]
+        true
+     }
+}
+match = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
         res := resources_map[_]
         true
      }

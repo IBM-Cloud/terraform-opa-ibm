@@ -14,18 +14,6 @@ credentials = ret {
         true
      }
 }
-credentials_json = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials_json", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -56,8 +44,20 @@ status = ret {
         true
      }
 }
+credentials_json = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "credentials_json", null) |
+        res := resources_map[_]
+        true
+     }
+}
 most_recent = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "most_recent", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

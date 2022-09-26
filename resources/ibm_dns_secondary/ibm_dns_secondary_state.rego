@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_dns_secondary", "managed").resources[_]
 }
+status_text = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_text", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -34,12 +40,6 @@ zone_name = ret {
 }
 status_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status_text = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status_text", null) |
         res := resources_map[_]
         true
      }

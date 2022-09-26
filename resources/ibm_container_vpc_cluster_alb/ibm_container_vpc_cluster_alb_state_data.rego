@@ -14,20 +14,26 @@ alb_type = ret {
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
+enable = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
         res := resources_map[_]
         true
      }
 }
-disable_deployment = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-resize = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
@@ -50,14 +56,14 @@ alb_id = ret {
         true
      }
 }
-enable = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+disable_deployment = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
         res := resources_map[_]
         true
      }
@@ -68,14 +74,8 @@ load_balancer_hostname = ret {
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+resize = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_app_config_environment").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
         true
      }
@@ -25,6 +25,12 @@ environment_id = ret {
         true
      }
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -33,12 +39,6 @@ tags = ret {
 }
 color_code = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "color_code", null) |
-        res := resources_map[_]
-        true
-     }
-}
-guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_security_group_rule").resources[_]
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+rule_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]
         true
      }
@@ -19,14 +25,8 @@ remote = ret {
         true
      }
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rule_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }

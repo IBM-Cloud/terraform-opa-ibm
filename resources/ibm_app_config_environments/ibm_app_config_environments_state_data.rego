@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_app_config_environments", "data").resources[_]
 }
+expand = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
+        res := resources_map[_]
+        true
+     }
+}
 next = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next", null) |
         res := resources_map[_]
@@ -26,32 +32,8 @@ last = ret {
         true
      }
 }
-expand = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expand", null) |
-        res := resources_map[_]
-        true
-     }
-}
 total_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offset = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
-        res := resources_map[_]
-        true
-     }
-}
-environments = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environments", null) |
         res := resources_map[_]
         true
      }
@@ -70,6 +52,24 @@ guid = ret {
 }
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offset = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
+        res := resources_map[_]
+        true
+     }
+}
+environments = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "environments", null) |
         res := resources_map[_]
         true
      }

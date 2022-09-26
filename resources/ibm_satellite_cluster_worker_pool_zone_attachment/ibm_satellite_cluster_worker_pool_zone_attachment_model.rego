@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_satellite_cluster_worker_pool_zone_attachment", "managed").resources[_]
 }
+worker_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
@@ -43,12 +49,6 @@ autobalance_enabled = ret {
 }
 messages = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "messages", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_count", null) |
         res := resources_map[_]
         true
      }

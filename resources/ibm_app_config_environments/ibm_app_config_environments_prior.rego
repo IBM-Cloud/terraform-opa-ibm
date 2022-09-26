@@ -13,18 +13,6 @@ expand = ret {
         true
      }
 }
-limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offset = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
-        res := resources_map[_]
-        true
-     }
-}
 guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
@@ -33,6 +21,18 @@ guid = ret {
 }
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offset = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
         res := resources_map[_]
         true
      }

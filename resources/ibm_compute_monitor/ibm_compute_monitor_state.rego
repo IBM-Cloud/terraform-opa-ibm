@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_monitor", "managed").resources[_]
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
-        res := resources_map[_]
-        true
-     }
-}
-guest_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guest_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ip_address = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
-        res := resources_map[_]
-        true
-     }
-}
 query_type_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_type_id", null) |
         res := resources_map[_]
@@ -46,6 +28,24 @@ wait_cycles = ret {
 }
 notified_users = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "notified_users", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+guest_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guest_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ip_address = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_address", null) |
         res := resources_map[_]
         true
      }
