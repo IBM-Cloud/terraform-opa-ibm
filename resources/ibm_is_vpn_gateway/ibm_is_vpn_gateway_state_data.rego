@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpn_gateway", "data").resources[_]
 }
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -26,20 +32,14 @@ status = ret {
         true
      }
 }
-subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
-        res := resources_map[_]
-        true
-     }
-}
 mode = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mode", null) |
         res := resources_map[_]
         true
      }
 }
-vpn_gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
+connections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
         res := resources_map[_]
         true
      }
@@ -50,8 +50,8 @@ created_at = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -68,20 +68,20 @@ resource_type = ret {
         true
      }
 }
+subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpn_gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vpn_gateway_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-connections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

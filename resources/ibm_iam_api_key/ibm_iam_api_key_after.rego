@@ -13,14 +13,20 @@ store_value = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 entity_lock = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_lock", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -33,12 +39,6 @@ apikey = ret {
 }
 file = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "file", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

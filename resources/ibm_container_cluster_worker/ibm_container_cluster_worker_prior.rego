@@ -13,6 +13,12 @@ worker_id = ret {
         true
      }
 }
+space_guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
+        res := resources_map[_]
+        true
+     }
+}
 account_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_guid", null) |
         res := resources_map[_]
@@ -27,12 +33,6 @@ region = ret {
 }
 org_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "org_guid", null) |
-        res := resources_map[_]
-        true
-     }
-}
-space_guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "space_guid", null) |
         res := resources_map[_]
         true
      }

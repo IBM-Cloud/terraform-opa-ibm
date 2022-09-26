@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_container_cluster_feature").resources[_]
 }
+public_service_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_service_endpoint = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint", null) |
+        res := resources_map[_]
+        true
+     }
+}
 refresh_api_servers = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "refresh_api_servers", null) |
         res := resources_map[_]
@@ -27,18 +39,6 @@ resource_group_id = ret {
 }
 cluster = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_service_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_service_endpoint", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_service_endpoint = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_service_endpoint", null) |
         res := resources_map[_]
         true
      }

@@ -8,32 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_alb_cert", "data").resources[_]
 }
-expires_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cloud_cert_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_cert_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-secret_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+cert_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cert_crn", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +32,8 @@ issuer_name = ret {
         true
      }
 }
-cert_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cert_crn", null) |
+cloud_cert_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_cert_instance_id", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +44,32 @@ cluster_id = ret {
         true
      }
 }
+secret_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secret_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
 persistence = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
+        res := resources_map[_]
+        true
+     }
+}
+expires_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_crn", null) |
         res := resources_map[_]
         true
      }

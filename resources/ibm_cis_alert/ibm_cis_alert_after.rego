@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_alert").resources[_]
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +37,14 @@ conditions = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }

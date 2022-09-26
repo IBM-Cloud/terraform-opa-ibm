@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_pool_member", "data").resources[_]
 }
-lb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
+weight = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
         res := resources_map[_]
         true
      }
 }
-member = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "member", null) |
+pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool", null) |
         res := resources_map[_]
         true
      }
@@ -32,20 +32,8 @@ health = ret {
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +44,26 @@ provisioning_status = ret {
         true
      }
 }
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+lb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
         true
      }
 }
-weight = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "weight", null) |
+member = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "member", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }

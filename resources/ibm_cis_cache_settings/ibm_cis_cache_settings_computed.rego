@@ -13,6 +13,12 @@ browser_expiration = ret {
         true
      }
 }
+caching_level = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
+        res := resources_map[_]
+        true
+     }
+}
 development_mode = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "development_mode", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ development_mode = ret {
 }
 query_string_sort = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "query_string_sort", null) |
-        res := resources_map[_]
-        true
-     }
-}
-caching_level = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "caching_level", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_security_group_target").resources[_]
 }
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ resource_type = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

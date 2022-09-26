@@ -13,14 +13,14 @@ updated_time = ret {
         true
      }
 }
-created_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+created_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
         res := resources_map[_]
         true
      }

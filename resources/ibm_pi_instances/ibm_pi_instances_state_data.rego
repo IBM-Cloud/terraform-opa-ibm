@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_instances", "data").resources[_]
 }
-pvm_instances = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pvm_instances", null) |
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+pvm_instances = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pvm_instances", null) |
         res := resources_map[_]
         true
      }

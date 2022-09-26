@@ -13,12 +13,6 @@ vpc_name = ret {
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
 address_prefix = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ address_prefix = ret {
 }
 address_prefix_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }

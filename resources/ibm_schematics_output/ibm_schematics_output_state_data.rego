@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_schematics_output", "data").resources[_]
 }
-output_json = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "output_json", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_controller_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ template_id = ret {
 }
 output_values = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "output_values", null) |
+        res := resources_map[_]
+        true
+     }
+}
+output_json = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "output_json", null) |
         res := resources_map[_]
         true
      }

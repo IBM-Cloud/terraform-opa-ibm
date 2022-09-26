@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_network_acl", "data").resources[_]
 }
-network_acl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_acl", null) |
+vpc_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
         res := resources_map[_]
         true
      }
@@ -26,12 +26,6 @@ rules = ret {
         true
      }
 }
-subnets = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
@@ -44,8 +38,8 @@ name = ret {
         true
      }
 }
-vpc_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
+network_acl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_acl", null) |
         res := resources_map[_]
         true
      }
@@ -64,6 +58,12 @@ href = ret {
 }
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+subnets = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
         res := resources_map[_]
         true
      }

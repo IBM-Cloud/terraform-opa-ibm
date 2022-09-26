@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_range_app").resources[_]
 }
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+edge_ips_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "edge_ips_type", null) |
         res := resources_map[_]
         true
      }
@@ -19,14 +19,20 @@ dns = ret {
         true
      }
 }
-origin_direct = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin_direct", null) |
+dns_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_type", null) |
         res := resources_map[_]
         true
      }
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+origin_dns = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin_dns", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ip_firewall = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_firewall", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +43,14 @@ traffic_type = ret {
         true
      }
 }
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+origin_direct = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin_direct", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +67,8 @@ edge_ips_connectivity = ret {
         true
      }
 }
-ip_firewall = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ip_firewall", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }
@@ -67,26 +79,14 @@ proxy_protocol = ret {
         true
      }
 }
-edge_ips_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "edge_ips_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 tls = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tls", null) |
         res := resources_map[_]
         true
      }
 }
-dns_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-origin_dns = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "origin_dns", null) |
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
         res := resources_map[_]
         true
      }

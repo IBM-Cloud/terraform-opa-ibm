@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_snapshots", "data").resources[_]
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ source_volume = ret {
 }
 snapshots = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "snapshots", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

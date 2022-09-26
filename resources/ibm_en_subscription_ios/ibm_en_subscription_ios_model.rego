@@ -11,6 +11,24 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_en_subscription_ios", "managed").resources[_]
 }
+destination_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+topic_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subscription_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_id", null) |
         res := resources_map[_]
@@ -41,18 +59,6 @@ name = ret {
         true
      }
 }
-topic_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-topic_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
@@ -61,12 +67,6 @@ description = ret {
 }
 destination_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-destination_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
         res := resources_map[_]
         true
      }

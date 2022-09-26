@@ -14,14 +14,14 @@ domain_id = ret {
         true
      }
 }
-bypass = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bypass", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
 }
-threshold = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
+bypass = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bypass", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +32,8 @@ period = ret {
         true
      }
 }
-match = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
+rule_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +44,8 @@ cis_id = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+threshold = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "threshold", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +62,8 @@ action = ret {
         true
      }
 }
-rule_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
+match = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "match", null) |
         res := resources_map[_]
         true
      }

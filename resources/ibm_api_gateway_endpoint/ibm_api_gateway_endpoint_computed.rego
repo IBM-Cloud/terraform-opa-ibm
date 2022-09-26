@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_api_gateway_endpoint").resources[_]
 }
-shared = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
+base_path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_path", null) |
         res := resources_map[_]
         true
      }
 }
-base_path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_path", null) |
+shared = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "shared", null) |
         res := resources_map[_]
         true
      }

@@ -14,12 +14,6 @@ rules = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
@@ -46,6 +40,30 @@ name = ret {
 }
 receive_global_events = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "receive_global_events", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+api_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "api_version", null) |
         res := resources_map[_]
         true
      }

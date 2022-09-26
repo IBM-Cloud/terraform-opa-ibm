@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_network_acl").resources[_]
 }
-network_acl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_acl", null) |
+vpc_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ name = ret {
         true
      }
 }
-vpc_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
+network_acl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_acl", null) |
         res := resources_map[_]
         true
      }

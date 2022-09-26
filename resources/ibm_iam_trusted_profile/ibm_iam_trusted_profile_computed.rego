@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_iam_trusted_profile").resources[_]
 }
-entity_tag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,8 @@ created_at = ret {
         true
      }
 }
-ims_user_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_user_id", null) |
+iam_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ profile_id = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+entity_tag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +55,14 @@ modified_at = ret {
         true
      }
 }
-iam_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iam_id", null) |
+ims_account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_account_id", null) |
         res := resources_map[_]
         true
      }
 }
-ims_account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_account_id", null) |
+ims_user_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_user_id", null) |
         res := resources_map[_]
         true
      }

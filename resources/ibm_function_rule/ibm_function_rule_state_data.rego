@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_function_rule", "data").resources[_]
 }
+action_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
 publish = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "publish", null) |
         res := resources_map[_]
@@ -40,18 +52,6 @@ namespace = ret {
 }
 trigger_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-action_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }

@@ -14,30 +14,6 @@ vpc_name = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-is_default = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
 address_prefix = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix", null) |
         res := resources_map[_]
@@ -62,14 +38,38 @@ created_at = ret {
         true
      }
 }
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
 has_subnets = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_subnets", null) |
         res := resources_map[_]
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+is_default = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }

@@ -13,14 +13,14 @@ create_time = ret {
         true
      }
 }
-update_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+update_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
         res := resources_map[_]
         true
      }

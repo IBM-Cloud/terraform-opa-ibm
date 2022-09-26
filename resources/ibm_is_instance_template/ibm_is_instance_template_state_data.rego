@@ -14,26 +14,8 @@ href = ret {
         true
      }
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
-        res := resources_map[_]
-        true
-     }
-}
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
-        res := resources_map[_]
-        true
-     }
-}
 total_volume_bandwidth = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_volume_bandwidth", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_trusted_profile_auto_link = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_trusted_profile_auto_link", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +26,14 @@ metadata_service_enabled = ret {
         true
      }
 }
-network_interfaces = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+availability_policy_host_failure = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "availability_policy_host_failure", null) |
+        res := resources_map[_]
+        true
+     }
+}
+image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
         res := resources_map[_]
         true
      }
@@ -62,32 +50,14 @@ resource_group = ret {
         true
      }
 }
-placement_target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_target", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-volume_attachments = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachments", null) |
-        res := resources_map[_]
-        true
-     }
-}
-image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
-        res := resources_map[_]
-        true
-     }
-}
-identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
         true
      }
@@ -98,14 +68,26 @@ profile = ret {
         true
      }
 }
-keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
+default_trusted_profile_target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_trusted_profile_target", null) |
         res := resources_map[_]
         true
      }
 }
-primary_network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
+network_interfaces = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_interfaces", null) |
+        res := resources_map[_]
+        true
+     }
+}
+user_data = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_data", null) |
+        res := resources_map[_]
+        true
+     }
+}
+placement_target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "placement_target", null) |
         res := resources_map[_]
         true
      }
@@ -116,20 +98,38 @@ crn = ret {
         true
      }
 }
-default_trusted_profile_target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_trusted_profile_target", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
 }
-availability_policy_host_failure = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "availability_policy_host_failure", null) |
+keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
         res := resources_map[_]
         true
      }
 }
-user_data = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_data", null) |
+volume_attachments = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "volume_attachments", null) |
+        res := resources_map[_]
+        true
+     }
+}
+primary_network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
+        res := resources_map[_]
+        true
+     }
+}
+identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_trusted_profile_auto_link = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_trusted_profile_auto_link", null) |
         res := resources_map[_]
         true
      }

@@ -13,8 +13,8 @@ vpn_gateway_name = ret {
         true
      }
 }
-vpn_gateway_connection = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection", null) |
+vpn_gateway_connection_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection_name", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ vpn_gateway = ret {
         true
      }
 }
-vpn_gateway_connection_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection_name", null) |
+vpn_gateway_connection = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_gateway_connection", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_si_occurrence", "data").resources[_]
 }
-update_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kpi = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
         res := resources_map[_]
         true
      }
@@ -32,14 +26,8 @@ note_name = ret {
         true
      }
 }
-remediation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remediation", null) |
-        res := resources_map[_]
-        true
-     }
-}
-create_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_time", null) |
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
         res := resources_map[_]
         true
      }
@@ -62,20 +50,32 @@ account_id = ret {
         true
      }
 }
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
+remediation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remediation", null) |
+        res := resources_map[_]
+        true
+     }
+}
+create_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "create_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+update_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "update_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kpi = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kpi", null) |
         res := resources_map[_]
         true
      }
 }
 occurrence_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "occurrence_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kind = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
         res := resources_map[_]
         true
      }

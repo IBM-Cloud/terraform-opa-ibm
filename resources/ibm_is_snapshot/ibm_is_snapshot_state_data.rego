@@ -8,14 +8,44 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_snapshot", "data").resources[_]
 }
-identifier = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
+source_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
+        res := resources_map[_]
+        true
+     }
+}
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+captured_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "captured_at", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_image", null) |
         res := resources_map[_]
         true
      }
@@ -32,20 +62,8 @@ href = ret {
         true
      }
 }
-source_image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_image", null) |
-        res := resources_map[_]
-        true
-     }
-}
-size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
-        res := resources_map[_]
-        true
-     }
-}
-captured_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "captured_at", null) |
+identifier = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "identifier", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +80,8 @@ bootable = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+minimum_capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_capacity", null) |
         res := resources_map[_]
         true
      }
@@ -74,26 +92,8 @@ encryption = ret {
         true
      }
 }
-minimum_capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_capacity", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
-        res := resources_map[_]
-        true
-     }
-}
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
         res := resources_map[_]
         true
      }

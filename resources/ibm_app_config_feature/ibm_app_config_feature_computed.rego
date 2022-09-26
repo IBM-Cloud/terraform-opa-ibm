@@ -13,14 +13,14 @@ segment_exists = ret {
         true
      }
 }
-updated_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_time", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
 }
-created_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
+updated_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_time", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ href = ret {
         true
      }
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+created_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
         res := resources_map[_]
         true
      }

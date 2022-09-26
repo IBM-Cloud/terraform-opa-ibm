@@ -19,20 +19,8 @@ accept_proxy_protocol = ret {
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 port_min = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_min", null) |
-        res := resources_map[_]
-        true
-     }
-}
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +37,20 @@ default_pool = ret {
         true
      }
 }
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }

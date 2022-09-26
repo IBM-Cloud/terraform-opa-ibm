@@ -11,6 +11,12 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_template_attachment", "managed").resources[_]
 }
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
 attachment_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attachment_id", null) |
         res := resources_map[_]
@@ -37,12 +43,6 @@ included_scope = ret {
 }
 excluded_scopes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded_scopes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }

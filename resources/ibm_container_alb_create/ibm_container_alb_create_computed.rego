@@ -7,14 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_container_alb_create").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 disable_deployment = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disable_deployment", null) |
         res := resources_map[_]
         true
      }
 }
-replicas = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replicas", null) |
+resize = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
         res := resources_map[_]
         true
      }
@@ -31,14 +37,8 @@ user_ip = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resize = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resize", null) |
+replicas = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replicas", null) |
         res := resources_map[_]
         true
      }

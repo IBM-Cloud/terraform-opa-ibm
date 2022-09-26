@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_ipsec_vpn", "managed").resources[_]
 }
-address_translation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_translation", null) |
-        res := resources_map[_]
-        true
-     }
-}
-remote_subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet", null) |
-        res := resources_map[_]
-        true
-     }
-}
 datacenter = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
@@ -38,8 +26,8 @@ phase_two = ret {
         true
      }
 }
-customer_peer_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_peer_ip", null) |
+preshared_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
         res := resources_map[_]
         true
      }
@@ -52,6 +40,12 @@ internal_subnet_id = ret {
 }
 remote_subnet_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote_subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote_subnet", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +68,14 @@ phase_one = ret {
         true
      }
 }
-preshared_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "preshared_key", null) |
+address_translation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_translation", null) |
+        res := resources_map[_]
+        true
+     }
+}
+customer_peer_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_peer_ip", null) |
         res := resources_map[_]
         true
      }

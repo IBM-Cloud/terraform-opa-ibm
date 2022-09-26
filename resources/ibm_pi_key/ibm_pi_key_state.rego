@@ -20,20 +20,20 @@ pi_ssh_key = ret {
         true
      }
 }
-pi_creation_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_creation_date", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+creation_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
         res := resources_map[_]
         true
      }
 }
 key_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

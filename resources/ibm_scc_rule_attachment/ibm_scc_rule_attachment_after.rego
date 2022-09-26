@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_scc_rule_attachment").resources[_]
 }
-excluded_scopes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded_scopes", null) |
-        res := resources_map[_]
-        true
-     }
-}
 rule_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ account_id = ret {
 }
 included_scope = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "included_scope", null) |
+        res := resources_map[_]
+        true
+     }
+}
+excluded_scopes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded_scopes", null) |
         res := resources_map[_]
         true
      }

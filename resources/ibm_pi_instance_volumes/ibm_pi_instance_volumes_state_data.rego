@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_instance_volumes", "data").resources[_]
 }
+pi_instance_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -22,12 +28,6 @@ boot_volume_id = ret {
 }
 instance_volumes = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_volumes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_instance_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_name", null) |
         res := resources_map[_]
         true
      }

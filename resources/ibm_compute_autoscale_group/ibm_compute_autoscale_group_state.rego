@@ -8,32 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_compute_autoscale_group", "managed").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-regional_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regional_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cooldown = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
-        res := resources_map[_]
-        true
-     }
-}
-termination_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "termination_policy", null) |
-        res := resources_map[_]
-        true
-     }
-}
-virtual_server_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
+health_check = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +38,20 @@ minimum_member_count = ret {
         true
      }
 }
-maximum_member_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_member_count", null) |
+cooldown = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cooldown", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_server_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+termination_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "termination_policy", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +62,20 @@ port = ret {
         true
      }
 }
-health_check = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health_check", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+regional_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regional_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+maximum_member_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_member_count", null) |
         res := resources_map[_]
         true
      }

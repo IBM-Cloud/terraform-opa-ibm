@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_instance_disk_management").resources[_]
 }
-disks = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
         true
      }
 }
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+disks = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disks", null) |
         res := resources_map[_]
         true
      }

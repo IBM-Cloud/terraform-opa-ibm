@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_ipsec_policy").resources[_]
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -39,6 +33,12 @@ authentication_algorithm = ret {
 }
 pfs = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pfs", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cos_bucket_object", "data").resources[_]
 }
-bucket_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_crn", null) |
+object_sql_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_sql_url", null) |
         res := resources_map[_]
         true
      }
 }
-content_length = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
+bucket_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bucket_crn", null) |
         res := resources_map[_]
         true
      }
@@ -26,14 +26,26 @@ content_type = ret {
         true
      }
 }
+etag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
+        res := resources_map[_]
+        true
+     }
+}
 key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key", null) |
         res := resources_map[_]
         true
      }
 }
-object_sql_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "object_sql_url", null) |
+last_modified = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
         res := resources_map[_]
         true
      }
@@ -50,26 +62,14 @@ bucket_location = ret {
         true
      }
 }
+content_length = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content_length", null) |
+        res := resources_map[_]
+        true
+     }
+}
 endpoint_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-etag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "etag", null) |
-        res := resources_map[_]
-        true
-     }
-}
-last_modified = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified", null) |
-        res := resources_map[_]
-        true
-     }
-}
-version_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version_id", null) |
         res := resources_map[_]
         true
      }

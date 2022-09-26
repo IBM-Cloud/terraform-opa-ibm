@@ -13,8 +13,8 @@ type = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+datacenter = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ router_hostname = ret {
         true
      }
 }
-datacenter = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "datacenter", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

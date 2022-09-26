@@ -25,6 +25,12 @@ key_id = ret {
         true
      }
 }
+existing_alias = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "existing_alias", null) |
+        res := resources_map[_]
+        true
+     }
+}
 endpoint_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
         res := resources_map[_]

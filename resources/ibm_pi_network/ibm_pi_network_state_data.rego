@@ -20,6 +20,36 @@ name = ret {
         true
      }
 }
+dns = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns", null) |
+        res := resources_map[_]
+        true
+     }
+}
+jumbo = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "jumbo", null) |
+        res := resources_map[_]
+        true
+     }
+}
+available_ip_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available_ip_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+used_ip_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "used_ip_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
@@ -38,44 +68,14 @@ type = ret {
         true
      }
 }
-gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
-        res := resources_map[_]
-        true
-     }
-}
-dns = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dns", null) |
-        res := resources_map[_]
-        true
-     }
-}
-jumbo = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "jumbo", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_network_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vlan_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan_id", null) |
         res := resources_map[_]
         true
      }
 }
-available_ip_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "available_ip_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-used_ip_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "used_ip_count", null) |
+gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
         res := resources_map[_]
         true
      }

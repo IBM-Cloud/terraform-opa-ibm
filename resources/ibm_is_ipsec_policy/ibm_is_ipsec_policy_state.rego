@@ -8,30 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_ipsec_policy", "managed").resources[_]
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-transform_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transform_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_controller_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -50,14 +26,20 @@ key_lifetime = ret {
         true
      }
 }
-encapsulation_mode = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encapsulation_mode", null) |
+vpn_connections = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
         res := resources_map[_]
         true
      }
 }
-vpn_connections = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpn_connections", null) |
+transform_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transform_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_controller_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
         res := resources_map[_]
         true
      }
@@ -82,6 +64,24 @@ authentication_algorithm = ret {
 }
 pfs = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pfs", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+encapsulation_mode = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encapsulation_mode", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
         res := resources_map[_]
         true
      }

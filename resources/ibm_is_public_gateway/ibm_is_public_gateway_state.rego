@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_public_gateway", "managed").resources[_]
 }
-vpc = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+floating_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
         res := resources_map[_]
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -26,14 +26,38 @@ resource_group = ret {
         true
      }
 }
-floating_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
+resource_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
         res := resources_map[_]
         true
      }
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+resource_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_group_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
+        res := resources_map[_]
+        true
+     }
+}
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
@@ -56,32 +80,8 @@ resource_name = ret {
         true
      }
 }
-resource_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_status", null) |
         res := resources_map[_]
         true
      }

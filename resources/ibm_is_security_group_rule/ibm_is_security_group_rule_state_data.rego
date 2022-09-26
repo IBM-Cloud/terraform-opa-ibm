@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_security_group_rule", "data").resources[_]
 }
-security_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-direction = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -26,38 +20,14 @@ ip_version = ret {
         true
      }
 }
-port_max = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_max", null) |
-        res := resources_map[_]
-        true
-     }
-}
-security_group_rule = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_rule", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-remote = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
-        res := resources_map[_]
-        true
-     }
-}
 code = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "code", null) |
+        res := resources_map[_]
+        true
+     }
+}
+port_max = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_max", null) |
         res := resources_map[_]
         true
      }
@@ -70,6 +40,36 @@ type = ret {
 }
 port_min = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_min", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+security_group_rule = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_group_rule", null) |
+        res := resources_map[_]
+        true
+     }
+}
+direction = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "direction", null) |
+        res := resources_map[_]
+        true
+     }
+}
+protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+remote = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remote", null) |
         res := resources_map[_]
         true
      }

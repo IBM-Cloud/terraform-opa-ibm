@@ -7,24 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_en_destination_ios").resources[_]
 }
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate_content_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_content_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_guid = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_guid", null) |
         res := resources_map[_]
@@ -37,8 +19,26 @@ name = ret {
         true
      }
 }
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
+        res := resources_map[_]
+        true
+     }
+}
+certificate_content_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate_content_type", null) |
         res := resources_map[_]
         true
      }

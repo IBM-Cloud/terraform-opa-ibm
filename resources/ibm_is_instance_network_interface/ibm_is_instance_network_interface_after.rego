@@ -13,6 +13,18 @@ allow_ip_spoofing = ret {
         true
      }
 }
+primary_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subnet = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
         res := resources_map[_]
@@ -31,12 +43,6 @@ primary_ipv4_address = ret {
         true
      }
 }
-primary_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
 security_groups = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
         res := resources_map[_]
@@ -45,12 +51,6 @@ security_groups = ret {
 }
 floating_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "floating_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance", null) |
         res := resources_map[_]
         true
      }

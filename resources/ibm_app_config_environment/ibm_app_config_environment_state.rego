@@ -14,8 +14,14 @@ updated_time = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+guid = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
         true
      }
@@ -32,6 +38,18 @@ environment_id = ret {
         true
      }
 }
+created_time = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 tags = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
@@ -40,24 +58,6 @@ tags = ret {
 }
 color_code = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "color_code", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_time = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_time", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-guid = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "guid", null) |
         res := resources_map[_]
         true
      }

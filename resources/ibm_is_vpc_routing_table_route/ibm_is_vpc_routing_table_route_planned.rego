@@ -19,8 +19,8 @@ zone = ret {
         true
      }
 }
-next_hop = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next_hop", null) |
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ vpc = ret {
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+next_hop = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next_hop", null) |
         res := resources_map[_]
         true
      }

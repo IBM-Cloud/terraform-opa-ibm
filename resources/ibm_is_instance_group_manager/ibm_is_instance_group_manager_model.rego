@@ -11,14 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_is_instance_group_manager", "managed").resources[_]
 }
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-aggregation_window = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "aggregation_window", null) |
+manager_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_type", null) |
         res := resources_map[_]
         true
      }
@@ -35,14 +29,8 @@ max_membership_count = ret {
         true
      }
 }
-min_membership_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-actions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
+policies = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
         res := resources_map[_]
         true
      }
@@ -53,14 +41,14 @@ name = ret {
         true
      }
 }
-enable_manager = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_manager", null) |
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }
 }
-manager_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager_type", null) |
+min_membership_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "min_membership_count", null) |
         res := resources_map[_]
         true
      }
@@ -71,8 +59,20 @@ manager_id = ret {
         true
      }
 }
-policies = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
+actions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "actions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable_manager = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_manager", null) |
+        res := resources_map[_]
+        true
+     }
+}
+aggregation_window = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "aggregation_window", null) |
         res := resources_map[_]
         true
      }
