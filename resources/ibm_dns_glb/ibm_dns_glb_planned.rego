@@ -7,26 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_dns_glb").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zone_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pools", null) |
         res := resources_map[_]
         true
      }
@@ -51,6 +33,24 @@ ttl = ret {
 }
 fallback_pool = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "fallback_pool", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pools", null) |
         res := resources_map[_]
         true
      }

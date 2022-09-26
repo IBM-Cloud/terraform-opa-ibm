@@ -13,14 +13,26 @@ machine_type = ret {
         true
      }
 }
-size_per_zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size_per_zone", null) |
+disk_encryption = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_encryption", null) |
+        res := resources_map[_]
+        true
+     }
+}
+labels = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
         res := resources_map[_]
         true
      }
 }
 taints = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "taints", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +49,8 @@ entitlement = ret {
         true
      }
 }
-labels = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "labels", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+hardware = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware", null) |
         res := resources_map[_]
         true
      }
@@ -55,20 +61,14 @@ cluster = ret {
         true
      }
 }
-hardware = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hardware", null) |
+size_per_zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size_per_zone", null) |
         res := resources_map[_]
         true
      }
 }
-disk_encryption = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "disk_encryption", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }

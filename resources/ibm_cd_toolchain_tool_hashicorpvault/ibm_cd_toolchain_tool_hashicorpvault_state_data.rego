@@ -8,20 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cd_toolchain_tool_hashicorpvault", "data").resources[_]
 }
+toolchain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+referent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referent", null) |
         res := resources_map[_]
         true
      }
 }
-toolchain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_id", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }
@@ -44,20 +50,14 @@ toolchain_crn = ret {
         true
      }
 }
-referent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referent", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }

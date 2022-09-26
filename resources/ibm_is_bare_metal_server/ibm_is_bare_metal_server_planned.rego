@@ -7,14 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_bare_metal_server").resources[_]
 }
-image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
+action = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
         res := resources_map[_]
         true
      }
 }
-profile = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
+primary_network_interface = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
+        res := resources_map[_]
+        true
+     }
+}
+keys = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +31,8 @@ user_data = ret {
         true
      }
 }
-resource_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -49,26 +55,20 @@ tags = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 delete_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "delete_type", null) |
         res := resources_map[_]
         true
      }
 }
-primary_network_interface = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_network_interface", null) |
+image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
         res := resources_map[_]
         true
      }
 }
-keys = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
+profile = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile", null) |
         res := resources_map[_]
         true
      }
@@ -79,8 +79,8 @@ vpc = ret {
         true
      }
 }
-action = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "action", null) |
+resource_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
         res := resources_map[_]
         true
      }

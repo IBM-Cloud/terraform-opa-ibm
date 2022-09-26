@@ -8,6 +8,24 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_bare_metal_server_initialization", "data").resources[_]
 }
+bare_metal_server = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
+        res := resources_map[_]
+        true
+     }
+}
+private_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
+passphrase = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
+        res := resources_map[_]
+        true
+     }
+}
 image = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image", null) |
         res := resources_map[_]
@@ -28,24 +46,6 @@ user_accounts = ret {
 }
 keys = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keys", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bare_metal_server = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bare_metal_server", null) |
-        res := resources_map[_]
-        true
-     }
-}
-private_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "private_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
-passphrase = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "passphrase", null) |
         res := resources_map[_]
         true
      }

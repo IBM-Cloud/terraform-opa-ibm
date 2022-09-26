@@ -8,42 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_network_port_attach", "managed").resources[_]
 }
-pi_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_network_port_ipaddress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_port_ipaddress", null) |
-        res := resources_map[_]
-        true
-     }
-}
-macaddress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "macaddress", null) |
-        res := resources_map[_]
-        true
-     }
-}
-network_port_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_port_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-public_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_network_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_name", null) |
         res := resources_map[_]
@@ -62,8 +26,44 @@ port_id = ret {
         true
      }
 }
+network_port_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_port_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+public_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "public_ip", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_network_port_ipaddress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_network_port_ipaddress", null) |
+        res := resources_map[_]
+        true
+     }
+}
+macaddress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "macaddress", null) |
         res := resources_map[_]
         true
      }

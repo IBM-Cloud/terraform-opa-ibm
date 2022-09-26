@@ -11,6 +11,18 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_rule_attachment", "managed").resources[_]
 }
+rule_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 included_scope = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "included_scope", null) |
         res := resources_map[_]
@@ -31,18 +43,6 @@ version = ret {
 }
 attachment_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "attachment_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-rule_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
         res := resources_map[_]
         true
      }

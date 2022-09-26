@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_posture_scan_summaries", "data").resources[_]
 }
-report_setting_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "report_setting_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 first = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "first", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ previous = ret {
 }
 summaries = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "summaries", null) |
+        res := resources_map[_]
+        true
+     }
+}
+report_setting_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "report_setting_id", null) |
         res := resources_map[_]
         true
      }

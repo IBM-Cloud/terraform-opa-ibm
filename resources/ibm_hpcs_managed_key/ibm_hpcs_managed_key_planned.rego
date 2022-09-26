@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_hpcs_managed_key").resources[_]
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+template_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_name", null) |
         res := resources_map[_]
         true
      }
@@ -31,8 +31,8 @@ description = ret {
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
@@ -43,20 +43,20 @@ uko_vault = ret {
         true
      }
 }
-template_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 label = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

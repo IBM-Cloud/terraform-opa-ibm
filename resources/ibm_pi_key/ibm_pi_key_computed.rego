@@ -19,4 +19,16 @@ key_id = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ssh_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssh_key", null) |
+        res := resources_map[_]
+        true
+     }
+}
 

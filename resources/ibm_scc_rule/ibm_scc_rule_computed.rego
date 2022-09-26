@@ -7,20 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_scc_rule").resources[_]
 }
-creation_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
-        res := resources_map[_]
-        true
-     }
-}
 created_by = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-modification_date = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modification_date", null) |
         res := resources_map[_]
         true
      }
@@ -33,6 +21,18 @@ version = ret {
 }
 rule_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rule_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+creation_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "creation_date", null) |
+        res := resources_map[_]
+        true
+     }
+}
+modification_date = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modification_date", null) |
         res := resources_map[_]
         true
      }

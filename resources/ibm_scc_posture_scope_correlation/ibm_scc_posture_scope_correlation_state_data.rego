@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_posture_scope_correlation", "data").resources[_]
 }
-correlation_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "correlation_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
@@ -28,6 +22,12 @@ start_time = ret {
 }
 last_heartbeat = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_heartbeat", null) |
+        res := resources_map[_]
+        true
+     }
+}
+correlation_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "correlation_id", null) |
         res := resources_map[_]
         true
      }

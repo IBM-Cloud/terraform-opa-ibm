@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_resource_key").resources[_]
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 role = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "role", null) |
         res := resources_map[_]
@@ -19,20 +25,14 @@ resource_instance_id = ret {
         true
      }
 }
-resource_alias_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_alias_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 parameters = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+resource_alias_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_alias_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cloud_shell_account_settings").resources[_]
 }
+regions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 rev = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "rev", null) |
         res := resources_map[_]
@@ -25,26 +37,14 @@ default_enable_new_regions = ret {
         true
      }
 }
-features = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "features", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
         res := resources_map[_]
         true
      }
 }
-regions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regions", null) |
+features = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "features", null) |
         res := resources_map[_]
         true
      }

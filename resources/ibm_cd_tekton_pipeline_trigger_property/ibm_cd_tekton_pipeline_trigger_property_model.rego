@@ -11,18 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cd_tekton_pipeline_trigger_property", "managed").resources[_]
 }
-path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
-        res := resources_map[_]
-        true
-     }
-}
-pipeline_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 trigger_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
         res := resources_map[_]
@@ -55,6 +43,18 @@ default_ = ret {
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pipeline_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
         res := resources_map[_]
         true
      }

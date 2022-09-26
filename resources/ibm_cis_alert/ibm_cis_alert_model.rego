@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_alert", "managed").resources[_]
 }
-policy_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_id", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -29,20 +29,14 @@ alert_type = ret {
         true
      }
 }
-mechanisms = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mechanisms", null) |
-        res := resources_map[_]
-        true
-     }
-}
-filters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "filters", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cis_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+policy_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policy_id", null) |
         res := resources_map[_]
         true
      }
@@ -53,8 +47,14 @@ name = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+mechanisms = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mechanisms", null) |
+        res := resources_map[_]
+        true
+     }
+}
+filters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "filters", null) |
         res := resources_map[_]
         true
      }

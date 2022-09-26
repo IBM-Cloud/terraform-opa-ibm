@@ -13,8 +13,8 @@ url = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+offerings_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ resource_group_id = ret {
         true
      }
 }
-offerings_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

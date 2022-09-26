@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cloudant").resources[_]
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+plan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
 }
-capacity = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ include_data_events = ret {
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
         res := resources_map[_]
         true
      }
@@ -49,26 +49,26 @@ tags = ret {
         true
      }
 }
-enable_cors = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_cors", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
-plan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "plan", null) |
+capacity = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "capacity", null) |
         res := resources_map[_]
         true
      }
 }
 cors_config = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cors_config", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enable_cors = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable_cors", null) |
         res := resources_map[_]
         true
      }

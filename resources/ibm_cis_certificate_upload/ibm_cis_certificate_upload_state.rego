@@ -8,20 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cis_certificate_upload", "managed").resources[_]
 }
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+issuer = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer", null) |
         res := resources_map[_]
         true
      }
 }
-modified_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
-        res := resources_map[_]
-        true
-     }
-}
-certificate = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
+signature = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signature", null) |
         res := resources_map[_]
         true
      }
@@ -32,38 +26,8 @@ private_key = ret {
         true
      }
 }
-issuer = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "issuer", null) |
-        res := resources_map[_]
-        true
-     }
-}
-custom_cert_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "custom_cert_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-bundle_method = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bundle_method", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cis_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +38,20 @@ uploaded_on = ret {
         true
      }
 }
-expires_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
+modified_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cis_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cis_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
@@ -86,8 +62,32 @@ hosts = ret {
         true
      }
 }
-signature = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "signature", null) |
+expires_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "expires_on", null) |
+        res := resources_map[_]
+        true
+     }
+}
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+bundle_method = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bundle_method", null) |
+        res := resources_map[_]
+        true
+     }
+}
+custom_cert_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "custom_cert_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+certificate = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certificate", null) |
         res := resources_map[_]
         true
      }

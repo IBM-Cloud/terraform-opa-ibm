@@ -7,20 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_schematics_inventory").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
 inventories_ini = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "inventories_ini", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+resource_queries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_queries", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +37,8 @@ resource_group = ret {
         true
      }
 }
-resource_queries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_queries", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

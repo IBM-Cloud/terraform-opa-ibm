@@ -8,26 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_posture_profile", "data").resources[_]
 }
-modified_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
-profile_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-base_profile = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_profile", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }
@@ -38,20 +20,8 @@ updated_at = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reason_for_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reason_for_delete", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+profile_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profile_id", null) |
         res := resources_map[_]
         true
      }
@@ -62,14 +32,20 @@ profile_type = ret {
         true
      }
 }
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
 version = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
         res := resources_map[_]
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+modified_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "modified_by", null) |
         res := resources_map[_]
         true
      }
@@ -86,8 +62,32 @@ created_at = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+reason_for_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reason_for_delete", null) |
+        res := resources_map[_]
+        true
+     }
+}
+base_profile = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "base_profile", null) |
         res := resources_map[_]
         true
      }

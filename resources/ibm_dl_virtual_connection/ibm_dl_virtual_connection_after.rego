@@ -13,6 +13,12 @@ type = ret {
         true
      }
 }
+gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
+        res := resources_map[_]
+        true
+     }
+}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ name = ret {
 }
 network_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
         res := resources_map[_]
         true
      }

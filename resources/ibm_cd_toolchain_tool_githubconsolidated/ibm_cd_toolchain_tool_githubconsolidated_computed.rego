@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cd_toolchain_tool_githubconsolidated").resources[_]
 }
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -31,8 +37,8 @@ state = ret {
         true
      }
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+tool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
         res := resources_map[_]
         true
      }
@@ -45,12 +51,6 @@ toolchain_crn = ret {
 }
 referent = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referent", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
         res := resources_map[_]
         true
      }

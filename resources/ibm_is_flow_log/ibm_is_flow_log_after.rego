@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_is_flow_log").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-storage_bucket = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_bucket", null) |
+active = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +19,8 @@ resource_group = ret {
         true
      }
 }
-active = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "active", null) |
+target = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +31,14 @@ tags = ret {
         true
      }
 }
-target = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+storage_bucket = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_bucket", null) |
         res := resources_map[_]
         true
      }

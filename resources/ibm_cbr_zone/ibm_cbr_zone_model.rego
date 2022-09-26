@@ -11,32 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cbr_zone", "managed").resources[_]
 }
-excluded = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-last_modified_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_count", null) |
+excluded_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded_count", null) |
         res := resources_map[_]
         true
      }
@@ -47,44 +23,14 @@ href = ret {
         true
      }
 }
-version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
-        res := resources_map[_]
-        true
-     }
-}
-addresses = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addresses", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-excluded_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-last_modified_by_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
         true
      }
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -101,8 +47,62 @@ transaction_id = ret {
         true
      }
 }
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+created_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+excluded = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "excluded", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+address_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+last_modified_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+last_modified_by_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "last_modified_by_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+addresses = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "addresses", null) |
         res := resources_map[_]
         true
      }

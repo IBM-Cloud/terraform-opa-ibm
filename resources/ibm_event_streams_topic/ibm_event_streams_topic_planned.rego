@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_event_streams_topic").resources[_]
 }
-partitions = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "partitions", null) |
-        res := resources_map[_]
-        true
-     }
-}
-config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_instance_id", null) |
         res := resources_map[_]
@@ -27,6 +15,18 @@ resource_instance_id = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+partitions = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "partitions", null) |
+        res := resources_map[_]
+        true
+     }
+}
+config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config", null) |
         res := resources_map[_]
         true
      }

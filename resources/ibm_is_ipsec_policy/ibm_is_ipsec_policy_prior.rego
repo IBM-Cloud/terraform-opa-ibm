@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_ipsec_policy").resources[_]
 }
-ipsec_policy = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+ipsec_policy = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ipsec_policy", null) |
         res := resources_map[_]
         true
      }

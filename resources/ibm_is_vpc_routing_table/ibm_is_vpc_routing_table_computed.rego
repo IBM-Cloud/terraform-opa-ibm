@@ -13,14 +13,32 @@ routing_table = ret {
         true
      }
 }
+created_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lifecycle_state = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }
 }
+is_default = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
+        res := resources_map[_]
+        true
+     }
+}
 subnets = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnets", null) |
+        res := resources_map[_]
+        true
+     }
+}
+accept_routes_from_resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "accept_routes_from_resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -39,18 +57,6 @@ href = ret {
 }
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-is_default = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_default", null) |
         res := resources_map[_]
         true
      }

@@ -19,6 +19,12 @@ state = ret {
         true
      }
 }
+tool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -45,12 +51,6 @@ referent = ret {
 }
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
         res := resources_map[_]
         true
      }

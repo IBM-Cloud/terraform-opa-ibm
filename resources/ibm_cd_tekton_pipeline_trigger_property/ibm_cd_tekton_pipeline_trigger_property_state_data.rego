@@ -8,24 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cd_tekton_pipeline_trigger_property", "data").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-enum = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enum", null) |
-        res := resources_map[_]
-        true
-     }
-}
 default = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default", null) |
         res := resources_map[_]
@@ -38,14 +20,8 @@ type = ret {
         true
      }
 }
-trigger_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-property_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "property_name", null) |
+path = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +32,32 @@ pipeline_id = ret {
         true
      }
 }
-path = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
+trigger_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+enum = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enum", null) |
+        res := resources_map[_]
+        true
+     }
+}
+property_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "property_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "value", null) |
         res := resources_map[_]
         true
      }

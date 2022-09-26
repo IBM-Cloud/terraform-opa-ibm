@@ -8,8 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_pool", "data").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+algorithm = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
         res := resources_map[_]
         true
      }
@@ -38,18 +38,6 @@ members = ret {
         true
      }
 }
-proxy_protocol = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
-        res := resources_map[_]
-        true
-     }
-}
-session_persistence = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence", null) |
-        res := resources_map[_]
-        true
-     }
-}
 lb = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
@@ -62,14 +50,8 @@ identifier = ret {
         true
      }
 }
-algorithm = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "algorithm", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -82,6 +64,24 @@ protocol = ret {
 }
 provisioning_status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provisioning_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+proxy_protocol = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxy_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+session_persistence = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "session_persistence", null) |
         res := resources_map[_]
         true
      }

@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cd_toolchain_tool_hostedgit").resources[_]
 }
+toolchain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 initialization = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "initialization", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ initialization = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-toolchain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_id", null) |
         res := resources_map[_]
         true
      }

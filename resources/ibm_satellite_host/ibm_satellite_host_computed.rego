@@ -13,8 +13,8 @@ labels = ret {
         true
      }
 }
-worker_pool = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool", null) |
+zone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
         res := resources_map[_]
         true
      }
@@ -25,8 +25,8 @@ cluster = ret {
         true
      }
 }
-zone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone", null) |
+worker_pool = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_pool", null) |
         res := resources_map[_]
         true
      }

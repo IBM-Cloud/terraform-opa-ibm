@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_security_groups").resources[_]
 }
-vpc_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
 vpc_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_name", null) |
         res := resources_map[_]
@@ -27,6 +21,12 @@ resource_group = ret {
 }
 vpc_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vpc_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc_crn", null) |
         res := resources_map[_]
         true
      }

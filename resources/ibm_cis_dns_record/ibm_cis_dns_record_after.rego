@@ -7,8 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_cis_dns_record").resources[_]
 }
-domain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +19,14 @@ type = ret {
         true
      }
 }
-content = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
+priority = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+        res := resources_map[_]
+        true
+     }
+}
+proxied = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxied", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +43,14 @@ cis_id = ret {
         true
      }
 }
-proxied = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "proxied", null) |
+domain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_id", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-priority = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "priority", null) |
+content = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "content", null) |
         res := resources_map[_]
         true
      }

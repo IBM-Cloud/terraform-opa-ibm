@@ -14,8 +14,14 @@ name = ret {
         true
      }
 }
-maximum_member_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_member_count", null) |
+regional_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regional_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+minimum_member_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_member_count", null) |
         res := resources_map[_]
         true
      }
@@ -32,8 +38,14 @@ termination_policy = ret {
         true
      }
 }
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+virtual_server_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+virtual_guest_member_template = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guest_member_template", null) |
         res := resources_map[_]
         true
      }
@@ -44,26 +56,14 @@ network_vlan_ids = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+maximum_member_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "maximum_member_count", null) |
         res := resources_map[_]
         true
      }
 }
-regional_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "regional_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
-minimum_member_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "minimum_member_count", null) |
-        res := resources_map[_]
-        true
-     }
-}
-virtual_server_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_server_id", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
@@ -74,8 +74,8 @@ health_check = ret {
         true
      }
 }
-virtual_guest_member_template = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "virtual_guest_member_template", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

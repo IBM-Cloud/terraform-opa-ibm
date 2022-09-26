@@ -7,6 +7,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_database_connection").resources[_]
 }
+user_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
 deployment_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deployment_id", null) |
         res := resources_map[_]
@@ -15,12 +21,6 @@ deployment_id = ret {
 }
 endpoint_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-user_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
         res := resources_map[_]
         true
      }

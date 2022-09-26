@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_firewall", "managed").resources[_]
 }
+username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
+        res := resources_map[_]
+        true
+     }
+}
 password = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password", null) |
         res := resources_map[_]
@@ -46,12 +52,6 @@ location = ret {
 }
 primary_ip = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
-        res := resources_map[_]
-        true
-     }
-}
-username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "username", null) |
         res := resources_map[_]
         true
      }

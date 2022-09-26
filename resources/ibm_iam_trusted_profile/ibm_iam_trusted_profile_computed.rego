@@ -13,6 +13,24 @@ profile_id = ret {
         true
      }
 }
+ims_user_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_user_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+entity_tag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
+        res := resources_map[_]
+        true
+     }
+}
 crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
@@ -37,32 +55,14 @@ iam_id = ret {
         true
      }
 }
-ims_user_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_user_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-history = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "history", null) |
-        res := resources_map[_]
-        true
-     }
-}
-entity_tag = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "entity_tag", null) |
-        res := resources_map[_]
-        true
-     }
-}
 ims_account_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ims_account_id", null) |
         res := resources_map[_]
         true
      }
 }
-account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "account_id", null) |
+history = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "history", null) |
         res := resources_map[_]
         true
      }

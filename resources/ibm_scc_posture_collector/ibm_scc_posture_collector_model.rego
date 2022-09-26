@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_posture_collector", "managed").resources[_]
 }
-is_public = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_public", null) |
-        res := resources_map[_]
-        true
-     }
-}
 managed_by = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "managed_by", null) |
         res := resources_map[_]
@@ -43,6 +37,12 @@ is_ubi_image = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+is_public = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "is_public", null) |
         res := resources_map[_]
         true
      }

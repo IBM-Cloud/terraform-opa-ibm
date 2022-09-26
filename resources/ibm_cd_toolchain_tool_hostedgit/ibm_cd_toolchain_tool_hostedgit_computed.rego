@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cd_toolchain_tool_hostedgit").resources[_]
 }
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
 }
-toolchain_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_crn", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ referent = ret {
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+tool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
         res := resources_map[_]
         true
      }
 }
-tool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -43,8 +43,8 @@ crn = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+toolchain_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_crn", null) |
         res := resources_map[_]
         true
      }

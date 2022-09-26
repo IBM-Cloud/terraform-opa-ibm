@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_bare_metal_server_network_interface_allow_float").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-security_groups = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
+primary_ip = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +19,20 @@ subnet = ret {
         true
      }
 }
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vlan = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
         res := resources_map[_]
         true
      }
 }
-primary_ip = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "primary_ip", null) |
+security_groups = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_groups", null) |
         res := resources_map[_]
         true
      }

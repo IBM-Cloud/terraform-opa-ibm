@@ -8,8 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_hpcs_vault", "data").resources[_]
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vault_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vault_id", null) |
         res := resources_map[_]
         true
      }
@@ -26,8 +32,8 @@ created_by = ret {
         true
      }
 }
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }
@@ -38,14 +44,8 @@ name = ret {
         true
      }
 }
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vault_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vault_id", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -56,14 +56,14 @@ updated_at = ret {
         true
      }
 }
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
         res := resources_map[_]
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

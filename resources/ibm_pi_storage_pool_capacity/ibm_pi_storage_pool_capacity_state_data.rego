@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_storage_pool_capacity", "data").resources[_]
 }
-pi_cloud_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 pi_storage_pool = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_storage_pool", null) |
         res := resources_map[_]
@@ -34,6 +28,12 @@ storage_type = ret {
 }
 total_capacity = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_capacity", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cloud_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
         res := resources_map[_]
         true
      }

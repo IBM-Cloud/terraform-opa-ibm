@@ -17,38 +17,8 @@ glb_id = ret {
         true
      }
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 zone_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "zone_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
-        res := resources_map[_]
-        true
-     }
-}
-health = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
-        res := resources_map[_]
-        true
-     }
-}
-default_pools = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pools", null) |
-        res := resources_map[_]
-        true
-     }
-}
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }
@@ -77,8 +47,38 @@ fallback_pool = ret {
         true
      }
 }
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+health = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "health", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_pools = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_pools", null) |
+        res := resources_map[_]
+        true
+     }
+}
 az_pools = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "az_pools", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }

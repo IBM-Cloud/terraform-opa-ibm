@@ -14,6 +14,12 @@ toolchain_id = ret {
         true
      }
 }
+toolchain_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
@@ -26,14 +32,8 @@ referent = ret {
         true
      }
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -56,20 +56,20 @@ crn = ret {
         true
      }
 }
-toolchain_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+        res := resources_map[_]
+        true
+     }
+}
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }

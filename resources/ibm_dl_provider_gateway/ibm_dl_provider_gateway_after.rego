@@ -7,20 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_dl_provider_gateway").resources[_]
 }
+bgp_asn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_asn", null) |
+        res := resources_map[_]
+        true
+     }
+}
 bgp_cer_cidr = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_cer_cidr", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vlan = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +31,14 @@ speed_mbps = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+customer_account_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_account_id", null) |
         res := resources_map[_]
         true
      }
 }
-bgp_asn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bgp_asn", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
@@ -55,8 +49,14 @@ name = ret {
         true
      }
 }
-customer_account_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "customer_account_id", null) |
+vlan = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vlan", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }

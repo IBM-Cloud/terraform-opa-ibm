@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_is_dedicated_host").resources[_]
 }
-host_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ name = ret {
 }
 resource_group = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group", null) |
+        res := resources_map[_]
+        true
+     }
+}
+host_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "host_group", null) |
         res := resources_map[_]
         true
      }

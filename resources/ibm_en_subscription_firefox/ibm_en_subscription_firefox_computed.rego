@@ -19,12 +19,6 @@ updated_at = ret {
         true
      }
 }
-destination_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 destination_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ destination_name = ret {
 }
 topic_name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "topic_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+destination_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
         res := resources_map[_]
         true
      }

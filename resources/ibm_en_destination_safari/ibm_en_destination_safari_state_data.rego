@@ -8,20 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_en_destination_safari", "data").resources[_]
 }
-destination_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-config = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config", null) |
+description = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
         res := resources_map[_]
         true
      }
@@ -38,14 +26,26 @@ instance_guid = ret {
         true
      }
 }
-description = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+destination_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
 type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+config = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "config", null) |
         res := resources_map[_]
         true
      }

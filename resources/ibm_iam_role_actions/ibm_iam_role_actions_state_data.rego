@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_role_actions", "data").resources[_]
 }
+reader = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reader", null) |
+        res := resources_map[_]
+        true
+     }
+}
 manager = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "manager", null) |
         res := resources_map[_]
@@ -34,12 +40,6 @@ actions = ret {
 }
 service = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service", null) |
-        res := resources_map[_]
-        true
-     }
-}
-reader = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "reader", null) |
         res := resources_map[_]
         true
      }

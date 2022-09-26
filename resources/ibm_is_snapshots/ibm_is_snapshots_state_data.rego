@@ -8,14 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_snapshots", "data").resources[_]
 }
-source_image = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_image", null) |
-        res := resources_map[_]
-        true
-     }
-}
-source_volume = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
+tag = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tag", null) |
         res := resources_map[_]
         true
      }
@@ -34,6 +28,24 @@ resource_group = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_image = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_image", null) |
+        res := resources_map[_]
+        true
+     }
+}
+source_volume = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_volume", null) |
+        res := resources_map[_]
+        true
+     }
+}
+backup_policy_plan_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "backup_policy_plan_id", null) |
         res := resources_map[_]
         true
      }

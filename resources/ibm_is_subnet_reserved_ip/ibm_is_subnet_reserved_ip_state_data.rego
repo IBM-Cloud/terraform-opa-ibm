@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_subnet_reserved_ip", "data").resources[_]
 }
-resource_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
+subnet = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
         res := resources_map[_]
         true
      }
 }
-auto_delete = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
         res := resources_map[_]
         true
      }
@@ -44,8 +44,8 @@ owner = ret {
         true
      }
 }
-subnet = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subnet", null) |
+resource_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +62,8 @@ address = ret {
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+auto_delete = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "auto_delete", null) |
         res := resources_map[_]
         true
      }

@@ -29,8 +29,38 @@ dhcp_id = ret {
         true
      }
 }
+network_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_cidr = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cidr", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_dns_server = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dns_server", null) |
+        res := resources_map[_]
+        true
+     }
+}
+pi_dhcp_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_dhcp_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+leases = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "leases", null) |
         res := resources_map[_]
         true
      }
@@ -41,8 +71,8 @@ network = ret {
         true
      }
 }
-leases = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "leases", null) |
+network_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "network_id", null) |
         res := resources_map[_]
         true
      }

@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_dns_glb_pool").resources[_]
 }
-created_on = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
+pool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
         res := resources_map[_]
         true
      }
 }
-pool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
+created_on = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_on", null) |
         res := resources_map[_]
         true
      }

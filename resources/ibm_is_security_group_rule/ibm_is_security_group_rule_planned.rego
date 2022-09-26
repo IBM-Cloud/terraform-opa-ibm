@@ -13,8 +13,14 @@ icmp = ret {
         true
      }
 }
-group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
+tcp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tcp", null) |
+        res := resources_map[_]
+        true
+     }
+}
+udp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +43,8 @@ remote = ret {
         true
      }
 }
-tcp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tcp", null) |
-        res := resources_map[_]
-        true
-     }
-}
-udp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "udp", null) |
+group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "group", null) |
         res := resources_map[_]
         true
      }

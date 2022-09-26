@@ -7,18 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_cd_tekton_pipeline_property").resources[_]
 }
-default_ = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
 path = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "path", null) |
         res := resources_map[_]
@@ -45,6 +33,18 @@ value = ret {
 }
 enum = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enum", null) |
+        res := resources_map[_]
+        true
+     }
+}
+default_ = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "default_", null) |
+        res := resources_map[_]
+        true
+     }
+}
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }

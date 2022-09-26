@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_vpc_address_prefixes", "data").resources[_]
 }
+address_prefixes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefixes", null) |
+        res := resources_map[_]
+        true
+     }
+}
 vpc = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vpc", null) |
         res := resources_map[_]
@@ -16,12 +22,6 @@ vpc = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-address_prefixes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefixes", null) |
         res := resources_map[_]
         true
      }

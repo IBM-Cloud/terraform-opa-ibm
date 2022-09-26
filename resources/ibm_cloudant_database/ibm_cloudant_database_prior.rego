@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.prior_state_values("ibm_cloudant_database").resources[_]
 }
-instance_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_crn", null) |
+db = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "db", null) |
         res := resources_map[_]
         true
      }
 }
-db = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "db", null) |
+instance_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_crn", null) |
         res := resources_map[_]
         true
      }

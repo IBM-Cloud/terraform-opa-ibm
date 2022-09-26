@@ -11,6 +11,24 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_appid_apm", "managed").resources[_]
 }
+prevent_password_with_username = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "prevent_password_with_username", null) |
+        res := resources_map[_]
+        true
+     }
+}
+password_reuse = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password_reuse", null) |
+        res := resources_map[_]
+        true
+     }
+}
+password_expiration = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password_expiration", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lockout_policy = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lockout_policy", null) |
         res := resources_map[_]
@@ -31,24 +49,6 @@ tenant_id = ret {
 }
 enabled = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-prevent_password_with_username = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "prevent_password_with_username", null) |
-        res := resources_map[_]
-        true
-     }
-}
-password_reuse = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password_reuse", null) |
-        res := resources_map[_]
-        true
-     }
-}
-password_expiration = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "password_expiration", null) |
         res := resources_map[_]
         true
      }

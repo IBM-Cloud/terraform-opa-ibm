@@ -13,26 +13,8 @@ reject_unauth = ret {
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
-        res := resources_map[_]
-        true
-     }
-}
 certs = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "certs", null) |
-        res := resources_map[_]
-        true
-     }
-}
-server_port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_port", null) |
-        res := resources_map[_]
-        true
-     }
-}
-display_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
         res := resources_map[_]
         true
      }
@@ -43,26 +25,14 @@ server_host = ret {
         true
      }
 }
+server_port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_port", null) |
+        res := resources_map[_]
+        true
+     }
+}
 server_mutual_auth = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "server_mutual_auth", null) |
-        res := resources_map[_]
-        true
-     }
-}
-connection_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-sni = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sni", null) |
-        res := resources_map[_]
-        true
-     }
-}
-client_mutual_auth = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_mutual_auth", null) |
         res := resources_map[_]
         true
      }
@@ -73,8 +43,20 @@ timeout = ret {
         true
      }
 }
-location = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+connection_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connection_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+display_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "display_name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sni = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sni", null) |
         res := resources_map[_]
         true
      }
@@ -85,8 +67,26 @@ server_protocol = ret {
         true
      }
 }
+location = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
 client_protocol = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_protocol", null) |
+        res := resources_map[_]
+        true
+     }
+}
+client_mutual_auth = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "client_mutual_auth", null) |
+        res := resources_map[_]
+        true
+     }
+}
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
         res := resources_map[_]
         true
      }

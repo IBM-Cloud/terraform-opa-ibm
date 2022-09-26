@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_listener_policies", "data").resources[_]
 }
-policies = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
-        res := resources_map[_]
-        true
-     }
-}
 lb = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
@@ -22,6 +16,12 @@ lb = ret {
 }
 listener = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener", null) |
+        res := resources_map[_]
+        true
+     }
+}
+policies = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "policies", null) |
         res := resources_map[_]
         true
      }

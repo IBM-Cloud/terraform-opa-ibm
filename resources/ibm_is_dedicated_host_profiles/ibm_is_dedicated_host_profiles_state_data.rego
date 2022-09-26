@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_dedicated_host_profiles", "data").resources[_]
 }
-profiles = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profiles", null) |
+total_count = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
         res := resources_map[_]
         true
      }
 }
-total_count = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
+profiles = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "profiles", null) |
         res := resources_map[_]
         true
      }

@@ -20,26 +20,32 @@ uko_vault = ret {
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
-        res := resources_map[_]
-        true
-     }
-}
 key = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "key", null) |
         res := resources_map[_]
         true
      }
 }
-updated_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
 }
-keystores = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keystores", null) |
+created_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+template_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
         res := resources_map[_]
         true
      }
@@ -62,26 +68,14 @@ description = ret {
         true
      }
 }
+updated_by = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_by", null) |
+        res := resources_map[_]
+        true
+     }
+}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-href = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-template_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "template_id", null) |
         res := resources_map[_]
         true
      }
@@ -92,8 +86,14 @@ updated_at = ret {
         true
      }
 }
-created_by = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_by", null) |
+keystores = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keystores", null) |
+        res := resources_map[_]
+        true
+     }
+}
+href = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
         res := resources_map[_]
         true
      }

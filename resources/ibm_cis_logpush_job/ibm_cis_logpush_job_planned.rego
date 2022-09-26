@@ -13,8 +13,14 @@ name = ret {
         true
      }
 }
-dataset = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dataset", null) |
+enabled = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
+        res := resources_map[_]
+        true
+     }
+}
+logpull_options = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logpull_options", null) |
         res := resources_map[_]
         true
      }
@@ -37,14 +43,8 @@ logdna = ret {
         true
      }
 }
-enabled = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enabled", null) |
-        res := resources_map[_]
-        true
-     }
-}
-logpull_options = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "logpull_options", null) |
+dataset = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dataset", null) |
         res := resources_map[_]
         true
      }

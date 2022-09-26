@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cd_tekton_pipeline_definition", "data").resources[_]
 }
+service_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 pipeline_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
         res := resources_map[_]
@@ -22,12 +28,6 @@ definition_id = ret {
 }
 scm_source = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scm_source", null) |
-        res := resources_map[_]
-        true
-     }
-}
-service_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_id", null) |
         res := resources_map[_]
         true
      }

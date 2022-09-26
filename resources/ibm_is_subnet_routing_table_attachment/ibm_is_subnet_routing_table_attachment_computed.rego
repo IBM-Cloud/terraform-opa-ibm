@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_subnet_routing_table_attachment").resources[_]
 }
-route_direct_link_ingress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_direct_link_ingress", null) |
+lifecycle_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+routes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
         res := resources_map[_]
         true
      }
@@ -19,8 +25,8 @@ is_default = ret {
         true
      }
 }
-lifecycle_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lifecycle_state", null) |
+route_transit_gateway_ingress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_transit_gateway_ingress", null) |
         res := resources_map[_]
         true
      }
@@ -37,8 +43,8 @@ subnets = ret {
         true
      }
 }
-routes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "routes", null) |
+route_direct_link_ingress = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_direct_link_ingress", null) |
         res := resources_map[_]
         true
      }
@@ -51,12 +57,6 @@ name = ret {
 }
 resource_type = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-route_transit_gateway_ingress = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_transit_gateway_ingress", null) |
         res := resources_map[_]
         true
      }

@@ -7,8 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_is_instance_group_manager_action").resources[_]
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+run_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "run_at", null) |
+        res := resources_map[_]
+        true
+     }
+}
+target_manager = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_manager", null) |
         res := resources_map[_]
         true
      }
@@ -25,24 +31,6 @@ max_membership_count = ret {
         true
      }
 }
-run_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "run_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-target_manager = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "target_manager", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_group = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_group_manager = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group_manager", null) |
         res := resources_map[_]
@@ -51,6 +39,18 @@ instance_group_manager = ret {
 }
 membership_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "membership_count", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_group = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_group", null) |
         res := resources_map[_]
         true
      }

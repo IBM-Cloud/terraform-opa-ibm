@@ -8,6 +8,12 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_is_lb_pool_members", "data").resources[_]
 }
+members = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
+        res := resources_map[_]
+        true
+     }
+}
 lb = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "lb", null) |
         res := resources_map[_]
@@ -16,12 +22,6 @@ lb = ret {
 }
 pool = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool", null) |
-        res := resources_map[_]
-        true
-     }
-}
-members = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "members", null) |
         res := resources_map[_]
         true
      }

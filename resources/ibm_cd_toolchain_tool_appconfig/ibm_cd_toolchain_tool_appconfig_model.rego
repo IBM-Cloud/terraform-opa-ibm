@@ -11,14 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cd_toolchain_tool_appconfig", "managed").resources[_]
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+toolchain_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_id", null) |
         res := resources_map[_]
         true
      }
@@ -35,8 +29,20 @@ state = ret {
         true
      }
 }
-toolchain_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_id", null) |
+tool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -67,12 +73,6 @@ referent = ret {
 }
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
         res := resources_map[_]
         true
      }

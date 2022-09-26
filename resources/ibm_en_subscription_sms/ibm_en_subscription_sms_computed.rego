@@ -7,14 +7,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_en_subscription_sms").resources[_]
 }
-destination_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
+subscription_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_id", null) |
         res := resources_map[_]
         true
      }
 }
-destination_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
+destination_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_type", null) |
         res := resources_map[_]
         true
      }
@@ -25,14 +25,14 @@ topic_name = ret {
         true
      }
 }
-updated_at = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
+destination_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "destination_name", null) |
         res := resources_map[_]
         true
      }
 }
-subscription_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "subscription_id", null) |
+updated_at = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
         res := resources_map[_]
         true
      }

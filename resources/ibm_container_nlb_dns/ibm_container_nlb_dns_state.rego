@@ -8,18 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_nlb_dns", "managed").resources[_]
 }
-nlb_ssl_secret_status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_status", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 nlb_host = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_host", null) |
         res := resources_map[_]
@@ -32,14 +20,14 @@ nlb_ips = ret {
         true
      }
 }
-nlb_monitor_state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_monitor_state", null) |
+nlb_ssl_secret_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_name", null) |
         res := resources_map[_]
         true
      }
 }
-nlb_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_type", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +50,20 @@ nlb_dns_type = ret {
         true
      }
 }
-nlb_ssl_secret_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_name", null) |
+nlb_monitor_state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_monitor_state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+nlb_ssl_secret_status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_ssl_secret_status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+nlb_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "nlb_type", null) |
         res := resources_map[_]
         true
      }

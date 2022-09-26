@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_kms_key").resources[_]
 }
-standard_key = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "standard_key", null) |
-        res := resources_map[_]
-        true
-     }
-}
 payload = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "payload", null) |
         res := resources_map[_]
@@ -25,8 +19,20 @@ expiration_date = ret {
         true
      }
 }
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
 encrypted_nonce = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "encrypted_nonce", null) |
+        res := resources_map[_]
+        true
+     }
+}
+iv_value = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iv_value", null) |
         res := resources_map[_]
         true
      }
@@ -49,20 +55,14 @@ endpoint_type = ret {
         true
      }
 }
-iv_value = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "iv_value", null) |
-        res := resources_map[_]
-        true
-     }
-}
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 force_delete = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "force_delete", null) |
+        res := resources_map[_]
+        true
+     }
+}
+standard_key = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "standard_key", null) |
         res := resources_map[_]
         true
      }

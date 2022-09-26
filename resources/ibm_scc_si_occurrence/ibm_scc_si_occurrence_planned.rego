@@ -7,14 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.planned_values("ibm_scc_si_occurrence").resources[_]
 }
-resource_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_url", null) |
+note_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
         res := resources_map[_]
         true
      }
 }
-remediation = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remediation", null) |
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+        res := resources_map[_]
+        true
+     }
+}
+resource_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_url", null) |
         res := resources_map[_]
         true
      }
@@ -43,14 +49,8 @@ account_id = ret {
         true
      }
 }
-note_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "note_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kind = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+provider_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
         res := resources_map[_]
         true
      }
@@ -61,14 +61,14 @@ occurrence_id = ret {
         true
      }
 }
-replace_if_exists = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replace_if_exists", null) |
+remediation = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "remediation", null) |
         res := resources_map[_]
         true
      }
 }
-provider_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "provider_id", null) |
+replace_if_exists = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "replace_if_exists", null) |
         res := resources_map[_]
         true
      }

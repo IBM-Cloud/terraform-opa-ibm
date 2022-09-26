@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_scc_account_settings").resources[_]
 }
-event_notifications = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "event_notifications", null) |
-        res := resources_map[_]
-        true
-     }
-}
 location_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location_id", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ location_id = ret {
 }
 location = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "location", null) |
+        res := resources_map[_]
+        true
+     }
+}
+event_notifications = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "event_notifications", null) |
         res := resources_map[_]
         true
      }

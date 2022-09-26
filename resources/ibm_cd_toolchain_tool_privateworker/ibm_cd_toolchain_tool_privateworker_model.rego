@@ -11,8 +11,14 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cd_toolchain_tool_privateworker", "managed").resources[_]
 }
-parameters = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+resource_group_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }
@@ -23,8 +29,32 @@ toolchain_crn = ret {
         true
      }
 }
+tool_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+parameters = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "parameters", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
 href = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "href", null) |
+        res := resources_map[_]
+        true
+     }
+}
+referent = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referent", null) |
         res := resources_map[_]
         true
      }
@@ -41,38 +71,8 @@ state = ret {
         true
      }
 }
-tool_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tool_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
 toolchain_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "toolchain_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-resource_group_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-referent = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "referent", null) |
-        res := resources_map[_]
-        true
-     }
-}
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }

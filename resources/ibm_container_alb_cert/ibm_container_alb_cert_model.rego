@@ -11,36 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_container_alb_cert", "managed").resources[_]
 }
-cert_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cert_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cluster_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-namespace = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
-        res := resources_map[_]
-        true
-     }
-}
-domain_name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
 cloud_cert_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cloud_cert_instance_id", null) |
         res := resources_map[_]
@@ -53,8 +23,8 @@ secret_name = ret {
         true
      }
 }
-persistence = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
+domain_name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "domain_name", null) |
         res := resources_map[_]
         true
      }
@@ -73,6 +43,36 @@ issuer_name = ret {
 }
 status = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cert_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cert_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+namespace = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "namespace", null) |
+        res := resources_map[_]
+        true
+     }
+}
+persistence = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "persistence", null) |
+        res := resources_map[_]
+        true
+     }
+}
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
         res := resources_map[_]
         true
      }

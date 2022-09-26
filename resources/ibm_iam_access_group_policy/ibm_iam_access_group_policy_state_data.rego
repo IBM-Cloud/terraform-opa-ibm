@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_iam_access_group_policy", "data").resources[_]
 }
-sort = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sort", null) |
-        res := resources_map[_]
-        true
-     }
-}
 transaction_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "transaction_id", null) |
         res := resources_map[_]
@@ -28,6 +22,12 @@ policies = ret {
 }
 access_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "access_group_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+sort = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sort", null) |
         res := resources_map[_]
         true
      }

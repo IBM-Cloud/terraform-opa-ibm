@@ -8,30 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_scc_posture_scopes", "data").resources[_]
 }
-next = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next", null) |
-        res := resources_map[_]
-        true
-     }
-}
-scopes = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scopes", null) |
-        res := resources_map[_]
-        true
-     }
-}
-offset = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
-        res := resources_map[_]
-        true
-     }
-}
-limit = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
-        res := resources_map[_]
-        true
-     }
-}
 total_count = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "total_count", null) |
         res := resources_map[_]
@@ -52,6 +28,30 @@ last = ret {
 }
 previous = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "previous", null) |
+        res := resources_map[_]
+        true
+     }
+}
+next = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "next", null) |
+        res := resources_map[_]
+        true
+     }
+}
+scopes = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "scopes", null) |
+        res := resources_map[_]
+        true
+     }
+}
+offset = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offset", null) |
+        res := resources_map[_]
+        true
+     }
+}
+limit = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "limit", null) |
         res := resources_map[_]
         true
      }

@@ -8,20 +8,38 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_vpc_cluster_worker", "data").resources[_]
 }
-cluster_name_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
+worker_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_id", null) |
         res := resources_map[_]
         true
      }
 }
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+flavor = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
         res := resources_map[_]
         true
      }
 }
 pool_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pool_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster_name_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster_name_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+kube_version = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
+        res := resources_map[_]
+        true
+     }
+}
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
         res := resources_map[_]
         true
      }
@@ -52,24 +70,6 @@ host_pool_id = ret {
 }
 resource_controller_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_controller_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-worker_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "worker_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-flavor = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "flavor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-kube_version = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kube_version", null) |
         res := resources_map[_]
         true
      }

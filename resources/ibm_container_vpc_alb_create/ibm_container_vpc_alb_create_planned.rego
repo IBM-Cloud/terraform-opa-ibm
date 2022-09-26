@@ -19,12 +19,6 @@ zone = ret {
         true
      }
 }
-cluster = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
-        res := resources_map[_]
-        true
-     }
-}
 resource_group_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "resource_group_id", null) |
         res := resources_map[_]
@@ -33,6 +27,12 @@ resource_group_id = ret {
 }
 enable = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "enable", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cluster = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cluster", null) |
         res := resources_map[_]
         true
      }

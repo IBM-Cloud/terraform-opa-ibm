@@ -8,20 +8,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_cd_tekton_pipeline_trigger", "data").resources[_]
 }
-service_instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_id", null) |
+type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
         res := resources_map[_]
         true
      }
 }
-trigger_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
+event_listener = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "event_listener", null) |
         res := resources_map[_]
         true
      }
 }
-name = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cron = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cron", null) |
         res := resources_map[_]
         true
      }
@@ -38,8 +44,14 @@ scm_source = ret {
         true
      }
 }
-pipeline_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
+events = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "events", null) |
+        res := resources_map[_]
+        true
+     }
+}
+trigger_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "trigger_id", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +68,8 @@ concurrency = ret {
         true
      }
 }
-cron = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cron", null) |
+timezone = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timezone", null) |
         res := resources_map[_]
         true
      }
@@ -68,8 +80,14 @@ secret = ret {
         true
      }
 }
-event_listener = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "event_listener", null) |
+pipeline_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pipeline_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+name = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
         res := resources_map[_]
         true
      }
@@ -80,26 +98,8 @@ properties = ret {
         true
      }
 }
-events = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "events", null) |
-        res := resources_map[_]
-        true
-     }
-}
-timezone = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "timezone", null) |
-        res := resources_map[_]
-        true
-     }
-}
-type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+service_instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "service_instance_id", null) |
         res := resources_map[_]
         true
      }

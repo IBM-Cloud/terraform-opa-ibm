@@ -8,14 +8,14 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_lb", "managed").resources[_]
 }
-security_certificate_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
+dedicated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated", null) |
         res := resources_map[_]
         true
      }
 }
-ssl_offload = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_offload", null) |
+tags = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
         res := resources_map[_]
         true
      }
@@ -50,8 +50,8 @@ subnet_id = ret {
         true
      }
 }
-dedicated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "dedicated", null) |
+security_certificate_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "security_certificate_id", null) |
         res := resources_map[_]
         true
      }
@@ -62,8 +62,8 @@ ssl_enabled = ret {
         true
      }
 }
-tags = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tags", null) |
+ssl_offload = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ssl_offload", null) |
         res := resources_map[_]
         true
      }

@@ -7,20 +7,26 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_lb_listener").resources[_]
 }
-status = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
+port = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
         res := resources_map[_]
         true
      }
 }
-listener_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
+port_min = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_min", null) |
         res := resources_map[_]
         true
      }
 }
 port_max = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_max", null) |
+        res := resources_map[_]
+        true
+     }
+}
+related_crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
         res := resources_map[_]
         true
      }
@@ -37,20 +43,14 @@ default_pool = ret {
         true
      }
 }
-port_min = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port_min", null) |
+status = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "status", null) |
         res := resources_map[_]
         true
      }
 }
-related_crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
-        res := resources_map[_]
-        true
-     }
-}
-port = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "port", null) |
+listener_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "listener_id", null) |
         res := resources_map[_]
         true
      }

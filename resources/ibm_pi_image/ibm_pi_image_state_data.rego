@@ -8,44 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_pi_image", "data").resources[_]
 }
-architecture = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
-        res := resources_map[_]
-        true
-     }
-}
-image_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-state = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
-        res := resources_map[_]
-        true
-     }
-}
-size = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
-        res := resources_map[_]
-        true
-     }
-}
-operatingsystem = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operatingsystem", null) |
-        res := resources_map[_]
-        true
-     }
-}
 hypervisor = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "hypervisor", null) |
-        res := resources_map[_]
-        true
-     }
-}
-storage_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_type", null) |
         res := resources_map[_]
         true
      }
@@ -64,6 +28,42 @@ pi_image_name = ret {
 }
 pi_cloud_instance_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "pi_cloud_instance_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+size = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "size", null) |
+        res := resources_map[_]
+        true
+     }
+}
+storage_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "storage_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+image_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "image_type", null) |
+        res := resources_map[_]
+        true
+     }
+}
+state = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "state", null) |
+        res := resources_map[_]
+        true
+     }
+}
+architecture = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "architecture", null) |
+        res := resources_map[_]
+        true
+     }
+}
+operatingsystem = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "operatingsystem", null) |
         res := resources_map[_]
         true
      }

@@ -7,14 +7,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_cm_version").resources[_]
 }
-repo_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-catalog_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
+kind_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind_id", null) |
         res := resources_map[_]
         true
      }
@@ -25,20 +19,14 @@ created = ret {
         true
      }
 }
-updated = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
+catalog_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "catalog_id", null) |
         res := resources_map[_]
         true
      }
 }
 source_url = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "source_url", null) |
-        res := resources_map[_]
-        true
-     }
-}
-tgz_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
         res := resources_map[_]
         true
      }
@@ -55,14 +43,26 @@ version = ret {
         true
      }
 }
+updated = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated", null) |
+        res := resources_map[_]
+        true
+     }
+}
 sha = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "sha", null) |
         res := resources_map[_]
         true
      }
 }
-kind_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind_id", null) |
+repo_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "repo_url", null) |
+        res := resources_map[_]
+        true
+     }
+}
+tgz_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "tgz_url", null) |
         res := resources_map[_]
         true
      }

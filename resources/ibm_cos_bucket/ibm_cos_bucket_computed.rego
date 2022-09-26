@@ -13,6 +13,12 @@ crn = ret {
         true
      }
 }
+s3_endpoint_public = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_public", null) |
+        res := resources_map[_]
+        true
+     }
+}
 s3_endpoint_direct = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_direct", null) |
         res := resources_map[_]
@@ -21,12 +27,6 @@ s3_endpoint_direct = ret {
 }
 s3_endpoint_private = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_private", null) |
-        res := resources_map[_]
-        true
-     }
-}
-s3_endpoint_public = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "s3_endpoint_public", null) |
         res := resources_map[_]
         true
      }

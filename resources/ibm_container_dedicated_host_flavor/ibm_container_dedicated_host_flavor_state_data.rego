@@ -8,12 +8,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_container_dedicated_host_flavor", "data").resources[_]
 }
-max_memory = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_memory", null) |
-        res := resources_map[_]
-        true
-     }
-}
 instance_storage = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_storage", null) |
         res := resources_map[_]
@@ -52,6 +46,12 @@ deprecated = ret {
 }
 max_vcpus = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_vcpus", null) |
+        res := resources_map[_]
+        true
+     }
+}
+max_memory = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "max_memory", null) |
         res := resources_map[_]
         true
      }

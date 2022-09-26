@@ -7,32 +7,20 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_after_values("ibm_hpcs_key_template").resources[_]
 }
-instance_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-region = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
-        res := resources_map[_]
-        true
-     }
-}
-uko_vault = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uko_vault", null) |
-        res := resources_map[_]
-        true
-     }
-}
-vault = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vault", null) |
+keystores = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keystores", null) |
         res := resources_map[_]
         true
      }
 }
 description = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "description", null) |
+        res := resources_map[_]
+        true
+     }
+}
+vault = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "vault", null) |
         res := resources_map[_]
         true
      }
@@ -49,8 +37,20 @@ key = ret {
         true
      }
 }
-keystores = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "keystores", null) |
+region = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "region", null) |
+        res := resources_map[_]
+        true
+     }
+}
+uko_vault = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "uko_vault", null) |
+        res := resources_map[_]
+        true
+     }
+}
+instance_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "instance_id", null) |
         res := resources_map[_]
         true
      }

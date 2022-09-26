@@ -11,12 +11,6 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_schematics_resource_query", "managed").resources[_]
 }
-queries = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "queries", null) |
-        res := resources_map[_]
-        true
-     }
-}
 created_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "created_at", null) |
         res := resources_map[_]
@@ -49,6 +43,12 @@ type = ret {
 }
 name = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "name", null) |
+        res := resources_map[_]
+        true
+     }
+}
+queries = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "queries", null) |
         res := resources_map[_]
         true
      }

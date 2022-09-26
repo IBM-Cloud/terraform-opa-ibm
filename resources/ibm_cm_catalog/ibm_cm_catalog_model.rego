@@ -11,8 +11,8 @@ resources_map[attr]{
 resources_map[attr]{
     attr := state.get_resources("ibm_cm_catalog", "managed").resources[_]
 }
-label = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
+kind = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
         res := resources_map[_]
         true
      }
@@ -29,8 +29,8 @@ url = ret {
         true
      }
 }
-crn = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
+offerings_url = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
         res := resources_map[_]
         true
      }
@@ -41,8 +41,8 @@ resource_group_id = ret {
         true
      }
 }
-kind = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "kind", null) |
+label = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "label", null) |
         res := resources_map[_]
         true
      }
@@ -59,8 +59,8 @@ catalog_icon_url = ret {
         true
      }
 }
-offerings_url = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "offerings_url", null) |
+crn = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "crn", null) |
         res := resources_map[_]
         true
      }

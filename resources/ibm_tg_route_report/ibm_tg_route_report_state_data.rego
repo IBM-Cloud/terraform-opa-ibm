@@ -8,6 +8,18 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_tg_route_report", "data").resources[_]
 }
+gateway = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
+        res := resources_map[_]
+        true
+     }
+}
+route_report = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_report", null) |
+        res := resources_map[_]
+        true
+     }
+}
 connections = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "connections", null) |
         res := resources_map[_]
@@ -34,18 +46,6 @@ status = ret {
 }
 updated_at = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "updated_at", null) |
-        res := resources_map[_]
-        true
-     }
-}
-gateway = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "gateway", null) |
-        res := resources_map[_]
-        true
-     }
-}
-route_report = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "route_report", null) |
         res := resources_map[_]
         true
      }

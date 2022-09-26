@@ -8,44 +8,8 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := state.get_resources("ibm_database_connection", "data").resources[_]
 }
-bi_connector = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bi_connector", null) |
-        res := resources_map[_]
-        true
-     }
-}
-analytics = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "analytics", null) |
-        res := resources_map[_]
-        true
-     }
-}
-secure = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secure", null) |
-        res := resources_map[_]
-        true
-     }
-}
-deployment_id = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deployment_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-endpoint_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
-        res := resources_map[_]
-        true
-     }
-}
-mongodb = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mongodb", null) |
-        res := resources_map[_]
-        true
-     }
-}
-stomp_ssl = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "stomp_ssl", null) |
+user_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
         res := resources_map[_]
         true
      }
@@ -56,8 +20,44 @@ grpc = ret {
         true
      }
 }
-user_type = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_type", null) |
+bi_connector = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "bi_connector", null) |
+        res := resources_map[_]
+        true
+     }
+}
+emp = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "emp", null) |
+        res := resources_map[_]
+        true
+     }
+}
+deployment_id = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "deployment_id", null) |
+        res := resources_map[_]
+        true
+     }
+}
+cli = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cli", null) |
+        res := resources_map[_]
+        true
+     }
+}
+ops_manager = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ops_manager", null) |
+        res := resources_map[_]
+        true
+     }
+}
+secure = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "secure", null) |
+        res := resources_map[_]
+        true
+     }
+}
+endpoint_type = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "endpoint_type", null) |
         res := resources_map[_]
         true
      }
@@ -74,32 +74,14 @@ mqtts = ret {
         true
      }
 }
-mysql = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mysql", null) |
-        res := resources_map[_]
-        true
-     }
-}
-emp = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "emp", null) |
+analytics = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "analytics", null) |
         res := resources_map[_]
         true
      }
 }
 user_id = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "user_id", null) |
-        res := resources_map[_]
-        true
-     }
-}
-cli = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "cli", null) |
-        res := resources_map[_]
-        true
-     }
-}
-ops_manager = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "ops_manager", null) |
         res := resources_map[_]
         true
      }
@@ -118,6 +100,24 @@ rediss = ret {
 }
 amqps = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "amqps", null) |
+        res := resources_map[_]
+        true
+     }
+}
+stomp_ssl = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "stomp_ssl", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mongodb = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mongodb", null) |
+        res := resources_map[_]
+        true
+     }
+}
+mysql = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "mysql", null) |
         res := resources_map[_]
         true
      }

@@ -7,12 +7,6 @@ resource_name_ = ret {
 resources_map[attr]{
     attr := plan.changes_computed_values("ibm_is_vpc_address_prefix").resources[_]
 }
-address_prefix = ret {
-    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix", null) |
-        res := resources_map[_]
-        true
-     }
-}
 has_subnets = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "has_subnets", null) |
         res := resources_map[_]
@@ -21,6 +15,12 @@ has_subnets = ret {
 }
 related_crn = ret {
     ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "related_crn", null) |
+        res := resources_map[_]
+        true
+     }
+}
+address_prefix = ret {
+    ret := {concat(".", [res.type, res.name]): object.get(res.attributes, "address_prefix", null) |
         res := resources_map[_]
         true
      }
